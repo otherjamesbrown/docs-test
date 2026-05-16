@@ -23,11 +23,11 @@ If you have any feedback or comments on this documentation, please email [docs@t
 -   [Welcome to SpamTitan Cloud](/docs-test/titanhq/products/spamtitan/docs/legacy-8/welcome-to-spamtitan-cloud/)
 -   [Getting Started with SpamTitan Cloud](/docs-test/titanhq/products/spamtitan/docs/legacy-8/getting-started-with-spamtitan-cloud/)
 -   [SpamTitan Cloud Setup](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-cloud-setup/)
--   Content Filtering
--   Anti-Spam Engine
--   Changing your Settings
--   Filter Rules
--   Quarantine Overview
--   Reporting Overview
--   Useful Links and Info.
--   Glossary
+-   [Content Filtering](/docs-test/titanhq/products/spamtitan/docs/legacy-8/content-filtering/)
+-   [Anti-Spam Engine](/docs-test/titanhq/products/spamtitan/docs/legacy-8/anti-spam-engine/)
+-   [Changing your Settings](/docs-test/titanhq/products/spamtitan/docs/legacy-8/changing-your-settings/)
+-   [Filter Rules](/docs-test/titanhq/products/spamtitan/docs/legacy-8/filter-rules/)
+-   [Quarantine Overview](/docs-test/titanhq/products/spamtitan/docs/legacy-8/quarantine-overview/)
+-   [Reporting Overview](/docs-test/titanhq/products/spamtitan/docs/legacy-8/reporting-overview/)
+-   [Useful Links and Info.](/docs-test/titanhq/products/spamtitan/docs/legacy-8/useful-links-and-info/)
+-   [Glossary](/docs-test/titanhq/products/spamtitan/docs/legacy-8/glossary/)

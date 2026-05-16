@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const siteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
-const checks = [
+const tocChecks = [
   {
     page: 'dist/titanhq/products/spamtitan/docs/skellig-9/spamtitan-release-notes-61768/index.html',
     selectorName: 'SpamTitan Skellig release notes TOC',
@@ -12,7 +12,15 @@ const checks = [
   },
 ];
 
-for (const check of checks) {
+const pageLinkChecks = [
+  {
+    page: 'dist/titanhq/products/spamtitan/docs/legacy-8/spamtitan-cloud-guide/index.html',
+    selectorName: 'SpamTitan Cloud Guide section links',
+    expectedHref: '/docs-test/titanhq/products/spamtitan/docs/legacy-8/quarantine-overview/',
+  },
+];
+
+for (const check of tocChecks) {
   const html = await readFile(path.join(siteRoot, check.page), 'utf8');
   const tocStart = html.indexOf('id="starlight__on-this-page"');
   const tocEnd = html.indexOf('</starlight-toc>', tocStart);
@@ -26,4 +34,11 @@ for (const check of checks) {
   }
 }
 
-console.log(`Site QA passed for ${checks.length} generated page check.`);
+for (const check of pageLinkChecks) {
+  const html = await readFile(path.join(siteRoot, check.page), 'utf8');
+  if (!html.includes(`href="${check.expectedHref}"`)) {
+    throw new Error(`${check.selectorName}: expected migrated link ${check.expectedHref}`);
+  }
+}
+
+console.log(`Site QA passed for ${tocChecks.length + pageLinkChecks.length} generated page checks.`);
