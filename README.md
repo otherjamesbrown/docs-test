@@ -24,6 +24,8 @@ GitHub-backed knowledge base and technical documentation proof of concept.
 
 ## Commands
 
+Requires Node.js `>=22.12.0`.
+
 ```bash
 npm install
 npm run site:dev
@@ -33,4 +35,3 @@ npm test
 ```
 
 The first milestone is a working Starlight site with placeholder pages. The importer then replaces placeholder content with generated MDX from cached source HTML.
-
