@@ -20,9 +20,9 @@ The release notes below outline the upgrades and improvements for each SpamTitan
 
 -   If you are a SpamTitan Cloud customer (our shared cloud), your updates are managed automatically.
 
--   If you are a SpamTitan Gateway or SpamTitan Private Cloud customer, take a look at [Guidelines for Updating SpamTitan](https://docs.titanhq.com/en/10542-guidelines-for-updating-spamtitan.html "Guidelines for Updating SpamTitan") before you update.
+-   If you are a SpamTitan Gateway or SpamTitan Private Cloud customer, take a look at [Guidelines for Updating SpamTitan](/docs-test/titanhq/products/spamtitan/docs/legacy-8/guidelines-for-updating-spamtitan/ "Guidelines for Updating SpamTitan") before you update.
 
-    When you are ready, go to **System Setup** > **System Updates** to manage updates. See [System Update Settings](https://docs.titanhq.com/en/8939-system-update-settings.html "System Update Settings") for more information.
+    When you are ready, go to **System Setup** > **System Updates** to manage updates. See [System Update Settings](/docs-test/titanhq/products/spamtitan/docs/legacy-8/system-update-settings/ "System Update Settings") for more information.
 
 ![spamtitan-logo-small.jpg](/docs-test/imported-assets/spamtitan-legacy/13161-spamtitan-release-notes/ba6cca22d135.jpg)
 

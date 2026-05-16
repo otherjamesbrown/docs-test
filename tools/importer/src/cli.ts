@@ -153,6 +153,8 @@ const legacyDocs = [
   'https://docs.titanhq.com/en/475-add-your-domain-s-.html',
   'https://docs.titanhq.com/en/485-test-connectivity-to-your-mail-server.html',
   'https://docs.titanhq.com/en/640-enable-quarantine-reports.html',
+  'https://docs.titanhq.com/en/8939-system-update-settings.html',
+  'https://docs.titanhq.com/en/10542-guidelines-for-updating-spamtitan.html',
   'https://docs.titanhq.com/en/30222-link-lock.html',
 ];
 
