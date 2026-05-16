@@ -1,5 +1,5 @@
 ---
-title: "Link Lock"
+title: "In this Section"
 description: "Imported from support.titanhq.com"
 ---
 
@@ -17,3 +17,9 @@ With Link Lock, links always remain rewritten, even if an email is forwarded. Li
 Once a SpamTitan Plus license is in place, an MSP and can enable or disable Link Lock at the MSP level (default: _disabled_). Once enabled, Link Lock can also be managed at the customer and domain levels. Each level can apply its own Link Lock settings, with settings being inherited from a higher level by default. If applied, a lower level setting supersedes a higher level setting. See [SpamTitan Levels of Access](/docs-test/titanhq/products/spamtitan/docs/skellig-9/welcome-to-spamtitan/ "SpamTitan Levels of Access").
 
 Go to **Filtering** > **Link Lock** to enable and configure Link Lock.
+
+## In this Section
+
+-   [Enabling Link Lock](https://support.titanhq.com/en/60371-enabling-link-lock.html)
+-   [Configuring Link Lock](https://support.titanhq.com/en/60372-configuring-link-lock.html)
+-   [Adding Link Lock Exemptions](https://support.titanhq.com/en/60373-adding-link-lock-exemptions.html)

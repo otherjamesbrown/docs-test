@@ -1,5 +1,5 @@
 ---
-title: "Add Your Domain(s)"
+title: "In this Section"
 description: "Imported from docs.titanhq.com"
 ---
 
@@ -77,3 +77,7 @@ This setting allows you to enable or disable Sender Policy Framework (SPF) check
 **Greylisting:**
 
 Allows you to enable or disable greylisting for this domain. Read more about greylisting [here](https://docs.titanhq.com/en/1081-greylisting.html "Greylisting"). Default is Yes.
+
+## In this Section
+
+-   [Domain Settings](/docs-test/titanhq/products/spamtitan/docs/legacy-8/add-your-domain-s/)

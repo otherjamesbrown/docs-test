@@ -1,5 +1,5 @@
 ---
-title: "Log in to SpamTitan"
+title: "In this Section"
 description: "Imported from support.titanhq.com"
 ---
 
@@ -19,3 +19,7 @@ When you log in, you will see the **Overview** page.
 -   If you are a new SpamTitan user, continue with the remaining setup steps to configure SpamTitan and add your customer accounts.
 
 -   To see information about the logged-in account and to log out, select the profile ![profile-icon-small.jpg](/docs-test/imported-assets/spamtitan-skellig/55571-log-in-to-spamtitan/a460165411c6.jpg) icon.
+
+## In this Section
+
+-   [Forgot your Password?](https://support.titanhq.com/en/55581-forgot-your-password-.html)

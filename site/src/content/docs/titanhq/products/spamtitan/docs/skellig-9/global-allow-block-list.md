@@ -1,5 +1,5 @@
 ---
-title: "Global Allow & Block List"
+title: "In this Section"
 description: "Imported from support.titanhq.com"
 ---
 
@@ -137,3 +137,10 @@ Allowed IPs can bypass settings put in place for your security. Ensure any IP yo
         1.  Select **Add** and choose **Upload IP(s)**.
 
         2.  In the pop-up window, drag and drop the csv file to be uploaded.
+
+## In this Section
+
+-   [About Allowing & Blocking](/docs-test/titanhq/products/spamtitan/docs/skellig-9/global-allow-block-list/)
+-   [Adding an Allowed or Blocked Email](/docs-test/titanhq/products/spamtitan/docs/skellig-9/global-allow-block-list/)
+-   [Adding an Allowed or Blocked Domain](/docs-test/titanhq/products/spamtitan/docs/skellig-9/global-allow-block-list/)
+-   [Adding an Allowed or Blocked IP](/docs-test/titanhq/products/spamtitan/docs/skellig-9/global-allow-block-list/)

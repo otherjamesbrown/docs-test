@@ -1,5 +1,5 @@
 ---
-title: "SpamTitan Release Notes"
+title: "In this Section"
 description: "Imported from docs.titanhq.com"
 ---
 
@@ -1161,3 +1161,25 @@ _Released: March 2018_
     -   ClamAV null dereference vulnerability ([CVE-2017-12380](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12380)).
 
 -   Include security patches for packages including OpenSSL, OpenSSH, PHP, and Wget.
+
+## In this Section
+
+-   [SpamTitan 8.03](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 8.02](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 8.01](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 8.00 (ISO)](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 8.00](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 7.13](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 7.12](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 7.11](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 7.10](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 7.09](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 7.08](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 7.07](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 7.06](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 7.05](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 7.04](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 7.03](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 7.02](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 7.01](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)
+-   [SpamTitan 7.00](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)

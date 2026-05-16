@@ -568,10 +568,48 @@ async function convertDocsPage(
   }
   const selected = body.length ? body : $('#topic-content, article').first();
   cleanupBody($, selected);
+  appendDocsSectionIndex($, selected, page);
   const title = cleanText(selected.find('h2.title, h1, h2').first().text()) || page.title;
   const htmlForMarkdown = await rewriteAssetsAndLinks($, selected, page, warnings, sourceLinkIndex);
   const markdown = normaliseMarkdown(turndown.turndown(htmlForMarkdown));
   return `${frontmatter(title, `Imported from ${page.sourceHost}`)}\n\n${sourceBlock(page)}\n\n${markdown}\n`;
+}
+
+function appendDocsSectionIndex($: cheerio.CheerioAPI, body: cheerio.Cheerio<unknown>, page: PageCandidate) {
+  const children = docsSectionIndexItems($.root().html() ?? '', page.sourceId, page.sourceUrl);
+  if (children.length === 0) return;
+
+  const section = $('<section data-imported-section-index="true"><h2>In this Section</h2><ul></ul></section>');
+  const list = section.find('ul');
+  for (const child of children) {
+    const item = $('<li><a></a></li>');
+    item.find('a').attr('href', child.href).text(child.text);
+    list.append(item);
+  }
+  body.append(section);
+}
+
+export function docsSectionIndexItems(
+  html: string,
+  sourceId: string,
+  sourceUrl: string,
+): Array<{ href: string; text: string }> {
+  const $ = cheerio.load(html, { xmlMode: false });
+  const current = $(`aside.site-sidebar a[data-permalink="${sourceId}.html"]`).first();
+  if (!current.length) return [];
+
+  return current
+    .closest('li')
+    .children('ul')
+    .children('li')
+    .map((_, child) => {
+      const link = $(child).children('a').first();
+      const href = link.attr('href');
+      const text = cleanText(link.text());
+      return href && text ? { href: new URL(href, sourceUrl).toString(), text } : undefined;
+    })
+    .get()
+    .filter((item): item is { href: string; text: string } => Boolean(item));
 }
 
 function cleanupBody($: cheerio.CheerioAPI, body: cheerio.Cheerio<unknown>) {

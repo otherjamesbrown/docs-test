@@ -1,5 +1,5 @@
 ---
-title: "MSP Overview"
+title: "In this Section"
 description: "Imported from support.titanhq.com"
 ---
 
@@ -81,3 +81,8 @@ Follow the links below for further details.
 -   [Delete Customers](https://support.titanhq.com/en/74478-delete-customers.html "Delete Customers").
 
 -   [Two-Factor Authentication](https://support.titanhq.com/en/74398-two-factor-authentication.html "Two-Factor Authentication").
+
+## In this Section
+
+-   [Adding Customers](https://support.titanhq.com/en/74477-adding-customers.html)
+-   [Delete Customers](https://support.titanhq.com/en/74478-delete-customers.html)

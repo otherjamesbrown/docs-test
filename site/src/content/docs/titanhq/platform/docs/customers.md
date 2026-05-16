@@ -8,3 +8,7 @@ description: "Imported from support.titanhq.com"
 > Imported content type: docs_page
 
 ## Customers
+
+## In this Section
+
+-   [Customers](/docs-test/titanhq/platform/docs/customers-69428/)

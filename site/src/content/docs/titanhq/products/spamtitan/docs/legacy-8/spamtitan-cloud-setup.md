@@ -1,5 +1,5 @@
 ---
-title: "SpamTitan Cloud Setup"
+title: "In this Section"
 description: "Imported from docs.titanhq.com"
 ---
 
@@ -39,3 +39,13 @@ Follow these steps to complete your SpamTitan Cloud setup:
     After changing your MX records, it is recommended you verify email flow through SpamTitan to your mail server **before** proceeding to the next setup step to lock down your mail server.
 
 7.  [Lock down your mail server](https://docs.titanhq.com/en/641-lock-down-your-mail-server.html "Lock Down Your Mail Server") (includes specific instructions for Office 365 users).
+
+## In this Section
+
+-   [Log in for the first time](/docs-test/titanhq/products/spamtitan/docs/legacy-8/log-in-for-the-first-time/)
+-   [Add Your Domain(s)](/docs-test/titanhq/products/spamtitan/docs/legacy-8/add-your-domain-s/)
+-   [Test Connectivity to your Mail Server](/docs-test/titanhq/products/spamtitan/docs/legacy-8/test-connectivity-to-your-mail-server/)
+-   [Enable Quarantine Reports](/docs-test/titanhq/products/spamtitan/docs/legacy-8/enable-quarantine-reports/)
+-   [Add a Domain Administrator](https://docs.titanhq.com/en/515-add-a-domain-administrator.html)
+-   [Change Your MX Records](https://docs.titanhq.com/en/540-change-your-mx-records.html)
+-   [Lock Down Your Mail Server](https://docs.titanhq.com/en/641-lock-down-your-mail-server.html)

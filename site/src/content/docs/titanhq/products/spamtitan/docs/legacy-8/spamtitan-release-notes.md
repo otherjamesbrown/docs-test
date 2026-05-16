@@ -17,3 +17,7 @@ The latest version of SpamTitan contains new features and enhancements that prov
 -   If you are a SpamTitan Gateway customer, take a look at the [Guidelines for Updating SpamTitan Gateway](https://docs.titanhq.com/en/10542-guidelines-for-updating-spamtitan.html "Guidelines for Updating SpamTitan") before you update.
 
     When you are ready, go to **System Setup** > **System Updates** to manage updates. See [System Update Settings](https://docs.titanhq.com/en/8939-system-update-settings.html "System Update Settings") for more information.
+
+## In this Section
+
+-   [SpamTitan Release Notes](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes-13161/)

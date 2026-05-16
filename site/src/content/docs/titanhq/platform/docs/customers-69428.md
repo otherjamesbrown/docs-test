@@ -1,5 +1,5 @@
 ---
-title: "Customers"
+title: "In this Section"
 description: "Imported from support.titanhq.com"
 ---
 
@@ -68,3 +68,8 @@ The following columns are available:
 -   _Actions_: View and edit customer details.
 
 To add a new customer, see [Add a Customer Account](/docs-test/titanhq/platform/docs/add-a-customer-account/ "Add a Customer Account").
+
+## In this Section
+
+-   [Add a Customer Account](/docs-test/titanhq/platform/docs/add-a-customer-account/)
+-   [Delete a Customer Account](/docs-test/titanhq/platform/docs/delete-a-customer-account/)

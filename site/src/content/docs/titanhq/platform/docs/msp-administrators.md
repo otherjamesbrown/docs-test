@@ -1,5 +1,5 @@
 ---
-title: "MSP Administrators"
+title: "In this Section"
 description: "Imported from support.titanhq.com"
 ---
 
@@ -76,3 +76,7 @@ Select the edit ![edit-icon.jpg](/docs-test/imported-assets/titanhq-platform/694
     -   **Read-only Administrator**: Can view MSP and customer levels, but cannot add, edit or delete settings or data.
 
 5.  Select **Save Changes**.
+
+## In this Section
+
+-   [Add an MSP Administrator](/docs-test/titanhq/platform/docs/msp-administrators/)

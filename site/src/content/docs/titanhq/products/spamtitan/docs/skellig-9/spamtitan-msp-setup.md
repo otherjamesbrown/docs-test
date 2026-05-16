@@ -19,3 +19,11 @@ Welcome to SpamTitan! An MSP Admin can follow the video or steps below to comple
 3.  [Add your Customers](/docs-test/titanhq/products/spamtitan/docs/skellig-9/adding-customers/ "Adding Customers").
 
 4.  [Edit your Global Allow & Block List (optional)](/docs-test/titanhq/products/spamtitan/docs/skellig-9/global-allow-block-list/ "Global Allow & Block List").
+
+## In this Section
+
+-   [Log in to SpamTitan](/docs-test/titanhq/products/spamtitan/docs/skellig-9/log-in-to-spamtitan/)
+-   [Update your Security Settings](/docs-test/titanhq/products/spamtitan/docs/skellig-9/update-your-security-settings/)
+-   [Adding Customers](/docs-test/titanhq/products/spamtitan/docs/skellig-9/adding-customers/)
+-   [Global Allow & Block List](/docs-test/titanhq/products/spamtitan/docs/skellig-9/global-allow-block-list/)
+-   [Need SpamTitan help?](https://support.titanhq.com/en/57003-need-spamtitan-help-.html)

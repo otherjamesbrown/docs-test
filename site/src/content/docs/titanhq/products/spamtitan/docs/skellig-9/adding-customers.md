@@ -1,5 +1,5 @@
 ---
-title: "Adding Customers"
+title: "In this Section"
 description: "Imported from support.titanhq.com"
 ---
 
@@ -53,3 +53,7 @@ After a customer account is added to SpamTitan, further setup steps must be comp
 -   _Customer Admin_: Once a customer is added to SpamTitan, the Customer Admin can log in at the customer level and follow the steps in [SpamTitan Customer Setup](https://support.titanhq.com/en/55541-spamtitan-customer-setup.html "SpamTitan Customer Setup").
 
     -   Customer account credentials are input by an MSP Admin when a customer account is created. See [Adding your Customers](/docs-test/titanhq/products/spamtitan/docs/skellig-9/adding-customers/ "Adding Customers").
+
+## In this Section
+
+-   [Customer Setup](/docs-test/titanhq/products/spamtitan/docs/skellig-9/adding-customers/)

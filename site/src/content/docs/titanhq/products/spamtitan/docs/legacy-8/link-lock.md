@@ -1,5 +1,5 @@
 ---
-title: "Link Lock"
+title: "In this Section"
 description: "Imported from docs.titanhq.com"
 ---
 
@@ -19,3 +19,9 @@ Link Lock is an enhancement to SpamTitan and is available after the purchase of 
 Once a SpamTitan Plus license is in place, a SpamTitan administrator can enable or disable Link Lock at the global level (default: _disabled_). Once enabled, Link Lock can also be managed at the domain and user levels.
 
 Go to **Content Filtering** > **Link Lock** to enable and configure Link Lock.
+
+## In this Section
+
+-   [Enable Link Lock for a Domain](https://docs.titanhq.com/en/30223-enable-link-lock-for-a-domain.html)
+-   [Enable Link Lock for a User](https://docs.titanhq.com/en/30224-enable-link-lock-for-a-user.html)
+-   [Link Lock Allowed URLs](https://docs.titanhq.com/en/30225-link-lock-allowed-urls.html)
