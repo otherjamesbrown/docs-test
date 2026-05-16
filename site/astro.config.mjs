@@ -15,7 +15,7 @@ export default defineConfig({
         },
       ],
       editLink: {
-        baseUrl: 'https://github.com/otherjamesbrown/docs-test/edit/main/site/src/content/docs/',
+        baseUrl: 'https://github.com/otherjamesbrown/docs-test/edit/main/site/',
       },
       sidebar: [
         {

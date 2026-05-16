@@ -1,11 +1,812 @@
-const command = process.argv[2] ?? 'help';
+import * as cheerio from 'cheerio';
+import crypto from 'node:crypto';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import TurndownService from 'turndown';
+import YAML from 'yaml';
+import { slugify } from './shared/slug';
 
-const commands = new Set(['discover', 'fetch', 'convert', 'qa', 'all']);
+const repoRoot = path.resolve(new URL('../../..', import.meta.url).pathname);
+const siteDocsRoot = path.join(repoRoot, 'site/src/content/docs');
+const assetsRoot = path.join(repoRoot, 'site/public/imported-assets');
+const rawRoot = path.join(repoRoot, 'migration/raw');
+const reportPath = path.join(repoRoot, 'migration/import-report.json');
+const manifestPath = path.join(repoRoot, 'migration/manifest.json');
+const linkMapPath = path.join(repoRoot, 'migration/link-map.json');
+const basePath = '/docs-test';
 
-if (!commands.has(command)) {
-  console.log('Usage: npm run import:<discover|fetch|convert|qa|all> -- [options]');
-  process.exit(command === 'help' ? 0 : 1);
+type Area =
+  | 'redstor'
+  | 'titanhq-platform'
+  | 'spamtitan-kb'
+  | 'spamtitan-skellig'
+  | 'spamtitan-legacy';
+
+interface PageCandidate {
+  area: Area;
+  sourceId: string;
+  sourceUrl: string;
+  sourceHost: string;
+  canonicalHost: string;
+  title: string;
+  route: string;
+  outputPath: string;
+  contentType: 'kb_article' | 'docs_page';
+  breadcrumbs: string[];
+  folder?: string;
+  product: string;
+  productStream?: string;
 }
 
-console.log(`Importer command '${command}' is scaffolded. Implementation comes next.`);
+interface ImportReport {
+  generatedAt: string;
+  counts: Record<string, number>;
+  pages: Array<{
+    title: string;
+    sourceUrl: string;
+    route: string;
+    outputPath: string;
+    warnings: string[];
+  }>;
+  warnings: string[];
+}
 
+const turndown = new TurndownService({
+  codeBlockStyle: 'fenced',
+  headingStyle: 'atx',
+  bulletListMarker: '-',
+});
+
+turndown.addRule('strikethrough', {
+  filter: ['del', 's', 'strike'],
+  replacement: (content) => `~~${content}~~`,
+});
+
+const redstorFolders = [
+  {
+    folder: 'Guides',
+    sourceUrl: 'https://helpdesk.redstor.com/support/solutions/folders/4000040908',
+    routeBase: 'redstor/kb/guides',
+    limit: 10,
+  },
+  {
+    folder: 'Troubleshooting',
+    sourceUrl: 'https://helpdesk.redstor.com/support/solutions/folders/4000040906',
+    routeBase: 'redstor/kb/troubleshooting',
+    limit: 10,
+  },
+  {
+    folder: 'Release Notes',
+    sourceUrl: 'https://helpdesk.redstor.com/support/solutions/folders/4000040904',
+    routeBase: 'redstor/kb/release-notes',
+    limit: 5,
+  },
+];
+
+const spamtitanFolders = [
+  {
+    folder: 'Solutions',
+    sourceUrl: 'https://helpdesk.spamtitan.com/support/solutions/folders/4000036516',
+    routeBase: 'titanhq/products/spamtitan/kb/solutions',
+    limit: 5,
+  },
+  {
+    folder: 'Announcements',
+    sourceUrl: 'https://helpdesk.spamtitan.com/support/solutions/folders/4000036705',
+    routeBase: 'titanhq/products/spamtitan/kb/announcements',
+    limit: 5,
+  },
+  {
+    folder: 'Getting Started: SpamTitan Cloud',
+    sourceUrl: 'https://helpdesk.spamtitan.com/support/solutions/folders/4000037714',
+    routeBase: 'titanhq/products/spamtitan/kb/getting-started-cloud',
+    limit: 5,
+  },
+  {
+    folder: 'Link Lock',
+    sourceUrl: 'https://helpdesk.spamtitan.com/support/solutions/folders/4000037715',
+    routeBase: 'titanhq/products/spamtitan/kb/link-lock',
+    limit: 5,
+  },
+];
+
+const platformDocs = [
+  'https://support.titanhq.com/en/69450-welcome-to-the-titanhq-platform-.html',
+  'https://support.titanhq.com/en/70563-msp-dashboard.html',
+  'https://support.titanhq.com/en/70565-msp-dashboard.html',
+  'https://support.titanhq.com/en/69426-customers.html',
+  'https://support.titanhq.com/en/69428-customers.html',
+  'https://support.titanhq.com/en/69429-add-a-customer-account.html',
+  'https://support.titanhq.com/en/71401-delete-a-customer-account.html',
+  'https://support.titanhq.com/en/69411-settings.html',
+  'https://support.titanhq.com/en/69413-msp-settings.html',
+  'https://support.titanhq.com/en/69414-msp-administrators.html',
+  'https://support.titanhq.com/en/69421-license-usage.html',
+  'https://support.titanhq.com/en/75330-top-navigation-bar.html',
+];
+
+const skelligDocs = [
+  'https://support.titanhq.com/en/56985-welcome-to-spamtitan-.html',
+  'https://support.titanhq.com/en/59382-navigating-levels-in-spamtitan.html',
+  'https://support.titanhq.com/en/61767-spamtitan-release-notes.html',
+  'https://support.titanhq.com/en/61768-spamtitan-release-notes.html',
+  'https://support.titanhq.com/en/55539-spamtitan-msp-setup.html',
+  'https://support.titanhq.com/en/55571-log-in-to-spamtitan.html',
+  'https://support.titanhq.com/en/55582-update-your-security-settings.html',
+  'https://support.titanhq.com/en/57004-adding-customers.html',
+  'https://support.titanhq.com/en/57129-global-allow---block-list.html',
+  'https://support.titanhq.com/en/55542-spamtitan-msp-admin-guide.html',
+  'https://support.titanhq.com/en/60060-msp-overview.html',
+  'https://support.titanhq.com/en/60370-link-lock.html',
+];
+
+const legacyDocs = [
+  'https://docs.titanhq.com/en/2179-spamtitan-overview.html',
+  'https://docs.titanhq.com/en/13160-spamtitan-release-notes.html',
+  'https://docs.titanhq.com/en/13161-spamtitan-release-notes.html',
+  'https://docs.titanhq.com/en/363-spamtitan-cloud-guide.html',
+  'https://docs.titanhq.com/en/371-welcome-to-spamtitan-cloud.html',
+  'https://docs.titanhq.com/en/422-getting-started-with-spamtitan-cloud.html',
+  'https://docs.titanhq.com/en/1598-spamtitan-cloud-setup.html',
+  'https://docs.titanhq.com/en/423-log-in-for-the-first-time.html',
+  'https://docs.titanhq.com/en/475-add-your-domain-s-.html',
+  'https://docs.titanhq.com/en/485-test-connectivity-to-your-mail-server.html',
+  'https://docs.titanhq.com/en/640-enable-quarantine-reports.html',
+  'https://docs.titanhq.com/en/30222-link-lock.html',
+];
+
+async function main() {
+  const command = process.argv[2] ?? 'help';
+  const args = process.argv.slice(3);
+
+  if (command === 'help' || !['discover', 'fetch', 'convert', 'qa', 'all'].includes(command)) {
+    console.log('Usage: npm run import:<discover|fetch|convert|qa|all> -- [--poc] [--limit N] [--force]');
+    process.exit(command === 'help' ? 0 : 1);
+  }
+
+  if (command === 'qa') {
+    await runQa();
+    return;
+  }
+
+  const limit = getNumberArg(args, '--limit');
+  const force = args.includes('--force');
+
+  if (command === 'discover') {
+    const pages = await discover(limit);
+    await writeJson(manifestPath, toManifest(pages));
+    console.log(`Discovered ${pages.length} pages.`);
+    return;
+  }
+
+  const pages = await discover(limit);
+  await writeJson(manifestPath, toManifest(pages));
+
+  if (command === 'fetch') {
+    await fetchAll(pages, force);
+    console.log(`Fetched ${pages.length} pages.`);
+    return;
+  }
+
+  if (command === 'convert' || command === 'all') {
+    await fetchAll(pages, force);
+    await clearGeneratedContent();
+    await convertAll(pages);
+    await runQa();
+    return;
+  }
+}
+
+async function discover(limit?: number): Promise<PageCandidate[]> {
+  await readSourcesConfig();
+
+  const pages: PageCandidate[] = [];
+
+  for (const folder of redstorFolders) {
+    const discovered = await discoverFreshdeskFolder(folder.sourceUrl, {
+      area: 'redstor',
+      sourceHost: 'helpdesk.redstor.com',
+      canonicalHost: 'helpdesk.redstor.com',
+      routeBase: folder.routeBase,
+      folder: folder.folder,
+      product: 'Redstor',
+      limit: folder.limit,
+    });
+    pages.push(...discovered);
+  }
+
+  const platform = await discoverDocs(platformDocs, {
+    area: 'titanhq-platform',
+    sourceHost: 'support.titanhq.com',
+    canonicalHost: 'support.titanhq.com',
+    routeBase: 'titanhq/platform/docs',
+    product: 'TitanHQ Platform',
+    breadcrumbs: ['TitanHQ', 'Platform', 'Docs'],
+  });
+  pages.push(...platform);
+
+  for (const folder of spamtitanFolders) {
+    const discovered = await discoverFreshdeskFolder(folder.sourceUrl, {
+      area: 'spamtitan-kb',
+      sourceHost: 'helpdesk.spamtitan.com',
+      canonicalHost: 'helpdesk.spamtitan.com',
+      routeBase: folder.routeBase,
+      folder: folder.folder,
+      product: 'SpamTitan',
+      limit: folder.limit,
+    });
+    pages.push(...discovered);
+  }
+
+  pages.push(
+    ...(await discoverDocs(skelligDocs, {
+      area: 'spamtitan-skellig',
+      sourceHost: 'support.titanhq.com',
+      canonicalHost: 'support.titanhq.com',
+      routeBase: 'titanhq/products/spamtitan/docs/skellig-9',
+      product: 'SpamTitan',
+      productStream: 'skellig',
+      breadcrumbs: ['TitanHQ', 'Products', 'SpamTitan', 'Docs', 'Skellig 9'],
+    })),
+  );
+
+  pages.push(
+    ...(await discoverDocs(legacyDocs, {
+      area: 'spamtitan-legacy',
+      sourceHost: 'docs.titanhq.com',
+      canonicalHost: 'docs.titanhq.com',
+      routeBase: 'titanhq/products/spamtitan/docs/legacy-8',
+      product: 'SpamTitan',
+      productStream: 'legacy',
+      breadcrumbs: ['TitanHQ', 'Products', 'SpamTitan', 'Docs', 'Legacy 8'],
+    })),
+  );
+
+  const unique = dedupePages(pages);
+  return typeof limit === 'number' ? unique.slice(0, limit) : unique;
+}
+
+async function discoverFreshdeskFolder(
+  sourceUrl: string,
+  options: {
+    area: Area;
+    sourceHost: string;
+    canonicalHost: string;
+    routeBase: string;
+    folder: string;
+    product: string;
+    limit: number;
+  },
+): Promise<PageCandidate[]> {
+  const html = await fetchText(sourceUrl);
+  const $ = cheerio.load(html);
+  const links: PageCandidate[] = [];
+
+  const articleLinks = $(
+    [
+      '.fw-articles a[href*="/support/solutions/articles/"]',
+      '.article-list a[href*="/support/solutions/articles/"]',
+      '.c-article-row .article-title a[href*="/support/solutions/articles/"]',
+      '.folder-body a[href*="/support/solutions/articles/"]',
+    ].join(', '),
+  );
+  const candidates = articleLinks.length ? articleLinks : $('a[href*="/support/solutions/articles/"]');
+
+  candidates.each((_, element) => {
+    if (links.length >= options.limit) return;
+    const href = $(element).attr('href');
+    const title = cleanText($(element).find('.line-clamp-2').first().text()) || cleanText($(element).text());
+    if (!href || !title) return;
+    const source = new URL(href, sourceUrl).toString();
+    const sourceId = extractFreshdeskId(source);
+    if (!sourceId) return;
+    const slug = slugify(stripArticleNumber(title));
+    const route = `${options.routeBase}/${slug}`;
+    links.push({
+      area: options.area,
+      sourceId,
+      sourceUrl: source,
+      sourceHost: options.sourceHost,
+      canonicalHost: options.canonicalHost,
+      title,
+      route,
+      outputPath: `${route}.md`,
+      contentType: 'kb_article',
+      breadcrumbs: [options.product, 'Knowledge Base', options.folder],
+      folder: options.folder,
+      product: options.product,
+    });
+  });
+
+  return links;
+}
+
+async function discoverDocs(
+  urls: string[],
+  options: {
+    area: Area;
+    sourceHost: string;
+    canonicalHost: string;
+    routeBase: string;
+    product: string;
+    productStream?: string;
+    breadcrumbs: string[];
+  },
+): Promise<PageCandidate[]> {
+  const pages: PageCandidate[] = [];
+  for (const sourceUrl of urls) {
+    const html = await fetchText(sourceUrl);
+    const $ = cheerio.load(html, { xmlMode: false });
+    const title = cleanText($('article #topic-content h2.title, article h2.title, title').first().text());
+    const sourceId = path.basename(new URL(sourceUrl).pathname).replace(/\.html$/, '');
+    const route = `${options.routeBase}/${slugify(sourceId.replace(/^\d+-/, ''))}`;
+    pages.push({
+      area: options.area,
+      sourceId,
+      sourceUrl,
+      sourceHost: options.sourceHost,
+      canonicalHost: options.canonicalHost,
+      title: title || sourceId,
+      route,
+      outputPath: `${route}.md`,
+      contentType: 'docs_page',
+      breadcrumbs: options.breadcrumbs,
+      product: options.product,
+      productStream: options.productStream,
+    });
+  }
+  return pages;
+}
+
+async function fetchAll(pages: PageCandidate[], force: boolean) {
+  await fs.mkdir(rawRoot, { recursive: true });
+  for (const page of pages) {
+    const file = rawPath(page);
+    if (!force && (await exists(file))) continue;
+    const html = await fetchText(page.sourceUrl);
+    await fs.mkdir(path.dirname(file), { recursive: true });
+    await fs.writeFile(file, html);
+  }
+}
+
+async function convertAll(pages: PageCandidate[]) {
+  const report: ImportReport = {
+    generatedAt: new Date().toISOString(),
+    counts: {},
+    pages: [],
+    warnings: [],
+  };
+  const linkMap: Record<string, string> = {};
+
+  for (const page of pages) {
+    const warnings: string[] = [];
+    const html = await fs.readFile(rawPath(page), 'utf8');
+    const converted =
+      page.contentType === 'kb_article'
+        ? await convertFreshdeskArticle(page, html, warnings)
+        : await convertDocsPage(page, html, warnings);
+
+    const outputPath = path.join(siteDocsRoot, page.outputPath);
+    await fs.mkdir(path.dirname(outputPath), { recursive: true });
+    await fs.writeFile(outputPath, converted);
+    linkMap[page.sourceUrl] = `${basePath}/${page.route}/`;
+    report.counts[page.area] = (report.counts[page.area] ?? 0) + 1;
+    report.pages.push({
+      title: page.title,
+      sourceUrl: page.sourceUrl,
+      route: `${basePath}/${page.route}/`,
+      outputPath: path.relative(repoRoot, outputPath),
+      warnings,
+    });
+  }
+
+  await writeCollectionIndexes(pages);
+  await writeJson(reportPath, report);
+  await writeJson(linkMapPath, linkMap);
+  await writeJson(manifestPath, toManifest(pages));
+  console.log(`Generated ${pages.length} Markdown pages.`);
+  console.log(`Report: ${path.relative(repoRoot, reportPath)}`);
+}
+
+async function clearGeneratedContent() {
+  const generatedMdx = await collectFiles(siteDocsRoot, '.mdx');
+  const markdown = await collectFiles(siteDocsRoot, '.md');
+  const generatedMarkdown: string[] = [];
+  for (const file of markdown) {
+    const content = await fs.readFile(file, 'utf8');
+    if (content.includes('> Imported content type:') || content.includes('> Generated import index:')) {
+      generatedMarkdown.push(file);
+    }
+  }
+  await Promise.all([...generatedMdx, ...generatedMarkdown].map((file) => fs.rm(file)));
+  await fs.rm(assetsRoot, { recursive: true, force: true });
+}
+
+async function writeCollectionIndexes(pages: PageCandidate[]) {
+  const collections = [
+    {
+      route: 'redstor/kb',
+      title: 'Redstor Knowledge Base',
+      description: 'Imported Redstor knowledge base articles.',
+      pages: pages.filter((page) => page.area === 'redstor'),
+    },
+    {
+      route: 'redstor/kb/guides',
+      title: 'Guides',
+      description: 'Imported Redstor guide articles.',
+      pages: pages.filter((page) => page.route.startsWith('redstor/kb/guides/')),
+    },
+    {
+      route: 'redstor/kb/troubleshooting',
+      title: 'Troubleshooting',
+      description: 'Imported Redstor troubleshooting articles.',
+      pages: pages.filter((page) => page.route.startsWith('redstor/kb/troubleshooting/')),
+    },
+    {
+      route: 'redstor/kb/release-notes',
+      title: 'Release Notes',
+      description: 'Imported Redstor release notes.',
+      pages: pages.filter((page) => page.route.startsWith('redstor/kb/release-notes/')),
+    },
+    {
+      route: 'titanhq/platform/docs',
+      title: 'TitanHQ Platform Docs',
+      description: 'Imported TitanHQ Platform documentation.',
+      pages: pages.filter((page) => page.area === 'titanhq-platform'),
+    },
+    {
+      route: 'titanhq/products/spamtitan',
+      title: 'SpamTitan',
+      description: 'Imported SpamTitan knowledge base and documentation.',
+      pages: pages.filter((page) => page.product === 'SpamTitan'),
+    },
+    {
+      route: 'titanhq/products/spamtitan/kb',
+      title: 'SpamTitan Knowledge Base',
+      description: 'Imported SpamTitan knowledge base articles.',
+      pages: pages.filter((page) => page.area === 'spamtitan-kb'),
+    },
+    {
+      route: 'titanhq/products/spamtitan/docs',
+      title: 'SpamTitan Docs',
+      description: 'Imported SpamTitan documentation.',
+      pages: pages.filter((page) => page.area === 'spamtitan-skellig' || page.area === 'spamtitan-legacy'),
+    },
+    {
+      route: 'titanhq/products/spamtitan/docs/skellig-9',
+      title: 'Skellig 9',
+      description: 'Imported SpamTitan Skellig 9 documentation.',
+      pages: pages.filter((page) => page.area === 'spamtitan-skellig'),
+    },
+    {
+      route: 'titanhq/products/spamtitan/docs/legacy-8',
+      title: 'Legacy 8',
+      description: 'Imported legacy SpamTitan documentation.',
+      pages: pages.filter((page) => page.area === 'spamtitan-legacy'),
+    },
+  ];
+
+  for (const collection of collections) {
+    const outputPath = path.join(siteDocsRoot, collection.route, 'index.md');
+    await fs.mkdir(path.dirname(outputPath), { recursive: true });
+    await fs.writeFile(outputPath, collectionIndexMarkdown(collection));
+  }
+}
+
+function collectionIndexMarkdown(collection: {
+  route: string;
+  title: string;
+  description: string;
+  pages: PageCandidate[];
+}): string {
+  const grouped = groupBy(collection.pages, (page) => page.folder ?? page.productStream ?? page.contentType);
+  const groups = Object.entries(grouped).map(([label, pages]) => {
+    const links = pages
+      .sort((a, b) => a.title.localeCompare(b.title))
+      .map((page) => `- [${escapeMarkdownLinkText(page.title)}](${basePath}/${page.route}/)`)
+      .join('\n');
+    return `## ${titleCase(label)}\n\n${links}`;
+  });
+
+  return `${frontmatter(collection.title, collection.description)}\n\n> Generated import index: ${collection.pages.length} pages\n\n${groups.join('\n\n')}\n`;
+}
+
+function groupBy<T>(items: T[], key: (item: T) => string): Record<string, T[]> {
+  return items.reduce<Record<string, T[]>>((groups, item) => {
+    const value = key(item);
+    groups[value] = groups[value] ?? [];
+    groups[value].push(item);
+    return groups;
+  }, {});
+}
+
+function titleCase(value: string): string {
+  return value
+    .split(/[-_\s]+/)
+    .filter(Boolean)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+function escapeMarkdownLinkText(value: string): string {
+  return value.replace(/\[/g, '\\[').replace(/\]/g, '\\]');
+}
+
+async function convertFreshdeskArticle(page: PageCandidate, html: string, warnings: string[]): Promise<string> {
+  const $ = cheerio.load(html);
+  const article = $('.fw-content--single-article, article.article-body, #article-body').first();
+  if (!article.length) {
+    warnings.push('No Freshdesk article body found; converted main content fallback.');
+  }
+  const body = article.length ? article : $('#fw-main-content, #content').first();
+  cleanupBody($, body);
+  const title = cleanText($('.heading, h1, h2').first().text()) || page.title;
+  const modified = cleanText($('p:contains("Modified on")').first().text()).replace(/^Modified on:\s*/, '');
+  const htmlForMarkdown = await rewriteImages($, body, page, warnings);
+  const markdown = normaliseMarkdown(turndown.turndown(htmlForMarkdown));
+  const sourceNote = sourceBlock(page, modified);
+  return `${frontmatter(title, `Imported from ${page.sourceHost}`)}\n\n${sourceNote}\n\n${markdown}\n`;
+}
+
+async function convertDocsPage(page: PageCandidate, html: string, warnings: string[]): Promise<string> {
+  const $ = cheerio.load(html, { xmlMode: false });
+  const body = $('#topic-content section').first();
+  if (!body.length) {
+    warnings.push('No Paligo topic section found; converted topic content fallback.');
+  }
+  const selected = body.length ? body : $('#topic-content, article').first();
+  cleanupBody($, selected);
+  const title = cleanText(selected.find('h2.title, h1, h2').first().text()) || page.title;
+  const htmlForMarkdown = await rewriteImages($, selected, page, warnings);
+  const markdown = normaliseMarkdown(turndown.turndown(htmlForMarkdown));
+  return `${frontmatter(title, `Imported from ${page.sourceHost}`)}\n\n${sourceBlock(page)}\n\n${markdown}\n`;
+}
+
+function cleanupBody($: cheerio.CheerioAPI, body: cheerio.Cheerio<unknown>) {
+  body.find('script, style, noscript, form, button, iframe').remove();
+  body.find('.print--remove, .solution-print--icon, .article-vote, #vote-feedback-container').remove();
+  body.find('.footer-content, footer, .breadcrumb-container, .section-toc').remove();
+  body.find('[style]').removeAttr('style');
+  body.find('[class]').removeAttr('class');
+  body.find('[data-origin-id], [data-publication-date], [data-permalink], [data-topic-level], [data-relative-prefix]').removeAttr(
+    'data-origin-id data-publication-date data-permalink data-topic-level data-relative-prefix',
+  );
+  body.find('a[href^="#"]').each((_, element) => {
+    const text = cleanText($(element).text());
+    if (!text) $(element).remove();
+  });
+}
+
+async function rewriteImages(
+  $: cheerio.CheerioAPI,
+  body: cheerio.Cheerio<unknown>,
+  page: PageCandidate,
+  warnings: string[],
+): Promise<string> {
+  const images = body.find('img').toArray();
+  for (const image of images) {
+    const src = $(image).attr('src');
+    if (!src) continue;
+    const absolute = new URL(src, page.sourceUrl).toString();
+    try {
+      const assetPath = await downloadAsset(absolute, page);
+      $(image).attr('src', `${basePath}/${assetPath}`);
+    } catch (error) {
+      warnings.push(`Failed to download image ${absolute}: ${String(error)}`);
+    }
+  }
+
+  body.find('a[href]').each((_, element) => {
+    const href = $(element).attr('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto:')) return;
+    try {
+      $(element).attr('href', new URL(href, page.sourceUrl).toString());
+    } catch {
+      warnings.push(`Could not normalise link: ${href}`);
+    }
+  });
+
+  return body.html() ?? '';
+}
+
+async function downloadAsset(assetUrl: string, page: PageCandidate): Promise<string> {
+  const response = await fetch(assetUrl);
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  const arrayBuffer = await response.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+  const contentType = response.headers.get('content-type') ?? '';
+  const ext = extensionFromUrl(assetUrl, contentType);
+  const digest = crypto.createHash('sha256').update(buffer).digest('hex').slice(0, 12);
+  const fileName = `${digest}${ext}`;
+  const relative = path.posix.join('imported-assets', page.area, page.sourceId, fileName);
+  const fullPath = path.join(repoRoot, 'site/public', relative);
+  await fs.mkdir(path.dirname(fullPath), { recursive: true });
+  await fs.writeFile(fullPath, buffer);
+  return relative;
+}
+
+async function runQa() {
+  const docs = await collectFiles(siteDocsRoot, '.mdx');
+  const md = await collectFiles(siteDocsRoot, '.md');
+  const files = [...docs, ...md];
+  const blocked = [
+    'Was this article helpful?',
+    "Sorry we couldn't be helpful",
+    'Require further support? Submit a ticket',
+  ];
+  const failures: string[] = [];
+  for (const file of files) {
+    const content = await fs.readFile(file, 'utf8');
+    for (const phrase of blocked) {
+      if (content.includes(phrase)) failures.push(`${path.relative(repoRoot, file)} contains "${phrase}"`);
+    }
+  }
+  if (failures.length > 0) {
+    console.error(failures.join('\n'));
+    process.exit(1);
+  }
+  console.log(`QA passed for ${files.length} content files.`);
+}
+
+async function readSourcesConfig() {
+  const file = path.join(repoRoot, 'migration/sources.yml');
+  const content = await fs.readFile(file, 'utf8');
+  const parsed = YAML.parse(content);
+  if (!parsed?.products?.length) throw new Error('migration/sources.yml must contain products');
+}
+
+async function fetchText(url: string): Promise<string> {
+  const response = await fetch(url, {
+    headers: {
+      'user-agent': 'docs-platform-poc/0.1 (+https://github.com/otherjamesbrown/docs-test)',
+    },
+  });
+  if (!response.ok) throw new Error(`Failed to fetch ${url}: HTTP ${response.status}`);
+  return response.text();
+}
+
+function frontmatter(title: string, description: string): string {
+  return `---\ntitle: ${JSON.stringify(title)}\ndescription: ${JSON.stringify(description)}\n---`;
+}
+
+function sourceBlock(page: PageCandidate, modified?: string): string {
+  const lines = [
+    `> Source: [${page.sourceHost}](${page.sourceUrl})`,
+    `> Product: ${page.product}`,
+    `> Imported content type: ${page.contentType}`,
+  ];
+  if (page.productStream) lines.push(`> Product stream: ${page.productStream}`);
+  if (page.folder) lines.push(`> Source folder: ${page.folder}`);
+  if (modified) lines.push(`> Modified: ${modified}`);
+  return lines.join('\n');
+}
+
+function normaliseMarkdown(markdown: string): string {
+  return markdown
+    .replace(/\u00a0/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
+    .replace(/^#{1}\s+/gm, '## ')
+    .trim();
+}
+
+function cleanText(value: string): string {
+  return value.replace(/\s+/g, ' ').trim();
+}
+
+function stripArticleNumber(title: string): string {
+  return title.replace(/^\d+\s*-\s*/, '');
+}
+
+function extractFreshdeskId(url: string): string | undefined {
+  return new URL(url).pathname.match(/articles\/(\d+)/)?.[1];
+}
+
+function rawPath(page: PageCandidate): string {
+  return path.join(rawRoot, page.area, `${safeFileName(page.sourceId)}.html`);
+}
+
+function safeFileName(value: string): string {
+  return value.replace(/[^a-zA-Z0-9._-]/g, '-');
+}
+
+function extensionFromUrl(url: string, contentType: string): string {
+  const pathname = new URL(url).pathname;
+  const ext = path.extname(pathname);
+  if (ext && ext.length <= 6) return ext;
+  if (contentType.includes('png')) return '.png';
+  if (contentType.includes('jpeg') || contentType.includes('jpg')) return '.jpg';
+  if (contentType.includes('gif')) return '.gif';
+  if (contentType.includes('svg')) return '.svg';
+  return '.bin';
+}
+
+function dedupePages(pages: PageCandidate[]): PageCandidate[] {
+  const seenSources = new Set<string>();
+  const seenRoutes = new Set<string>();
+  const uniquePages: PageCandidate[] = [];
+
+  for (const page of pages) {
+    if (seenSources.has(page.sourceUrl)) continue;
+    seenSources.add(page.sourceUrl);
+
+    let route = page.route;
+    let outputPath = page.outputPath;
+    if (seenRoutes.has(route)) {
+      const suffix = uniqueRouteSuffix(page.sourceId);
+      route = `${page.route}-${suffix}`;
+      outputPath = `${route}.md`;
+    }
+    let collision = 2;
+    while (seenRoutes.has(route)) {
+      route = `${page.route}-${uniqueRouteSuffix(page.sourceId)}-${collision}`;
+      outputPath = `${route}.md`;
+      collision += 1;
+    }
+
+    seenRoutes.add(route);
+    uniquePages.push({ ...page, route, outputPath });
+  }
+
+  return uniquePages;
+}
+
+function uniqueRouteSuffix(sourceId: string): string {
+  return slugify(sourceId.match(/^\d+/)?.[0] ?? sourceId).slice(0, 32);
+}
+
+function toManifest(pages: PageCandidate[]) {
+  return pages.map((page) => ({
+    source_key: `${page.sourceHost}:${page.sourceId}`,
+    source_id: page.sourceId,
+    source_host: page.sourceHost,
+    source_url: page.sourceUrl,
+    canonical_host: page.canonicalHost,
+    product: page.product,
+    product_stream: page.productStream,
+    content_type: page.contentType,
+    discovered_from: page.breadcrumbs.join(' > '),
+    breadcrumbs: page.breadcrumbs,
+    title: page.title,
+    status: 'discovered',
+    route: `${basePath}/${page.route}/`,
+    warnings: [],
+  }));
+}
+
+async function writeJson(file: string, value: unknown) {
+  await fs.mkdir(path.dirname(file), { recursive: true });
+  await fs.writeFile(file, `${JSON.stringify(value, null, 2)}\n`);
+}
+
+async function exists(file: string): Promise<boolean> {
+  try {
+    await fs.access(file);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function collectFiles(dir: string, ext: string): Promise<string[]> {
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  const files = await Promise.all(
+    entries.map(async (entry) => {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) return collectFiles(full, ext);
+      return entry.isFile() && entry.name.endsWith(ext) ? [full] : [];
+    }),
+  );
+  return files.flat();
+}
+
+function getNumberArg(args: string[], name: string): number | undefined {
+  const index = args.indexOf(name);
+  if (index === -1) return undefined;
+  const value = Number(args[index + 1]);
+  return Number.isFinite(value) ? value : undefined;
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

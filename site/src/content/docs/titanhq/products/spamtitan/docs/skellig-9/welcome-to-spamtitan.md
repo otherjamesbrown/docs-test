@@ -1,0 +1,72 @@
+---
+title: "Welcome to SpamTitan!"
+description: "Imported from support.titanhq.com"
+---
+
+> Source: [support.titanhq.com](https://support.titanhq.com/en/56985-welcome-to-spamtitan-.html)
+> Product: SpamTitan
+> Imported content type: docs_page
+> Product stream: skellig
+
+## Welcome to SpamTitan!
+
+Welcome to the home for **SpamTitan Skellig (9.00+)** product documentation.
+
+![Skellig-small.jpg](/docs-test/imported-assets/spamtitan-skellig/56985-welcome-to-spamtitan-/0ed95947e2a1.jpg)
+
+### Note
+
+If you are using SpamTitan (**8.00** or earlier), jump over to our [SpamTitan Cloud and Gateway product documentation](https://docs.titanhq.com/en/2179-spamtitan-overview.html).
+
+### SpamTitan Levels of Access
+
+SpamTitan has different levels of access. Higher levels can drill down to levels below to view and manage accounts.
+
+For example, an MSP Admin can navigate to the Customer level where they have the same view as a Customer Admin. However, a Domain Admin or Customer Admin can not level up to the MSP level as it requires a higher level of access.
+
+Level
+
+Description
+
+More Info
+
+**MSP**
+
+![ST-SK-msp-overview-small.jpg](/docs-test/imported-assets/spamtitan-skellig/56985-welcome-to-spamtitan-/b855226773f6.jpg)
+
+Typically, this is an MSP Admin managing their customer accounts. An MSP Admin can:
+
+-   Drill down into a customer account and have the same view as a Customer Admin for that account.
+    
+-   Drill down to a single domain and have the same view as a Domain Admin for that domain.
+    
+
+[MSP Getting Started Steps](https://support.titanhq.com/en/55539-spamtitan-msp-setup.html "SpamTitan MSP Setup")
+
+[MSP Admin Guide](https://support.titanhq.com/en/55542-spamtitan-msp-admin-guide.html "SpamTitan MSP Admin Guide")
+
+**Customer**
+
+![ST-SK-customer-overview-small.jpg](/docs-test/imported-assets/spamtitan-skellig/56985-welcome-to-spamtitan-/20fe5d572535.jpg)
+
+Typically, a business-level Customer Admin who is managing one, or many, domains. A Customer Admin can:
+
+-   Drill down into a domain and have the same view as a Domain Admin for that domain.
+    
+
+[Customer Getting Started Steps](https://support.titanhq.com/en/55541-spamtitan-customer-setup.html "SpamTitan Customer Setup")
+
+[Customer Admin Guide](https://support.titanhq.com/en/55544-spamtitan-customer-admin-guide.html "SpamTitan Customer Admin Guide")
+
+**Domain**
+
+![ST-SK-domain-overview-small.jpg](/docs-test/imported-assets/spamtitan-skellig/56985-welcome-to-spamtitan-/4519029453ec.jpg)
+
+A Domain Admin has access to manage a single domain. A Domain Admin has:
+
+-   Admin access to their own domain only.
+    
+
+[Managing a Single Domain](https://support.titanhq.com/en/55545-managing-a-single-domain.html "Managing a Single Domain")
+
+We are continuously improving our documentation as products are updated, so please check back regularly. If you have any feedback or comments specific to this documentation, please email [docs@titanhq.com](<mailto:docs@titanhq.com?subject=WebTitan Errigal Documentation Feedback>).
