@@ -1067,4 +1067,4 @@ No
 
 \*\*This action currently refers to the company's Microsoft 365 retention policy.
 
-\*\*\*Current integration options include the [RedAPI](/docs-test/redstor/kb/guides/how-to-use-the-redapi/), [ConnectWise](https://helpdesk.redstor.com/support/solutions/articles/4000219982), and [Backup Radar](https://helpdesk.redstor.com/support/solutions/articles/4000220217).
+\*\*\*Current integration options include the [RedAPI](/docs-test/redstor/kb/guides/how-to-use-the-redapi/), ConnectWise, and Backup Radar.

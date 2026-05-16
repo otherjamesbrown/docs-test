@@ -9,7 +9,7 @@ description: "Imported from helpdesk.redstor.com"
 > Source folder: Guides
 > Modified: Modified on Fri, 10 Apr at 11:34 AM
 
-_**Note:** This article applies to the RedAPI and not the Storage Platform API. You can find our Storage Platform API documentation [here](https://helpdesk.redstor.com/support/solutions/articles/4000220244)._
+_**Note:** This article applies to the RedAPI and not the Storage Platform API. You can find our Storage Platform API documentation here._
 
 **PAGE CONTENTS**
 
@@ -66,7 +66,7 @@ All rights reserved
 
 ### **Service account creation**
 
-To use the RedAPI, you will need a service account. Follow the steps in [Article 1652](https://helpdesk.redstor.com/support/solutions/articles/4000228181) to create one.
+To use the RedAPI, you will need a service account. Follow the steps in Article 1652 to create one.
 
 ### **Authentication**
 

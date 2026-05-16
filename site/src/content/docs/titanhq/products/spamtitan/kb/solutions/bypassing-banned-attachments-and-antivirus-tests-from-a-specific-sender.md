@@ -27,4 +27,4 @@ This is a description of how to create a content filter that will exclude an ema
 
 **Further Info**
 
-For more information, see our [Content Filtering](https://docs.titanhq.com/en/8951-content-filtering.html) and [Using Regular Expression](https://docs.titanhq.com/en/8952-using-regular-expression.html) documentation.
+For more information, see our Content Filtering and Using Regular Expression documentation.

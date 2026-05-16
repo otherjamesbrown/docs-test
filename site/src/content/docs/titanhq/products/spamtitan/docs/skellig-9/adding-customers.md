@@ -28,7 +28,7 @@ description: "Imported from support.titanhq.com"
 
     -   _Email:_ Enter an email address for this administrator.
 
-    -   _Link Lock Admin:_ Select YES to allow this administrator to enable and manage Link Lock. See [Link Lock Admin](https://support.titanhq.com/en/60363-link-lock-admin.html "Link Lock Admin").
+    -   _Link Lock Admin:_ Select YES to allow this administrator to enable and manage Link Lock. See Link Lock Admin.
 
         :::note
         Link Lock is an enhancement to SpamTitan and is available after the purchase of a SpamTitan Plus license.
@@ -48,9 +48,9 @@ After a customer account is added to SpamTitan, further setup steps must be comp
 
     ![ST-SK-all-customers-table-view.jpg](/docs-test/imported-assets/spamtitan-skellig/57004-adding-customers/8b9b22e8eb68.jpg)
 
-    Follow the steps in [SpamTitan Customer Setup](https://support.titanhq.com/en/55541-spamtitan-customer-setup.html "SpamTitan Customer Setup").
+    Follow the steps in SpamTitan Customer Setup.
 
--   _Customer Admin_: Once a customer is added to SpamTitan, the Customer Admin can log in at the customer level and follow the steps in [SpamTitan Customer Setup](https://support.titanhq.com/en/55541-spamtitan-customer-setup.html "SpamTitan Customer Setup").
+-   _Customer Admin_: Once a customer is added to SpamTitan, the Customer Admin can log in at the customer level and follow the steps in SpamTitan Customer Setup.
 
     -   Customer account credentials are input by an MSP Admin when a customer account is created. See [Adding your Customers](/docs-test/titanhq/products/spamtitan/docs/skellig-9/adding-customers/ "Adding Customers").
 

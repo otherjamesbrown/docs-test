@@ -32,9 +32,9 @@ The connector should already contain theses IPs:
 3.22.148.152
 
 If require instructions on how to set up a connector please find the relevant documentation linked below to assist you:
-[Locking Down Your Office 365 Mail Server](https://support.titanhq.com/en/59614-locking-down-your-office-365-mail-server.html)
+Locking Down Your Office 365 Mail Server
 
-[Ensuring Your Email is Not Marked as Spam in Office 365](https://support.titanhq.com/en/59681-ensuring-your-email-is-not-marked-as-spam-in-office-365.html)
+Ensuring Your Email is Not Marked as Spam in Office 365
 
 If you have any further queries please do open a ticket and we will be happy to help,
 

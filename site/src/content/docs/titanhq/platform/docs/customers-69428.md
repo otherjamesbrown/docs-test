@@ -63,7 +63,7 @@ The following columns are available:
 
 -   _Connection_: Indicates if a customer is connected to a Microsoft 365 account. The ![Plat-Microsoft-365-Indicator.jpg](/docs-test/imported-assets/titanhq-platform/69428-customers/9249643b6edc.jpg) label shows which customers are connected; the ![Plat-Add-Connection-Link.jpg](/docs-test/imported-assets/titanhq-platform/69428-customers/c8fb2e63e50a.jpg) link highlights those customers who are not.
 
-    Select the **Add connection** link to begin [Connecting and Configuring a Customer Account](https://support.titanhq.com/en/62543-connect-and-configure-a-customer-account.html "Connect and Configure a Customer Account").
+    Select the **Add connection** link to begin Connecting and Configuring a Customer Account.
 
 -   _Actions_: View and edit customer details.
 

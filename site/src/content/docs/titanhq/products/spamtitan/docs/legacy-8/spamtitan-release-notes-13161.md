@@ -214,7 +214,7 @@ _SpamTitan Gateway 8.00 - Released May, 2023._
 
 SpamTitan 8.00 is now available for Gateway customers, bringing an improvement in the underlying operating system to FreeBSD 13.1 as well as several bug fixes and security upgrades. SpamTitan Gateway 8.00 provides a stronger defense against evolving threats, ensuring the utmost protection for your critical data and communication channels.
 
-For existing SpamTitan Gateway customers, the 8.00 ISO can be used as part of an upgrade strategy. See [SpamTitan Gateway 7.13 to 8.00 Upgrade Path](https://docs.titanhq.com/en/63616-spamtitan-gateway-7-13-to-8-00-upgrade-path.html "SpamTitan Gateway 7.13 to 8.00 Upgrade Path").
+For existing SpamTitan Gateway customers, the 8.00 ISO can be used as part of an upgrade strategy. See SpamTitan Gateway 7.13 to 8.00 Upgrade Path.
 
 ![spamtitan-logo-small.jpg](/docs-test/imported-assets/spamtitan-legacy/13161-spamtitan-release-notes/ba6cca22d135.jpg)
 
@@ -222,7 +222,7 @@ For existing SpamTitan Gateway customers, the 8.00 ISO can be used as part of an
 
 _Hotfix (8.00.46), released September 2023_
 
-This hotfix introduces changes to how the anti-spoofing functionality works in SpamTitan, with the notable changes summarized below. For more information, see [Anti-Spoofing](https://docs.titanhq.com/en/66110-anti-spoofing.html "Anti-Spoofing").
+This hotfix introduces changes to how the anti-spoofing functionality works in SpamTitan, with the notable changes summarized below. For more information, see Anti-Spoofing.
 
 -   An additional test has been introduced for additional spoofing detection, ANTISPOOF\_EMAIL\_ADDRESS.
 
@@ -376,7 +376,7 @@ _Released December 2021_
 
     With Link Lock, links always remain rewritten, ensuring that if a malicious email is forwarded to other employees within your company, or to other firms with which you do business, those recipients are also protected. Links are checked in real-time once clicked.
 
-    SpamTitan allows you to exclude URLs from Link Lock by adding them to an allowed URLs list, which can be done at the global, domain and user levels. See [Link Lock](https://docs.titanhq.com/en/30209-link-lock.html) for more information.
+    SpamTitan allows you to exclude URLs from Link Lock by adding them to an allowed URLs list, which can be done at the global, domain and user levels. See Link Lock for more information.
 
     Link Lock is an enhancement to SpamTitan and is available after the purchase of a SpamTitan Plus license. If you wish to purchase a SpamTitan Plus license, please contact your Account Manager or email [sales@titanhq.com](mailto:sales@titanhq.com).
 
@@ -438,7 +438,7 @@ _Released September 2021_
 
 -   SpamTitan now includes Geoblocking, allowing you to restrict email based on a sender's geographic location. Our Geoblocking functionality enables you to define rules that allow you to restrict email from a selected country. It also allows exemptions to geoblocking rules in order to exclude mail based on a sender's IP, domain, or email address.
 
-    Geoblocking can be enabled or disabled at a global level and once enabled, it can be managed at the admin, domain group, domain, and user levels. See [Geoblocking](https://docs.titanhq.com/en/29111-geoblocking.html) for more information.
+    Geoblocking can be enabled or disabled at a global level and once enabled, it can be managed at the admin, domain group, domain, and user levels. See Geoblocking for more information.
 
 **What has been improved?**
 
@@ -454,7 +454,7 @@ _Released September 2021_
 
 -   Score filtering support has been added inside History and Quarantine API calls.
 
--   Domain verification is now available for a more secure experience, allowing you to verify domains with either a change to your MX records or by email. See [Domain Verification](https://docs.titanhq.com/en/29261-domain-verification.html) for steps to enable domain verification.
+-   Domain verification is now available for a more secure experience, allowing you to verify domains with either a change to your MX records or by email. See Domain Verification for steps to enable domain verification.
 
 **What has been fixed?**
 
@@ -534,13 +534,13 @@ SpamTitan 7.10 includes some new additions and improvements, but it is primarily
 
 **What's new?**
 
--   You can now view if users have Two-Factor Authentication enabled or not in **Anti-Spam Engine** > **User Policies**. This allows admins to easily view at a glance which users need to enable 2FA. See [Two-Factor Authentication](https://docs.titanhq.com/en/10744-two-factor-authentication.html "Two-Factor Authentication").
+-   You can now view if users have Two-Factor Authentication enabled or not in **Anti-Spam Engine** > **User Policies**. This allows admins to easily view at a glance which users need to enable 2FA. See Two-Factor Authentication.
 
     ![ST-user-policy-list\_censored.jpg](/docs-test/imported-assets/spamtitan-legacy/13161-spamtitan-release-notes/1dfc84e0c4ca.jpg)
 
--   Older versions of TLS can now be enabled or disabled separately in **Settings** > **TLS**. See [Enabling TLS](https://docs.titanhq.com/en/8986-enabling-tls.html "Enabling TLS").
+-   Older versions of TLS can now be enabled or disabled separately in **Settings** > **TLS**. See Enabling TLS.
 
--   Weak TLS ciphers can now be enabled or disabled in **Settings** > **TLS**. See [Enabling TLS](https://docs.titanhq.com/en/8986-enabling-tls.html "Enabling TLS").
+-   Weak TLS ciphers can now be enabled or disabled in **Settings** > **TLS**. See Enabling TLS.
 
 **What has been improved?**
 

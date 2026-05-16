@@ -20,6 +20,6 @@ Go to **Filtering** > **Link Lock** to enable and configure Link Lock.
 
 ## In this Section
 
--   [Enabling Link Lock](https://support.titanhq.com/en/60371-enabling-link-lock.html)
--   [Configuring Link Lock](https://support.titanhq.com/en/60372-configuring-link-lock.html)
--   [Adding Link Lock Exemptions](https://support.titanhq.com/en/60373-adding-link-lock-exemptions.html)
+-   Enabling Link Lock
+-   Configuring Link Lock
+-   Adding Link Lock Exemptions

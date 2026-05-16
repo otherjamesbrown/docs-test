@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   buildSourceLinkIndex,
   resolveMigratedSourceHref,
+  sourceDomainBodyLinks,
   unresolvedMigratedSourceLinks,
 } from '../../src/cli';
 
@@ -65,6 +66,24 @@ title: Example
 
     expect(unresolvedMigratedSourceLinks(content, sourceLinkIndex)).toEqual([
       'https://helpdesk.spamtitan.com/a/solutions/articles/4000186889',
+    ]);
+  });
+
+  it('flags any source-domain body link even when it was not migrated', () => {
+    const content = `---
+title: Example
+---
+
+> Source: [docs.titanhq.com](https://docs.titanhq.com/en/363-spamtitan-cloud-guide.html)
+
+[Quarantine Overview](https://docs.titanhq.com/en/1135-quarantine-overview.html)
+Bare URL: https://support.titanhq.com/en/65238-quarantine.html.
+[External](https://example.com)
+`;
+
+    expect(sourceDomainBodyLinks(content)).toEqual([
+      'https://docs.titanhq.com/en/1135-quarantine-overview.html',
+      'https://support.titanhq.com/en/65238-quarantine.html',
     ]);
   });
 });

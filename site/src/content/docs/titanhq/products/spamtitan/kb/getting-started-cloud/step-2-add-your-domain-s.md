@@ -52,7 +52,7 @@ Destination Port:
 25 is the default SMTP port. All mail servers use port 25 unless configured otherwise.
 
 :::caution[Important]
-To ensure your server can receive mail from SpamTitan, check that your firewall is open to receive SMTP traffic on Port 25 from [SpamTitan Cloud's IP addresses](https://helpdesk.spamtitan.com/a/solutions/articles/4000186932#UUID-e3a9d5a7-71a7-85e2-3a15-054bdff1e740).
+To ensure your server can receive mail from SpamTitan, check that your firewall is open to receive SMTP traffic on Port 25 from SpamTitan Cloud's IP addresses.
 :::
 
 Enable MX Lookup:
@@ -64,7 +64,7 @@ Allows you to use the MX records of a different domain to identify the destinati
 Allows SpamTitan Cloud servers to verify if a recipient address exists before sending them an email. If a user does not exist, it will block the email before reaching the mail server (default: No Recipient Verification).
 
 :::caution[Important]
-Set to Dynamic Recipient Verification if supported. For Dynamic Recipient Verification to work, your mail server must be configured to reject invalid addresses. See [What is Recipient Verification?](https://helpdesk.spamtitan.com/a/solutions/articles/4000186933#UUID-f213b641-8356-56cd-7030-8ed88449d791)
+Set to Dynamic Recipient Verification if supported. For Dynamic Recipient Verification to work, your mail server must be configured to reject invalid addresses. See What is Recipient Verification?
 :::
 
 **RBL Checks:**
@@ -73,8 +73,8 @@ This setting allows you to enable or disable Realtime Blackhole List (RBL) check
 
 **SPF Checks:**
 
-This setting allows you to enable or disable Sender Policy Framework (SPF) checks for this domain. The SPF test checks the SPF record of the sending domain to make sure the IP of the sender is allowed for the domain and if not, it rejects the mail. This test is effective at blocking spam, however, it can cause potential [false positives](https://helpdesk.spamtitan.com/a/solutions/articles/4000186908#UUID-559b5801-e4d0-cf90-4738-636d475d0ef8) due to improperly set up SPF records. It is recommended to enable with caution. Default is Yes.
+This setting allows you to enable or disable Sender Policy Framework (SPF) checks for this domain. The SPF test checks the SPF record of the sending domain to make sure the IP of the sender is allowed for the domain and if not, it rejects the mail. This test is effective at blocking spam, however, it can cause potential false positives due to improperly set up SPF records. It is recommended to enable with caution. Default is Yes.
 
 **Greylisting:**
 
-Allows you to enable or disable greylisting for this domain. Read more about greylisting [here](https://helpdesk.spamtitan.com/a/solutions/articles/4000186910#UUID-b0ebcce0-0c83-4b8d-0c00-7d0f9b8e9383). Default is Yes.
+Allows you to enable or disable greylisting for this domain. Read more about greylisting here. Default is Yes.

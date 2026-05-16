@@ -11,9 +11,9 @@ description: "Imported from helpdesk.spamtitan.com"
 
 ![](/docs-test/imported-assets/spamtitan-kb/4000186892/6116b5fe7424.jpg)
 
-Any domain that uses email has [MX records](https://helpdesk.spamtitan.com/a/solutions/articles/4000186913#UUID-ea6bc7b1-630c-caec-9d51-a51ed466fffd). The MX record lists the mail servers available to accept mail for that domain.
+Any domain that uses email has MX records. The MX record lists the mail servers available to accept mail for that domain.
 
-If you are a new customer whose account has just been created, you will be added to our latest servers listed here. If you are an existing customer, you may be using a different server. See [SpamTitan Cloud Server IP Addresses](https://helpdesk.spamtitan.com/a/solutions/articles/4000186932#UUID-e3a9d5a7-71a7-85e2-3a15-054bdff1e740) for a full list.
+If you are a new customer whose account has just been created, you will be added to our latest servers listed here. If you are an existing customer, you may be using a different server. See SpamTitan Cloud Server IP Addresses for a full list.
 
 -   cloud15.spamtitan.com
 

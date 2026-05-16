@@ -31,7 +31,7 @@ _**Note:** You can add a Group a Collection but you cannot add a Group to anothe
 -   Enter a create key of 50 characters or less. This will be used during Agent deployment and prevents the unauthorised creation of Accounts.
 -   Enter a storage limit for the Group, or set the amount to 0 to use the maximum storage available in the parent Collection.
 
-_**Note:** The sum of the storage limits of Groups in a Collection cannot exceed that Collection’s own storage limit. More information [here](https://helpdesk.redstor.com/support/solutions/articles/4000219787)._
+_**Note:** The sum of the storage limits of Groups in a Collection cannot exceed that Collection’s own storage limit. More information here._
 
 -   Specify the **Default Account Size** and **Location for New Accounts**.
 

@@ -45,7 +45,7 @@ To enable quarantine reports for your domain:
 
     Exclude spam mails scoring above:
 
-    Spam that scores above a certain threshold (usually 5) is deemed spam. In quarantine reports, users generally want to view email that just scored just above the spam score threshold so they can look for any [false positives](https://helpdesk.spamtitan.com/a/solutions/articles/4000186908#UUID-559b5801-e4d0-cf90-4738-636d475d0ef8).
+    Spam that scores above a certain threshold (usually 5) is deemed spam. In quarantine reports, users generally want to view email that just scored just above the spam score threshold so they can look for any false positives.
 
     If a user receives a significant amount of spam, exclude spam messages above a higher threshold, e.g. 30, to keep their quarantine report manageable.
 

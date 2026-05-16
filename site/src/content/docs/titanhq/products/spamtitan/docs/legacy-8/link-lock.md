@@ -22,6 +22,6 @@ Go to **Content Filtering** > **Link Lock** to enable and configure Link Lock.
 
 ## In this Section
 
--   [Enable Link Lock for a Domain](https://docs.titanhq.com/en/30223-enable-link-lock-for-a-domain.html)
--   [Enable Link Lock for a User](https://docs.titanhq.com/en/30224-enable-link-lock-for-a-user.html)
--   [Link Lock Allowed URLs](https://docs.titanhq.com/en/30225-link-lock-allowed-urls.html)
+-   Enable Link Lock for a Domain
+-   Enable Link Lock for a User
+-   Link Lock Allowed URLs

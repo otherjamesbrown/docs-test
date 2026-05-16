@@ -40,7 +40,7 @@ This release includes comprehensive UI and performance improvements, along with 
 
 -   **Additional DMARC IP Bypass Controls**: SpamTitan now allows MSPs, Customers and Domain administrators to bypass DMARC checks for specific IP addresses and networks, reducing support overhead and preventing legitimate emails from potentially being quarantined. MSPs can set bypasses that are inherited on the customers and domain level. Customers can set bypasses that are inherited by their domains.
 
--   **Microsoft Outlook Phishing/Junk Reporting Integration**: SpamTitan now supports integration with Microsoft Outlook's Report Phishing/Junk button. Users can configure their M365 add-in to forward reported messages to a dedicated mailbox (for example, report-email-cybersentriq@yourdomain.com). When messages are sent to this address and routed through SpamTitan, they are automatically captured and archived for further processing. See [Customizing the M365 Outlook Report Add-in](https://support.titanhq.com/en/77785-customizing-the-m365-outlook-report-add-in.html "Customizing the M365 Outlook Report Add-in") for details.
+-   **Microsoft Outlook Phishing/Junk Reporting Integration**: SpamTitan now supports integration with Microsoft Outlook's Report Phishing/Junk button. Users can configure their M365 add-in to forward reported messages to a dedicated mailbox (for example, report-email-cybersentriq@yourdomain.com). When messages are sent to this address and routed through SpamTitan, they are automatically captured and archived for further processing. See Customizing the M365 Outlook Report Add-in for details.
 
 **What Has Been Improved?**
 
@@ -456,7 +456,7 @@ With Skellig 9.03 we've significantly enhanced our anti-spam processing, resulti
 
 **What's New?**
 
--   A dark, light and system mode option has been added to the Profile menu to give a logged in user options for their interface appearance. See [Selecting Dark or Light Mode](https://support.titanhq.com/en/67174-selecting-dark-or-light-mode.html "Selecting Dark or Light Mode").
+-   A dark, light and system mode option has been added to the Profile menu to give a logged in user options for their interface appearance. See Selecting Dark or Light Mode.
 
 **What Has Been Improved?**
 
@@ -502,7 +502,7 @@ SpamTitan Skellig 9.02 sees the addition of IP allow and block list functionalit
 
 **What's New?**
 
--   An MSP Admin can now add allowed or blocked IPs to their Allow & Block List. See [Global Allow & Block List](https://support.titanhq.com/en/57311-global-allow---block-list.html).
+-   An MSP Admin can now add allowed or blocked IPs to their Allow & Block List. See Global Allow & Block List.
 
 -   The MSP and Customer Overview pages have been enhanced to include quick actions and a graph detailing mail processing over time.
 
@@ -514,7 +514,7 @@ SpamTitan Skellig 9.02 sees the addition of IP allow and block list functionalit
 
     -   In all other tables, select the view icon to see more about a selected item or the edit icon to make changes to an item.
 
--   Changes have been made to how anti-spoofing is implemented in SpamTitan, with the notable changes summarized below. For more information, see [Anti-Spoofing](https://support-staging.titanhq.com/en/66481-anti-spoofing.html).
+-   Changes have been made to how anti-spoofing is implemented in SpamTitan, with the notable changes summarized below. For more information, see Anti-Spoofing.
 
     -   An additional test has been introduced for additional spoofing detection, ANTISPOOF\_EMAIL\_ADDRESS.
 
@@ -572,9 +572,9 @@ We're delighted to announce the release of SpamTitan Skellig 9.01. This release 
 
 **What's New?**
 
--   Both History and Quarantine functionality is now available at the MSP level, removing unnecessary navigation and allowing an MSP admin to view and act on all their customer mail without switching levels. See [History](https://support.titanhq.com/en/65236-history.html) and [Quarantine](https://support.titanhq.com/en/65238-quarantine.html).
+-   Both History and Quarantine functionality is now available at the MSP level, removing unnecessary navigation and allowing an MSP admin to view and act on all their customer mail without switching levels. See History and Quarantine.
 
--   Pattern Filtering is now available the MSP level, simplifying administration for an MSP admin by allowing them to ensure their customers are secure from one location. See [Pattern Filtering](https://support.titanhq.com/en/65243-pattern-filtering.html).
+-   Pattern Filtering is now available the MSP level, simplifying administration for an MSP admin by allowing them to ensure their customers are secure from one location. See Pattern Filtering.
 
 -   Link Lock inheritance behavior has changed with this release. Customers, domains and users now inherit Link Lock settings from their MSP level. This simplifies administration for an MSP admin, as it is no longer necessary to drill down to individual customers and domains to make Link Lock setting changes.
 
@@ -688,9 +688,9 @@ Following on from the launch of the new SpamTitan interface with our initial Ske
 
 **What's New?**
 
--   **Pattern Filtering** is now available at the Customer and Domain levels. You can create single or multi pattern filters, allowing you to block or allow emails based on filter rules. For more information, see [Pattern Filtering](https://support.titanhq.com/en/61395-pattern-filtering.html).
+-   **Pattern Filtering** is now available at the Customer and Domain levels. You can create single or multi pattern filters, allowing you to block or allow emails based on filter rules. For more information, see Pattern Filtering.
 
--   You now have the ability to test connectivity to a domain you have added by **sending a test email**. This ensures your mail server is accepting email from SpamTitan before continuing with the remaining configuration. See [Test Connectivity to your Mail Server](https://support.titanhq.com/en/61798-test-connectivity-to-your-mail-server.html).
+-   You now have the ability to test connectivity to a domain you have added by **sending a test email**. This ensures your mail server is accepting email from SpamTitan before continuing with the remaining configuration. See Test Connectivity to your Mail Server.
 
 -   You can now use the **Message View** tab in Quarantine or History to view an email as it looks in a user's inbox.
 

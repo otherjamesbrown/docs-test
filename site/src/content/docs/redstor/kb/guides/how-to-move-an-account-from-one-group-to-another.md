@@ -27,6 +27,6 @@ This article describes how to move a Backup Account from one Group on the Storag
 
 **_Notes:_**
 
--   _An Account cannot be moved into a Group if doing so will cause that Group's storage limit to be exceeded. See [Article 1025](https://helpdesk.redstor.com/support/solutions/articles/4000219787) for more on Group storage limits._
+-   _An Account cannot be moved into a Group if doing so will cause that Group's storage limit to be exceeded. See Article 1025 for more on Group storage limits._
 -   _If you move an Account from a Group that is configured for mirroring to a Group that is not configured for mirroring, the Account will be deleted from the MirrorServer after the retention period has elapsed (default: 24 hours)._
 -   _If you move an Account from a Group on a StorageServer that is configured for mirroring to a Group on another StorageServer that is configured for mirroring, the Account will be moved between MirrorServers automatically. No manual MirrorServer configuration is necessary._

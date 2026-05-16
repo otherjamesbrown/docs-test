@@ -46,7 +46,7 @@ Once you submit this request, a support ticket will automatically be created and
 
 -   _It is not currently possible to attach files, such as screenshots, in RIA itself. To add files to your support ticket, simply reply to the ticket confirmation email that you will receive, attaching the files._
 -   _You can log a ticket at any point in a conversation with RIA by clicking on the option **Get more help**, which appears after each response._
--   __If you are unable to sign into the RedApp, you can log a ticket using the Support Portal. To create a user profile, follow the steps in [Article 1625](https://helpdesk.redstor.com/support/solutions/articles/4000221347).__
+-   __If you are unable to sign into the RedApp, you can log a ticket using the Support Portal. To create a user profile, follow the steps in Article 1625.__
 
 ![get\_more\_help.png](/docs-test/imported-assets/redstor/4000219748/c8f5090023ad.jpg)
 
@@ -60,7 +60,7 @@ Once you submit this request, a support ticket will automatically be created and
 
 4\. Any available details:
 
--   For machine issues, please attach the latest [logs](https://helpdesk.redstor.com/support/solutions/articles/4000219839).
+-   For machine issues, please attach the latest logs.
 -   For cloud services, include as many as possible of the following:
     -   the RedApp URL from the moment when the problem occurred
     -   the object name (e.g. account name)

@@ -83,7 +83,7 @@ Watch our video or follow the steps below.
 
 ![](/docs-test/imported-assets/redstor/4000219764/b0a25315b013.png)
 
-2\. To add a new backup set, go to **Google Workspace** in the sidebar on the left. If you do not see Google Workspace listed, you will need to [add it as a product](https://helpdesk.redstor.com/support/solutions/articles/4000219989).
+2\. To add a new backup set, go to **Google Workspace** in the sidebar on the left. If you do not see Google Workspace listed, you will need to add it as a product.
 
 ![](/docs-test/imported-assets/redstor/4000219764/26642177256d.png)
 
@@ -163,7 +163,7 @@ The new number of users selected will show under **Backup selection** on the bac
 
 ![](/docs-test/imported-assets/redstor/4000219764/908ce6d313dd.png)
 
-_**Note:** Accounts that have been removed from the backup selection are still retained on the Storage Platform until you request that they be permanently deleted. Read more [here](https://helpdesk.redstor.com/support/solutions/articles/4000219881)._
+_**Note:** Accounts that have been removed from the backup selection are still retained on the Storage Platform until you request that they be permanently deleted. Read more here._
 
 ## How to configure the backup schedule for a backup set
 
@@ -270,7 +270,7 @@ Run the application on the machine where you want to recover the data. Select be
 
 ## How to delete a backup set
 
-_**Note:** This will delete all backed-up data for this backup set. This can only be [undone](https://helpdesk.redstor.com/support/solutions/articles/4000219880) within the first 336 hours (approximately 14 days) after deletion. To request an undelete, please [log a ticket](https://helpdesk.redstor.com/support/tickets/new) with our support team._
+_**Note:** This will delete all backed-up data for this backup set. This can only be undone within the first 336 hours (approximately 14 days) after deletion. To request an undelete, please [log a ticket](https://helpdesk.redstor.com/support/tickets/new) with our support team._
 
 1\. On the home page for the backup set, click on the menu icon at the top right and go to **Remove**._[](https://helpdesk.redstor.com/support/tickets/new)_
 

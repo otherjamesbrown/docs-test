@@ -11,11 +11,11 @@ description: "Imported from helpdesk.redstor.com"
 
 This article contains a collection of errors that are commonly encountered in backing up and recovering Azure Virtual Machines and Azure Blob Storage. Use the Suggested action column to assist in troubleshooting.
 
-_**Note:** If you are looking for information about the known issue where Azure VM files are not available for recovery with InstantData, see [Article 1557](https://helpdesk.redstor.com/support/solutions/articles/4000220035)._
+_**Note:** If you are looking for information about the known issue where Azure VM files are not available for recovery with InstantData, see Article 1557._
 
--   For a guide to backing up and recovering Azure VMs, see [Article 1372](https://helpdesk.redstor.com/support/solutions/articles/4000219779).
--   For a guide to backing up and recovering Azure Blob Storage, see [Article 1470](https://helpdesk.redstor.com/support/solutions/articles/4000219819).
--   For more general information, see [Article 1526 - Azure backup and recovery: frequently asked questions](https://helpdesk.redstor.com/support/solutions/articles/4000219820).
+-   For a guide to backing up and recovering Azure VMs, see Article 1372.
+-   For a guide to backing up and recovering Azure Blob Storage, see Article 1470.
+-   For more general information, see Article 1526 - Azure backup and recovery: frequently asked questions.
 
 ### **Common Azure errors**
 
@@ -29,7 +29,7 @@ Adding a VM or storage account resource fails with error "**Could not deploy app
 
 `Could not deploy appliance Code: Authorization_RequestDenied Message: insufficient privileges to complete the operation.`
 
-Check the Azure subscription permissions on the Azure user account. In your Azure subscription, your account must have Microsoft.Authorization/\*/Write access to assign a role to an Active Directory app. This action is granted through either the Owner role or the User Access Administrator role. See [Article 1412](https://helpdesk.redstor.com/support/solutions/articles/4000220178) for help with assigning roles in Azure.
+Check the Azure subscription permissions on the Azure user account. In your Azure subscription, your account must have Microsoft.Authorization/\*/Write access to assign a role to an Active Directory app. This action is granted through either the Owner role or the User Access Administrator role. See Article 1412 for help with assigning roles in Azure.
 
 Adding a VM fails with error "**group capacity limit reached**"
 
@@ -41,7 +41,7 @@ Adding a VM fails with error "**does not have authorization to perform action**"
 
  `Exception while executing function: AddMachines The client 'x' with object id 'y' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/ read' over scope '/subscriptions/z' or the scope is invalid. If access was recently granted, please refresh your credentials.`
 
-Ensure that your Azure service principal has all three of the following roles: Disk Snapshot Contributor, Network Contributor and Virtual Machine Contributor. See [Article 1412](https://helpdesk.redstor.com/support/solutions/articles/4000220178) for help with assigning roles in Azure.
+Ensure that your Azure service principal has all three of the following roles: Disk Snapshot Contributor, Network Contributor and Virtual Machine Contributor. See Article 1412 for help with assigning roles in Azure.
 
 Restoring (reverting) a VM fails with error "**does not have permission to perform action on the linked scope(s)**"
 
@@ -59,10 +59,10 @@ Attempting to recover with InstantData leads to error "**Response status code do
 
 `Could not start InstantDataTemporary: Response status code does not indicate success: 404 (WebLaunch session``xxxx-xxxxxxx is invalid or has timed``out.).`
 
-See [Article 1581](https://helpdesk.redstor.com/support/solutions/articles/4000220355).
+See Article 1581.
 
 VM backup shows error "**Could not detect file-system on volume**"
 
 `Could not detect file-system on volume 'xxx-xxxxx-xxxxxxxxxxxxxx'`
 
-This error is shown when the file-system that is being backed up forms part of a disk configuration that we do not support and therefore cannot detect. Systems that are not natively supported include unmanaged disks (such as Azure Blob Storage, Azure Files, and Azure Queue Storage), as well as Azure Virtual Desktop (AVD). Read more in [Article 1372](https://helpdesk.redstor.com/support/solutions/articles/4000219779-1372-how-to-manage-your-azure-vm-backups#What-is-supported?).
+This error is shown when the file-system that is being backed up forms part of a disk configuration that we do not support and therefore cannot detect. Systems that are not natively supported include unmanaged disks (such as Azure Blob Storage, Azure Files, and Azure Queue Storage), as well as Azure Virtual Desktop (AVD). Read more in Article 1372.

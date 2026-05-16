@@ -20,6 +20,6 @@ Take a look at [Getting Started with SpamTitan Cloud](/docs-test/titanhq/product
 
 ## In this Section
 
--   [Who is the SpamTitan Cloud Guide for?](https://docs.titanhq.com/en/372-who-is-the-spamtitan-cloud-guide-for-.html)
--   [SpamTitan Cloud Features](https://docs.titanhq.com/en/29362-spamtitan-cloud-features.html)
--   [Need help?](https://docs.titanhq.com/en/2357-need-help-.html)
+-   Who is the SpamTitan Cloud Guide for?
+-   SpamTitan Cloud Features
+-   Need help?

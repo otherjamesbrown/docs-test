@@ -12,4 +12,4 @@ description: "Imported from support.titanhq.com"
 ## In this Section
 
 -   [MSP Settings](/docs-test/titanhq/platform/docs/msp-settings/)
--   [Customer Settings](https://support.titanhq.com/en/69416-customer-settings.html)
+-   Customer Settings

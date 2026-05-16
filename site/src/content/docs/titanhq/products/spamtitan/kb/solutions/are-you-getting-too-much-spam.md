@@ -29,17 +29,17 @@ Before looking at the types of spam you are receiving, please ensure that the fo
     psbl.surriel.com
     truncate.gbudb.net**
 
-    See [Managing Realtime Blackhole Lists](https://docs.titanhq.com/en/8913-managing-realtime-blackhole-lists.html).
+    See Managing Realtime Blackhole Lists.
 
-    Ensure Botnet Analysis is enabled. See [Botnet Analysis](https://docs.titanhq.com/en/8961-botnet-analysis.html).
+    Ensure Botnet Analysis is enabled. See Botnet Analysis.
 
-    Ensure Network Testing is enabled. See [Network Testing](https://docs.titanhq.com/en/8956-network-testing.html).
+    Ensure Network Testing is enabled. See Network Testing.
 
     Accurate DNS responses are essential for SpamTitan to maintain a good spam catch rate. Because of the high volume of DNS requests that originate from free/open DNS, test providers will not respond to DNS requests from these servers.
 
     Therefore, do not configure SpamTitan to use free/open DNS servers such as 8.8.8.8. Use your own DNS server, if possible, to ensure you are getting accurate responses. If you do not have your own DNS server, consider using your ISP’s DNS server if applicable.
 
-    Run the test [outlined here](https://docs.titanhq.com/en/8884-recommended-additional-configuration.html) to see if you are being blocked.
+    Run the test outlined here to see if you are being blocked.
 
 Once you have verified the tests above are enabled or operational, take a look at the different types of spam listed below and the options you have to reduce them.
 
@@ -51,11 +51,11 @@ Spoofed email can arrive in many forms. Which best describes the spoofed mails y
 
 To prevent this, enable SPF and DMARC.
 
-See [Enabling & Configuring DMARC](https://docs.titanhq.com/en/8933-enabling-and-configuring-dmarc-in-spamtitan.html) and also [SPF Settings](https://docs.titanhq.com/en/8929-spf-settings.html).
+See Enabling & Configuring DMARC and also SPF Settings.
 
 -   _The names of users in my organisation are being spoofed:_
 
-See [AntiSpoofing](https://docs.titanhq.com/en/9009-anti-spoofing.html).
+See AntiSpoofing.
 
 **Malicious links**
 
@@ -63,11 +63,11 @@ If you ran the test in step 3 above and got a positive result, but you are still
 
 **Malicious Attachments**
 
-1.  Go to **Reporting** > **System Information** > **Services** and check that both Clam and Bitdefender are running. See [Available Services](https://docs.titanhq.com/en/9856-available-services.htm).
-2.  Enable sandboxing. See [Sandboxing](https://docs.titanhq.com/en/8946-sandboxing-in-spamtitan-gateway.html).
+1.  Go to **Reporting** > **System Information** > **Services** and check that both Clam and Bitdefender are running. See Available Services.
+2.  Enable sandboxing. See Sandboxing.
 3.  Enable Google Safebrowsing Database in your Clam AV settings.
-4.  Use third party databases. See [Configuring Clam AV Settings](https://docs.titanhq.com/en/8943-configuring-clam-av-settings.html).
-5.  Use banned attachments if uncommon files. See [Configuring Attachment Filters](https://docs.titanhq.com/en/8950-configuring-attachment-filters.html).
+4.  Use third party databases. See Configuring Clam AV Settings.
+5.  Use banned attachments if uncommon files. See Configuring Attachment Filters.
 
 If you are still receiving malicious attachments after changing these settings, submit a ticket to Support and attach the original emails you are receiving.
 
@@ -79,6 +79,6 @@ Submit a ticket to [Support](http://helpdesk.spamtitan.com/) and request that ad
 
 1.  If you have checked the three tests at the top of this page and are still receiving a high level of spam that does not match the types listed here, consider the following actions:
 
-    -   If the spam you are receiving is scoring high, but not high enough to block, consider tuning your spam score. See [Editing a Domain Policy](https://docs.titanhq.com/en/8966-editing-a-domain-policy.html) and [Editing a User Policy](https://docs.titanhq.com/en/8969-adding,-editing-and-deleting-user-policies.html).
+    -   If the spam you are receiving is scoring high, but not high enough to block, consider tuning your spam score. See Editing a Domain Policy and Editing a User Policy.
 
     -   Open a ticket on our [support portal](https://helpdesk.spamtitan.com/) and our Support Engineers will help investigate your email further.

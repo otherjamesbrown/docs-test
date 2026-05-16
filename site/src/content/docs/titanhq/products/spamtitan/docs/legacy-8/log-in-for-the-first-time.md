@@ -18,7 +18,7 @@ If two-factor authentication (2FA) is enabled, you must also enter a code genera
 
 After you sign in you will be asked to select a role. Make sure you choose Domain Group Administrator.
 
-After signing in for the first time you should change your password. Do this by going to **Settings** > **[Change Password](https://docs.titanhq.com/en/2478-changing-your-spamtitan-password.html "Changing your SpamTitan Password")**.
+After signing in for the first time you should change your password. Do this by going to **Settings** > **Change Password**.
 
 :::note
 **Are you a Domain Administrator?**
@@ -27,5 +27,5 @@ If you are signing in as a Domain Administrator for the first time, contact your
 
 The Domain Group Administrator can provide you with a specific URL to access SpamTitan Cloud after completing the [initial login steps](/docs-test/titanhq/products/spamtitan/docs/legacy-8/getting-started-with-spamtitan-cloud/ "Getting Started with SpamTitan Cloud").
 
-The first time you access this URL, follow the [Forgot your Password?](https://docs.titanhq.com/en/5972-forgot-your-password-.html "Forgot your password?") steps to reset your password.
+The first time you access this URL, follow the Forgot your Password? steps to reset your password.
 :::

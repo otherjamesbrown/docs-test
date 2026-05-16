@@ -154,6 +154,6 @@ The ports must be unique, and must not clash with any existing services. Ensure 
 
 _**Note:** Antivirus, malware prevention or instrusion prevention software and network-based systems can sometimes intercept and/or block connections between the client software and the Redstor Platform. This includes all of the software listed above. This can even manifest as a "failed to establish SSL/TLS trust relationship" error._
 
-_To avoid this, it is recommended to apply the exclusions and also to whitelist the IP addresses used by the service you are connecting to. Details of the Redstor Platform can be found [here](https://helpdesk.redstor.com/support/solutions/articles/4000219785)._
+_To avoid this, it is recommended to apply the exclusions and also to whitelist the IP addresses used by the service you are connecting to. Details of the Redstor Platform can be found here._
 
-_Please also note that cipher and protocol security is enforced on the Redstor Platform, which may cause connectivity issues. Further details can be found [here](https://helpdesk.redstor.com/support/solutions/articles/4000220477)._
+_Please also note that cipher and protocol security is enforced on the Redstor Platform, which may cause connectivity issues. Further details can be found here._

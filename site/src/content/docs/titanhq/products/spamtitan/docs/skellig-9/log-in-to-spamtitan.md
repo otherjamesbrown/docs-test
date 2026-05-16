@@ -22,4 +22,4 @@ When you log in, you will see the **Overview** page.
 
 ## In this Section
 
--   [Forgot your Password?](https://support.titanhq.com/en/55581-forgot-your-password-.html)
+-   Forgot your Password?

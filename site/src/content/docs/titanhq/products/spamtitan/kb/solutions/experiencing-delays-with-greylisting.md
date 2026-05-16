@@ -43,4 +43,4 @@ Reducing the greylisting mail delay setting increases your risk of receiving spa
 Also, mail delays _may_ not improve by reducing this setting, as it is the decision of the sending mail server to resend a mail after it has been deferred by greylisting.
 :::
 
-For documentation on this and other greylisting settings, see [Greylisting Settings](https://docs.titanhq.com/en/8924-greylisting-settings.html).
+For documentation on this and other greylisting settings, see Greylisting Settings.

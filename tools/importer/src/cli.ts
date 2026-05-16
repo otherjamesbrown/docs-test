@@ -703,8 +703,12 @@ async function rewriteAssetsAndLinks(
       if (internal) {
         $(element).attr('href', internal);
       } else {
-        $(element).attr('href', absolute);
-        if (sourceLinkKey(absolute)) warnings.push(`Unresolved source-domain link: ${absolute}`);
+        if (sourceLinkKey(absolute)) {
+          warnings.push(`Unresolved source-domain link: ${absolute}`);
+          $(element).replaceWith($(element).text());
+        } else {
+          $(element).attr('href', absolute);
+        }
       }
     } catch {
       warnings.push(`Could not normalise link: ${href}`);
@@ -748,6 +752,9 @@ async function runQa() {
     }
     for (const link of unresolvedMigratedSourceLinks(content, sourceLinkIndex)) {
       failures.push(`${path.relative(repoRoot, file)} contains unresolved migrated source link "${link}"`);
+    }
+    for (const link of sourceDomainBodyLinks(content)) {
+      failures.push(`${path.relative(repoRoot, file)} contains source-domain body link "${link}"`);
     }
   }
   if (failures.length > 0) {
@@ -901,17 +908,30 @@ export function resolveMigratedSourceHref(href: string, sourceLinkIndex: SourceL
 }
 
 export function unresolvedMigratedSourceLinks(content: string, sourceLinkIndex: SourceLinkIndex): string[] {
+  const unresolved = new Set<string>();
+  for (const href of sourceDomainBodyLinks(content)) {
+    if (resolveMigratedSourceHref(href, sourceLinkIndex)) unresolved.add(href);
+  }
+  return [...unresolved].sort();
+}
+
+export function sourceDomainBodyLinks(content: string): string[] {
   const body = stripFrontmatter(content)
     .split('\n')
     .filter((line) => !line.startsWith('> Source:'))
     .join('\n');
-  const unresolved = new Set<string>();
+  const links = new Set<string>();
   const linkPattern = /\[[^\]]+\]\(([^\s)]+)(?:\s+["'][^"']+["'])?\)/g;
   for (const match of body.matchAll(linkPattern)) {
     const href = match[1];
-    if (href && resolveMigratedSourceHref(href, sourceLinkIndex)) unresolved.add(href);
+    if (href && sourceLinkKey(href)) links.add(href);
   }
-  return [...unresolved].sort();
+  const bareUrlPattern = /https?:\/\/[^\s)"'<>]+/g;
+  for (const match of body.matchAll(bareUrlPattern)) {
+    const href = match[0].replace(/[.,;:!?]+$/, '');
+    if (sourceLinkKey(href)) links.add(href);
+  }
+  return [...links].sort();
 }
 
 async function buildSourceLinkIndexFromGeneratedFiles(files: string[]): Promise<SourceLinkIndex> {

@@ -23,11 +23,11 @@ If you have any feedback or comments on this documentation, please email [docs@t
 -   [Welcome to SpamTitan Cloud](/docs-test/titanhq/products/spamtitan/docs/legacy-8/welcome-to-spamtitan-cloud/)
 -   [Getting Started with SpamTitan Cloud](/docs-test/titanhq/products/spamtitan/docs/legacy-8/getting-started-with-spamtitan-cloud/)
 -   [SpamTitan Cloud Setup](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-cloud-setup/)
--   [Content Filtering](https://docs.titanhq.com/en/30221-content-filtering.html)
--   [Anti-Spam Engine](https://docs.titanhq.com/en/678-anti-spam-engine.html)
--   [Changing your Settings](https://docs.titanhq.com/en/887-changing-your-settings.html)
--   [Filter Rules](https://docs.titanhq.com/en/1007-filter-rules.html)
--   [Quarantine Overview](https://docs.titanhq.com/en/1135-quarantine-overview.html)
--   [Reporting Overview](https://docs.titanhq.com/en/1138-reporting-overview.html)
--   [Useful Links and Info.](https://docs.titanhq.com/en/1414-useful-links-and-info-.html)
--   [Glossary](https://docs.titanhq.com/en/658-glossary.html)
+-   Content Filtering
+-   Anti-Spam Engine
+-   Changing your Settings
+-   Filter Rules
+-   Quarantine Overview
+-   Reporting Overview
+-   Useful Links and Info.
+-   Glossary

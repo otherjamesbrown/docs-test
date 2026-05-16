@@ -52,9 +52,9 @@ Typically, a business-level Customer Admin who is managing one, or many, domains
 
 -   Drill down into a domain and have the same view as a Domain Admin for that domain.
 
-[Customer Getting Started Steps](https://support.titanhq.com/en/55541-spamtitan-customer-setup.html "SpamTitan Customer Setup")
+Customer Getting Started Steps
 
-[Customer Admin Guide](https://support.titanhq.com/en/55544-spamtitan-customer-admin-guide.html "SpamTitan Customer Admin Guide")
+Customer Admin Guide
 
 **Domain**
 
@@ -64,7 +64,7 @@ A Domain Admin has access to manage a single domain. A Domain Admin has:
 
 -   Admin access to their own domain only.
 
-[Managing a Single Domain](https://support.titanhq.com/en/55545-managing-a-single-domain.html "Managing a Single Domain")
+Managing a Single Domain
 
 We are continuously improving our documentation as products are updated, so please check back regularly. If you have any feedback or comments specific to this documentation, please email [docs@titanhq.com](<mailto:docs@titanhq.com?subject=WebTitan Errigal Documentation Feedback>).
 
@@ -72,4 +72,4 @@ We are continuously improving our documentation as products are updated, so plea
 
 -   [SpamTitan Levels of Access](/docs-test/titanhq/products/spamtitan/docs/skellig-9/welcome-to-spamtitan/)
 -   [Navigating Levels in SpamTitan](/docs-test/titanhq/products/spamtitan/docs/skellig-9/navigating-levels-in-spamtitan/)
--   [Selecting Dark or Light Mode](https://support.titanhq.com/en/67174-selecting-dark-or-light-mode.html)
+-   Selecting Dark or Light Mode

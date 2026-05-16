@@ -27,7 +27,7 @@ Before you can do can recover to Azure, you will need an Azure Mobility licence.
 
 To recover a machine, you will need to have done at least one Full System Backup (FSB) of the machine.
 
--   If you are using the RedApp, follow [these steps](https://helpdesk.redstor.com/support/solutions/articles/4000219860) to deploy an agent for the machine you want to back up. Ensure that **Full System Backup** is switched on. Run a backup as soon as the agent has been installed.
+-   If you are using the RedApp, follow these steps to deploy an agent for the machine you want to back up. Ensure that **Full System Backup** is switched on. Run a backup as soon as the agent has been installed.
 -   If you already have a desktop ESE Agent on the machine, switch on **Full System Backup** above the file explorer, then click **Backup**.
     _**Note:** When enabling FSB on an Azure Virtual Machine with a temporary disk, we recommend excluding the temporary disk from the backup selection. Read more [here](https://docs.microsoft.com/en-gb/azure/virtual-machines/managed-disks-overview?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json#temporary-disk)._
 
@@ -43,7 +43,7 @@ You will need the following:
     -   We also use the Storage Account's Azure region and resource group for creating the new VM.
 -   A **[virtual network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)** for the machine to run on (which can connect to the internet), and a **virtual network [subnet](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet)** - these are needed to connect out to the Storage Platform during the recovery, and for virtual machine connectivity when the recovery is completed
 
-For guidance on how to set these up, see [Article 1508](https://helpdesk.redstor.com/support/solutions/articles/4000220026).
+For guidance on how to set these up, see Article 1508.
 
 ## How to recover to Azure from the RedApp
 
@@ -64,7 +64,7 @@ Watch our video or follow the steps below.
 
 7.  To allow the recovery to proceed, sign into your Microsoft Azure account and accept the permissions.
 
-    _**Note:** If you get a warning "This app may be risky", follow the workaround steps [here](https://helpdesk.redstor.com/support/solutions/articles/4000220168)._
+    _**Note:** If you get a warning "This app may be risky", follow the workaround steps here._
 
 8.  Provide the specifications for the virtual machine that will be created, then click **Next**.
 

@@ -11,7 +11,7 @@ description: "Imported from helpdesk.redstor.com"
 
 ### **Symptom**
 
-When [adding users](https://helpdesk.redstor.com/support/solutions/articles/4000220009) to the RedApp, the invitations are not sent and the following error is displayed:
+When adding users to the RedApp, the invitations are not sent and the following error is displayed:
 
 "User invitations failed. The sign-on provider selected has been denied by the company."
 
