@@ -17,6 +17,10 @@ export default defineConfig({
       editLink: {
         baseUrl: 'https://github.com/otherjamesbrown/docs-test/edit/main/site/',
       },
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 4,
+      },
       sidebar: [
         {
           label: 'Redstor',

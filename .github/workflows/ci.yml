@@ -19,3 +19,4 @@ jobs:
       - run: npm test
       - run: npm run import:qa
       - run: npm run site:build
+      - run: npm run site:qa
