@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 export default defineConfig({
+  site: 'https://otherjamesbrown.github.io',
+  base: '/docs-test',
   integrations: [
     starlight({
       title: 'Docs Platform POC',
@@ -58,4 +60,3 @@ export default defineConfig({
     }),
   ],
 });
-
