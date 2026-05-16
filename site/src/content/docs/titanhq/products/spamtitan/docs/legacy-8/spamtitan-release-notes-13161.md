@@ -272,9 +272,9 @@ _Released April, 2022_
 
 SpamTitan 7.13 increases your organization's security in a number of ways. Our SpamTitan Plus service gets new reporting and block-page features, while you now have the option of additional protection against phishing attacks through URL direction. SpamTitan anti-spoof security has also been enhanced with additional tests to help protect against impersonation. On top of this, we include numerous other improvements and fixes to different areas of the SpamTitan application.
 
-### Note
-
+:::note
 Link Lock is an enhancement to SpamTitan and is available after the purchase of a SpamTitan Plus license. If you wish to purchase a SpamTitan Plus license, please contact your Account Manager or email [sales@titanhq.com](mailto:sales@titanhq.com).
+:::
 
 **What's new?**
 

@@ -23,8 +23,7 @@ For SpamTitan Cloud servers to accept email for a domain and filter it, that dom
 
 Once a domain is added, click the test button ![](/docs-test/imported-assets/spamtitan-kb/4000186888/1d6f3f2c36e2.jpg) in the Options column to validate it.
 
-### Tip
-
+:::tip
 The **Import** button allows you to bulk import domains from a .csv file. The .csv file must contain the following fields:
 
 -   Domain Name
@@ -32,6 +31,7 @@ The **Import** button allows you to bulk import domains from a .csv file. The .c
 -   Destination Mail Server:Port
 
 -   Recipient Verification type (none/dynamic/LDAP)
+:::
 
 ### Domain Settings
 
@@ -51,9 +51,9 @@ Destination Port:
 
 25 is the default SMTP port. All mail servers use port 25 unless configured otherwise.
 
-### Important
-
+:::caution[Important]
 To ensure your server can receive mail from SpamTitan, check that your firewall is open to receive SMTP traffic on Port 25 from [SpamTitan Cloud's IP addresses](https://helpdesk.spamtitan.com/a/solutions/articles/4000186932#UUID-e3a9d5a7-71a7-85e2-3a15-054bdff1e740).
+:::
 
 Enable MX Lookup:
 
@@ -63,9 +63,9 @@ Allows you to use the MX records of a different domain to identify the destinati
 
 Allows SpamTitan Cloud servers to verify if a recipient address exists before sending them an email. If a user does not exist, it will block the email before reaching the mail server (default: No Recipient Verification).
 
-### Important
-
+:::caution[Important]
 Set to Dynamic Recipient Verification if supported. For Dynamic Recipient Verification to work, your mail server must be configured to reject invalid addresses. See [What is Recipient Verification?](https://helpdesk.spamtitan.com/a/solutions/articles/4000186933#UUID-f213b641-8356-56cd-7030-8ed88449d791)
+:::
 
 **RBL Checks:**
 

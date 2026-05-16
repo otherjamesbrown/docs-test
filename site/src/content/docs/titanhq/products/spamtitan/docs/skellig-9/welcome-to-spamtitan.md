@@ -14,9 +14,9 @@ Welcome to the home for **SpamTitan Skellig (9.00+)** product documentation.
 
 ![Skellig-small.jpg](/docs-test/imported-assets/spamtitan-skellig/56985-welcome-to-spamtitan-/0ed95947e2a1.jpg)
 
-### Note
-
+:::note
 If you are using SpamTitan (**8.00** or earlier), jump over to our [SpamTitan Cloud and Gateway product documentation](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-overview/).
+:::
 
 ### SpamTitan Levels of Access
 

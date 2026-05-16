@@ -9,7 +9,9 @@ description: "Imported from helpdesk.redstor.com"
 > Source folder: Guides
 > Modified: Modified on Tue, 28 Apr at 8:19 AM
 
+:::note
 _If you're looking for a [backup solution](https://www.redstor.com/products/google-workspace-backup/) for Google Workspace (GWS), formerly known as G Suite (gsuite), you can find more information on our website, or start a free trial [here](https://app.redstor.com/sign-up)._
+:::
 
 **PAGE CONTENTS**
 

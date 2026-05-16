@@ -53,9 +53,9 @@ Select the edit ![edit-icon.jpg](/docs-test/imported-assets/titanhq-platform/694
 
     -   _Email_: Enter an email address for this administrator.
 
-        ### Warning
-
+        :::caution[Warning]
         The same email address cannot be used for an MSP admin _and_ a Customer admin.
+        :::
 
     -   _Password_: Enter a password for this administrator. Passwords must be a minimum of 12 characters (max. 72) and include one lower case character, one upper case character, a number and a special character. Select the password icon to display the password and ensure you enter the same password in both fields.
 

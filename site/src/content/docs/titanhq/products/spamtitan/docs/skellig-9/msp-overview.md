@@ -34,9 +34,9 @@ Select and unselect the labels to add and remove an item from the graph:
 
 ![ST-SK-processed-messages-options.jpg](/docs-test/imported-assets/spamtitan-skellig/60060-msp-overview/d0a48862b310.jpg)
 
-### Note
-
+:::note
 Allowed IP emails are categorized under "Clean Messages".
+:::
 
 **All Customers** is a list of all your customer accounts. Select the column ![column-icon.jpg](/docs-test/imported-assets/spamtitan-skellig/60060-msp-overview/264f4fd45b19.jpg) icon to display the All Customers table column names. Slide each on and off to view or hide a column.
 

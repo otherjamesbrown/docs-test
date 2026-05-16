@@ -13,11 +13,11 @@ Following best security practice, you should lock down your email server to only
 
 If you are an Office 365 customer, see [Locking down your Office 365 mail server](https://helpdesk.spamtitan.com/a/solutions/articles/4000186898#UUID-0572793a-3179-4568-9eb0-a3214230d5f3).
 
-### Important
-
+:::caution[Important]
 The IP addresses below are for new SpamTitan Cloud customers completing their initial setup.
 
 If you are an existing customer, you may be using different IP addresses. See [SpamTitan Cloud Server IP Addresses](https://helpdesk.spamtitan.com/a/solutions/articles/4000186932#UUID-e3a9d5a7-71a7-85e2-3a15-054bdff1e740) for more information.
+:::
 
 Set up your email server to only accept mail from the following [FQDN](https://helpdesk.spamtitan.com/a/solutions/articles/4000186909#UUID-eba93e97-daef-28fa-9be6-cbbbbc733d79) IP addresses:
 

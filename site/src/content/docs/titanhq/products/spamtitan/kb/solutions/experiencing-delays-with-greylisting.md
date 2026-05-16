@@ -21,9 +21,9 @@ Greylisting temporarily rejects all email and requires the sending server to sen
 
 While greylisting is highly effective at blocking spam it comes at the cost of mail being delayed by 5 to 10 minutes, depending on the sending server.
 
-### Note
-
+:::note
 Mail delays are expected when greylisting is enabled.
+:::
 
 ### Greylisting Settings: Reducing Mail Delay
 
@@ -37,10 +37,10 @@ You can decrease the mail delay setting to reduce the possibility of mail delay 
 
 4.  Select **Save**.
 
-### Warning
-
+:::caution[Warning]
 Reducing the greylisting mail delay setting increases your risk of receiving spam.
 
 Also, mail delays _may_ not improve by reducing this setting, as it is the decision of the sending mail server to resend a mail after it has been deferred by greylisting.
+:::
 
 For documentation on this and other greylisting settings, see [Greylisting Settings](https://docs.titanhq.com/en/8924-greylisting-settings.html).

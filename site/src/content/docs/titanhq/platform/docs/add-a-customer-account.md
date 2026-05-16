@@ -27,8 +27,8 @@ Follow the steps below to add a customer account.
 
 6.  Select **Save Customer** and your customer appears in the All Customers table.
 
-    ### Note
-
+    :::note
     After a customer account has been added, it must be connected to Microsoft 365 and the necessary configuration completed. See [Connect and Configure a Customer Account](https://support.titanhq.com/en/62543-connect-and-configure-a-customer-account.html "Connect and Configure a Customer Account") for details.
+    :::
 
 It is not required to add a customer administrator for a customer account. However, you can do so at the customer level from **Settings** > **Administrators**. See [Adding a Customer Administrator](https://support.titanhq.com/en/75801-customer-administrators.html#UUID-f9ddb95f-5f56-95f7-8144-e298d14bc971_UUID-fe4a1ff0-59b9-d113-453c-e34343cc6885 "Add a Customer Administrator").

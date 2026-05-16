@@ -18,9 +18,9 @@ Email addresses, domains and IPs (MSP level) can be allowed and blocked by being
 
 -   **IP Allowing (MSP level only)**: Spam filtering, virus filtering, banned attachments filtering and SPF checks are not performed on IPs that are on the allow list. However, RBL checks and greylisting is still applied.
 
-    ### Warning
-
+    :::caution[Warning]
     Allowed IPs bypass settings put in place for your security. Ensure an IP is trusted and details are correct _before_ adding to your allow list.
+    :::
 
 -   **Domain & Email Allowing**: Spam filtering is not performed for domains or email addresses that are on the allow list. However, RBL, SPF, greylisting, virus checking and attachment scanning are still applied.
 
@@ -102,9 +102,9 @@ Go to **Filtering** > **Allow & Block List** and follow the steps below to add a
 
 Go to **Filtering** > **Allow & Block List** and follow the steps below to add an allowed or blocked IP.
 
-### Caution
-
+:::caution
 Allowed IPs can bypass settings put in place for your security. Ensure any IP you add as an allowed IP is trusted and details are correct before adding.
+:::
 
 1.  Select the **IPs** tab.
 
@@ -120,9 +120,9 @@ Allowed IPs can bypass settings put in place for your security. Ensure any IP yo
 
             -   _IP Network_: An individual IP address or network range to be allowed or blocked.
 
-                ### Caution
-
+                :::caution
                 Allowed IPs can bypass settings put in place for your security. Ensure any IP you add as an allowed IP is trusted and details are correct before adding.
+                :::
 
             -   _Netmask_: Select the netmask for the specified IP address. Individual IPv4 addresses have a /32 (255.255.255.255) netmask.
 

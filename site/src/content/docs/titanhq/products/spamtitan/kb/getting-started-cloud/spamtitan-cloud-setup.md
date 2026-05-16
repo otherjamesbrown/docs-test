@@ -35,8 +35,8 @@ Follow these steps to complete your SpamTitan Cloud setup:
 
 6.  [Change your MX records.](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/step-6-change-your-mx-records/ "Step 6: Change Your MX Records")
 
-    ### Important
-
+    :::caution[Important]
     After changing your MX records, it is recommended you verify email flow through SpamTitan to your mail server **before** proceeding to the next setup step to lock down your mail server.
+    :::
 
 7.  [Lock down your mail server](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/step-7-lock-down-your-mail-server/ "Step 7: Lock Down Your Mail Server") (includes specific instructions for Office 365 users).

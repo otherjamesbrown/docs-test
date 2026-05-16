@@ -18,9 +18,9 @@ description: "Imported from support.titanhq.com"
 
 3.  Next, add the Customer Administrator details:
 
-    ### Tip
-
+    :::tip
     Additional administrators can be added at the customer level from **Settings** > **Administrators**.
+    :::
 
     -   _First Name:_ Enter the first name of this administrator.
 
@@ -30,9 +30,9 @@ description: "Imported from support.titanhq.com"
 
     -   _Link Lock Admin:_ Select YES to allow this administrator to enable and manage Link Lock. See [Link Lock Admin](https://support.titanhq.com/en/60363-link-lock-admin.html "Link Lock Admin").
 
-        ### Note
-
+        :::note
         Link Lock is an enhancement to SpamTitan and is available after the purchase of a SpamTitan Plus license.
+        :::
 
     -   _Password:_ Enter a password for this administrator.
 

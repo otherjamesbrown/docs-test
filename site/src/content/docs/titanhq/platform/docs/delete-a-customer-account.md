@@ -11,11 +11,11 @@ description: "Imported from support.titanhq.com"
 
 Follow the steps below to delete a customer account.
 
-### Note
-
+:::note
 If your customer has Email Security enabled, you must first remove the journaling rule and NDR email address from their Azure tenant. Failure to do this will impact your customer's mail flow.
 
 See [Removing an Email Security Account](https://support.titanhq.com/en/70452-removing-an-email-security-account.html "Removing an Email Security Account") for details.
+:::
 
 1.  Go to **Customers** and find the customer you want to delete in the All Customers table.
 

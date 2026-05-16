@@ -41,17 +41,17 @@ Rewrite mails with DKIM signature
 
 Allow Link Lock to rewrite emails with a DKIM signature.
 
-### Important
-
+:::caution[Important]
 Checking this option invalidates DKIM signatures, which may affect scoring on other mail systems.
+:::
 
 Check redirected URLs
 
 Select to allow Link Lock to follow redirected URLs (up to a max. of 5). This protects against a legitimate URL redirecting to a malicious URL.
 
-### Note
-
+:::note
 Selecting this option may affect system performance.
+:::
 
 **Block Page Settings**
 

@@ -40,9 +40,9 @@ Frequency:
 
 Select how often you want to check for updates - hourly, daily or weekly (default: daily).
 
-### Note
-
+:::note
 Imported updates are not installed automatically. They are listed in the Available Updates table below and must be manually installed.
+:::
 
 Administrator Email Address:
 
@@ -56,6 +56,6 @@ Lists all updates that have been applied.
 
 This table lists update packages with version numbers higher than the current system version. To install an unapplied update, click on its install link.
 
-### Note
-
+:::note
 Update packages must be applied in order, so installing a package also installs any unapplied lower-numbered packages if necessary.
+:::

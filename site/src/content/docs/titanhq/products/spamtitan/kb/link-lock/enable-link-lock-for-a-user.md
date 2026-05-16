@@ -25,8 +25,8 @@ Follow the steps below to enable Link Lock for a user.
 
 4.  Select **Rewrite links in DKIM signed mails** to allow Link Lock to write emails with a DKIM signature for this user.
 
-    ### Important
-
+    :::caution[Important]
     Checking this option invalidates DKIM signatures, which may affect scoring on other mail systems.
+    :::
 
 5.  Click **Apply**.

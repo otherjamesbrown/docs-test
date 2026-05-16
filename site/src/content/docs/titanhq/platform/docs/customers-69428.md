@@ -33,9 +33,9 @@ Select the column ![ES-Column-Reorder-icon.jpg](/docs-test/imported-assets/titan
 
 -   Resize columns by hovering your cursor over the column boundary you want to adjust until it becomes a resize ![ES-Resize-Cursor.jpg](/docs-test/imported-assets/titanhq-platform/69428-customers/3b077003c7a7.jpg) cursor. Drag the boundary until the column is the width you want.
 
-### Note
-
+:::note
 Note that any changes you make here will remain, even if you leave the page.
+:::
 
 The following columns are available:
 

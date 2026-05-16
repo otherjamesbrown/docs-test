@@ -58,9 +58,31 @@ const turndown = new TurndownService({
   bulletListMarker: '-',
 });
 
+const paligoAdmonitionTypes = new Map([
+  ['note', 'note'],
+  ['tip', 'tip'],
+  ['important', 'caution'],
+  ['warning', 'caution'],
+  ['caution', 'caution'],
+]);
+
 turndown.addRule('strikethrough', {
   filter: ['del', 's', 'strike'],
   replacement: (content) => `~~${content}~~`,
+});
+
+turndown.addRule('starlightAside', {
+  filter: (node) =>
+    node.nodeName === 'DIV' &&
+    Boolean((node as unknown as { getAttribute?: (name: string) => string | null }).getAttribute?.('data-import-admonition')),
+  replacement: (content, node) => {
+    const element = node as unknown as { getAttribute?: (name: string) => string | null };
+    const type = element.getAttribute?.('data-import-admonition') ?? 'note';
+    const title = element.getAttribute?.('data-import-admonition-title');
+    const label = title && title.toLowerCase() !== type ? `[${title.replace(/\]/g, '\\]')}]` : '';
+    const body = content.trim();
+    return body ? `\n\n:::${type}${label}\n${body}\n:::\n\n` : '';
+  },
 });
 
 const redstorFolders = [
@@ -618,6 +640,7 @@ function cleanupBody($: cheerio.CheerioAPI, body: cheerio.Cheerio<unknown>) {
   body.find('script, style, noscript, form, button, iframe').remove();
   body.find('.print--remove, .solution-print--icon, .article-vote, #vote-feedback-container').remove();
   body.find('.footer-content, footer, .breadcrumb-container, .section-toc').remove();
+  preservePaligoAdmonitions($, body);
   body.find('[style]').removeAttr('style');
   body.find('[class]').removeAttr('class');
   body.find('[data-origin-id], [data-publication-date], [data-permalink], [data-topic-level], [data-relative-prefix]').removeAttr(
@@ -627,6 +650,28 @@ function cleanupBody($: cheerio.CheerioAPI, body: cheerio.Cheerio<unknown>) {
     const text = cleanText($(element).text());
     if (!text) $(element).remove();
   });
+}
+
+function preservePaligoAdmonitions($: cheerio.CheerioAPI, body: cheerio.Cheerio<unknown>) {
+  body.find('div.note, div.tip, div.important, div.warning, div.caution').each((_, element) => {
+    const classes = ($(element).attr('class') ?? '').split(/\s+/);
+    const sourceType = classes.find((name) => paligoAdmonitionTypes.has(name));
+    if (!sourceType) return;
+
+    const type = paligoAdmonitionTypes.get(sourceType) ?? 'note';
+    const wrapper = $(element);
+    const title = cleanText(wrapper.children('h1.title, h2.title, h3.title, h4.title, h5.title, h6.title').first().text());
+    wrapper.attr('data-import-admonition', type);
+    if (title) wrapper.attr('data-import-admonition-title', title);
+    wrapper.children('h1.title, h2.title, h3.title, h4.title, h5.title, h6.title').first().remove();
+  });
+}
+
+export function htmlFragmentToMarkdown(html: string): string {
+  const $ = cheerio.load(`<main>${html}</main>`, { xmlMode: false });
+  const body = $('main');
+  cleanupBody($, body);
+  return normaliseMarkdown(turndown.turndown(body.html() ?? ''));
 }
 
 async function rewriteAssetsAndLinks(

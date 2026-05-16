@@ -24,8 +24,8 @@ Please read the guidelines below before updating your SpamTitan Gateway or SpamT
 
 -   Do not cancel an update - allow it to finish. If an update is canceled in error, please contact Support if you experience any issues. Take particular note of any errors that appear in the update pop up window and take a screenshot to assist with troubleshooting.
 
-    ### Caution
-
+    :::caution
     While an update is running a pop-up window shows the status of the update. DO NOT CLOSE this pop-up window until the update completes, or the update stops running.
+    :::
 
 -   Each update takes approximately five minutes to complete, with no requirement to restart.

@@ -21,19 +21,19 @@ If you are a new customer whose account has just been created, you will be added
 
 Using two MX records of equal priority allows for fail-over and redundancy.
 
-### Important
-
+:::caution[Important]
 After changing your MX records, it is recommended you verify email flow through SpamTitan to your mail server **before** proceeding to the next setup step, Lock Down Your Mail Server.
+:::
 
 See below for additional information on changing MX records for different common mail services.
 
 ### Changing MX Records on Common Mail Services
 
-### Note
-
+:::note
 The instructions below are for tools that are not owned or managed by TitanHQ and are only intended as a guideline to help you. As such, the information may be subject to change without us knowing.
 
 If you notice anything incorrect, please email _[docs@titanhq.com](mailto:docs@titanhq.com)_ and let us know.
+:::
 
 #### Yahoo MX Records
 
@@ -79,11 +79,11 @@ Log in to the cPanel administrative console and follow the steps below to set up
 
 5.  To add MX records for the additional servers, repeat the steps above for those servers. Assign backup servers a lower priority than the primary email server.
 
-### Tip
-
+:::tip
 Some cPanel servers require an MX record containing the hostname of the cPanel server for mail routing and/or authentication. If, after changing your MX records, you have issues with mail being rejected due to "too many hops" or authentication issues, add a third MX record with a priority of 100 containing the hostname of your cPanel server.
 
 If you add a third record, you may need to lock down your cPanel server to only accept mail from the SpamTitan server.
+:::
 
 #### Setup HostGator MX Records
 

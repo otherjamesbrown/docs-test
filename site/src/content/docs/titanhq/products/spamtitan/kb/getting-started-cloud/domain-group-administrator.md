@@ -13,6 +13,6 @@ SpamTitan Cloud customers are given a Domain Group Administrator account on setu
 
 The Domain Group Administrator performs the [SpamTitan Cloud setup](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/spamtitan-cloud-setup/ "SpamTitan Cloud Setup"), which includes adding one or more domains and delegating control of each domain to a Domain Administrator.
 
-### Note
-
+:::note
 The Domain Group Administrator can assign themselves as Domain Administrator to one or more domains. The Domain Group Administrator account is not typically used for day-to-day administration, this is generally the role of the Domain Administrator.
+:::
