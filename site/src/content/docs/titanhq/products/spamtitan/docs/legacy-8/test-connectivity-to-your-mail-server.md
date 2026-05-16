@@ -13,7 +13,7 @@ description: "Imported from docs.titanhq.com"
 Once a domain has been added, test to make sure your mail server will accept email from SpamTitan Cloud. While logged into SpamTitan Cloud as Domain Group Administrator, follow these steps:
 
 1.  Go to **Settings** > **Relay Settings** and click the check icon ![ST-701-test-button.jpg](/docs-test/imported-assets/spamtitan-legacy/485-test-connectivity-to-your-mail-server/1d6f3f2c36e2.jpg) in the Options column for the domain you want to test.
-    
+
 2.  In the Send Test Email dialog box, enter a valid email address and click **Send**.
-    
+
 3.  Verify the email has been delivered to the specified email address.

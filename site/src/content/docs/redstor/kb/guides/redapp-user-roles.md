@@ -11,8 +11,6 @@ description: "Imported from helpdesk.redstor.com"
 
 When creating a new user on the RedApp, you can assign that user access and permissions relating to certain companies (customers) and/or products. Note that the term "companies" in the RedApp also includes other types of customer organisations, such as schools.
 
-  
-
 Depending on what you give a user access to, they will have one of the following roles:
 
 -   **Partner Admin:** can manage all companies (including their own, e.g. creating other partner users) and products assigned to them
@@ -23,11 +21,7 @@ Depending on what you give a user access to, they will have one of the following
 -   **Product User:** can manage one product assigned to their company
 -   **Product ViewOnly:** can view one product assigned to their company
 
-  
-
 A summary of the various roles can be seen in the table below.
-
-  
 
 Action
 
@@ -77,7 +71,7 @@ No
 
 No
 
-Edit users 
+Edit users
 
 Yes
 
@@ -157,7 +151,7 @@ No
 
 No
 
-Remove products 
+Remove products
 
 Yes
 
@@ -189,7 +183,7 @@ No
 
 No
 
-Edit partner 
+Edit partner
 
 Yes
 
@@ -493,7 +487,7 @@ Yes
 
 No
 
-Delete data 
+Delete data
 
 Yes
 
@@ -525,7 +519,7 @@ Yes
 
 No
 
-Manage suspicious files 
+Manage suspicious files
 
 Yes
 
@@ -797,7 +791,7 @@ No
 
 No
 
-View RedApp integrations\*\*\* 
+View RedApp integrations\*\*\*
 
 Yes
 
@@ -813,7 +807,7 @@ No
 
 No
 
-Edit RedApp integrations 
+Edit RedApp integrations
 
 Yes
 
@@ -829,7 +823,7 @@ No
 
 No
 
-Remove RedApp integrations 
+Remove RedApp integrations
 
 Yes
 
@@ -845,7 +839,7 @@ No
 
 No
 
-Add RedApp integrations 
+Add RedApp integrations
 
 Yes
 
@@ -957,120 +951,120 @@ No
 
 No
 
-View exported key state  
+View exported key state
 
-Yes  
-
-No  
-
-Yes  
-
-No  
-
-No  
-
-No  
-
-No  
-
-Export encryption keys  
-
-Yes  
+Yes
 
 No
 
-Yes  
+Yes
 
-No  
+No
 
-No  
+No
 
-No  
+No
 
-No  
+No
 
-View scheduled reports  
+Export encryption keys
 
-Yes  
+Yes
 
-No  
+No
 
-Yes  
+Yes
 
-No  
+No
 
-No  
+No
 
-No  
+No
 
-No  
+No
 
-Schedule reports  
+View scheduled reports
 
-Yes  
+Yes
 
-No  
+No
 
-Yes  
+Yes
 
-No  
+No
 
-No  
+No
 
-No  
+No
 
-No  
+No
 
-Edit report schedules  
+Schedule reports
 
-Yes  
+Yes
 
-No  
+No
 
-Yes  
+Yes
 
-No  
+No
 
-No  
+No
 
-No  
+No
 
-No  
+No
 
-Remove scheduled reports  
+Edit report schedules
 
-Yes  
+Yes
 
-No  
+No
 
-Yes  
+Yes
 
-No  
+No
 
-No  
+No
 
-No  
+No
 
-No  
+No
 
-View report templates  
+Remove scheduled reports
 
-Yes  
+Yes
 
-No  
+No
 
-Yes  
+Yes
 
-No  
+No
 
-No  
+No
 
-No  
+No
 
-No  
+No
+
+View report templates
+
+Yes
+
+No
+
+Yes
+
+No
+
+No
+
+No
+
+No
 
 \*Direct customers only
 
 \*\*This action currently refers to the company's Microsoft 365 retention policy.
 
-\*\*\*Current integration options include the [RedAPI](https://helpdesk.redstor.com/support/solutions/articles/4000219746), [ConnectWise](https://helpdesk.redstor.com/support/solutions/articles/4000219982), and [Backup Radar](https://helpdesk.redstor.com/support/solutions/articles/4000220217).
+\*\*\*Current integration options include the [RedAPI](/docs-test/redstor/kb/guides/how-to-use-the-redapi/), [ConnectWise](https://helpdesk.redstor.com/support/solutions/articles/4000219982), and [Backup Radar](https://helpdesk.redstor.com/support/solutions/articles/4000220217).

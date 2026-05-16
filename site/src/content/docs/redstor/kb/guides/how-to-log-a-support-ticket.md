@@ -11,8 +11,6 @@ description: "Imported from helpdesk.redstor.com"
 
 If you are experiencing a serious technical issue and need to get in touch with Redstor’s support team, you can log a ticket with us by following the steps below.
 
-  
-
 Be sure to check our [Service Status board](https://redtribe.redstor.com/service-status) for updates on possible outages or disruptions.
 
 **PAGE CONTENTS**
@@ -22,41 +20,27 @@ Be sure to check our [Service Status board](https://redtribe.redstor.com/service
 -   [What to include in a support ticket](#What-to-include-in-a-support-ticket)
 -   [Frequently asked questions](#Frequently-asked-questions)
 
-  
-
 ### **How to log a ticket from the Support Portal**
 
 To log a support ticket, click on **Submit a ticket** from anywhere on the Support Portal. If you do not yet have a Support Portal user, you will be asked to sign up. ![](/docs-test/imported-assets/redstor/4000219748/47943e42e606.png)
-
-  
 
 ### **How to log a ticket in the RedApp**
 
 To log a support ticket, sign into the [RedApp](https://app.redstor.com/) and log a ticket through Redstor Instant Assistance (RIA). To do this:
 
-  
-
 1\. Click on the sparkle icon at the top right of the RedApp interface.
 
 ![ria\_icon.png](/docs-test/imported-assets/redstor/4000219748/3e3720119567.jpg)
-
-  
 
 2\. Enter a message such as "I need to log a support ticket".
 
 ![ticket\_message.png](/docs-test/imported-assets/redstor/4000219748/ebfb76ec3638.jpg)
 
-  
-
-3\. Follow the prompts to add a subject, select your region, etc. 
+3\. Follow the prompts to add a subject, select your region, etc.
 
 ![ria\_ticket\_form.png](/docs-test/imported-assets/redstor/4000219748/60c72dd9d86a.jpg)
 
-  
-
 Once you submit this request, a support ticket will automatically be created and you will receive a ticket confirmation email with a ticket number you can track.
-
-  
 
 **_Note:_**
 
@@ -64,13 +48,7 @@ Once you submit this request, a support ticket will automatically be created and
 -   _You can log a ticket at any point in a conversation with RIA by clicking on the option **Get more help**, which appears after each response._
 -   __If you are unable to sign into the RedApp, you can log a ticket using the Support Portal. To create a user profile, follow the steps in [Article 1625](https://helpdesk.redstor.com/support/solutions/articles/4000221347).__
 
-  
-
 ![get\_more\_help.png](/docs-test/imported-assets/redstor/4000219748/c8f5090023ad.jpg)
-
-  
-
-  
 
 ### **What to include in a support ticket**
 
@@ -91,7 +69,7 @@ Once you submit this request, a support ticket will automatically be created and
 
 ### **Frequently asked questions**
 
-**When will my enquiry be addressed?** 
+**When will my enquiry be addressed?**
 
 Please see our [Support and Service Level Agreement](https://www.redstor.com/support-and-service-level-agreement/).
 

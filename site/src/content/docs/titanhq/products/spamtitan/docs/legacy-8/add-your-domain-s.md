@@ -13,26 +13,24 @@ description: "Imported from docs.titanhq.com"
 For SpamTitan Cloud servers to accept email for a domain and filter it, that domain must initially be added to SpamTitan Cloud. Follow these steps to add a domain:
 
 1.  Go to **Settings** > **Relay Settings** and click **Add**.  The Add Domain window opens:
-    
+
     ![Add Domain window settings](/docs-test/imported-assets/spamtitan-legacy/475-add-your-domain-s-/392385a1c5ea.jpg)
-    
+
 2.  Using the Domain Settings table below as a reference, complete the fields in the Add Domain window.
-    
+
 3.  Click **Save**.
-    
 
 Once a domain is added, click the test button ![ST-701-test-button.jpg](/docs-test/imported-assets/spamtitan-legacy/475-add-your-domain-s-/1d6f3f2c36e2.jpg) in the Options column to validate it.
 
 ### Tip
 
-The **Import** button allows you to bulk import domains from a .csv file. The .csv file must contain the following fields: 
+The **Import** button allows you to bulk import domains from a .csv file. The .csv file must contain the following fields:
 
 -   Domain Name
-    
+
 -   Destination Mail Server:Port
-    
+
 -   Recipient Verification type (none/dynamic/LDAP)
-    
 
 ##### Domain Settings
 

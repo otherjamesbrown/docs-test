@@ -19,21 +19,17 @@ Our Azure Mobility service automatically creates a virtual machine in Azure and 
 -   [How to recover to Azure from the RedApp](#How-to-recover-to-Azure-from-the-RedApp)
 -   [Post-recovery Windows RDP](#Post-recovery-Windows-RDP)
 
-  
-
 ## Requirements
 
 ### **Redstor requirements**
 
-Before you can do can recover to Azure, you will need an Azure Mobility licence. 
+Before you can do can recover to Azure, you will need an Azure Mobility licence.
 
 To recover a machine, you will need to have done at least one Full System Backup (FSB) of the machine.
 
 -   If you are using the RedApp, follow [these steps](https://helpdesk.redstor.com/support/solutions/articles/4000219860) to deploy an agent for the machine you want to back up. Ensure that **Full System Backup** is switched on. Run a backup as soon as the agent has been installed.
--   If you already have a desktop ESE Agent on the machine, switch on **Full System Backup** above the file explorer, then click **Backup**.  
+-   If you already have a desktop ESE Agent on the machine, switch on **Full System Backup** above the file explorer, then click **Backup**.
     _**Note:** When enabling FSB on an Azure Virtual Machine with a temporary disk, we recommend excluding the temporary disk from the backup selection. Read more [here](https://docs.microsoft.com/en-gb/azure/virtual-machines/managed-disks-overview?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json#temporary-disk)._
-
-  
 
 ### **Azure requirements**
 
@@ -53,39 +49,31 @@ For guidance on how to set these up, see [Article 1508](https://helpdesk.redstor
 
 Watch our video or follow the steps below.
 
-1.  Go to the **Machines** section in the sidebar.  
-      
-    
-2.  Drill down to the machine you want to recover.  
-      
-    
-3.  On the machine's main page, click on the menu icon and go to **Recover > Recover full system**.  
-      
-    
-4.  Provide the encryption key for the account and click **Next**.  
-      
-    
-5.  Select the backup you want to recover from the drop-down menu. Click **Next** to continue, or open **Advanced settings** to configure the disk volumes first.  
-    **_Note_**_: Tick **Disable backup service** if the original machine is still running an active backup account._  
-      
-    
-6.  If desired, configure the disk volume sizes and selection. Click **Next**.  
-      
-    
-7.  To allow the recovery to proceed, sign into your Microsoft Azure account and accept the permissions.  
-      
-    _**Note:** If you get a warning "This app may be risky", follow the workaround steps [here](https://helpdesk.redstor.com/support/solutions/articles/4000220168)._  
-      
-    
-8.  Provide the specifications for the virtual machine that will be created, then click **Next**.  
-      
-    _**Note:** If you see an error "This field must be a valid DNS name" when entering the storage container name, this is because the container name must be lower case or number characters only (e.g. "test1", not "Test1" or "test 1").  
+1.  Go to the **Machines** section in the sidebar.
+
+2.  Drill down to the machine you want to recover.
+
+3.  On the machine's main page, click on the menu icon and go to **Recover > Recover full system**.
+
+4.  Provide the encryption key for the account and click **Next**.
+
+5.  Select the backup you want to recover from the drop-down menu. Click **Next** to continue, or open **Advanced settings** to configure the disk volumes first.
+    **_Note_**_: Tick **Disable backup service** if the original machine is still running an active backup account._
+
+6.  If desired, configure the disk volume sizes and selection. Click **Next**.
+
+7.  To allow the recovery to proceed, sign into your Microsoft Azure account and accept the permissions.
+
+    _**Note:** If you get a warning "This app may be risky", follow the workaround steps [here](https://helpdesk.redstor.com/support/solutions/articles/4000220168)._
+
+8.  Provide the specifications for the virtual machine that will be created, then click **Next**.
+
+    _**Note:** If you see an error "This field must be a valid DNS name" when entering the storage container name, this is because the container name must be lower case or number characters only (e.g. "test1", not "Test1" or "test 1").
     _
-9.  Confirm the VM details and click **Recover**.  
-    
-10.  Your recovery will now be queued. You can monitor the progress of your recovery from the machine's main page.  
-       
-     
+9.  Confirm the VM details and click **Recover**.
+
+10.  Your recovery will now be queued. You can monitor the progress of your recovery from the machine's main page.
+
 11.  When the recovery completes, the newly created virtual machine will be stopped. Restart it from the Azure portal to access your data.
 
 ## Post-recovery Windows RDP

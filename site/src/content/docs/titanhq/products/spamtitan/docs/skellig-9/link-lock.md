@@ -14,6 +14,6 @@ Link Lock provides protection against phishing, business email compromise, and z
 
 With Link Lock, links always remain rewritten, even if an email is forwarded. Links are checked in real-time once clicked. SpamTitan allows you to exclude URLs from Link Lock by adding them to an allowed URLs list, which can be done at the MSP, customer and domain levels.
 
-Once a SpamTitan Plus license is in place, an MSP and can enable or disable Link Lock at the MSP level (default: _disabled_). Once enabled, Link Lock can also be managed at the customer and domain levels. Each level can apply its own Link Lock settings, with settings being inherited from a higher level by default. If applied, a lower level setting supersedes a higher level setting. See [SpamTitan Levels of Access](https://support.titanhq.com/en/56985-welcome-to-spamtitan-.html#UUID-9b86e1bd-6d98-8ffc-6375-f06980d100af_UUID-d5fbb009-8517-9451-08cb-4a0d22505446 "SpamTitan Levels of Access").
+Once a SpamTitan Plus license is in place, an MSP and can enable or disable Link Lock at the MSP level (default: _disabled_). Once enabled, Link Lock can also be managed at the customer and domain levels. Each level can apply its own Link Lock settings, with settings being inherited from a higher level by default. If applied, a lower level setting supersedes a higher level setting. See [SpamTitan Levels of Access](/docs-test/titanhq/products/spamtitan/docs/skellig-9/welcome-to-spamtitan/ "SpamTitan Levels of Access").
 
 Go to **Filtering** > **Link Lock** to enable and configure Link Lock.

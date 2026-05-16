@@ -13,16 +13,15 @@ description: "Imported from helpdesk.redstor.com"
 
 1\. In the Storage Platform Console, open the **Account Management** view in the left-hand pane and expand the Storage Platform node.
 
-2\. Click the name of the Collection within which you want to create a new Collection, then click the **Add** button on the toolbar (or use **right-click > Add Group or Collection**). 
+2\. Click the name of the Collection within which you want to create a new Collection, then click the **Add** button on the toolbar (or use **right-click > Add Group or Collection**).
 
 ![addcollection\_add.PNG](/docs-test/imported-assets/redstor/4000219750/58aa99784d2b.jpg)
 
-  
 3\. In the dialog box that appears, select **Backup Collection**.
 
 ![backupcollection.PNG](/docs-test/imported-assets/redstor/4000219750/c38f57f51763.jpg)
 
-4\. Create a name for the Collection. (Note that most special characters are not supported.) Enter a storage limit for the Collection, or set the amount to 0 to use the maximum storage available in the parent Collection. 
+4\. Create a name for the Collection. (Note that most special characters are not supported.) Enter a storage limit for the Collection, or set the amount to 0 to use the maximum storage available in the parent Collection.
 
 ![addnewcollection.PNG](/docs-test/imported-assets/redstor/4000219750/a971723f5abc.jpg)
 
@@ -40,8 +39,7 @@ Make sure the **InstantData** box is ticked and click **OK**.
 
 _**Note:** To view the number of licences a specific Collection has assigned to it, click the Collection's name and then the **Licencing** tab in the workspace to the right. The **Remaining** column shows the number of licences that are still available._
 
-![collection\_licences.PNG](/docs-test/imported-assets/redstor/4000219750/20b1a3ddb02e.jpg)    
-  
+![collection\_licences.PNG](/docs-test/imported-assets/redstor/4000219750/20b1a3ddb02e.jpg)
 
 ### **How to delete a Collection**
 

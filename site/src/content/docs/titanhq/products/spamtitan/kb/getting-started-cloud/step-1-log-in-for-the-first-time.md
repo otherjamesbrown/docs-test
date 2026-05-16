@@ -27,6 +27,6 @@ After signing in for the first time you should change your password. Do this by 
 
 If you are signing in as a Domain Administrator for the first time, contact your Domain Group Administrator to request your sign-in credentials.
 
-The Domain Group Administrator can provide you with a specific URL to access SpamTitan Cloud after completing the [initial login steps](https://helpdesk.spamtitan.com/a/solutions/articles/4000186894 "Getting Started with SpamTitan Cloud").
+The Domain Group Administrator can provide you with a specific URL to access SpamTitan Cloud after completing the [initial login steps](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/getting-started-with-spamtitan-cloud/ "Getting Started with SpamTitan Cloud").
 
 The first time you access this URL, follow the [Forgot your Password?](https://helpdesk.spamtitan.com/a/solutions/articles/4000186957#UUID-3132bb29-57bc-624d-4e47-cf1f996a7a82) steps to reset your password.

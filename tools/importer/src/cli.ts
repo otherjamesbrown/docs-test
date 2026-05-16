@@ -2,6 +2,7 @@ import * as cheerio from 'cheerio';
 import crypto from 'node:crypto';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import TurndownService from 'turndown';
 import YAML from 'yaml';
 import { slugify } from './shared/slug';
@@ -100,13 +101,13 @@ const spamtitanFolders = [
     folder: 'Getting Started: SpamTitan Cloud',
     sourceUrl: 'https://helpdesk.spamtitan.com/support/solutions/folders/4000037714',
     routeBase: 'titanhq/products/spamtitan/kb/getting-started-cloud',
-    limit: 5,
+    limit: 20,
   },
   {
     folder: 'Link Lock',
     sourceUrl: 'https://helpdesk.spamtitan.com/support/solutions/folders/4000037715',
     routeBase: 'titanhq/products/spamtitan/kb/link-lock',
-    limit: 5,
+    limit: 20,
   },
 ];
 
@@ -377,14 +378,15 @@ async function convertAll(pages: PageCandidate[]) {
     warnings: [],
   };
   const linkMap: Record<string, string> = {};
+  const sourceLinkIndex = buildSourceLinkIndex(pages);
 
   for (const page of pages) {
     const warnings: string[] = [];
     const html = await fs.readFile(rawPath(page), 'utf8');
     const converted =
       page.contentType === 'kb_article'
-        ? await convertFreshdeskArticle(page, html, warnings)
-        : await convertDocsPage(page, html, warnings);
+        ? await convertFreshdeskArticle(page, html, warnings, sourceLinkIndex)
+        : await convertDocsPage(page, html, warnings, sourceLinkIndex);
 
     const outputPath = path.join(siteDocsRoot, page.outputPath);
     await fs.mkdir(path.dirname(outputPath), { recursive: true });
@@ -532,7 +534,12 @@ function escapeMarkdownLinkText(value: string): string {
   return value.replace(/\[/g, '\\[').replace(/\]/g, '\\]');
 }
 
-async function convertFreshdeskArticle(page: PageCandidate, html: string, warnings: string[]): Promise<string> {
+async function convertFreshdeskArticle(
+  page: PageCandidate,
+  html: string,
+  warnings: string[],
+  sourceLinkIndex: SourceLinkIndex,
+): Promise<string> {
   const $ = cheerio.load(html);
   const article = $('.fw-content--single-article, article.article-body, #article-body').first();
   if (!article.length) {
@@ -542,13 +549,18 @@ async function convertFreshdeskArticle(page: PageCandidate, html: string, warnin
   cleanupBody($, body);
   const title = cleanText($('.heading, h1, h2').first().text()) || page.title;
   const modified = cleanText($('p:contains("Modified on")').first().text()).replace(/^Modified on:\s*/, '');
-  const htmlForMarkdown = await rewriteImages($, body, page, warnings);
+  const htmlForMarkdown = await rewriteAssetsAndLinks($, body, page, warnings, sourceLinkIndex);
   const markdown = normaliseMarkdown(turndown.turndown(htmlForMarkdown));
   const sourceNote = sourceBlock(page, modified);
   return `${frontmatter(title, `Imported from ${page.sourceHost}`)}\n\n${sourceNote}\n\n${markdown}\n`;
 }
 
-async function convertDocsPage(page: PageCandidate, html: string, warnings: string[]): Promise<string> {
+async function convertDocsPage(
+  page: PageCandidate,
+  html: string,
+  warnings: string[],
+  sourceLinkIndex: SourceLinkIndex,
+): Promise<string> {
   const $ = cheerio.load(html, { xmlMode: false });
   const body = $('#topic-content section').first();
   if (!body.length) {
@@ -557,7 +569,7 @@ async function convertDocsPage(page: PageCandidate, html: string, warnings: stri
   const selected = body.length ? body : $('#topic-content, article').first();
   cleanupBody($, selected);
   const title = cleanText(selected.find('h2.title, h1, h2').first().text()) || page.title;
-  const htmlForMarkdown = await rewriteImages($, selected, page, warnings);
+  const htmlForMarkdown = await rewriteAssetsAndLinks($, selected, page, warnings, sourceLinkIndex);
   const markdown = normaliseMarkdown(turndown.turndown(htmlForMarkdown));
   return `${frontmatter(title, `Imported from ${page.sourceHost}`)}\n\n${sourceBlock(page)}\n\n${markdown}\n`;
 }
@@ -577,11 +589,12 @@ function cleanupBody($: cheerio.CheerioAPI, body: cheerio.Cheerio<unknown>) {
   });
 }
 
-async function rewriteImages(
+async function rewriteAssetsAndLinks(
   $: cheerio.CheerioAPI,
   body: cheerio.Cheerio<unknown>,
   page: PageCandidate,
   warnings: string[],
+  sourceLinkIndex: SourceLinkIndex,
 ): Promise<string> {
   const images = body.find('img').toArray();
   for (const image of images) {
@@ -600,7 +613,14 @@ async function rewriteImages(
     const href = $(element).attr('href');
     if (!href || href.startsWith('#') || href.startsWith('mailto:')) return;
     try {
-      $(element).attr('href', new URL(href, page.sourceUrl).toString());
+      const absolute = new URL(href, page.sourceUrl).toString();
+      const internal = resolveMigratedSourceHref(absolute, sourceLinkIndex);
+      if (internal) {
+        $(element).attr('href', internal);
+      } else {
+        $(element).attr('href', absolute);
+        if (sourceLinkKey(absolute)) warnings.push(`Unresolved source-domain link: ${absolute}`);
+      }
     } catch {
       warnings.push(`Could not normalise link: ${href}`);
     }
@@ -635,10 +655,14 @@ async function runQa() {
     'Require further support? Submit a ticket',
   ];
   const failures: string[] = [];
+  const sourceLinkIndex = await buildSourceLinkIndexFromGeneratedFiles(files);
   for (const file of files) {
     const content = await fs.readFile(file, 'utf8');
     for (const phrase of blocked) {
       if (content.includes(phrase)) failures.push(`${path.relative(repoRoot, file)} contains "${phrase}"`);
+    }
+    for (const link of unresolvedMigratedSourceLinks(content, sourceLinkIndex)) {
+      failures.push(`${path.relative(repoRoot, file)} contains unresolved migrated source link "${link}"`);
     }
   }
   if (failures.length > 0) {
@@ -684,6 +708,7 @@ function sourceBlock(page: PageCandidate, modified?: string): string {
 function normaliseMarkdown(markdown: string): string {
   return markdown
     .replace(/\u00a0/g, ' ')
+    .replace(/[ \t]+$/gm, '')
     .replace(/\n{3,}/g, '\n\n')
     .replace(/^#{1}\s+/gm, '## ')
     .trim();
@@ -698,7 +723,7 @@ function stripArticleNumber(title: string): string {
 }
 
 function extractFreshdeskId(url: string): string | undefined {
-  return new URL(url).pathname.match(/articles\/(\d+)/)?.[1];
+  return new URL(url).pathname.match(/\/(?:a\/)?solutions\/articles\/(\d+)/)?.[1];
 }
 
 function rawPath(page: PageCandidate): string {
@@ -773,6 +798,75 @@ function toManifest(pages: PageCandidate[]) {
   }));
 }
 
+type SourceLinkIndex = Map<string, string>;
+
+export function buildSourceLinkIndex(pages: Array<Pick<PageCandidate, 'sourceUrl' | 'route'>>): SourceLinkIndex {
+  const index: SourceLinkIndex = new Map();
+  for (const page of pages) {
+    const key = sourceLinkKey(page.sourceUrl);
+    if (key) index.set(key, `${basePath}/${page.route}/`);
+  }
+  return index;
+}
+
+export function resolveMigratedSourceHref(href: string, sourceLinkIndex: SourceLinkIndex): string | undefined {
+  const key = sourceLinkKey(href);
+  if (!key) return undefined;
+  return sourceLinkIndex.get(key);
+}
+
+export function unresolvedMigratedSourceLinks(content: string, sourceLinkIndex: SourceLinkIndex): string[] {
+  const body = stripFrontmatter(content)
+    .split('\n')
+    .filter((line) => !line.startsWith('> Source:'))
+    .join('\n');
+  const unresolved = new Set<string>();
+  const linkPattern = /\[[^\]]+\]\(([^\s)]+)(?:\s+["'][^"']+["'])?\)/g;
+  for (const match of body.matchAll(linkPattern)) {
+    const href = match[1];
+    if (href && resolveMigratedSourceHref(href, sourceLinkIndex)) unresolved.add(href);
+  }
+  return [...unresolved].sort();
+}
+
+async function buildSourceLinkIndexFromGeneratedFiles(files: string[]): Promise<SourceLinkIndex> {
+  const pages: Array<Pick<PageCandidate, 'sourceUrl' | 'route'>> = [];
+  for (const file of files) {
+    const content = await fs.readFile(file, 'utf8');
+    const sourceUrl = content.match(/^> Source: \[[^\]]+\]\(([^)]+)\)/m)?.[1];
+    if (!sourceUrl) continue;
+    pages.push({
+      sourceUrl,
+      route: path
+        .relative(siteDocsRoot, file)
+        .replace(/\\/g, '/')
+        .replace(/(?:\/index)?\.mdx?$/, ''),
+    });
+  }
+  return buildSourceLinkIndex(pages);
+}
+
+function sourceLinkKey(href: string): string | undefined {
+  let url: URL;
+  try {
+    url = new URL(href);
+  } catch {
+    return undefined;
+  }
+
+  const freshdeskId = url.pathname.match(/\/(?:support\/)?(?:a\/)?solutions\/articles\/(\d+)/)?.[1];
+  if (freshdeskId) return `${url.hostname}:freshdesk:${freshdeskId}`;
+
+  const titanhqDocsId = url.pathname.match(/^\/en\/(\d+)-[^/]+\.html?$/)?.[1];
+  if (titanhqDocsId) return `${url.hostname}:docs:${titanhqDocsId}`;
+
+  return undefined;
+}
+
+function stripFrontmatter(content: string): string {
+  return content.replace(/^---\n[\s\S]*?\n---\n?/, '');
+}
+
 async function writeJson(file: string, value: unknown) {
   await fs.mkdir(path.dirname(file), { recursive: true });
   await fs.writeFile(file, `${JSON.stringify(value, null, 2)}\n`);
@@ -806,7 +900,9 @@ function getNumberArg(args: string[], name: string): number | undefined {
   return Number.isFinite(value) ? value : undefined;
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}

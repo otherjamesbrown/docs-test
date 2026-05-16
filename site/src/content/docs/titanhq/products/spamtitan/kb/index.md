@@ -3,7 +3,7 @@ title: "SpamTitan Knowledge Base"
 description: "Imported SpamTitan knowledge base articles."
 ---
 
-> Generated import index: 20 pages
+> Generated import index: 28 pages
 
 ## Solutions
 
@@ -23,16 +23,24 @@ description: "Imported SpamTitan knowledge base articles."
 
 ## Getting Started: SpamTitan Cloud
 
+- [Domain Group Administrator](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/domain-group-administrator/)
+- [Getting Started with SpamTitan Cloud](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/getting-started-with-spamtitan-cloud/)
 - [SpamTitan Cloud Setup](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/spamtitan-cloud-setup/)
 - [Step 1: Log in for the first time](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/step-1-log-in-for-the-first-time/)
 - [Step 2: Add Your Domain(s)](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/step-2-add-your-domain-s/)
 - [Step 3: Test Connectivity to your Mail Server](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/step-3-test-connectivity-to-your-mail-server/)
 - [Step 4: Enable Quarantine Reports](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/step-4-enable-quarantine-reports/)
+- [Step 5: Add a Domain Administrator](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/step-5-add-a-domain-administrator/)
+- [Step 6: Change Your MX Records](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/step-6-change-your-mx-records/)
+- [Step 7: Lock Down Your Mail Server](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/step-7-lock-down-your-mail-server/)
 
 ## Link Lock
 
+- [Comcast "SecurityEdge" causes linklock.titanhq.com Access Denied / 403 error](/docs-test/titanhq/products/spamtitan/kb/link-lock/comcast-securityedge-causes-linklock-titanhq-com-access-denied-403-error/)
+- [Domain Allowed URLs](/docs-test/titanhq/products/spamtitan/kb/link-lock/domain-allowed-urls/)
 - [Enable Link Lock for a Domain](/docs-test/titanhq/products/spamtitan/kb/link-lock/enable-link-lock-for-a-domain/)
 - [Enable Link Lock for a User](/docs-test/titanhq/products/spamtitan/kb/link-lock/enable-link-lock-for-a-user/)
 - [Enabling Link Lock in SpamTitan](/docs-test/titanhq/products/spamtitan/kb/link-lock/enabling-link-lock-in-spamtitan/)
 - [Link Lock](/docs-test/titanhq/products/spamtitan/kb/link-lock/link-lock/)
 - [Link Lock Allowed URLs](/docs-test/titanhq/products/spamtitan/kb/link-lock/link-lock-allowed-urls/)
+- [User Allowed URLs](/docs-test/titanhq/products/spamtitan/kb/link-lock/user-allowed-urls/)

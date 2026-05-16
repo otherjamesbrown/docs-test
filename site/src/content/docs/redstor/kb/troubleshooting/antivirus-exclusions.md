@@ -11,17 +11,11 @@ description: "Imported from helpdesk.redstor.com"
 
 Antivirus software, while performing its intended defence operations, can severely limit backup service performance and even corrupt backup processes. For this reason, **Redstor does not recommend allowing antivirus to run without exclusions in place** for the backup data storage paths on StorageServers and MirrorServers, as listed below.
 
-  
-
 Data stored by Redstor is kept in an encrypted state at rest, and is effectively inert from a malware perspective, i.e. any malware that a customer backs up will be encrypted, and unable to execute on a StorageServer or MirrorServer. It is therefore not necessary to scan for malware.
-
-  
 
 Additionally, and more importantly, malware scanning has been observed to interfere with file access to critical storage processes running to these volumes. **Running antivirus without the recommended exclusions in place is highly likely to result in data corruption**, which can lead to significant data resends at best, and outright data loss at worst.
 
 Below is a list of the folders recommended to be excluded, and their default locations.
-
-  
 
 _**Note:** As a guideline, exclusions on Windows systems can be set by going to **Windows Security > Virus & threat protection > Virus & threat protection settings > Exclusions**._
 
@@ -29,7 +23,7 @@ _**Note:** As a guideline, exclusions on Windows systems can be set by going to 
 
 ### **Exclusions**
 
-1.    
+1.
     1.  [Recommended exclusions based on defaults for ESE](#1)
     2.  [Recommended exclusions based on defaults for the Storage Platform Console](#2)
     3.  [Recommended exclusions based on defaults for InstantData](#3)
@@ -128,7 +122,7 @@ If any working folders or plugin “dump” locations are moved, ensure that the
     -   service.rmi.port=_port number 1-65535_
     -   service.port=_port number 1-65535_
 
-The ports must be unique, and must not clash with any existing services. Ensure the GUI is closed and that the service is stopped when editing the file. 
+The ports must be unique, and must not clash with any existing services. Ensure the GUI is closed and that the service is stopped when editing the file.
 
 * * *
 
@@ -154,7 +148,7 @@ If any working folder locations are moved, ensure that these are also excluded.
     -   service.rmi.port=_port number 1-65535_
     -   service.port=_port number 1-65535_
 
-The ports must be unique, and must not clash with any existing services. Ensure the GUI is closed and that the service is stopped when editing the file. 
+The ports must be unique, and must not clash with any existing services. Ensure the GUI is closed and that the service is stopped when editing the file.
 
 * * *
 

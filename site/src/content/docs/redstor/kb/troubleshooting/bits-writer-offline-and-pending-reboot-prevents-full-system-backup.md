@@ -13,7 +13,7 @@ description: "Imported from helpdesk.redstor.com"
 
 Full System Backup will not complete, reporting a problem with BITS VSS writer (Background Intelligent Transfer Service Volume Shadowcopy Service writer):
 
-`Error: Selected writer 'BITS Writer' (48b0be47-4969-d978-e0c1-7af028f300b1) is offline`  
+`Error: Selected writer 'BITS Writer' (48b0be47-4969-d978-e0c1-7af028f300b1) is offline`
 `Error: Backup failed: A selected writer was not found`
 
 ### **Cause**

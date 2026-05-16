@@ -16,11 +16,10 @@ description: "Imported from helpdesk.spamtitan.com"
 This solution outlines:
 
 -   How license usage is calculated
-    
+
 -   Which log file stores license count information
-    
+
 -   Running a daily license usage report
-    
 
 **How License Usage is Calculated**
 

@@ -13,7 +13,7 @@ description: "Imported from helpdesk.redstor.com"
 
 1\. In the Storage Platform Console, open the **Account Management** view in the left-hand pane and expand the Storage Platform node.
 
-2\. Right-click the name of the Collection to which you want to add a Group and choose **Add Group or Collection.** 
+2\. Right-click the name of the Collection to which you want to add a Group and choose **Add Group or Collection.**
 
 ![addcollection.PNG](/docs-test/imported-assets/redstor/4000219747/c9867079f513.jpg)
 
@@ -51,8 +51,7 @@ _**Note:** Even if unlimited licences are available for the Collection to which 
 
 _**Note:** To view the number of licences a specific Group has assigned to it, click the Group name in the Account Management tree and then the Licencing tab in the workspace to the right. The **Remaining** column shows the number of licences that are still available._
 
- ![licensingtab.PNG](/docs-test/imported-assets/redstor/4000219747/9e635692b81e.jpg)  
-  
+ ![licensingtab.PNG](/docs-test/imported-assets/redstor/4000219747/9e635692b81e.jpg)
 
 ### **How to delete a Group**
 

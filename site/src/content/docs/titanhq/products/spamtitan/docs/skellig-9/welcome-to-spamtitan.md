@@ -16,7 +16,7 @@ Welcome to the home for **SpamTitan Skellig (9.00+)** product documentation.
 
 ### Note
 
-If you are using SpamTitan (**8.00** or earlier), jump over to our [SpamTitan Cloud and Gateway product documentation](https://docs.titanhq.com/en/2179-spamtitan-overview.html).
+If you are using SpamTitan (**8.00** or earlier), jump over to our [SpamTitan Cloud and Gateway product documentation](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-overview/).
 
 ### SpamTitan Levels of Access
 
@@ -37,13 +37,12 @@ More Info
 Typically, this is an MSP Admin managing their customer accounts. An MSP Admin can:
 
 -   Drill down into a customer account and have the same view as a Customer Admin for that account.
-    
+
 -   Drill down to a single domain and have the same view as a Domain Admin for that domain.
-    
 
-[MSP Getting Started Steps](https://support.titanhq.com/en/55539-spamtitan-msp-setup.html "SpamTitan MSP Setup")
+[MSP Getting Started Steps](/docs-test/titanhq/products/spamtitan/docs/skellig-9/spamtitan-msp-setup/ "SpamTitan MSP Setup")
 
-[MSP Admin Guide](https://support.titanhq.com/en/55542-spamtitan-msp-admin-guide.html "SpamTitan MSP Admin Guide")
+[MSP Admin Guide](/docs-test/titanhq/products/spamtitan/docs/skellig-9/spamtitan-msp-admin-guide/ "SpamTitan MSP Admin Guide")
 
 **Customer**
 
@@ -52,7 +51,6 @@ Typically, this is an MSP Admin managing their customer accounts. An MSP Admin c
 Typically, a business-level Customer Admin who is managing one, or many, domains. A Customer Admin can:
 
 -   Drill down into a domain and have the same view as a Domain Admin for that domain.
-    
 
 [Customer Getting Started Steps](https://support.titanhq.com/en/55541-spamtitan-customer-setup.html "SpamTitan Customer Setup")
 
@@ -65,7 +63,6 @@ Typically, a business-level Customer Admin who is managing one, or many, domains
 A Domain Admin has access to manage a single domain. A Domain Admin has:
 
 -   Admin access to their own domain only.
-    
 
 [Managing a Single Domain](https://support.titanhq.com/en/55545-managing-a-single-domain.html "Managing a Single Domain")
 

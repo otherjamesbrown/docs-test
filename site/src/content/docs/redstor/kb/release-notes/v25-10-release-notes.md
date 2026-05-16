@@ -13,6 +13,6 @@ description: "Imported from helpdesk.redstor.com"
 
 -   Partner Admin and Customer Admin users of the RedApp can now schedule reports to help them manage their data. Read more in [Article 1633](https://helpdesk.redstor.com/support/solutions/articles/4000223205).
 -   Our Enterprise Server Edition backup agent for machines is now supported on Red Hat Enterprise Linux 10. See all supported operating systems in our [System requirements and compatibility matrix](https://helpdesk.redstor.com/support/solutions/articles/4000219804).
--   We have made improvements to the process of adding an M365 backup set in the RedApp: 
+-   We have made improvements to the process of adding an M365 backup set in the RedApp:
     -   The backup set is now only created once you save it, and not before. You can cancel the creation process at any point before saving. Any unsaved backup selections will be discarded.
     -   During and after the creation of a new backup set, we now show the relevant Microsoft tenant ID.

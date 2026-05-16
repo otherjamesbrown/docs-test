@@ -43,35 +43,32 @@ Allowed IP emails are categorized under "Clean Messages".
 ![ST-SK-all-customers-table.jpg](/docs-test/imported-assets/spamtitan-skellig/60060-msp-overview/bc6acbee8431.jpg)
 
 -   _Customer Name_: Name of the customer.
-    
+
 -   _Description_: Optional customer details.
-    
+
 -   _Created At_: Date and time the customer entry was created.
-    
+
 -   _Domains_: Number of customer domains.
-    
+
 -   _MX Completion_: Status bar displaying the level of MX completion for domains. Hover over the bar to display numerical data:
-    
+
     ![ST-Hover-MXRecord-Details.jpg](/docs-test/imported-assets/spamtitan-skellig/60060-msp-overview/aa765c7d027a.jpg)
-    
+
     There are three levels of completion:
-    
+
     -   _Active_ (Green): Number of customer domains that have MX records pointing to SpamTitan. No further action is required.
-        
+
     -   _Partial_ (Yellow): Indicates that only some customer domains have MX records pointing to SpamTitan. Select the view ![view-icon-small.jpg](/docs-test/imported-assets/spamtitan-skellig/60060-msp-overview/4f7d1bd09d2e.jpg) icon in the Actions column to go to the customer level and identify the domains that need to be updated. See [Change your MX Records](https://support.titanhq.com/en/56392-change-your-mx-records.html "Change your MX Records") for further information.
-        
+
     -   _Inactive_ (Red): Indicates that no customer domains have MX records pointing to SpamTitan. See [Change your MX Records](https://support.titanhq.com/en/56392-change-your-mx-records.html "Change your MX Records") for further information.
-        
-    
+
 -   _2FA Enforced_: Indicates if 2FA is mandatory for users to access SpamTitan.
-    
+
 -   _Actions_: View and edit customer details:
-    
+
     -   Select the view ![view-icon-small.jpg](/docs-test/imported-assets/spamtitan-skellig/60060-msp-overview/4f7d1bd09d2e.jpg) icon in the Actions column for a customer to drill down to the customer level to view and further manage that customer.
-        
+
     -   Select the edit ![edit-icon.jpg](/docs-test/imported-assets/spamtitan-skellig/60060-msp-overview/90a487f7499b.jpg) icon in the Actions column for a customer to edit that customer's details.
-        
-    
 
 From the **Actions** dropdown menu, you can add and delete customers, and enable and disable enforced 2FA for customers.
 
@@ -79,8 +76,8 @@ From the **Actions** dropdown menu, you can add and delete customers, and enable
 
 Follow the links below for further details.
 
--   [Add your Customers](https://support.titanhq.com/en/57004-adding-customers.html "Adding Customers").
-    
+-   [Add your Customers](/docs-test/titanhq/products/spamtitan/docs/skellig-9/adding-customers/ "Adding Customers").
+
 -   [Delete Customers](https://support.titanhq.com/en/74478-delete-customers.html "Delete Customers").
-    
+
 -   [Two-Factor Authentication](https://support.titanhq.com/en/74398-two-factor-authentication.html "Two-Factor Authentication").

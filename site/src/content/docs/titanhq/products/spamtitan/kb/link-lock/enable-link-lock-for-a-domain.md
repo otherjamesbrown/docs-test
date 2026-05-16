@@ -16,21 +16,18 @@ Link Lock is an enhancement to SpamTitan and is available after the purchase of 
 Follow the steps below to enable and configure Link Lock for a domain.
 
 1.  Go to **Content Filtering** > **Link Lock** and scroll to the **Configuration** panel.
-    
+
 2.  In the **Domains:** table, click the edit ![](/docs-test/imported-assets/spamtitan-kb/4000186943/7455a85c9b68.jpg) icon in the Options column of the domain for which you want to enable Link Lock and the Edit Link Lock Configuration (Domain) window displays.
-    
+
 3.  Click **Enable** to enable Link Lock and an expanded configuration window displays:
-    
+
     ![](/docs-test/imported-assets/spamtitan-kb/4000186943/208cc7b7e477.jpg)
-    
+
 4.  Using the table and block page examples below as reference, complete the fields in the Link Lock Configuration - Domain: window.
-    
+
 5.  Click **Apply**.
-    
 
 **Link Lock Domain Configuration Settings**
-
- 
 
 Setting
 

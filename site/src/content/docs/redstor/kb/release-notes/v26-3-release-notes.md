@@ -15,7 +15,5 @@ description: "Imported from helpdesk.redstor.com"
 
 ![](/docs-test/imported-assets/redstor/4000227987/5b5b1d00cf39.png)
 
-  
-
--   If you make use of the Storage Platform Console, you can now generate a **RollupSettingsPerGroup** report at any time to confirm what retention is set for each of your customers. You can also schedule this report to run regularly, e.g. once a month.  
+-   If you make use of the Storage Platform Console, you can now generate a **RollupSettingsPerGroup** report at any time to confirm what retention is set for each of your customers. You can also schedule this report to run regularly, e.g. once a month.
     ![](/docs-test/imported-assets/redstor/4000227987/3b4f910cf51d.png)

@@ -11,8 +11,8 @@ description: "Imported from support.titanhq.com"
 
 Go to **Settings** to manage your platform settings. From here you can do the following:
 
--   [Manage account administrators](https://support.titanhq.com/en/69414-msp-administrators.html "MSP Administrators").
-    
+-   [Manage account administrators](/docs-test/titanhq/platform/docs/msp-administrators/ "MSP Administrators").
+
 -   [Manage branding](https://support.titanhq.com/en/76967-branding.html "Branding").
-    
+
 -   [Configure SAML SSO](https://support.titanhq.com/en/69496-configuring-saml-sso.html "Configuring SAML SSO").

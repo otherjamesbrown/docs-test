@@ -18,13 +18,12 @@ This is a description of how to create a content filter that will exclude an ema
 **What is the solution?**
 
 1.  Go to **Content Filtering** > **Content Filtering** and click **Add...**.
-    
+
 2.  Complete the fields in the Add Filter dialogue box as shown in this example, but replace _example@domain.com_ in the _Value_ field with the email address you want to create the filter for. When using **matches regular expression**, you must escape any special characters by using a backslash (\\) before the special character. For example, _example\\@domain\\.com_ will bypass banned attachments sent from _example@domain.com_:
-    
+
     ![](/docs-test/imported-assets/spamtitan-kb/4000189402/01bd659ee0f0.jpg)
-    
+
 3.  Click **Save**.
-    
 
 **Further Info**
 

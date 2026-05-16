@@ -16,9 +16,8 @@ description: "Imported from helpdesk.spamtitan.com"
 Greylisting temporarily rejects all email and requires the sending server to send it again after 5 minutes. This delay is beneficial as:
 
 -   Spammers will generally not retry to send an email, while legitimate servers do.
-    
+
 -   The delay gives time for an IP address to be listed on RBLs if it is spam.
-    
 
 While greylisting is highly effective at blocking spam it comes at the cost of mail being delayed by 5 to 10 minutes, depending on the sending server.
 
@@ -31,13 +30,12 @@ Mail delays are expected when greylisting is enabled.
 You can decrease the mail delay setting to reduce the possibility of mail delay when greylisting is enabled
 
 1.  Log in to SpamTitan as a global admin.
-    
+
 2.  Go to **System Setup** > **Mail Relay** > **Greylisting** and locate the _Mail Delay (seconds)_ field. By default, this is set to 240 seconds, meaning there is a delay of 240 seconds before an email is accepted after it was deferred by greylisting.
-    
+
 3.  Decreasing the number of seconds in the Mail Delay setting reduces the chance of a mail being delayed if the sending mail server re-sends it too early. Consider decreasing this setting to 180 seconds, meaning the wait period before a mail is accepted _after_ it is deferred by greylisting is 3 minutes.
-    
+
 4.  Select **Save**.
-    
 
 ### Warning
 

@@ -13,32 +13,20 @@ description: "Imported from helpdesk.spamtitan.com"
 
             Shared Cloud SpamTitan Upgrade
 
-  
-
 **When****:**  Shared Cloud: 14 April
 
             Private Cloud: Between 15 April and 24 April
-
-  
 
 **Action Required:**
 
 No action required
 
-  
-
 SpamTitan upgrades are scheduled across multiple AWS regions as follows:
-
-  
 
 Shared Cloud upgrades will take place on 14 April
 
 Private Cloud upgrades will take place between 15 April and 24 April
 
-  
-
 Services will restart during the maintenance window; however, no downtime is expected.
-
-  
 
 Maintenance will occur at different times depending on your AWS region.

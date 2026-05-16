@@ -20,19 +20,18 @@ Legitimate email with the MIME type application/octet-stream is being blocked as
 The application/octet-stream is a MIME type that is generically used for attaching several types of files to messages, including:
 
 -   Images
-    
+
 -   Executables (including viruses)
-    
+
 -   .doc and .xls files (including those with viruses)
-    
+
 -   .docx and .xlsx files (that are legitimate)
-    
+
 -   .pdf files (that are legitimate)
-    
+
 -   .ZIP and other archives
-    
+
 -   others
-    
 
 Given the generic nature of this MIME type, it should never be used to block or allow in **Content Filtering** > **Attachment** **Mime Type Filters**.
 
@@ -41,7 +40,7 @@ Given the generic nature of this MIME type, it should never be used to block or 
 **What is the solution?**
 
 1.  Go to **Content Filtering** **Attachments** > **Mime Type Filters**.
-    
+
 2.  If _application/octet-stream_ is listed in the Mime Type column, delete the entry by clicking the **Delete** ![](/docs-test/imported-assets/spamtitan-kb/4000189400/cae7b2d2e282.jpg) icon in the Options column.
-    
+
 3.  Click **Apply**.

@@ -11,65 +11,55 @@ description: "Imported from helpdesk.redstor.com"
 
 _**Note:** This article applies to the RedAPI and not the Storage Platform API. You can find our Storage Platform API documentation [here](https://helpdesk.redstor.com/support/solutions/articles/4000220244)._
 
-  
-
 **PAGE CONTENTS**
 
 -   [Introduction](#Background)
 -   [General](#General)
 -   [Authentication](#Authentication)
     -   [Service account creation](#Service-account-creation)
-        
+
     -   [Authentication](#Authentication-1)
-        
+
     -   [Sample code](#Sample-code)
-        
+
 -   [Errors](#Errors)
 -   [Pagination](#Pagination)
-    -   [Pagination parameters](#Pagination-parameters)  
-        [Implementation guide](#Implementation-guide%C2%A0) 
-        
+    -   [Pagination parameters](#Pagination-parameters)
+        [Implementation guide](#Implementation-guide%C2%A0)
+
 -   [Versioning](#Versioning)
 -   [OpenAPI specification](#OpenAPI-specification)
 
-###   
+###
 
 ## Introduction
 
 The RedApp is Redstor's web-based platform where MSPs manage data for their customers. As an MSP user of the RedApp, known as a Partner Admin, you will have top-level access, which includes the ability to:
 
 -   add customers (known as companies in the RedApp),
--   subscribe customers to products, 
+-   subscribe customers to products,
 -   create users for customers,
 -   convert trials to paid subscriptions,
 -   see where your data is stored, and
 -   view the status of backup and recovery tasks.
 
-  
+While these actions can all be performed from the RedApp user interface, Partner Admins can also make use of the RedAPI, Redstor's REST API, to automate these actions.
 
-While these actions can all be performed from the RedApp user interface, Partner Admins can also make use of the RedAPI, Redstor's REST API, to automate these actions. 
-
-Please note that **only users with the Partner Admin role can access the RedAPI**. Company Admins do not have this permission. For more on RedApp roles, see [Article 1423](https://helpdesk.redstor.com/support/solutions/articles/4000219765).
-
-  
+Please note that **only users with the Partner Admin role can access the RedAPI**. Company Admins do not have this permission. For more on RedApp roles, see [Article 1423](/docs-test/redstor/kb/guides/redapp-user-roles/).
 
 Our APIs are designed with simplicity and ease of use in mind, making use of resource-oriented URLs and standard HTTP response codes. They accept JSON request bodies and return JSON-encoded responses, making it easy to integrate our APIs with your existing applications and workflows.
 
-  
-
 Using the RedAPI, you can experiment and test your API calls in a safe and controlled environment.
-
-  
 
 _**Note:** The RedAPI is subject to a fair use policy and throttling._
 
-###   
+###
 
 ## General
 
-Redstor public API  
-Version: v2  
-All rights reserved  
+Redstor public API
+Version: v2
+All rights reserved
 [http://apache.org/licenses/LICENSE-2.0.html](http://apache.org/licenses/LICENSE-2.0.html)
 
 ## Authentication
@@ -83,7 +73,7 @@ To use the RedAPI, you will need a service account. Follow the steps in [Article
 Authentication follows the OAuth 2.0 Client Credentials flow using the `private_key_jwt` authentication method.
 
 1.  Retrieve the OpenID Configuration from [https://id.redstor.com/.well-known/openid-configuration](https://id.redstor.com/.well-known/openid-configuration). Note the `token_endpoint`.
-    
+
 2.  Create a JWT with the following payload:
 
 ```
@@ -95,7 +85,7 @@ Authentication follows the OAuth 2.0 Client Credentials flow using the `private_
 "exp": 1677233054,
 "iss": "5d41008d-7388-4eec-b90f-f8234f461db6",
 "aud": "https://id.redstor.com/connect/token"
-} 
+}
 ```
 
  **Claim**
@@ -182,7 +172,7 @@ client_assertion=<SIGNED-JWT>
 GET https://api.redstor.com/<ENDPOINT> HTTP/1.1
 Host: api.redstor.com
 Authentication: Bearer <TOKEN-VALUE>
-... 
+...
 ```
 
 7\. If the token expires, repeat this process to get a new access token.
@@ -364,71 +354,64 @@ In general, any codes in the 2xx range indicate success, while codes in the 4xx 
 
 ## Pagination
 
-Pagination is implemented uniformly across all the APIs. Redstor’s pagination strategy follows the continuation token style. 
+Pagination is implemented uniformly across all the APIs. Redstor’s pagination strategy follows the continuation token style.
 
 ### **Pagination parameters**
 
-Three parameters define the pagination request: 
+Three parameters define the pagination request:
 
-  
+**maxResults (optional)**
 
-**maxResults (optional)** 
+_Query Parameter_ — The maximum number of results to return format: int32
+_Notes_ — Use a value between 1 and 100. Defaults to 30
 
-_Query Parameter_ — The maximum number of results to return format: int32  
-_Notes_ — Use a value between 1 and 100. Defaults to 30 
+**pageToken (optional)**
 
-  
+_Query Parameter_ — Token to get the next page: String
 
-**pageToken (optional)** 
+**shouldReturnCount (optional)**
 
-_Query Parameter_ — Token to get the next page: String 
+_Query Parameter_ — Indicate whether or not the response should include the total number of items that match the set of constraints: boolean
+_Notes_ — The count will not be returned by default. When the count is present, it would be available on the first page of the paged dataset
 
-  
+### **Implementation guide**
 
-**shouldReturnCount (optional)** 
-
-_Query Parameter_ — Indicate whether or not the response should include the total number of items that match the set of constraints: boolean  
-_Notes_ — The count will not be returned by default. When the count is present, it would be available on the first page of the paged dataset 
-
-### **Implementation guide** 
-
-1.  Initial request 
+1.  Initial request
 
 ```
-GET /endpoint?maxResult=2&shouldReturnCount=true 
+GET /endpoint?maxResult=2&shouldReturnCount=true
 ```
 
-Start by making the initial request without any `nextPageToken`. This will return the first pages as seen in the example response below: 
+Start by making the initial request without any `nextPageToken`. This will return the first pages as seen in the example response below:
 
-Initial response: 
-
-```
-1{ 
-2   "nextPageToken":"CiAKGjBpNDd2Nmp2Zml2cXRwYjBpOXA", 
-3   "totalCount":10, 
-4   "results":[] 
-16}
-```
-
-2.  Subsequent requests 
-    
-
-```
-GET /endpoint?maxResult=2&shouldReturnCount=true&pageToken=CiAKGjBpNDd2N 
-```
-
-The subsequent query takes the value from the returned result from the previous request’s `nextPageToken` and submits it as the value for `pageToken`.    
-
-This would return the first page as seen in the example response below:
-
-Subsequent response: 
+Initial response:
 
 ```
 1{
-2   "nextPageToken":" YjBpOXA274453707NDd2Nmp2Zml2cXR", 
-3   "totalCount":-1, 
-4   "results":[] 
-16} 
+2   "nextPageToken":"CiAKGjBpNDd2Nmp2Zml2cXRwYjBpOXA",
+3   "totalCount":10,
+4   "results":[]
+16}
+```
+
+2.  Subsequent requests
+
+```
+GET /endpoint?maxResult=2&shouldReturnCount=true&pageToken=CiAKGjBpNDd2N
+```
+
+The subsequent query takes the value from the returned result from the previous request’s `nextPageToken` and submits it as the value for `pageToken`.
+
+This would return the first page as seen in the example response below:
+
+Subsequent response:
+
+```
+1{
+2   "nextPageToken":" YjBpOXA274453707NDd2Nmp2Zml2cXR",
+3   "totalCount":-1,
+4   "results":[]
+16}
 ```
 
 The API will continue to return a reference to the next page of results in the `nextPageToken` property with each response until all pages of the results have been read. Therefore, to read all results, continue to query the endpoint, each time passing in the `pageToken` until the `nextPageToken` property isn’t returned.

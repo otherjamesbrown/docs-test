@@ -11,20 +11,18 @@ description: "Imported from helpdesk.redstor.com"
 
 This article describes how to move a Backup Account from one Group on the Storage Platform to another.
 
-1.  In the **Account Management** view in the Storage Platform Console, select the name of the Group to which the Account belongs.   
-      
-    ![group.png](/docs-test/imported-assets/redstor/4000219755/278a38f1a75d.jpg)   
-      
-    
-2.  In the workspace to the right, in the **Accounts** tab, right-click the name of the Account you wish to move and click **Change Group**.  
-      
-    ![change\_group.png](/docs-test/imported-assets/redstor/4000219755/a983da593dee.jpg)   
-      
-    
-3.  In the dialog box that appears, choose a new Group for the Account from the **Select Target Group** drop-down menu. You can also select **Move** the allocated licences, which means any licences allocated to the account will now be taken from the new Group. Then click **OK**.  
-      
-    ![select\_target\_group.png](/docs-test/imported-assets/redstor/4000219755/2d1e388a155a.jpg)   
-      
+1.  In the **Account Management** view in the Storage Platform Console, select the name of the Group to which the Account belongs.
+
+    ![group.png](/docs-test/imported-assets/redstor/4000219755/278a38f1a75d.jpg)
+
+2.  In the workspace to the right, in the **Accounts** tab, right-click the name of the Account you wish to move and click **Change Group**.
+
+    ![change\_group.png](/docs-test/imported-assets/redstor/4000219755/a983da593dee.jpg)
+
+3.  In the dialog box that appears, choose a new Group for the Account from the **Select Target Group** drop-down menu. You can also select **Move** the allocated licences, which means any licences allocated to the account will now be taken from the new Group. Then click **OK**.
+
+    ![select\_target\_group.png](/docs-test/imported-assets/redstor/4000219755/2d1e388a155a.jpg)
+
     The Account will now be listed under the new Group in the Account Management view.
 
 **_Notes:_**

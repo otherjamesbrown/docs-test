@@ -12,7 +12,7 @@ description: "Imported from docs.titanhq.com"
 
 Welcome to the SpamTitan Cloud guide!
 
-Take a look at [Getting Started with SpamTitan Cloud](https://docs.titanhq.com/en/422-getting-started-with-spamtitan-cloud.html "Getting Started with SpamTitan Cloud") to get up and running now, or use the sidebar menu to browse through the different sections in the guide. Alternatively, use the super-fast search in the top left of the screen to jump straight to the topic you're looking for.
+Take a look at [Getting Started with SpamTitan Cloud](/docs-test/titanhq/products/spamtitan/docs/legacy-8/getting-started-with-spamtitan-cloud/ "Getting Started with SpamTitan Cloud") to get up and running now, or use the sidebar menu to browse through the different sections in the guide. Alternatively, use the super-fast search in the top left of the screen to jump straight to the topic you're looking for.
 
 If you have any feedback or comments on this documentation, please email [docs@titanhq.com](mailto:docs@titanhq.com) .
 

@@ -21,13 +21,9 @@ This happens because settings in the Google Admin Console have not been set corr
 
 Check the following settings:
 
-  
-
 1\. Under **Google Workspace Marketplace apps > Apps list**, the **Distribution** setting for Redstor Cloud Backup should show as **ON**.
 
 ![](/docs-test/imported-assets/redstor/4000219751/79e707f1a720.jpg)
-
-  
 
 2\. Under **Google Workspace Marketplace apps > Redstor Cloud Backup:**
 
@@ -37,18 +33,12 @@ To check for which units user access is on, click on **View organizational units
 
 ![all\_users.png](/docs-test/imported-assets/redstor/4000219751/6ddea091bbe4.jpg)
 
-  
-
 Ensure that the service status shows as **ON for everyone** for all organizational units you want to backup.
 
 ![](/docs-test/imported-assets/redstor/4000219751/a9a78b623344.png)
 
-  
-
 (b) **Data Access** should show as **Status: Granted**. If it does not, grant access by using the option on the right.
 
 ![](/docs-test/imported-assets/redstor/4000219751/56be4a27b708.png)
-
-  
 
 Once these settings have been updated, you can reattempt the backup.
