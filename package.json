@@ -1,0 +1,22 @@
+{
+  "name": "docs-test",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "site",
+    "tools/importer"
+  ],
+  "scripts": {
+    "site:dev": "npm --workspace site run dev",
+    "site:build": "npm --workspace site run build",
+    "site:preview": "npm --workspace site run preview",
+    "import:discover": "npm --workspace @docs-test/importer run discover --",
+    "import:fetch": "npm --workspace @docs-test/importer run fetch --",
+    "import:convert": "npm --workspace @docs-test/importer run convert --",
+    "import:qa": "npm --workspace @docs-test/importer run qa --",
+    "import:all": "npm --workspace @docs-test/importer run all --",
+    "test": "npm --workspaces --if-present test"
+  }
+}
+

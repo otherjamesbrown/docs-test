@@ -1,0 +1,64 @@
+products:
+  - id: redstor
+    label: Redstor
+    canonical_host: helpdesk.redstor.com
+    sources:
+      kb:
+        id: redstor-helpdesk
+        type: freshdesk_public
+        base_url: https://helpdesk.redstor.com
+        seeds:
+          - /support/solutions
+        scoped_kb_roots:
+          - /support/solutions/folders/4000040908
+          - /support/solutions/folders/4000040906
+          - /support/solutions/folders/4000040904
+        exclude_mirrors:
+          - https://webtitancloud.freshdesk.com/support/solutions/4000010601
+
+  - id: titanhq-platform
+    label: TitanHQ Platform
+    canonical_host: support.titanhq.com
+    sources:
+      docs:
+        id: titanhq-support-docs-platform
+        type: titanhq_static_docs_branch
+        base_url: https://support.titanhq.com
+        seeds:
+          - /en/69450-welcome-to-the-titanhq-platform-.html
+        branch_label: Platform
+
+  - id: spamtitan
+    label: SpamTitan
+    canonical_host: helpdesk.spamtitan.com
+    sources:
+      kb:
+        id: spamtitan-helpdesk
+        type: freshdesk_public
+        base_url: https://helpdesk.spamtitan.com
+        seeds:
+          - /support/home
+        scoped_kb_roots:
+          - /support/solutions/4000009289
+        exclude_mirrors:
+          - https://webtitancloud.freshdesk.com/support/solutions/4000009289
+      docs:
+        - id: titanhq-support-docs-spamtitan-skellig
+          type: titanhq_static_docs_branch
+          base_url: https://support.titanhq.com
+          seeds:
+            - /en/56985-welcome-to-spamtitan-.html
+          branch_label: SpamTitan
+          product_stream: skellig
+          version_range: "9.00+"
+          preferred: true
+        - id: titanhq-docs-spamtitan-legacy
+          type: titanhq_static_docs_branch
+          base_url: https://docs.titanhq.com
+          seeds:
+            - /en/2179-spamtitan-overview.html
+          branch_label: SpamTitan
+          product_stream: legacy
+          version_range: "8.00-or-earlier"
+          preferred: false
+

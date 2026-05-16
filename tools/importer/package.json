@@ -1,0 +1,27 @@
+{
+  "name": "@docs-test/importer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "discover": "tsx src/cli.ts discover",
+    "fetch": "tsx src/cli.ts fetch",
+    "convert": "tsx src/cli.ts convert",
+    "qa": "tsx src/cli.ts qa",
+    "all": "tsx src/cli.ts all",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "cheerio": "latest",
+    "gray-matter": "latest",
+    "turndown": "latest",
+    "yaml": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "tsx": "latest",
+    "typescript": "latest",
+    "vitest": "latest"
+  }
+}
+
