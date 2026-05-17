@@ -72,6 +72,24 @@ const absentLinkChecks = [
     selectorName: 'SpamTitan Skellig index collapses duplicate 2FA setup topics',
     forbiddenHref: '/docs-test/titanhq/products/spamtitan/docs/skellig-9/two-factor-authentication-56389/',
   },
+  {
+    page: 'dist/titanhq/products/spamtitan/docs/skellig-9/index.html',
+    selectorName: 'SpamTitan Skellig index collapses duplicate Link Lock variants',
+    forbiddenHref: '/docs-test/titanhq/products/spamtitan/docs/skellig-9/enabling-link-lock-60362/',
+  },
+  {
+    page: 'dist/titanhq/products/spamtitan/docs/skellig-9/index.html',
+    selectorName: 'SpamTitan Skellig index collapses duplicate Geoblocking variants',
+    forbiddenHref: '/docs-test/titanhq/products/spamtitan/docs/skellig-9/geoblocking-57304/',
+  },
+];
+
+const absentTextChecks = [
+  {
+    page: 'dist/titanhq/products/spamtitan/docs/skellig-9/index.html',
+    selectorName: 'SpamTitan Skellig index does not expose source-id disambiguators',
+    forbiddenText: 'source ',
+  },
 ];
 
 for (const check of tocChecks) {
@@ -116,8 +134,20 @@ for (const check of absentLinkChecks) {
   }
 }
 
+for (const check of absentTextChecks) {
+  const html = await readFile(path.join(siteRoot, check.page), 'utf8');
+  if (html.includes(check.forbiddenText)) {
+    throw new Error(`${check.selectorName}: did not expect text ${check.forbiddenText}`);
+  }
+}
+
 console.log(
   `Site QA passed for ${
-    tocChecks.length + pageLinkChecks.length + titleChecks.length + textChecks.length + absentLinkChecks.length
+    tocChecks.length +
+    pageLinkChecks.length +
+    titleChecks.length +
+    textChecks.length +
+    absentLinkChecks.length +
+    absentTextChecks.length
   } generated page checks.`,
 );

@@ -85,7 +85,7 @@ Go to the profile ![profile-icon.jpg](/docs-test/imported-assets/spamtitan-skell
     ]);
   });
 
-  it('keeps link labels unique when multiple same-title pages share the same qualifier', () => {
+  it('collapses same-title variants that share the same qualifier', () => {
     const entries = buildCollectionIndexEntries([
       {
         page: page({
@@ -103,11 +103,17 @@ Go to the profile ![profile-icon.jpg](/docs-test/imported-assets/spamtitan-skell
         }),
         markdown: 'As an MSP, enable Link Lock for selected customers.',
       },
+      {
+        page: page({
+          sourceId: '60371',
+          title: 'Enabling Link Lock',
+          route: 'titanhq/products/spamtitan/docs/skellig-9/enabling-link-lock',
+        }),
+        markdown: 'As an MSP, enable Link Lock for customer domains.',
+      },
     ]);
 
-    expect(entries.map((entry) => entry.label)).toEqual([
-      'Enabling Link Lock (MSP level, source 60362)',
-      'Enabling Link Lock (MSP level, source 60375)',
-    ]);
+    expect(entries.map((entry) => entry.page.sourceId)).toEqual(['60371']);
+    expect(entries.map((entry) => entry.label)).toEqual(['Enabling Link Lock']);
   });
 });

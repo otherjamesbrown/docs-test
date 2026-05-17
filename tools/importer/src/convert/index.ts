@@ -214,7 +214,8 @@ export function buildCollectionIndexEntries(
     };
   });
   const uniqueEntries = removeDuplicateBodies(entries);
-  return labelDuplicateTitles(uniqueEntries);
+  const canonicalEntries = removeDuplicateTitleVariants(uniqueEntries);
+  return labelDuplicateTitles(canonicalEntries);
 }
 
 export function normaliseMarkdownForIndex(markdown: string): string {
@@ -233,6 +234,16 @@ export function normaliseMarkdownForIndex(markdown: string): string {
 
 function removeDuplicateBodies(entries: CollectionIndexEntry[]): CollectionIndexEntry[] {
   const grouped = groupBy(entries, (entry) => `${entry.page.title.toLowerCase()}\n${entry.bodyHash}`);
+  return Object.values(grouped)
+    .map((duplicates) => selectCanonicalEntry(duplicates))
+    .sort((a, b) => a.page.title.localeCompare(b.page.title) || a.page.sourceId.localeCompare(b.page.sourceId));
+}
+
+function removeDuplicateTitleVariants(entries: CollectionIndexEntry[]): CollectionIndexEntry[] {
+  const grouped = groupBy(
+    entries,
+    (entry) => `${entry.page.title.toLowerCase()}\n${duplicateTitleQualifier(entry).toLowerCase()}`,
+  );
   return Object.values(grouped)
     .map((duplicates) => selectCanonicalEntry(duplicates))
     .sort((a, b) => a.page.title.localeCompare(b.page.title) || a.page.sourceId.localeCompare(b.page.sourceId));
