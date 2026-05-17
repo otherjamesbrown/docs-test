@@ -1,5 +1,5 @@
 ---
-title: "In this Section"
+title: "Update your Security Settings"
 description: "Imported from support.titanhq.com"
 ---
 

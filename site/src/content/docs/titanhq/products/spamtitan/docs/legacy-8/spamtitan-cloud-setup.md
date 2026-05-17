@@ -1,5 +1,5 @@
 ---
-title: "In this Section"
+title: "SpamTitan Cloud Setup"
 description: "Imported from docs.titanhq.com"
 ---
 
@@ -30,15 +30,15 @@ Follow these steps to complete your SpamTitan Cloud setup:
 
 4.  [Enable quarantine reports](/docs-test/titanhq/products/spamtitan/docs/legacy-8/enable-quarantine-reports/ "Enable Quarantine Reports").
 
-5.  Add a Domain Administrator.
+5.  [Add a Domain Administrator](/docs-test/titanhq/products/spamtitan/docs/legacy-8/add-a-domain-administrator/ "Add a Domain Administrator").
 
-6.  Change your MX records.
+6.  [Change your MX records.](/docs-test/titanhq/products/spamtitan/docs/legacy-8/change-your-mx-records/ "Change Your MX Records")
 
     :::caution[Important]
     After changing your MX records, it is recommended you verify email flow through SpamTitan to your mail server **before** proceeding to the next setup step to lock down your mail server.
     :::
 
-7.  Lock down your mail server (includes specific instructions for Office 365 users).
+7.  [Lock down your mail server](/docs-test/titanhq/products/spamtitan/docs/legacy-8/lock-down-your-mail-server/ "Lock Down Your Mail Server") (includes specific instructions for Office 365 users).
 
 ## In this Section
 
@@ -46,6 +46,6 @@ Follow these steps to complete your SpamTitan Cloud setup:
 -   [Add Your Domain(s)](/docs-test/titanhq/products/spamtitan/docs/legacy-8/add-your-domain-s/)
 -   [Test Connectivity to your Mail Server](/docs-test/titanhq/products/spamtitan/docs/legacy-8/test-connectivity-to-your-mail-server/)
 -   [Enable Quarantine Reports](/docs-test/titanhq/products/spamtitan/docs/legacy-8/enable-quarantine-reports/)
--   Add a Domain Administrator
--   Change Your MX Records
--   Lock Down Your Mail Server
+-   [Add a Domain Administrator](/docs-test/titanhq/products/spamtitan/docs/legacy-8/add-a-domain-administrator/)
+-   [Change Your MX Records](/docs-test/titanhq/products/spamtitan/docs/legacy-8/change-your-mx-records/)
+-   [Lock Down Your Mail Server](/docs-test/titanhq/products/spamtitan/docs/legacy-8/lock-down-your-mail-server/)

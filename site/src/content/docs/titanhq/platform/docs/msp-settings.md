@@ -1,5 +1,5 @@
 ---
-title: "In this Section"
+title: "MSP Settings"
 description: "Imported from support.titanhq.com"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "In this Section"
+title: "Global Allow & Block List"
 description: "Imported from support.titanhq.com"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "In this Section"
+title: "Welcome to SpamTitan Cloud"
 description: "Imported from docs.titanhq.com"
 ---
 

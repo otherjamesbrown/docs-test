@@ -1,5 +1,5 @@
 ---
-title: "In this Section"
+title: "Reporting Overview"
 description: "Imported from docs.titanhq.com"
 ---
 

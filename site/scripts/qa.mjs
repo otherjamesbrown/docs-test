@@ -18,6 +18,24 @@ const pageLinkChecks = [
     selectorName: 'SpamTitan Cloud Guide section links',
     expectedHref: '/docs-test/titanhq/products/spamtitan/docs/legacy-8/quarantine-overview/',
   },
+  {
+    page: 'dist/titanhq/products/spamtitan/docs/legacy-8/link-lock/index.html',
+    selectorName: 'SpamTitan legacy Link Lock section links',
+    expectedHref: '/docs-test/titanhq/products/spamtitan/docs/legacy-8/link-lock-allowed-urls/',
+  },
+];
+
+const titleChecks = [
+  {
+    page: 'dist/titanhq/products/spamtitan/docs/legacy-8/link-lock/index.html',
+    selectorName: 'SpamTitan legacy Link Lock page title',
+    expectedTitle: 'Link Lock | Docs Platform POC',
+  },
+  {
+    page: 'dist/titanhq/products/spamtitan/docs/legacy-8/link-lock-allowed-urls/index.html',
+    selectorName: 'SpamTitan legacy Link Lock Allowed URLs page title',
+    expectedTitle: 'Link Lock Allowed URLs | Docs Platform POC',
+  },
 ];
 
 for (const check of tocChecks) {
@@ -41,4 +59,11 @@ for (const check of pageLinkChecks) {
   }
 }
 
-console.log(`Site QA passed for ${tocChecks.length + pageLinkChecks.length} generated page checks.`);
+for (const check of titleChecks) {
+  const html = await readFile(path.join(siteRoot, check.page), 'utf8');
+  if (!html.includes(`<title>${check.expectedTitle}</title>`)) {
+    throw new Error(`${check.selectorName}: expected title ${check.expectedTitle}`);
+  }
+}
+
+console.log(`Site QA passed for ${tocChecks.length + pageLinkChecks.length + titleChecks.length} generated page checks.`);

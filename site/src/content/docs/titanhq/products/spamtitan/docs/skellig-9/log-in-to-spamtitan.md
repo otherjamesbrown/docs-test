@@ -1,5 +1,5 @@
 ---
-title: "In this Section"
+title: "Log in to SpamTitan"
 description: "Imported from support.titanhq.com"
 ---
 

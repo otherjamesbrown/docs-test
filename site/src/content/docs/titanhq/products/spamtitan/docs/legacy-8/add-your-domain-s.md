@@ -1,5 +1,5 @@
 ---
-title: "In this Section"
+title: "Add Your Domain(s)"
 description: "Imported from docs.titanhq.com"
 ---
 

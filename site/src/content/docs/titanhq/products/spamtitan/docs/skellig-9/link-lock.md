@@ -1,5 +1,5 @@
 ---
-title: "In this Section"
+title: "Link Lock"
 description: "Imported from support.titanhq.com"
 ---
 

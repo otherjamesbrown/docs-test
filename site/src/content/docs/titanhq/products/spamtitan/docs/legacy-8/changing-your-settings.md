@@ -1,5 +1,5 @@
 ---
-title: "In this Section"
+title: "Changing your Settings"
 description: "Imported from docs.titanhq.com"
 ---
 

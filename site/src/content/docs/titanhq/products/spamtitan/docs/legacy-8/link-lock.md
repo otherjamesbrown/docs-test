@@ -1,5 +1,5 @@
 ---
-title: "In this Section"
+title: "Link Lock"
 description: "Imported from docs.titanhq.com"
 ---
 
@@ -22,6 +22,6 @@ Go to **Content Filtering** > **Link Lock** to enable and configure Link Lock.
 
 ## In this Section
 
--   Enable Link Lock for a Domain
--   Enable Link Lock for a User
--   Link Lock Allowed URLs
+-   [Enable Link Lock for a Domain](/docs-test/titanhq/products/spamtitan/docs/legacy-8/enable-link-lock-for-a-domain/)
+-   [Enable Link Lock for a User](/docs-test/titanhq/products/spamtitan/docs/legacy-8/enable-link-lock-for-a-user/)
+-   [Link Lock Allowed URLs](/docs-test/titanhq/products/spamtitan/docs/legacy-8/link-lock-allowed-urls/)

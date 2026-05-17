@@ -26,6 +26,17 @@ products:
         base_url: https://support.titanhq.com
         seeds:
           - /en/69450-welcome-to-the-titanhq-platform-.html
+          - /en/70563-msp-dashboard.html
+          - /en/70565-msp-dashboard.html
+          - /en/69426-customers.html
+          - /en/69428-customers.html
+          - /en/69429-add-a-customer-account.html
+          - /en/71401-delete-a-customer-account.html
+          - /en/69411-settings.html
+          - /en/69413-msp-settings.html
+          - /en/69414-msp-administrators.html
+          - /en/69421-license-usage.html
+          - /en/75330-top-navigation-bar.html
         branch_label: Platform
 
   - id: spamtitan
@@ -48,6 +59,17 @@ products:
           base_url: https://support.titanhq.com
           seeds:
             - /en/56985-welcome-to-spamtitan-.html
+            - /en/59382-navigating-levels-in-spamtitan.html
+            - path: /en/61767-spamtitan-release-notes.html
+              child_depth: 1
+            - /en/55539-spamtitan-msp-setup.html
+            - /en/55571-log-in-to-spamtitan.html
+            - /en/55582-update-your-security-settings.html
+            - /en/57004-adding-customers.html
+            - /en/57129-global-allow---block-list.html
+            - /en/55542-spamtitan-msp-admin-guide.html
+            - /en/60060-msp-overview.html
+            - /en/60370-link-lock.html
           branch_label: SpamTitan
           product_stream: skellig
           version_range: "9.00+"
@@ -57,8 +79,21 @@ products:
           base_url: https://docs.titanhq.com
           seeds:
             - /en/2179-spamtitan-overview.html
+            - path: /en/13160-spamtitan-release-notes.html
+              child_depth: 1
+            - path: /en/363-spamtitan-cloud-guide.html
+              child_depth: 1
+            - path: /en/1598-spamtitan-cloud-setup.html
+              child_depth: 1
+            - /en/423-log-in-for-the-first-time.html
+            - /en/475-add-your-domain-s-.html
+            - /en/485-test-connectivity-to-your-mail-server.html
+            - /en/640-enable-quarantine-reports.html
+            - /en/8939-system-update-settings.html
+            - /en/10542-guidelines-for-updating-spamtitan.html
+            - path: /en/30222-link-lock.html
+              child_depth: 2
           branch_label: SpamTitan
           product_stream: legacy
           version_range: "8.00-or-earlier"
           preferred: false
-

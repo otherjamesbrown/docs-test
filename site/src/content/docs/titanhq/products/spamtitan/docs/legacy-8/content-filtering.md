@@ -1,5 +1,5 @@
 ---
-title: "In this Section"
+title: "Content Filtering"
 description: "Imported from docs.titanhq.com"
 ---
 

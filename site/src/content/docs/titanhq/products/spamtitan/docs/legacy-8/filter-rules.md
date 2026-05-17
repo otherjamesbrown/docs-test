@@ -1,5 +1,5 @@
 ---
-title: "In this Section"
+title: "Filter Rules"
 description: "Imported from docs.titanhq.com"
 ---
 

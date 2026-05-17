@@ -1,5 +1,5 @@
 ---
-title: "In this Section"
+title: "SpamTitan Release Notes"
 description: "Imported from support.titanhq.com"
 ---
 

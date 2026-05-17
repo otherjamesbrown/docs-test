@@ -52,6 +52,35 @@ interface ImportReport {
   warnings: string[];
 }
 
+interface SourcesConfig {
+  products: ProductSourceConfig[];
+}
+
+interface ProductSourceConfig {
+  id: string;
+  label: string;
+  canonical_host: string;
+  sources: {
+    docs?: DocsSourceConfig | DocsSourceConfig[];
+  };
+}
+
+interface DocsSourceConfig {
+  id: string;
+  type: 'titanhq_static_docs_branch';
+  base_url: string;
+  seeds: DocsSeedConfig[];
+  product_stream?: string;
+}
+
+type DocsSeedConfig =
+  | string
+  | {
+      path?: string;
+      url?: string;
+      child_depth?: number;
+    };
+
 const turndown = new TurndownService({
   codeBlockStyle: 'fenced',
   headingStyle: 'atx',
@@ -133,61 +162,6 @@ const spamtitanFolders = [
   },
 ];
 
-const platformDocs = [
-  'https://support.titanhq.com/en/69450-welcome-to-the-titanhq-platform-.html',
-  'https://support.titanhq.com/en/70563-msp-dashboard.html',
-  'https://support.titanhq.com/en/70565-msp-dashboard.html',
-  'https://support.titanhq.com/en/69426-customers.html',
-  'https://support.titanhq.com/en/69428-customers.html',
-  'https://support.titanhq.com/en/69429-add-a-customer-account.html',
-  'https://support.titanhq.com/en/71401-delete-a-customer-account.html',
-  'https://support.titanhq.com/en/69411-settings.html',
-  'https://support.titanhq.com/en/69413-msp-settings.html',
-  'https://support.titanhq.com/en/69414-msp-administrators.html',
-  'https://support.titanhq.com/en/69421-license-usage.html',
-  'https://support.titanhq.com/en/75330-top-navigation-bar.html',
-];
-
-const skelligDocs = [
-  'https://support.titanhq.com/en/56985-welcome-to-spamtitan-.html',
-  'https://support.titanhq.com/en/59382-navigating-levels-in-spamtitan.html',
-  'https://support.titanhq.com/en/61767-spamtitan-release-notes.html',
-  'https://support.titanhq.com/en/61768-spamtitan-release-notes.html',
-  'https://support.titanhq.com/en/55539-spamtitan-msp-setup.html',
-  'https://support.titanhq.com/en/55571-log-in-to-spamtitan.html',
-  'https://support.titanhq.com/en/55582-update-your-security-settings.html',
-  'https://support.titanhq.com/en/57004-adding-customers.html',
-  'https://support.titanhq.com/en/57129-global-allow---block-list.html',
-  'https://support.titanhq.com/en/55542-spamtitan-msp-admin-guide.html',
-  'https://support.titanhq.com/en/60060-msp-overview.html',
-  'https://support.titanhq.com/en/60370-link-lock.html',
-];
-
-const legacyDocs = [
-  'https://docs.titanhq.com/en/2179-spamtitan-overview.html',
-  'https://docs.titanhq.com/en/13160-spamtitan-release-notes.html',
-  'https://docs.titanhq.com/en/13161-spamtitan-release-notes.html',
-  'https://docs.titanhq.com/en/363-spamtitan-cloud-guide.html',
-  'https://docs.titanhq.com/en/371-welcome-to-spamtitan-cloud.html',
-  'https://docs.titanhq.com/en/422-getting-started-with-spamtitan-cloud.html',
-  'https://docs.titanhq.com/en/1598-spamtitan-cloud-setup.html',
-  'https://docs.titanhq.com/en/30221-content-filtering.html',
-  'https://docs.titanhq.com/en/678-anti-spam-engine.html',
-  'https://docs.titanhq.com/en/887-changing-your-settings.html',
-  'https://docs.titanhq.com/en/1007-filter-rules.html',
-  'https://docs.titanhq.com/en/1135-quarantine-overview.html',
-  'https://docs.titanhq.com/en/1138-reporting-overview.html',
-  'https://docs.titanhq.com/en/1414-useful-links-and-info-.html',
-  'https://docs.titanhq.com/en/658-glossary.html',
-  'https://docs.titanhq.com/en/423-log-in-for-the-first-time.html',
-  'https://docs.titanhq.com/en/475-add-your-domain-s-.html',
-  'https://docs.titanhq.com/en/485-test-connectivity-to-your-mail-server.html',
-  'https://docs.titanhq.com/en/640-enable-quarantine-reports.html',
-  'https://docs.titanhq.com/en/8939-system-update-settings.html',
-  'https://docs.titanhq.com/en/10542-guidelines-for-updating-spamtitan.html',
-  'https://docs.titanhq.com/en/30222-link-lock.html',
-];
-
 async function main() {
   const command = process.argv[2] ?? 'help';
   const args = process.argv.slice(3);
@@ -231,7 +205,7 @@ async function main() {
 }
 
 async function discover(limit?: number): Promise<PageCandidate[]> {
-  await readSourcesConfig();
+  const config = await readSourcesConfig();
 
   const pages: PageCandidate[] = [];
 
@@ -248,16 +222,6 @@ async function discover(limit?: number): Promise<PageCandidate[]> {
     pages.push(...discovered);
   }
 
-  const platform = await discoverDocs(platformDocs, {
-    area: 'titanhq-platform',
-    sourceHost: 'support.titanhq.com',
-    canonicalHost: 'support.titanhq.com',
-    routeBase: 'titanhq/platform/docs',
-    product: 'TitanHQ Platform',
-    breadcrumbs: ['TitanHQ', 'Platform', 'Docs'],
-  });
-  pages.push(...platform);
-
   for (const folder of spamtitanFolders) {
     const discovered = await discoverFreshdeskFolder(folder.sourceUrl, {
       area: 'spamtitan-kb',
@@ -271,29 +235,9 @@ async function discover(limit?: number): Promise<PageCandidate[]> {
     pages.push(...discovered);
   }
 
-  pages.push(
-    ...(await discoverDocs(skelligDocs, {
-      area: 'spamtitan-skellig',
-      sourceHost: 'support.titanhq.com',
-      canonicalHost: 'support.titanhq.com',
-      routeBase: 'titanhq/products/spamtitan/docs/skellig-9',
-      product: 'SpamTitan',
-      productStream: 'skellig',
-      breadcrumbs: ['TitanHQ', 'Products', 'SpamTitan', 'Docs', 'Skellig 9'],
-    })),
-  );
-
-  pages.push(
-    ...(await discoverDocs(legacyDocs, {
-      area: 'spamtitan-legacy',
-      sourceHost: 'docs.titanhq.com',
-      canonicalHost: 'docs.titanhq.com',
-      routeBase: 'titanhq/products/spamtitan/docs/legacy-8',
-      product: 'SpamTitan',
-      productStream: 'legacy',
-      breadcrumbs: ['TitanHQ', 'Products', 'SpamTitan', 'Docs', 'Legacy 8'],
-    })),
-  );
+  for (const { source, options } of configuredDocsSources(config)) {
+    pages.push(...(await discoverDocs(source, options)));
+  }
 
   const unique = dedupePages(pages);
   return typeof limit === 'number' ? unique.slice(0, limit) : unique;
@@ -355,7 +299,7 @@ async function discoverFreshdeskFolder(
 }
 
 async function discoverDocs(
-  urls: string[],
+  source: DocsSourceConfig,
   options: {
     area: Area;
     sourceHost: string;
@@ -367,28 +311,138 @@ async function discoverDocs(
   },
 ): Promise<PageCandidate[]> {
   const pages: PageCandidate[] = [];
-  for (const sourceUrl of urls) {
+  const processedDepth = new Map<string, number>();
+  const emitted = new Set<string>();
+  const queue = source.seeds.map((seed) => docsSeedQueueItem(seed, source.base_url));
+  const sourceHost = new URL(source.base_url).hostname;
+
+  while (queue.length > 0) {
+    const item = queue.shift();
+    if (!item) break;
+    const sourceUrl = normaliseDocsPageUrl(item.sourceUrl);
+    const sourceKey = sourceLinkKey(sourceUrl) ?? sourceUrl;
+    const previousDepth = processedDepth.get(sourceKey);
+    if (previousDepth !== undefined && previousDepth >= item.childDepth) continue;
+    processedDepth.set(sourceKey, item.childDepth);
+
+    const sourceId = docsSourceId(sourceUrl);
     const html = await fetchText(sourceUrl);
     const $ = cheerio.load(html, { xmlMode: false });
-    const title = cleanText($('article #topic-content h2.title, article h2.title, title').first().text());
-    const sourceId = path.basename(new URL(sourceUrl).pathname).replace(/\.html$/, '');
-    const route = `${options.routeBase}/${slugify(sourceId.replace(/^\d+-/, ''))}`;
-    pages.push({
-      area: options.area,
-      sourceId,
-      sourceUrl,
-      sourceHost: options.sourceHost,
-      canonicalHost: options.canonicalHost,
-      title: title || sourceId,
-      route,
-      outputPath: `${route}.md`,
-      contentType: 'docs_page',
-      breadcrumbs: options.breadcrumbs,
-      product: options.product,
-      productStream: options.productStream,
-    });
+    const topicSection = $('#topic-content section').first();
+    const title = docsPageTitle($, topicSection.length ? topicSection : $('#topic-content, article').first(), sourceId);
+    if (!emitted.has(sourceKey)) {
+      const route = `${options.routeBase}/${slugify(sourceId.replace(/^\d+-/, ''))}`;
+      pages.push({
+        area: options.area,
+        sourceId,
+        sourceUrl,
+        sourceHost: options.sourceHost,
+        canonicalHost: options.canonicalHost,
+        title: title || sourceId,
+        route,
+        outputPath: `${route}.md`,
+        contentType: 'docs_page',
+        breadcrumbs: options.breadcrumbs,
+        product: options.product,
+        productStream: options.productStream,
+      });
+      emitted.add(sourceKey);
+    }
+
+    if (item.childDepth <= 0) continue;
+    for (const child of docsSectionIndexItems(html, sourceId, sourceUrl)) {
+      const url = new URL(child.href);
+      if (url.hostname !== sourceHost || url.hash) continue;
+      const childUrl = normaliseDocsPageUrl(url.toString());
+      queue.push({ sourceUrl: childUrl, childDepth: item.childDepth - 1 });
+    }
   }
   return pages;
+}
+
+function configuredDocsSources(config: SourcesConfig): Array<{
+  source: DocsSourceConfig;
+  options: {
+    area: Area;
+    sourceHost: string;
+    canonicalHost: string;
+    routeBase: string;
+    product: string;
+    productStream?: string;
+    breadcrumbs: string[];
+  };
+}> {
+  return config.products.flatMap((product) => {
+    const docs = product.sources.docs ? [product.sources.docs].flat() : [];
+    return docs.map((source) => {
+      const sourceHost = new URL(source.base_url).hostname;
+      if (product.id === 'titanhq-platform') {
+        return {
+          source,
+          options: {
+            area: 'titanhq-platform' as const,
+            sourceHost,
+            canonicalHost: product.canonical_host,
+            routeBase: 'titanhq/platform/docs',
+            product: product.label,
+            breadcrumbs: ['TitanHQ', 'Platform', 'Docs'],
+          },
+        };
+      }
+
+      if (product.id === 'spamtitan' && source.product_stream === 'skellig') {
+        return {
+          source,
+          options: {
+            area: 'spamtitan-skellig' as const,
+            sourceHost,
+            canonicalHost: product.canonical_host,
+            routeBase: 'titanhq/products/spamtitan/docs/skellig-9',
+            product: product.label,
+            productStream: 'skellig',
+            breadcrumbs: ['TitanHQ', 'Products', product.label, 'Docs', 'Skellig 9'],
+          },
+        };
+      }
+
+      if (product.id === 'spamtitan' && source.product_stream === 'legacy') {
+        return {
+          source,
+          options: {
+            area: 'spamtitan-legacy' as const,
+            sourceHost,
+            canonicalHost: product.canonical_host,
+            routeBase: 'titanhq/products/spamtitan/docs/legacy-8',
+            product: product.label,
+            productStream: 'legacy',
+            breadcrumbs: ['TitanHQ', 'Products', product.label, 'Docs', 'Legacy 8'],
+          },
+        };
+      }
+
+      throw new Error(`Unsupported docs source ${source.id} for product ${product.id}`);
+    });
+  });
+}
+
+function docsSeedQueueItem(seed: DocsSeedConfig, baseUrl: string): { sourceUrl: string; childDepth: number } {
+  if (typeof seed === 'string') {
+    return { sourceUrl: new URL(seed, baseUrl).toString(), childDepth: 0 };
+  }
+
+  const url = seed.url ?? seed.path;
+  if (!url) throw new Error(`Docs seed in ${baseUrl} must include path or url`);
+  return { sourceUrl: new URL(url, baseUrl).toString(), childDepth: seed.child_depth ?? 0 };
+}
+
+function normaliseDocsPageUrl(url: string): string {
+  const parsed = new URL(url);
+  parsed.hash = '';
+  return parsed.toString();
+}
+
+function docsSourceId(url: string): string {
+  return path.basename(new URL(url).pathname).replace(/\.html$/, '');
 }
 
 async function fetchAll(pages: PageCandidate[], force: boolean) {
@@ -600,11 +654,25 @@ async function convertDocsPage(
   }
   const selected = body.length ? body : $('#topic-content, article').first();
   cleanupBody($, selected);
+  const title = docsPageTitle($, selected, page.title);
   appendDocsSectionIndex($, selected, page);
-  const title = cleanText(selected.find('h2.title, h1, h2').first().text()) || page.title;
   const htmlForMarkdown = await rewriteAssetsAndLinks($, selected, page, warnings, sourceLinkIndex);
   const markdown = normaliseMarkdown(turndown.turndown(htmlForMarkdown));
   return `${frontmatter(title, `Imported from ${page.sourceHost}`)}\n\n${sourceBlock(page)}\n\n${markdown}\n`;
+}
+
+function docsPageTitle($: cheerio.CheerioAPI, body: cheerio.Cheerio<unknown>, fallback: string): string {
+  const headings = body.find('h1.title, h2.title, h3.title, h4.title, h5.title, h6.title, h1, h2, h3, h4, h5, h6');
+  for (const heading of headings.toArray()) {
+    const title = cleanText($(heading).text());
+    if (title && title.toLowerCase() !== 'in this section') return title;
+  }
+  return cleanText($('title').first().text()) || fallback;
+}
+
+export function docsContentTitle(html: string, fallback = ''): string {
+  const $ = cheerio.load(`<main>${html}</main>`, { xmlMode: false });
+  return docsPageTitle($, $('main'), fallback);
 }
 
 function appendDocsSectionIndex($: cheerio.CheerioAPI, body: cheerio.Cheerio<unknown>, page: PageCandidate) {
@@ -772,11 +840,12 @@ async function runQa() {
   console.log(`QA passed for ${files.length} content files.`);
 }
 
-async function readSourcesConfig() {
+async function readSourcesConfig(): Promise<SourcesConfig> {
   const file = path.join(repoRoot, 'migration/sources.yml');
   const content = await fs.readFile(file, 'utf8');
-  const parsed = YAML.parse(content);
+  const parsed = YAML.parse(content) as SourcesConfig;
   if (!parsed?.products?.length) throw new Error('migration/sources.yml must contain products');
+  return parsed;
 }
 
 async function fetchText(url: string): Promise<string> {

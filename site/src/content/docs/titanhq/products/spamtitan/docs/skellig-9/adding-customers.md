@@ -1,5 +1,5 @@
 ---
-title: "In this Section"
+title: "Adding Customers"
 description: "Imported from support.titanhq.com"
 ---
 
