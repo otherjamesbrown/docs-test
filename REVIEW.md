@@ -14,15 +14,13 @@ issue maps to one ~PR-sized task and links back to the relevant section below.
 
 If you are a coding agent picking up work:
 
-1. Pick a GitHub issue (start with `[P1]`-titled ones).
+1. Pick a GitHub issue (start with `[P1]`-titled ones — see [issues #2–#15](https://github.com/otherjamesbrown/docs-test/issues?q=is%3Aissue+is%3Aopen)).
 2. Read the section of this file the issue links to for full context.
-3. Open one PR per issue. Reference the issue in the PR description (`Closes #N`).
+3. Open one PR per issue against `main`. Reference the issue in the PR description (`Closes #N`).
 4. Acceptance criteria are listed inside each issue; tests where applicable.
 5. CI (`.github/workflows/ci.yml`) must stay green.
 
-If no issues exist yet, the checkbox items below are the master list — convert
-them to issues before starting, or address them as a single sweep if scope
-allows.
+The "Suggested priority order" at the bottom of this file links each task to its issue.
 
 ---
 
@@ -186,14 +184,27 @@ Has the naming bug above and the over-broad gate. Worth a pass.
 
 ## Suggested priority order
 
-Highest-value fixes first:
+Highest-value fixes first. Each item links to its tracking issue.
 
-1. [ ] Fix the `unresolvedMigratedSourceLinks` naming (or behaviour) so the QA output is honest.
-2. [ ] Add fixture-based tests for `convertFreshdeskArticle` and `convertDocsPage`.
-3. [ ] Move the hardcoded Freshdesk folder lists into `sources.yml`, validate the YAML with Zod, and remove the special-cased product `if` ladder.
-4. [ ] Persist discovery output to `manifest.json` and have `fetch` / `convert` read it back instead of re-scraping seed pages.
-5. [ ] Fix the `# ` → `## ` regex to not touch code fences (and switch to a remark plugin if you can).
-6. [ ] Add `tsc --noEmit` and `astro check` to CI; switch `npm install` → `npm ci`.
-7. [ ] Split `cli.ts` into `discover/`, `convert/`, `qa/`, `shared/` modules.
-8. [ ] Add a "Legal / scope" note to the README about scraped third-party content.
-9. [ ] Sweep the smaller items above.
+**P1 — fix before scaling beyond the POC**
+
+1. [#2](https://github.com/otherjamesbrown/docs-test/issues/2) — Fix `unresolvedMigratedSourceLinks` naming/behaviour so the QA output is honest.
+2. [#3](https://github.com/otherjamesbrown/docs-test/issues/3) — Stop `normaliseMarkdown` mangling fenced code-block content.
+3. [#4](https://github.com/otherjamesbrown/docs-test/issues/4) — Drive Freshdesk discovery from `sources.yml`, validate with Zod, remove product-ID `if` ladder.
+4. [#5](https://github.com/otherjamesbrown/docs-test/issues/5) — Fixture-based tests for `convertFreshdeskArticle` and `convertDocsPage`.
+5. [#6](https://github.com/otherjamesbrown/docs-test/issues/6) — Tests for `rewriteAssetsAndLinks` (heart of the migration value-add).
+
+**P2 — should do before broader rollout**
+
+6. [#7](https://github.com/otherjamesbrown/docs-test/issues/7) — Preserve admonition severity (`important`/`warning` → not collapsed to `caution`).
+7. [#8](https://github.com/otherjamesbrown/docs-test/issues/8) — Fix Windows-broken `repoRoot` computation.
+8. [#9](https://github.com/otherjamesbrown/docs-test/issues/9) — Persist discovery output to `manifest.json` between pipeline stages.
+9. [#10](https://github.com/otherjamesbrown/docs-test/issues/10) — Split `tools/importer/src/cli.ts` into focused modules.
+10. [#11](https://github.com/otherjamesbrown/docs-test/issues/11) — CI hardening: `npm ci`, `tsc --noEmit`, `astro check`, lint.
+11. [#12](https://github.com/otherjamesbrown/docs-test/issues/12) — README accuracy pass + Legal/scope note.
+12. [#13](https://github.com/otherjamesbrown/docs-test/issues/13) — Unit tests for `dedupePages`, `normaliseMarkdown`, `discoverDocs`, helpers.
+
+**P3 — nice to have**
+
+13. [#14](https://github.com/otherjamesbrown/docs-test/issues/14) — Cache imported assets across `convert` runs; retry/backoff for `fetchText`.
+14. [#15](https://github.com/otherjamesbrown/docs-test/issues/15) — Tidy-up sweep (dead code, ghost `.gitignore` entries, duplicated constants).
