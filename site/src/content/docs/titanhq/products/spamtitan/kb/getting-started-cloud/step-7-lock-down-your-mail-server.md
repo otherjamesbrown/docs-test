@@ -13,7 +13,7 @@ Following best security practice, you should lock down your email server to only
 
 If you are an Office 365 customer, see Locking down your Office 365 mail server.
 
-:::caution[Important]
+:::note[Important]
 The IP addresses below are for new SpamTitan Cloud customers completing their initial setup.
 
 If you are an existing customer, you may be using different IP addresses. See SpamTitan Cloud Server IP Addresses for more information.

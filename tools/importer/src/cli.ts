@@ -188,8 +188,8 @@ const turndown = new TurndownService({
 const paligoAdmonitionTypes = new Map([
   ['note', 'note'],
   ['tip', 'tip'],
-  ['important', 'caution'],
-  ['warning', 'caution'],
+  ['important', 'note'],
+  ['warning', 'danger'],
   ['caution', 'caution'],
 ]);
 

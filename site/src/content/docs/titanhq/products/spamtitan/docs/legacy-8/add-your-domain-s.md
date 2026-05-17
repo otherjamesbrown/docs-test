@@ -50,7 +50,7 @@ Destination Port:
 
 25 is the default SMTP port. All mail servers use port 25 unless configured otherwise.
 
-:::caution[Important]
+:::note[Important]
 To ensure your server can receive mail from SpamTitan, check that your firewall is open to receive SMTP traffic on Port 25 from SpamTitan Cloud's IP addresses.
 :::
 
@@ -62,7 +62,7 @@ Allows you to use the MX records of a different domain to identify the destinati
 
 Allows SpamTitan Cloud servers to verify if a recipient address exists before sending them an email. If a user does not exist, it will block the email before reaching the mail server (default: No Recipient Verification).
 
-:::caution[Important]
+:::note[Important]
 Set to Dynamic Recipient Verification if supported. For Dynamic Recipient Verification to work, your mail server must be configured to reject invalid addresses. See What is Recipient Verification?
 :::
 

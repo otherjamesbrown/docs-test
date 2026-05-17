@@ -53,7 +53,7 @@ Select the edit ![edit-icon.jpg](/docs-test/imported-assets/titanhq-platform/694
 
     -   _Email_: Enter an email address for this administrator.
 
-        :::caution[Warning]
+        :::danger[Warning]
         The same email address cannot be used for an MSP admin _and_ a Customer admin.
         :::
 

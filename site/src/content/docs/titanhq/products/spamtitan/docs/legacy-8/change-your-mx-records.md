@@ -20,7 +20,7 @@ If you are a new customer whose account has just been created, you will be added
 
 Using two MX records of equal priority allows for fail-over and redundancy.
 
-:::caution[Important]
+:::note[Important]
 After changing your MX records, it is recommended you verify email flow through SpamTitan to your mail server **before** proceeding to the next setup step, Lock Down Your Mail Server.
 :::
 

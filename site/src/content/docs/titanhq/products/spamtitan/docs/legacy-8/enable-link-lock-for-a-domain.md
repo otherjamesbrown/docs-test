@@ -40,7 +40,7 @@ Rewrite mails with DKIM signature
 
 Allow Link Lock to rewrite emails with a DKIM signature.
 
-:::caution[Important]
+:::note[Important]
 Checking this option invalidates DKIM signatures, which may affect scoring on other mail systems.
 :::
 

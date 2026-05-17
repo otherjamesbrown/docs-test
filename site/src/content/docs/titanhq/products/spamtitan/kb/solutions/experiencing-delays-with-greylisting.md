@@ -37,7 +37,7 @@ You can decrease the mail delay setting to reduce the possibility of mail delay 
 
 4.  Select **Save**.
 
-:::caution[Warning]
+:::danger[Warning]
 Reducing the greylisting mail delay setting increases your risk of receiving spam.
 
 Also, mail delays _may_ not improve by reducing this setting, as it is the decision of the sending mail server to resend a mail after it has been deferred by greylisting.

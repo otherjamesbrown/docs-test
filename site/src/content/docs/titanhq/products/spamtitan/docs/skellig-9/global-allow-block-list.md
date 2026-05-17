@@ -18,7 +18,7 @@ Email addresses, domains and IPs (MSP level) can be allowed and blocked by being
 
 -   **IP Allowing (MSP level only)**: Spam filtering, virus filtering, banned attachments filtering and SPF checks are not performed on IPs that are on the allow list. However, RBL checks and greylisting is still applied.
 
-    :::caution[Warning]
+    :::danger[Warning]
     Allowed IPs bypass settings put in place for your security. Ensure an IP is trusted and details are correct _before_ adding to your allow list.
     :::
 
