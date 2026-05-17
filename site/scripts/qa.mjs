@@ -43,11 +43,34 @@ const titleChecks = [
   },
 ];
 
+const textChecks = [
+  {
+    page: 'dist/titanhq/products/spamtitan/docs/skellig-9/index.html',
+    selectorName: 'SpamTitan Skellig index disambiguates duplicate 2FA titles',
+    expectedText: 'Two-Factor Authentication (Account setup)',
+  },
+  {
+    page: 'dist/titanhq/products/spamtitan/docs/skellig-9/index.html',
+    selectorName: 'SpamTitan Skellig index disambiguates duplicate 2FA titles',
+    expectedText: 'Two-Factor Authentication (MSP level)',
+  },
+  {
+    page: 'dist/titanhq/products/spamtitan/docs/skellig-9/index.html',
+    selectorName: 'SpamTitan Skellig index disambiguates duplicate 2FA titles',
+    expectedText: 'Two-Factor Authentication (Customer level)',
+  },
+];
+
 const absentLinkChecks = [
   {
     page: 'dist/titanhq/products/spamtitan/index.html',
     selectorName: 'SpamTitan product overview keeps docs variants out of the landing page',
     forbiddenHref: '/docs-test/titanhq/products/spamtitan/docs/skellig-9/two-factor-authentication-74398/',
+  },
+  {
+    page: 'dist/titanhq/products/spamtitan/docs/skellig-9/index.html',
+    selectorName: 'SpamTitan Skellig index collapses duplicate 2FA setup topics',
+    forbiddenHref: '/docs-test/titanhq/products/spamtitan/docs/skellig-9/two-factor-authentication-56389/',
   },
 ];
 
@@ -79,6 +102,13 @@ for (const check of titleChecks) {
   }
 }
 
+for (const check of textChecks) {
+  const html = await readFile(path.join(siteRoot, check.page), 'utf8');
+  if (!html.includes(check.expectedText)) {
+    throw new Error(`${check.selectorName}: expected text ${check.expectedText}`);
+  }
+}
+
 for (const check of absentLinkChecks) {
   const html = await readFile(path.join(siteRoot, check.page), 'utf8');
   if (html.includes(`href="${check.forbiddenHref}"`)) {
@@ -88,6 +118,6 @@ for (const check of absentLinkChecks) {
 
 console.log(
   `Site QA passed for ${
-    tocChecks.length + pageLinkChecks.length + titleChecks.length + absentLinkChecks.length
+    tocChecks.length + pageLinkChecks.length + titleChecks.length + textChecks.length + absentLinkChecks.length
   } generated page checks.`,
 );

@@ -21,6 +21,17 @@ description: "Imported SpamTitan knowledge base articles."
 - [SpamTitan – Scheduled Maintenance](/docs-test/titanhq/products/spamtitan/kb/announcements/spamtitan-scheduled-maintenance/)
 - [SpamTitan Gateway / Private Cloud sending all message through Sandboxing -- 2006/04/06](/docs-test/titanhq/products/spamtitan/kb/announcements/spamtitan-gateway-private-cloud-sending-all-message-through-sandboxing-2006-04-06/)
 
+## Link Lock
+
+- [Comcast "SecurityEdge" causes linklock.titanhq.com Access Denied / 403 error](/docs-test/titanhq/products/spamtitan/kb/link-lock/comcast-securityedge-causes-linklock-titanhq-com-access-denied-403-error/)
+- [Domain Allowed URLs](/docs-test/titanhq/products/spamtitan/kb/link-lock/domain-allowed-urls/)
+- [Enable Link Lock for a Domain](/docs-test/titanhq/products/spamtitan/kb/link-lock/enable-link-lock-for-a-domain/)
+- [Enable Link Lock for a User](/docs-test/titanhq/products/spamtitan/kb/link-lock/enable-link-lock-for-a-user/)
+- [Enabling Link Lock in SpamTitan](/docs-test/titanhq/products/spamtitan/kb/link-lock/enabling-link-lock-in-spamtitan/)
+- [Link Lock](/docs-test/titanhq/products/spamtitan/kb/link-lock/link-lock/)
+- [Link Lock Allowed URLs](/docs-test/titanhq/products/spamtitan/kb/link-lock/link-lock-allowed-urls/)
+- [User Allowed URLs](/docs-test/titanhq/products/spamtitan/kb/link-lock/user-allowed-urls/)
+
 ## Getting Started: SpamTitan Cloud
 
 - [Domain Group Administrator](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/domain-group-administrator/)
@@ -33,14 +44,3 @@ description: "Imported SpamTitan knowledge base articles."
 - [Step 5: Add a Domain Administrator](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/step-5-add-a-domain-administrator/)
 - [Step 6: Change Your MX Records](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/step-6-change-your-mx-records/)
 - [Step 7: Lock Down Your Mail Server](/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/step-7-lock-down-your-mail-server/)
-
-## Link Lock
-
-- [Comcast "SecurityEdge" causes linklock.titanhq.com Access Denied / 403 error](/docs-test/titanhq/products/spamtitan/kb/link-lock/comcast-securityedge-causes-linklock-titanhq-com-access-denied-403-error/)
-- [Domain Allowed URLs](/docs-test/titanhq/products/spamtitan/kb/link-lock/domain-allowed-urls/)
-- [Enable Link Lock for a Domain](/docs-test/titanhq/products/spamtitan/kb/link-lock/enable-link-lock-for-a-domain/)
-- [Enable Link Lock for a User](/docs-test/titanhq/products/spamtitan/kb/link-lock/enable-link-lock-for-a-user/)
-- [Enabling Link Lock in SpamTitan](/docs-test/titanhq/products/spamtitan/kb/link-lock/enabling-link-lock-in-spamtitan/)
-- [Link Lock](/docs-test/titanhq/products/spamtitan/kb/link-lock/link-lock/)
-- [Link Lock Allowed URLs](/docs-test/titanhq/products/spamtitan/kb/link-lock/link-lock-allowed-urls/)
-- [User Allowed URLs](/docs-test/titanhq/products/spamtitan/kb/link-lock/user-allowed-urls/)

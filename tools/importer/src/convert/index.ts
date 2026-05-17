@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { collectFiles, writeJson } from '../shared/files';
@@ -140,32 +141,38 @@ async function writeCollectionIndexes(pages: PageCandidate[]) {
   for (const collection of collections) {
     const outputPath = path.join(siteDocsRoot, collection.route, 'index.md');
     await fs.mkdir(path.dirname(outputPath), { recursive: true });
-    await fs.writeFile(outputPath, collectionIndexMarkdown(collection));
+    await fs.writeFile(outputPath, await collectionIndexMarkdown(collection));
   }
 }
 
-function collectionIndexMarkdown(collection: {
+async function collectionIndexMarkdown(collection: {
   title: string;
   description: string;
   pages: PageCandidate[];
   links?: Array<{ title: string; href: string }>;
-}): string {
+}): Promise<string> {
   if (collection.links) {
     const links = collection.links.map((link) => `- [${escapeMarkdownLinkText(link.title)}](${link.href})`).join('\n');
 
     return `${frontmatter(collection.title, collection.description)}\n\n> Generated import index: ${collection.pages.length} pages\n\n${links}\n`;
   }
 
-  const grouped = groupBy(collection.pages, (page) => page.folder ?? page.productStream ?? page.contentType);
-  const groups = Object.entries(grouped).map(([label, pages]) => {
-    const links = pages
-      .sort((a, b) => a.title.localeCompare(b.title))
-      .map((page) => `- [${escapeMarkdownLinkText(page.title)}](${basePath}/${page.route}/)`)
+  const entries = await collectionIndexEntries(collection.pages);
+  const grouped = groupBy(entries, (entry) => entry.page.folder ?? entry.page.productStream ?? entry.page.contentType);
+  const groups = Object.entries(grouped).map(([label, entries]) => {
+    const links = entries
+      .sort((a, b) => a.label.localeCompare(b.label) || a.page.sourceId.localeCompare(b.page.sourceId))
+      .map((entry) => `- [${escapeMarkdownLinkText(entry.label)}](${basePath}/${entry.page.route}/)`)
       .join('\n');
     return `## ${titleCase(label)}\n\n${links}`;
   });
 
-  return `${frontmatter(collection.title, collection.description)}\n\n> Generated import index: ${collection.pages.length} pages\n\n${groups.join('\n\n')}\n`;
+  const indexSummary =
+    entries.length === collection.pages.length
+      ? `${collection.pages.length} pages`
+      : `${collection.pages.length} pages; ${entries.length} listed after duplicate content consolidation`;
+
+  return `${frontmatter(collection.title, collection.description)}\n\n> Generated import index: ${indexSummary}\n\n${groups.join('\n\n')}\n`;
 }
 
 function groupBy<T>(items: T[], key: (item: T) => string): Record<string, T[]> {
@@ -175,4 +182,135 @@ function groupBy<T>(items: T[], key: (item: T) => string): Record<string, T[]> {
     groups[value].push(item);
     return groups;
   }, {});
+}
+
+export interface CollectionIndexEntry {
+  page: PageCandidate;
+  label: string;
+  body: string;
+  bodyHash: string;
+}
+
+export async function collectionIndexEntries(pages: PageCandidate[]): Promise<CollectionIndexEntry[]> {
+  const markdownPages = await Promise.all(
+    pages.map(async (page) => {
+      const markdown = await fs.readFile(path.join(siteDocsRoot, page.outputPath), 'utf8');
+      return { page, markdown };
+    }),
+  );
+  return buildCollectionIndexEntries(markdownPages);
+}
+
+export function buildCollectionIndexEntries(
+  markdownPages: Array<{ page: PageCandidate; markdown: string }>,
+): CollectionIndexEntry[] {
+  const entries = markdownPages.map(({ page, markdown }) => {
+    const body = normaliseMarkdownForIndex(markdown);
+    return {
+      page,
+      label: page.title,
+      body,
+      bodyHash: createHash('sha256').update(body).digest('hex'),
+    };
+  });
+  const uniqueEntries = removeDuplicateBodies(entries);
+  return labelDuplicateTitles(uniqueEntries);
+}
+
+export function normaliseMarkdownForIndex(markdown: string): string {
+  return markdown
+    .replace(/^---[\s\S]*?---\s*/, '')
+    .split('\n')
+    .filter(
+      (line) =>
+        !line.startsWith('> Source:') && !line.startsWith('> Product:') && !line.startsWith('> Imported content type:'),
+    )
+    .join('\n')
+    .replace(/\/docs-test\/imported-assets\/[^)\s"']+/g, '/docs-test/imported-assets/{asset}')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function removeDuplicateBodies(entries: CollectionIndexEntry[]): CollectionIndexEntry[] {
+  const grouped = groupBy(entries, (entry) => `${entry.page.title.toLowerCase()}\n${entry.bodyHash}`);
+  return Object.values(grouped)
+    .map((duplicates) => selectCanonicalEntry(duplicates))
+    .sort((a, b) => a.page.title.localeCompare(b.page.title) || a.page.sourceId.localeCompare(b.page.sourceId));
+}
+
+function selectCanonicalEntry(entries: CollectionIndexEntry[]): CollectionIndexEntry {
+  return [...entries].sort(
+    (a, b) =>
+      numericRouteSuffixScore(a.page) - numericRouteSuffixScore(b.page) ||
+      a.page.route.length - b.page.route.length ||
+      a.page.sourceId.localeCompare(b.page.sourceId),
+  )[0];
+}
+
+function numericRouteSuffixScore(page: PageCandidate): number {
+  return /-\d+\/?$/.test(page.route) ? 1 : 0;
+}
+
+function labelDuplicateTitles(entries: CollectionIndexEntry[]): CollectionIndexEntry[] {
+  const titleGroups = groupBy(entries, (entry) => entry.page.title.toLowerCase());
+
+  return entries.map((entry) => {
+    const duplicates = titleGroups[entry.page.title.toLowerCase()] ?? [];
+    if (duplicates.length === 1) {
+      return entry;
+    }
+
+    const qualifier = duplicateTitleQualifier(entry);
+    const proposedLabel = `${entry.page.title} (${qualifier})`;
+    const proposedLabelCount = duplicates.filter(
+      (duplicate) => `${duplicate.page.title} (${duplicateTitleQualifier(duplicate)})` === proposedLabel,
+    ).length;
+    const uniqueQualifier = proposedLabelCount === 1 ? qualifier : `${qualifier}, source ${sourceIdLabel(entry.page)}`;
+
+    return {
+      ...entry,
+      label: `${entry.page.title} (${uniqueQualifier})`,
+    };
+  });
+}
+
+function duplicateTitleQualifier(entry: CollectionIndexEntry): string {
+  const body = entry.body.toLowerCase();
+  const breadcrumbs = entry.page.breadcrumbs.join(' ').toLowerCase();
+  const context = `${body} ${breadcrumbs} ${entry.page.route}`.toLowerCase();
+
+  if (context.includes('msp level') || context.includes('as an msp') || context.includes('msp admin')) {
+    return 'MSP level';
+  }
+
+  if (
+    context.includes('customer level') ||
+    context.includes('as a customer admin') ||
+    context.includes('customer admin')
+  ) {
+    return 'Customer level';
+  }
+
+  if (
+    context.includes('logged-in account') ||
+    context.includes('authenticator phone app') ||
+    context.includes('profile')
+  ) {
+    return 'Account setup';
+  }
+
+  const specificBreadcrumb = [...entry.page.breadcrumbs]
+    .reverse()
+    .find((breadcrumb) => breadcrumb.toLowerCase() !== entry.page.title.toLowerCase() && breadcrumb.length > 0);
+
+  if (specificBreadcrumb) {
+    return specificBreadcrumb;
+  }
+
+  return `source ${sourceIdLabel(entry.page)}`;
+}
+
+function sourceIdLabel(page: PageCandidate): string {
+  const numericPrefix = page.sourceId.match(/^\d+/)?.[0];
+  return numericPrefix ?? page.sourceId;
 }
