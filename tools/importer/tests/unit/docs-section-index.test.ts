@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { docsContentTitle, docsSectionIndexItems } from '../../src/cli';
+import { docsContentTitle, docsSectionIndexItems } from '../../src/convert/docs-page';
 
 describe('docs section index extraction', () => {
   it('extracts direct child topics from Paligo sidebars', () => {

@@ -4,7 +4,7 @@ import {
   resolveMigratedSourceHref,
   sourceDomainBodyLinks,
   unrewrittenMigratedSourceLinks,
-} from '../../src/cli';
+} from '../../src/convert/links';
 
 describe('source link resolution', () => {
   const sourceLinkIndex = buildSourceLinkIndex([

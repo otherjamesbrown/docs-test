@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseSourcesConfig } from '../../src/cli';
+import { parseSourcesConfig } from '../../src/shared/config';
 
 describe('source configuration', () => {
   it('parses Freshdesk folders and docs routing from YAML', () => {

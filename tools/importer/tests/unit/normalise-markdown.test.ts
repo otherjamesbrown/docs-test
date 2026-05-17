@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { htmlFragmentToMarkdown, normaliseMarkdown } from '../../src/cli';
+import { htmlFragmentToMarkdown } from '../../src/convert/cleanup';
+import { normaliseMarkdown } from '../../src/convert/markdown';
 
 describe('Markdown normalisation', () => {
   it('demotes body H1 headings without changing fenced code comments', () => {

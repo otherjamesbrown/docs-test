@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { htmlFragmentToMarkdown } from '../../src/cli';
+import { htmlFragmentToMarkdown } from '../../src/convert/cleanup';
 
 describe('Paligo admonition conversion', () => {
   it.each([

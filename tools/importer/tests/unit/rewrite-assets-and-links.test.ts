@@ -1,6 +1,6 @@
 import * as cheerio from 'cheerio';
 import { describe, expect, it } from 'vitest';
-import { buildSourceLinkIndex, rewriteAssetsAndLinks } from '../../src/cli';
+import { buildSourceLinkIndex, rewriteAssetsAndLinks } from '../../src/convert/links';
 
 const page = {
   area: 'spamtitan-legacy' as const,
