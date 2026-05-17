@@ -9,6 +9,8 @@
     "convert": "tsx src/cli.ts convert",
     "qa": "tsx src/cli.ts qa",
     "all": "tsx src/cli.ts all",
+    "lint": "eslint \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
   "dependencies": {
@@ -24,4 +26,3 @@
     "vitest": "latest"
   }
 }
-

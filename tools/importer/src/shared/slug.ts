@@ -8,4 +8,3 @@ export function slugify(value: string): string {
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-');
 }
-

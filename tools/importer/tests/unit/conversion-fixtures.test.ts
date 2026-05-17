@@ -184,7 +184,9 @@ describe('conversion fixtures', () => {
       fakeAssetDownloader,
     );
 
-    expect(markdown).toContain('[Log in for the first time](/docs-test/titanhq/products/spamtitan/docs/legacy-8/log-in-for-the-first-time/)');
+    expect(markdown).toContain(
+      '[Log in for the first time](/docs-test/titanhq/products/spamtitan/docs/legacy-8/log-in-for-the-first-time/)',
+    );
     expect(markdown).toContain('a page outside the POC');
     expect(markdown).toContain('[local section](#local-section)');
     expect(markdown).toContain('[support](mailto:support@example.com)');

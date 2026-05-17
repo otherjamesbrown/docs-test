@@ -1,11 +1,6 @@
 export type SourceType = 'freshdesk_public' | 'titanhq_static_docs_branch';
 
-export type Area =
-  | 'redstor'
-  | 'titanhq-platform'
-  | 'spamtitan-kb'
-  | 'spamtitan-skellig'
-  | 'spamtitan-legacy';
+export type Area = 'redstor' | 'titanhq-platform' | 'spamtitan-kb' | 'spamtitan-skellig' | 'spamtitan-legacy';
 
 export interface PageCandidate {
   area: Area;

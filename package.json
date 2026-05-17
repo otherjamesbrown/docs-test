@@ -20,6 +20,15 @@
     "import:convert": "npm --workspace @docs-test/importer run convert --",
     "import:qa": "npm --workspace @docs-test/importer run qa --",
     "import:all": "npm --workspace @docs-test/importer run all --",
+    "typecheck": "npm --workspaces --if-present run typecheck",
+    "lint": "prettier . --check && npm --workspaces --if-present run lint",
     "test": "npm --workspaces --if-present test"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "eslint": "^10.4.0",
+    "prettier": "^3.8.3",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.3"
   }
 }

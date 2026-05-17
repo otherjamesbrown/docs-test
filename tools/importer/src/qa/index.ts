@@ -1,6 +1,11 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { buildSourceLinkIndex, sourceDomainBodyLinks, unrewrittenMigratedSourceLinks, type SourceLinkIndex } from '../convert/links';
+import {
+  buildSourceLinkIndex,
+  sourceDomainBodyLinks,
+  unrewrittenMigratedSourceLinks,
+  type SourceLinkIndex,
+} from '../convert/links';
 import { collectFiles } from '../shared/files';
 import { repoRoot, siteDocsRoot } from '../shared/paths';
 import type { PageCandidate } from '../shared/types';
@@ -22,7 +27,9 @@ export async function runQa() {
       if (content.includes(phrase)) failures.push(`${path.relative(repoRoot, file)} contains "${phrase}"`);
     }
     for (const link of unrewrittenMigratedSourceLinks(content, sourceLinkIndex)) {
-      failures.push(`${path.relative(repoRoot, file)} contains migrated source link that should have been rewritten "${link}"`);
+      failures.push(
+        `${path.relative(repoRoot, file)} contains migrated source link that should have been rewritten "${link}"`,
+      );
     }
     for (const link of sourceDomainBodyLinks(content)) {
       failures.push(`${path.relative(repoRoot, file)} contains source-domain body link "${link}"`);

@@ -15,7 +15,9 @@ turndown.addRule('strikethrough', {
 turndown.addRule('starlightAside', {
   filter: (node) =>
     node.nodeName === 'DIV' &&
-    Boolean((node as unknown as { getAttribute?: (name: string) => string | null }).getAttribute?.('data-import-admonition')),
+    Boolean(
+      (node as unknown as { getAttribute?: (name: string) => string | null }).getAttribute?.('data-import-admonition'),
+    ),
   replacement: (content, node) => {
     const element = node as unknown as { getAttribute?: (name: string) => string | null };
     const type = element.getAttribute?.('data-import-admonition') ?? 'note';
@@ -45,7 +47,9 @@ export function sourceBlock(page: PageCandidate, modified?: string): string {
 export function normaliseMarkdown(markdown: string): string {
   return markdown
     .split(/(```[\s\S]*?```)/g)
-    .map((section) => (section.startsWith('```') ? normaliseMarkdownCodeFence(section) : normaliseMarkdownText(section)))
+    .map((section) =>
+      section.startsWith('```') ? normaliseMarkdownCodeFence(section) : normaliseMarkdownText(section),
+    )
     .join('')
     .trim();
 }

@@ -1,0 +1,10 @@
+node_modules
+site/.astro
+site/dist
+site/public/imported-assets
+site/src/content/docs
+migration/raw
+migration/import-report.json
+migration/link-map.json
+migration/manifest.json
+tools/importer/tests/fixtures

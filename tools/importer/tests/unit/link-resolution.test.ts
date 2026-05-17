@@ -25,10 +25,7 @@ describe('source link resolution', () => {
 
   it('rewrites Freshdesk article aliases to migrated routes', () => {
     expect(
-      resolveMigratedSourceHref(
-        'https://helpdesk.spamtitan.com/a/solutions/articles/4000186889',
-        sourceLinkIndex,
-      ),
+      resolveMigratedSourceHref('https://helpdesk.spamtitan.com/a/solutions/articles/4000186889', sourceLinkIndex),
     ).toBe(
       '/docs-test/titanhq/products/spamtitan/kb/getting-started-cloud/step-3-test-connectivity-to-your-mail-server/',
     );

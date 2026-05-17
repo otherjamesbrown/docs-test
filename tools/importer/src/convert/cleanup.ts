@@ -18,9 +18,9 @@ export function cleanupBody($: cheerio.CheerioAPI, body: cheerio.Cheerio<AnyNode
   preservePaligoAdmonitions($, body);
   body.find('[style]').removeAttr('style');
   body.find('[class]').removeAttr('class');
-  body.find('[data-origin-id], [data-publication-date], [data-permalink], [data-topic-level], [data-relative-prefix]').removeAttr(
-    'data-origin-id data-publication-date data-permalink data-topic-level data-relative-prefix',
-  );
+  body
+    .find('[data-origin-id], [data-publication-date], [data-permalink], [data-topic-level], [data-relative-prefix]')
+    .removeAttr('data-origin-id data-publication-date data-permalink data-topic-level data-relative-prefix');
   body.find('a[href^="#"]').each((_, element) => {
     const text = cleanText($(element).text());
     if (!text) $(element).remove();
@@ -42,7 +42,9 @@ function preservePaligoAdmonitions($: cheerio.CheerioAPI, body: cheerio.Cheerio<
 
     const type = paligoAdmonitionTypes.get(sourceType) ?? 'note';
     const wrapper = $(element);
-    const title = cleanText(wrapper.children('h1.title, h2.title, h3.title, h4.title, h5.title, h6.title').first().text());
+    const title = cleanText(
+      wrapper.children('h1.title, h2.title, h3.title, h4.title, h5.title, h6.title').first().text(),
+    );
     wrapper.attr('data-import-admonition', type);
     if (title) wrapper.attr('data-import-admonition-title', title);
     wrapper.children('h1.title, h2.title, h3.title, h4.title, h5.title, h6.title').first().remove();

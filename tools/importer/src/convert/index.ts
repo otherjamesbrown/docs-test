@@ -1,7 +1,16 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { collectFiles, writeJson } from '../shared/files';
-import { assetsRoot, basePath, linkMapPath, manifestPath, rawPath, reportPath, repoRoot, siteDocsRoot } from '../shared/paths';
+import {
+  assetsRoot,
+  basePath,
+  linkMapPath,
+  manifestPath,
+  rawPath,
+  reportPath,
+  repoRoot,
+  siteDocsRoot,
+} from '../shared/paths';
 import { escapeMarkdownLinkText, titleCase } from '../shared/text';
 import type { ImportReport, PageCandidate } from '../shared/types';
 import { toManifest } from '../manifest';

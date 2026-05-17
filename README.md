@@ -145,7 +145,9 @@ npm run import:all -- --force
 npm run site:build
 npm run site:qa
 
-# Run all workspace tests
+# Run all workspace tests and static checks
+npm run typecheck
+npm run lint
 npm test
 ```
 
@@ -156,8 +158,9 @@ The POC has several layers of checks:
 - Importer unit tests cover conversion behavior such as link resolution, slugging, Paligo section indexes, and admonition/caution handling.
 - Importer QA scans generated Markdown for unresolved links back to known source systems when the target page exists in the import.
 - Site QA inspects rendered HTML for specific regressions found during the POC, including missing table-of-contents anchors and missing migrated section links.
-- GitHub Actions runs tests and site checks on pushes and pull requests.
-- GitHub Pages deployment only publishes after a successful site build and rendered-site QA.
+- GitHub Actions runs type checks, linting, tests, import QA, site build, and rendered-site QA on pushes and pull requests.
+- GitHub Pages deployment only publishes after the same checks pass in the Pages workflow.
+- The `main` branch should require the `CI` workflow before merge or direct push so broken generated content cannot become the published baseline.
 
 ## Source Metadata and Redirects
 

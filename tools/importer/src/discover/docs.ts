@@ -50,7 +50,10 @@ export async function discoverDocs(source: DocsSourceConfig, options: DocsDiscov
     const html = await fetchText(sourceUrl);
     const $ = cheerio.load(html, { xmlMode: false });
     const topicSection = $('#topic-content section').first();
-    const title = docsContentTitle((topicSection.length ? topicSection : $('#topic-content, article').first()).html() ?? '', sourceId);
+    const title = docsContentTitle(
+      (topicSection.length ? topicSection : $('#topic-content, article').first()).html() ?? '',
+      sourceId,
+    );
     if (!emitted.has(sourceKey)) {
       const route = `${options.routeBase}/${slugify(sourceId.replace(/^\d+-/, ''))}`;
       pages.push({

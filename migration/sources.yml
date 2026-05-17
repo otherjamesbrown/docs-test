@@ -79,7 +79,7 @@ products:
             source_url: /support/solutions/folders/4000036705
             route_base: titanhq/products/spamtitan/kb/announcements
             limit: 5
-          - folder: "Getting Started: SpamTitan Cloud"
+          - folder: 'Getting Started: SpamTitan Cloud'
             source_url: /support/solutions/folders/4000037714
             route_base: titanhq/products/spamtitan/kb/getting-started-cloud
             limit: 20
@@ -118,7 +118,7 @@ products:
             - /en/60370-link-lock.html
           branch_label: SpamTitan
           product_stream: skellig
-          version_range: "9.00+"
+          version_range: '9.00+'
           preferred: true
         - id: titanhq-docs-spamtitan-legacy
           type: titanhq_static_docs_branch
@@ -149,5 +149,5 @@ products:
               child_depth: 2
           branch_label: SpamTitan
           product_stream: legacy
-          version_range: "8.00-or-earlier"
+          version_range: '8.00-or-earlier'
           preferred: false

@@ -62,7 +62,9 @@ describe('asset and link rewriting', () => {
   });
 
   it('preserves mailto and fragment links', async () => {
-    const { output, warnings } = await rewrite('<a href="mailto:support@example.com">Email</a><a href="#section">Jump</a>');
+    const { output, warnings } = await rewrite(
+      '<a href="mailto:support@example.com">Email</a><a href="#section">Jump</a>',
+    );
 
     expect(output).toContain('href="mailto:support@example.com"');
     expect(output).toContain('href="#section"');

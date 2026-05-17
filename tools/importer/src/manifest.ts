@@ -29,7 +29,9 @@ export async function readPagesFromManifest(limit?: number): Promise<PageCandida
   try {
     manifest = (await readJson(manifestPath)) as ManifestEntry[];
   } catch (error) {
-    throw new Error(`No migration manifest found at ${manifestPath}. Run npm run import:discover first. ${String(error)}`);
+    throw new Error(
+      `No migration manifest found at ${manifestPath}. Run npm run import:discover first. ${String(error)}`,
+    );
   }
 
   const pages = manifest.map(manifestPageToCandidate);

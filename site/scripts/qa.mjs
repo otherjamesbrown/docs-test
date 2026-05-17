@@ -66,4 +66,6 @@ for (const check of titleChecks) {
   }
 }
 
-console.log(`Site QA passed for ${tocChecks.length + pageLinkChecks.length + titleChecks.length} generated page checks.`);
+console.log(
+  `Site QA passed for ${tocChecks.length + pageLinkChecks.length + titleChecks.length} generated page checks.`,
+);
