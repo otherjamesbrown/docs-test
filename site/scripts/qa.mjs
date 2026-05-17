@@ -43,6 +43,14 @@ const titleChecks = [
   },
 ];
 
+const absentLinkChecks = [
+  {
+    page: 'dist/titanhq/products/spamtitan/index.html',
+    selectorName: 'SpamTitan product overview keeps docs variants out of the landing page',
+    forbiddenHref: '/docs-test/titanhq/products/spamtitan/docs/skellig-9/two-factor-authentication-74398/',
+  },
+];
+
 for (const check of tocChecks) {
   const html = await readFile(path.join(siteRoot, check.page), 'utf8');
   const tocStart = html.indexOf('id="starlight__on-this-page"');
@@ -71,6 +79,15 @@ for (const check of titleChecks) {
   }
 }
 
+for (const check of absentLinkChecks) {
+  const html = await readFile(path.join(siteRoot, check.page), 'utf8');
+  if (html.includes(`href="${check.forbiddenHref}"`)) {
+    throw new Error(`${check.selectorName}: did not expect variant link ${check.forbiddenHref}`);
+  }
+}
+
 console.log(
-  `Site QA passed for ${tocChecks.length + pageLinkChecks.length + titleChecks.length} generated page checks.`,
+  `Site QA passed for ${
+    tocChecks.length + pageLinkChecks.length + titleChecks.length + absentLinkChecks.length
+  } generated page checks.`,
 );

@@ -100,6 +100,12 @@ async function writeCollectionIndexes(pages: PageCandidate[]) {
       title: 'SpamTitan',
       description: 'Imported SpamTitan knowledge base and documentation.',
       pages: pages.filter((page) => page.product === 'SpamTitan'),
+      links: [
+        { title: 'Knowledge Base', href: `${basePath}/titanhq/products/spamtitan/kb/` },
+        { title: 'Docs', href: `${basePath}/titanhq/products/spamtitan/docs/` },
+        { title: 'Skellig 9 Docs', href: `${basePath}/titanhq/products/spamtitan/docs/skellig-9/` },
+        { title: 'Legacy 8 Docs', href: `${basePath}/titanhq/products/spamtitan/docs/legacy-8/` },
+      ],
     },
     {
       route: 'titanhq/products/spamtitan/kb',
@@ -112,6 +118,10 @@ async function writeCollectionIndexes(pages: PageCandidate[]) {
       title: 'SpamTitan Docs',
       description: 'Imported SpamTitan documentation.',
       pages: pages.filter((page) => page.area === 'spamtitan-skellig' || page.area === 'spamtitan-legacy'),
+      links: [
+        { title: 'Skellig 9', href: `${basePath}/titanhq/products/spamtitan/docs/skellig-9/` },
+        { title: 'Legacy 8', href: `${basePath}/titanhq/products/spamtitan/docs/legacy-8/` },
+      ],
     },
     {
       route: 'titanhq/products/spamtitan/docs/skellig-9',
@@ -134,7 +144,18 @@ async function writeCollectionIndexes(pages: PageCandidate[]) {
   }
 }
 
-function collectionIndexMarkdown(collection: { title: string; description: string; pages: PageCandidate[] }): string {
+function collectionIndexMarkdown(collection: {
+  title: string;
+  description: string;
+  pages: PageCandidate[];
+  links?: Array<{ title: string; href: string }>;
+}): string {
+  if (collection.links) {
+    const links = collection.links.map((link) => `- [${escapeMarkdownLinkText(link.title)}](${link.href})`).join('\n');
+
+    return `${frontmatter(collection.title, collection.description)}\n\n> Generated import index: ${collection.pages.length} pages\n\n${links}\n`;
+  }
+
   const grouped = groupBy(collection.pages, (page) => page.folder ?? page.productStream ?? page.contentType);
   const groups = Object.entries(grouped).map(([label, pages]) => {
     const links = pages
