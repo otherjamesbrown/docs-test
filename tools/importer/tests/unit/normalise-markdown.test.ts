@@ -42,4 +42,18 @@ npm install</code></pre>
     expect(markdown).toContain('# keep this as a shell comment');
     expect(markdown).not.toContain('## keep this as a shell comment');
   });
+
+  it('normalises whitespace outside code fences and is idempotent', () => {
+    const input = '# Heading\u00a0with nbsp  \n\n\nParagraph with trailing spaces   \n';
+    const markdown = normaliseMarkdown(input);
+
+    expect(markdown).toBe('## Heading with nbsp\n\nParagraph with trailing spaces');
+    expect(normaliseMarkdown(markdown)).toBe(markdown);
+  });
+
+  it('only demotes H1 markers at the start of a line', () => {
+    const markdown = normaliseMarkdown('Inline # marker\n# Real heading\nText');
+
+    expect(markdown).toBe('Inline # marker\n## Real heading\nText');
+  });
 });

@@ -24,7 +24,7 @@ export function importedAssetHref(assetPath: string): string {
   return `${basePath}/${assetPath}`;
 }
 
-function extensionFromUrl(url: string, contentType: string): string {
+export function extensionFromUrl(url: string, contentType: string): string {
   const pathname = new URL(url).pathname;
   const ext = path.extname(pathname);
   if (ext && ext.length <= 6) return ext;

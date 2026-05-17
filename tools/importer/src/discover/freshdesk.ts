@@ -84,6 +84,6 @@ interface FreshdeskFolderDiscoveryOptions {
   limit: number;
 }
 
-function extractFreshdeskId(url: string): string | undefined {
+export function extractFreshdeskId(url: string): string | undefined {
   return new URL(url).pathname.match(/\/(?:a\/)?solutions\/articles\/(\d+)/)?.[1];
 }
