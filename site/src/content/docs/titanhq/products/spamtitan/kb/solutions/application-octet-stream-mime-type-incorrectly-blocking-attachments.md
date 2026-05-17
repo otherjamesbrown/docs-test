@@ -1,5 +1,5 @@
 ---
-title: "'application/octet-stream' Mime Type Incorrectly Blocking Attachments Print"
+title: "'application/octet-stream' Mime Type Incorrectly Blocking Attachments"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with SpamTitan Cloud Print"
+title: "Getting Started with SpamTitan Cloud"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

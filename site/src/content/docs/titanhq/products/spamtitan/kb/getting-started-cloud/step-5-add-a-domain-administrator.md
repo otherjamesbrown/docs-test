@@ -1,5 +1,5 @@
 ---
-title: "Step 5: Add a Domain Administrator Print"
+title: "Step 5: Add a Domain Administrator"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

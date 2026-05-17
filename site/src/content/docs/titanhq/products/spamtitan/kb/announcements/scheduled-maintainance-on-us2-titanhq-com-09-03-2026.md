@@ -1,5 +1,5 @@
 ---
-title: "Scheduled maintainance on US2.titanhq.com 09/03/2026 Print"
+title: "Scheduled maintainance on US2.titanhq.com 09/03/2026"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Domain Group Administrator Print"
+title: "Domain Group Administrator"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

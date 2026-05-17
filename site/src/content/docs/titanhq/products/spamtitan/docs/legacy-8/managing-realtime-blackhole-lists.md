@@ -50,29 +50,7 @@ Follow these steps to add an IP address to the list that will be exempt from RBL
 
 3.  Click **Save** to save your entry or **Cancel** to discard changes.
 
-Field
-
-Description
-
-IP/Network:
-
-Enter a single IP address or network range that may be on an RBL.
-
-:::note[Important]
-Messages from these IP addresses are still subject to other spam and virus checks.
-:::
-
-Netmask:
-
-Select the netmask for the specified IP address. Individual IPv4 addresses will have a /32 (255.255.255.255) netmask.
-
-Address Type:
-
-Select IPv4 (default) or IPv6.
-
-Comment:
-
-Optional comment for this entry.
+<table><colgroup><col><col></colgroup><thead><tr><th><p>Field</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>IP/Network:</p></td><td><p>Enter a single IP address or network range that may be on an RBL.</p><div dir="ltr" data-import-admonition="note" data-import-admonition-title="Important"><h3>Important</h3><p>Messages from these IP addresses are still subject to other spam and virus checks.</p></div></td></tr><tr><td><p>Netmask:</p></td><td><p>Select the netmask for the specified IP address. Individual IPv4 addresses will have a /32 (255.255.255.255) netmask.</p></td></tr><tr><td><p>Address Type:</p></td><td><p>Select IPv4 (default) or IPv6.</p></td></tr><tr><td><p>Comment:</p></td><td><p>Optional comment for this entry.</p></td></tr></tbody></table>
 
 Testing IPs Against RBL Servers
 

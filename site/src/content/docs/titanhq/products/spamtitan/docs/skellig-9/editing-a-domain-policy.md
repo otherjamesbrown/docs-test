@@ -32,25 +32,7 @@ Enabling quarantine reports in Step 6 is recommended (default: OFF) to remove th
 
     -   _Spam should be_: Select the option you want when an email is identified as spam.
 
-        Option
-
-        Description
-
-        Quarantined
-
-        The email is accepted, but quarantined and appears in the user's quarantine reports. It can be released from quarantine if deemed to be a false positive.
-
-        Passed (Tagged)
-
-        The message is analyzed as normal and passed to the end recipient(s). Headers are added to allow filtering on the back end.
-
-        :::note
-        Selecting Passed (Tagged) bypasses allow and block lists and delivers an email to the user mailbox.
-        :::
-
-        Rejected
-
-        The message is rejected. The default action is to quarantine all messages that exceed the spam threshold.
+        <table><thead><tr><th><p>Option</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Quarantined</p></td><td><p>The email is accepted, but quarantined and appears in the user's quarantine reports. It can be released from quarantine if deemed to be a false positive.</p></td></tr><tr><td><p>Passed (Tagged)</p></td><td><p>The message is analyzed as normal and passed to the end recipient(s). Headers are added to allow filtering on the back end.</p><div dir="ltr" data-import-admonition="note" data-import-admonition-title="Note"><h3>Note</h3><p>Selecting Passed (Tagged) bypasses allow and block lists and delivers an email to the user mailbox.</p></div></td></tr><tr><td><p>Rejected</p></td><td><p>The message is rejected. The default action is to quarantine all messages that exceed the spam threshold.</p></td></tr></tbody></table>
 
     -   _Discard Spam scoring above_: Emails scoring above the specified score are not quarantined.
 
@@ -76,21 +58,7 @@ Enabling quarantine reports in Step 6 is recommended (default: OFF) to remove th
 
     -   _Virus should be_: Select the action to take when an email is identified as containing a virus:
 
-        Option
-
-        Description
-
-        Quarantined
-
-        The email is accepted, but quarantined and appears in the user's quarantine reports. It can be released from quarantine if deemed to be a false positive.
-
-        Passed (Tagged)
-
-        The message is analyzed as normal and passed to the end recipient(s). Headers are added to allow filtering on the back end.
-
-        Rejected
-
-        The message is rejected. The default action is to quarantine all messages that exceed the spam threshold.
+        <table><thead><tr><th><p>Option</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Quarantined</p></td><td><p>The email is accepted, but quarantined and appears in the user's quarantine reports. It can be released from quarantine if deemed to be a false positive.</p></td></tr><tr><td><p>Passed (Tagged)</p></td><td><p>The message is analyzed as normal and passed to the end recipient(s). Headers are added to allow filtering on the back end.</p></td></tr><tr><td><p>Rejected</p></td><td><p>The message is rejected. The default action is to quarantine all messages that exceed the spam threshold.</p></td></tr></tbody></table>
 
     -   _Sandbox_: Select to enable sandboxing (default: enabled).
 
@@ -102,21 +70,7 @@ Enabling quarantine reports in Step 6 is recommended (default: OFF) to remove th
 
     -   _Banned Attachments should be_: Select the option you want when a banned attachment is identified:
 
-        Option
-
-        Description
-
-        Quarantined
-
-        The email is accepted, but quarantined and appears in the user's quarantine reports. It can be released from quarantine if deemed to be a false positive.
-
-        Passed (Tagged)
-
-        The message is analyzed as normal and passed to the end recipient(s). Headers are added to allow filtering on the back end.
-
-        Rejected
-
-        The message is rejected. The default action is to quarantine all messages that exceed the spam threshold.
+        <table><thead><tr><th><p>Option</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Quarantined</p></td><td><p>The email is accepted, but quarantined and appears in the user's quarantine reports. It can be released from quarantine if deemed to be a false positive.</p></td></tr><tr><td><p>Passed (Tagged)</p></td><td><p>The message is analyzed as normal and passed to the end recipient(s). Headers are added to allow filtering on the back end.</p></td></tr><tr><td><p>Rejected</p></td><td><p>The message is rejected. The default action is to quarantine all messages that exceed the spam threshold.</p></td></tr></tbody></table>
 
 6.  Quarantine Report:
 

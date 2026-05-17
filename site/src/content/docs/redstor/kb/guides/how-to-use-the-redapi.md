@@ -1,5 +1,5 @@
 ---
-title: "1607 - How to use the RedAPI"
+title: "Introduction"
 description: "Imported from helpdesk.redstor.com"
 ---
 
@@ -88,37 +88,7 @@ Authentication follows the OAuth 2.0 Client Credentials flow using the `private_
 }
 ```
 
- **Claim**
-
-  **Description**
-
-  `jti`
-
-  Randomly generated unique JWT ID
-
-  `sub`
-
-  Subject - use the Client ID provided by Redstor
-
-  `iat`
-
-  Issued At timestamp (current time)
-
-  `nbf`
-
-  Not Before timestamp (current time)
-
-  `exp`
-
-  Expiry timestamp (current time + 5 min)
-
-  `iss`
-
-  Issuer - use the Client ID provided by Redstor
-
-  `aud`
-
-  Audience - the token\_endpoint from the retrieved OpenID Configuration
+<table border="1"><tbody><tr><td colspan="1" rowspan="1"><strong>&nbsp;Claim</strong></td><td colspan="1" rowspan="1"><strong>&nbsp; Description</strong></td></tr><tr><td colspan="1" rowspan="1"><p>&nbsp; <code>jti</code></p></td><td colspan="1" rowspan="1"><p>&nbsp; Randomly generated unique JWT ID</p></td></tr><tr><td colspan="1" rowspan="1"><p>&nbsp; <code>sub</code></p></td><td colspan="1" rowspan="1"><p>&nbsp; Subject - use the Client ID provided by Redstor</p></td></tr><tr><td colspan="1" rowspan="1"><p>&nbsp; <code>iat</code></p></td><td colspan="1" rowspan="1"><p>&nbsp; Issued At timestamp (current time)</p></td></tr><tr><td colspan="1" rowspan="1"><p>&nbsp; <code>nbf</code></p></td><td colspan="1" rowspan="1"><p>&nbsp; Not Before timestamp (current time)</p></td></tr><tr><td colspan="1" rowspan="1"><p>&nbsp; <code>exp</code></p></td><td colspan="1" rowspan="1"><p>&nbsp; Expiry timestamp (current time + 5 min)</p></td></tr><tr><td colspan="1" rowspan="1"><p>&nbsp; <code>iss</code></p></td><td colspan="1" rowspan="1"><p>&nbsp; Issuer - use the Client ID provided by Redstor</p></td></tr><tr><td colspan="1" rowspan="1"><p>&nbsp; <code>aud</code></p></td><td colspan="1" rowspan="1"><p>&nbsp; Audience - the token_endpoint from the retrieved OpenID Configuration</p></td></tr></tbody></table>
 
 3\. Sign the JWT using the private key.
 
@@ -135,25 +105,7 @@ redstor.com%2F&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assert
 client_assertion=<SIGNED-JWT>
 ```
 
-  **Key**
-
-  **Value**
-
-  `grant_type`
-
-  client\_credentials
-
-  `scope`
-
-  api.read api.write
-
-  `client_assertion_type`
-
-  urn:ietf:params:oauth:client-assertion-type:jwt-bearer
-
-  `client_assertion`
-
-  The signed JWT
+<table border="1"><tbody><tr><td colspan="1" rowspan="1"><strong>&nbsp; Key</strong></td><td colspan="1" rowspan="1"><strong>&nbsp; Value</strong></td></tr><tr><td colspan="1" rowspan="1"><p>&nbsp; <code>grant_type</code></p></td><td colspan="1" rowspan="1"><p>&nbsp; client_credentials</p></td></tr><tr><td colspan="1" rowspan="1"><p>&nbsp; <code>scope</code></p></td><td colspan="1" rowspan="1"><p>&nbsp; api.read api.write</p></td></tr><tr><td colspan="1" rowspan="1"><p>&nbsp; <code>client_assertion_type</code></p></td><td colspan="1" rowspan="1"><p>&nbsp; urn:ietf:params:oauth:client-assertion-type:jwt-bearer</p></td></tr><tr><td colspan="1" rowspan="1"><p>&nbsp; <code>client_assertion</code></p></td><td colspan="1" rowspan="1"><p>&nbsp; The signed JWT</p></td></tr></tbody></table>
 
 5\. The `token_endpoint` will respond with an access token on success:
 

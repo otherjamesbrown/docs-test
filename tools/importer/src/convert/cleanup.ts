@@ -42,11 +42,12 @@ function preservePaligoAdmonitions($: cheerio.CheerioAPI, body: cheerio.Cheerio<
 
     const type = paligoAdmonitionTypes.get(sourceType) ?? 'note';
     const wrapper = $(element);
-    const title = cleanText(
-      wrapper.children('h1.title, h2.title, h3.title, h4.title, h5.title, h6.title').first().text(),
-    );
+    const titleElement = wrapper.children('h1.title, h2.title, h3.title, h4.title, h5.title, h6.title').first();
+    const title = cleanText(titleElement.text());
     wrapper.attr('data-import-admonition', type);
     if (title) wrapper.attr('data-import-admonition-title', title);
-    wrapper.children('h1.title, h2.title, h3.title, h4.title, h5.title, h6.title').first().remove();
+    if (!wrapper.parents('table').length) {
+      titleElement.remove();
+    }
   });
 }

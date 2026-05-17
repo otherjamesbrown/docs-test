@@ -1,5 +1,5 @@
 ---
-title: "1329 - How to use Azure Mobility to do Full System Recovery"
+title: "Requirements"
 description: "Imported from helpdesk.redstor.com"
 ---
 

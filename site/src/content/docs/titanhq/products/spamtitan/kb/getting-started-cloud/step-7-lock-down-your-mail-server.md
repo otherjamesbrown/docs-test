@@ -1,5 +1,5 @@
 ---
-title: "Step 7: Lock Down Your Mail Server Print"
+title: "Step 7: Lock Down Your Mail Server"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

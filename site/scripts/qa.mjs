@@ -41,6 +41,29 @@ const titleChecks = [
     selectorName: 'SpamTitan legacy Link Lock Allowed URLs page title',
     expectedTitle: 'Link Lock Allowed URLs | Docs Platform POC',
   },
+  {
+    page: 'dist/titanhq/products/spamtitan/kb/link-lock/enable-link-lock-for-a-domain/index.html',
+    selectorName: 'SpamTitan KB Link Lock title excludes print control text',
+    expectedTitle: 'Enable Link Lock for a Domain | Docs Platform POC',
+  },
+];
+
+const htmlChecks = [
+  {
+    page: 'dist/titanhq/products/spamtitan/kb/link-lock/enable-link-lock-for-a-domain/index.html',
+    selectorName: 'SpamTitan KB Link Lock domain settings table',
+    expectedHtml: '<table>',
+  },
+  {
+    page: 'dist/titanhq/products/spamtitan/kb/link-lock/enable-link-lock-for-a-domain/index.html',
+    selectorName: 'SpamTitan KB Link Lock domain settings table',
+    expectedHtml: '<th><p>Setting</p></th>',
+  },
+  {
+    page: 'dist/titanhq/products/spamtitan/kb/link-lock/enable-link-lock-for-a-domain/index.html',
+    selectorName: 'SpamTitan KB Link Lock domain settings table',
+    expectedHtml: '<td colspan="2"><p><span><strong>Block Page Settings</strong></span></p></td>',
+  },
 ];
 
 const textChecks = [
@@ -120,6 +143,13 @@ for (const check of titleChecks) {
   }
 }
 
+for (const check of htmlChecks) {
+  const html = await readFile(path.join(siteRoot, check.page), 'utf8');
+  if (!html.includes(check.expectedHtml)) {
+    throw new Error(`${check.selectorName}: expected HTML ${check.expectedHtml}`);
+  }
+}
+
 for (const check of textChecks) {
   const html = await readFile(path.join(siteRoot, check.page), 'utf8');
   if (!html.includes(check.expectedText)) {
@@ -146,6 +176,7 @@ console.log(
     tocChecks.length +
     pageLinkChecks.length +
     titleChecks.length +
+    htmlChecks.length +
     textChecks.length +
     absentLinkChecks.length +
     absentTextChecks.length

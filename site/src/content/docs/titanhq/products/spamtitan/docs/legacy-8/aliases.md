@@ -18,41 +18,7 @@ To automatically import user aliases from Active Directory, select one or more a
 
 To add an active directory server to the list click **Add...**. Using the table below as a reference, complete the fields in _Add LDAP Server_ dialog box and click **Save**.
 
-Field
-
-Description
-
-LDAP server:
-
-LDAP server or LDAP/LDAPS URL. These are valid examples:
-
--   hostname (LDAP on the default LDAP port 389).
-
--   hostname:778 (LDAP on port 778).
-
--   ldap://hostname (LDAP on default port 389).
-
--   ldap://hostname:778 ( LDAP on port 778).
-
--   ldaps://hostname (secure LDAP (LDAPS) on the default LDAPS port 636).
-
--   ldaps://hostname:1444 (LDAPS on port 1444).
-
-Base entry (DN)
-
-The base entry distinguished name (DN) as configured on the LDAP server. The base entry serves as the starting point of the LDAP directory search. Example: dc=rainbowx,dc=net
-
-Server login user:
-
-Username for accessing the LDAP server.
-
-Server login password:
-
-Password for accessing the LDAP server. £ is not permitted in the password.
-
-Import Frequency:
-
-The frequency with which SpamTitan synchronizes with active directory. Choose Never, Hourly or Daily.
+<table><colgroup><col><col></colgroup><thead><tr><th><p>Field</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>LDAP server:</p></td><td><p>LDAP server or LDAP/LDAPS URL. These are valid examples:</p><div><ul><li><p>hostname (LDAP on the default LDAP port 389).</p></li><li><p>hostname:778 (LDAP on port 778).</p></li><li><p>ldap://hostname (LDAP on default port 389).</p></li><li><p>ldap://hostname:778 ( LDAP on port 778).</p></li><li><p>ldaps://hostname (secure LDAP (LDAPS) on the default LDAPS port 636).</p></li><li><p>ldaps://hostname:1444 (LDAPS on port 1444).</p></li></ul></div></td></tr><tr><td><p>Base entry (DN)</p></td><td><p>The base entry distinguished name (DN) as configured on the LDAP server. The base entry serves as the starting point of the LDAP directory search. Example: dc=rainbowx,dc=net</p></td></tr><tr><td><p>Server login user:</p></td><td><p>Username for accessing the LDAP server.</p></td></tr><tr><td><p>Server login password:</p></td><td><p>Password for accessing the LDAP server. £ is not permitted in the password.</p></td></tr><tr><td><p>Import Frequency:</p></td><td><p>The frequency with which SpamTitan synchronizes with active directory. Choose Never, Hourly or Daily.</p></td></tr></tbody></table>
 
 Imported aliases are displayed in the _Unified Email Details_ list. To manually add to this list, click **Add...** and using the table below as a reference, complete the field in the Add Alias dialog and click **Save**.
 
@@ -62,14 +28,4 @@ To import aliases from a text file click **Import...**. The format of the text f
 
 -   primary@example.com alias1@example.com alias2@example.com alias3@example.com
 
-Field
-
-Description
-
-Delivery Address:
-
-Primary email address.
-
-Aliases:
-
-Enter additional names that this user receives email to. For example, if the account is for user _john@example.com_, you may also want to allow him to receive mail at _john.doe@example.com_.
+<table><colgroup><col><col></colgroup><thead><tr><th><p>Field</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Delivery Address:</p></td><td><p>Primary email address.</p></td></tr><tr><td><p>Aliases:</p></td><td><p>Enter additional names that this user receives email to. For example, if the account is for user <span><em>john@example.com</em></span>, you may also want to allow him to receive mail at <span><em>john.doe@example.com</em></span>.</p></td></tr></tbody></table>

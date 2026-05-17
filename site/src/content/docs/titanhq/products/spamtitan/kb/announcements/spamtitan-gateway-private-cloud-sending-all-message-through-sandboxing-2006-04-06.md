@@ -1,5 +1,5 @@
 ---
-title: "SpamTitan Gateway / Private Cloud sending all message through Sandboxing -- 2006/04/06 Print"
+title: "SpamTitan Gateway / Private Cloud sending all message through Sandboxing -- 2006/04/06"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

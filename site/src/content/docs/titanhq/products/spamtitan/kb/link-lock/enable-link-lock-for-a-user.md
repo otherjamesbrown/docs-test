@@ -1,5 +1,5 @@
 ---
-title: "Enable Link Lock for a User Print"
+title: "Enable Link Lock for a User"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

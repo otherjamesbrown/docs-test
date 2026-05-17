@@ -24,33 +24,7 @@ Email Headers
 
 SpamTitan Anti-spoofing tests check the full set of To/Cc headers, including:
 
-To:
-
-Apparently-Resent-To:
-
-X-Original-To:
-
-Apparently-To:
-
-X-Envelope-To:
-
-X-Rcpt-To:
-
-Delivered-To:
-
-Envelope-To:
-
-X-Real-To:
-
-Envelope-Recipients:
-
-X-Delivered-To:
-
-Cc:
-
-Resent-To:
-
-Resent-Cc:
+<table><colgroup><col><col><col></colgroup><tbody><tr><td><p>To:</p></td><td><p>Apparently-Resent-To:</p></td><td><p>X-Original-To:</p></td></tr><tr><td><p>Apparently-To:</p></td><td><p>X-Envelope-To:</p></td><td><p>X-Rcpt-To:</p></td></tr><tr><td><p>Delivered-To:</p></td><td><p>Envelope-To:</p></td><td><p>X-Real-To:</p></td></tr><tr><td><p>Envelope-Recipients:</p></td><td><p>X-Delivered-To:</p></td><td><p>Cc:</p></td></tr><tr><td><p>Resent-To:</p></td><td><p>Resent-Cc:</p></td><td><p></p></td></tr></tbody></table>
 
 Spam Scoring
 
@@ -84,25 +58,7 @@ The ANTISPOOF\_NAME test carries out a number of checks to compare a user's name
 
 Go to **Anti-Spam Engine** > **User Policies** to add or edit a user policy to include a user's full name.
 
-Check
-
-Example, From: "John Smith" <js@example.com>
-
-Firstname Lastname
-
-John Smith
-
-Lastname, Firstname
-
-Smith, John
-
-F. Lastname _or_ F Lastname
-
-J. Smith _or_ J Smith
-
-Firstname L. _or_ Firsname L
-
-John S. _or_ John S
+<table><thead><tr><th><p>Check</p></th><th><p>Example, From: "John Smith" &lt;js@example.com&gt;</p></th></tr></thead><tbody><tr><td><p>Firstname Lastname</p></td><td><p>John Smith</p></td></tr><tr><td><p>Lastname, Firstname</p></td><td><p>Smith, John</p></td></tr><tr><td><p>F. Lastname <span><em>or </em></span>F Lastname</p></td><td><p>J. Smith <span><em>or</em></span> J Smith</p></td></tr><tr><td><p>Firstname L. <span><em>or </em></span>Firsname L</p></td><td><p>John S. <span><em>or</em></span> John S</p></td></tr><tr><td><p></p></td><td><p></p></td></tr></tbody></table>
 
 More Information
 

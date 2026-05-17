@@ -1,5 +1,5 @@
 ---
-title: "Enabling Link Lock in SpamTitan Print"
+title: "Enabling Link Lock in SpamTitan"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

@@ -26,96 +26,12 @@ Go to **Settings** > **Backup** > **Schedule Backup** and follow the steps below
 
     -   FTP
 
-        Field
-
-        Description
-
-        Server:
-
-        Hostname or IP address for the remote FTP server.
-
-        Login:
-
-        Username of the account on the remote FTP server.
-
-        Password:
-
-        The password for the login user account.
-
-        Location:
-
-        Directory path where you want to save backups.
-
-        Export Backup to FTP Server Now:
-
-        Click **Start** to test that your settings are correct.
+        <table><colgroup><col><col></colgroup><thead><tr><th><p>Field</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Server:</p></td><td><p>Hostname or IP address for the remote FTP server.</p></td></tr><tr><td><p>Login:</p></td><td><p>Username of the account on the remote FTP server.</p></td></tr><tr><td><p>Password:</p></td><td><p>The password for the login user account.</p></td></tr><tr><td><p>Location:</p></td><td><p>Directory path where you want to save backups.</p></td></tr><tr><td><p>Export Backup to FTP Server Now:</p></td><td><p>Click <span><strong>Start</strong></span> to test that your settings are correct.</p></td></tr></tbody></table>
 
     -   SFTP
 
-        Field
-
-        Description
-
-        Server:
-
-        Hostname or IP address for the remote server.
-
-        Path:
-
-        Directory path where you want to save backups.
-
-        Port:
-
-        The port to use to communicate with the remote server (default: port 22).
-
-        User:
-
-        Username of the SSH account on the remote server.
-
-        Authentication Type:
-
-        Select how you wish to authenticate with the remote server. Select key authentication or password authentication.
-
-        Password:
-
-        The password for the account on the remote server if password-based authentication being used.
-
-        Private Key:
-
-        The private key used to authenticate to the remote server if key authentication is being used.
-
-        Export Backup to SFTP Server Now:
-
-        Click **Start** to test that your settings are correct.
+        <table><colgroup><col><col></colgroup><thead><tr><th><p>Field</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Server:</p></td><td><p>Hostname or IP address for the remote server.</p></td></tr><tr><td><p>Path:</p></td><td><p>Directory path where you want to save backups.</p></td></tr><tr><td><p>Port:</p></td><td><p>The port to use to communicate with the remote server (default: port 22).</p></td></tr><tr><td><p>User:</p></td><td><p>Username of the SSH account on the remote server.</p></td></tr><tr><td><p>Authentication Type:</p></td><td><p>Select how you wish to authenticate with the remote server. Select&nbsp;key&nbsp;authentication or&nbsp;password&nbsp;authentication.</p></td></tr><tr><td><p>Password:</p></td><td><p>The password for the account on the remote server if password-based authentication being used.</p></td></tr><tr><td><p>Private Key:</p></td><td><p>The private key used to authenticate to the remote server if key authentication is being used.</p></td></tr><tr><td><p>Export Backup to SFTP Server Now:</p></td><td><p>Click <span><strong>Start</strong></span> to test that your settings are correct.</p></td></tr></tbody></table>
 
     -   Amazon S3
 
-        Field
-
-        Description
-
-        Folder:
-
-        Name of the folder in which to store backups. Ensure the folder is in the bucket specified in the _Bucket:_ field. This setting is optional.
-
-        Bucket:
-
-        Name of the bucket where you want to store your backup. A bucket is a container in which your Amazon S3 folders and files reside. Create buckets in the Amazon S3 management console.
-
-        Access Key ID:
-
-        Access keys consist of an access key ID and secret access key, which are used to sign requests made to AWS. Access keys can be created in the AWS management console.
-
-        The access key is used to authenticate with your S3 account. It is a 20-character, alphanumeric string, for example, AKIAIOSFODNN7EXAMPLE
-
-        Secret Access Key:
-
-        This is a 40-character string, for example, wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY.
-
-        S3 Region:
-
-        Select the region where your S3 bucket resides.
-
-        Export Backup to Amazon S3 Now:
-
-        Click **Start** to test that your settings are correct.
+        <table><colgroup><col><col></colgroup><thead><tr><th><p>Field</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Folder:</p></td><td><p>Name of the folder in which to store backups. Ensure the folder is in the bucket specified in the <span><em>Bucket:</em></span> field. This setting is optional.</p></td></tr><tr><td><p>Bucket:</p></td><td><p>Name of the bucket where you want to store your backup. A bucket is a container in which your Amazon S3 folders and files reside. Create buckets in the Amazon S3 management console.</p></td></tr><tr><td><p>Access Key ID:</p></td><td><p>Access keys consist of an access key ID and secret access key, which are used to sign requests made to AWS. Access keys can be created in the AWS management console.</p><p>The access key is used to authenticate with your S3 account. It is a 20-character, alphanumeric string, for example, AKIAIOSFODNN7EXAMPLE</p></td></tr><tr><td><p>Secret Access Key:</p></td><td><p>This is a 40-character string, for example, wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY.</p></td></tr><tr><td><p>S3 Region:</p></td><td><p>Select the region where your S3 bucket resides.</p></td></tr><tr><td><p>Export Backup to Amazon S3 Now:</p></td><td><p>Click <span><strong>Start</strong></span> to test that your settings are correct.</p></td></tr></tbody></table>

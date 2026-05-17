@@ -1,5 +1,5 @@
 ---
-title: "Comcast \"SecurityEdge\" causes linklock.titanhq.com Access Denied / 403 error Print"
+title: "Comcast \"SecurityEdge\" causes linklock.titanhq.com Access Denied / 403 error"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

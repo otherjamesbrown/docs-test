@@ -22,9 +22,7 @@ There are a number of options to move between the MSP, Customer and Domain level
 
     Similarly, a Customer Admin can select a domain from the **All Domains** menu or select a domain from **Overview** > **All Domains**.
 
-    ![ST-SK-all-customers-menu-small.jpg](/docs-test/imported-assets/spamtitan-skellig/59382-navigating-levels-in-spamtitan/6a8073388285.jpg)
-
-    ![ST-SK-all-domains-menu-small.jpg](/docs-test/imported-assets/spamtitan-skellig/59382-navigating-levels-in-spamtitan/3801df27f37b.jpg)
+    <table><tbody><tr><td><div><img src="/docs-test/imported-assets/spamtitan-skellig/59382-navigating-levels-in-spamtitan/6a8073388285.jpg" alt="ST-SK-all-customers-menu-small.jpg"></div></td><td><div><img src="/docs-test/imported-assets/spamtitan-skellig/59382-navigating-levels-in-spamtitan/3801df27f37b.jpg" alt="ST-SK-all-domains-menu-small.jpg"></div></td></tr></tbody></table>
 
 3.  **Overview** page: An MSP Admin can select the view ![view-icon-small.jpg](/docs-test/imported-assets/spamtitan-skellig/59382-navigating-levels-in-spamtitan/4f7d1bd09d2e.jpg) icon under the Actions column for a customer in the **All Customers** table.
 

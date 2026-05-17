@@ -36,17 +36,7 @@ Follow the steps below to edit a user policy.
 
         -   _Spam should be_:
 
-            Quarantined
-
-            The message is accepted, but quarantined and appears in the user's quarantine reports. It can be released from quarantine if deemed to be a false positive.
-
-            Pass and Tag
-
-            The message is analyzed as normal and passed to the end recipient. Headers are added to allow filtering on the back-end.
-
-            Rejected
-
-            The message is rejected. The default action is to quarantine all messages that exceed the spam threshold. In the case of a banned attachment or spam, a DSN (delivery status notification) will be generated. No DSN will be generated for viruses, as most viruses originate from forged mail addresses.
+            <table><tbody><tr><td><p>Quarantined</p></td><td><p>The message is accepted, but quarantined and appears in the user's quarantine reports. It can be released from quarantine if deemed to be a false positive.</p></td></tr><tr><td><p>Pass and Tag</p></td><td><p>The message is analyzed as normal and passed to the end recipient. Headers are added to allow filtering on the back-end.</p></td></tr><tr><td><p>Rejected</p></td><td><p>The message is rejected. The default action is to quarantine all messages that exceed the spam threshold. In the case of a banned attachment or spam, a DSN (delivery status notification) will be generated. No DSN will be generated for viruses, as most viruses originate from forged mail addresses.</p></td></tr></tbody></table>
 
         -   _Discard Spam scoring above_: Messages scoring above this specified spam score are not quarantined.
 
@@ -72,17 +62,7 @@ Follow the steps below to edit a user policy.
 
         -   _Viruses should be_:
 
-            Quarantined
-
-            The message is accepted, but quarantined and appears in the user's quarantine reports. It can be released from quarantine if deemed to be a false positive.
-
-            Pass and Tag
-
-            The message is analyzed as normal and passed to the end recipient. Headers are added to allow filtering on the back-end.
-
-            Rejected
-
-            The message is rejected. The default action is to quarantine all messages that exceed the spam threshold. In the case of a banned attachment or spam, a DSN (delivery status notification) will be generated. No DSN will be generated for viruses, as most viruses originate from forged mail addresses.
+            <table><tbody><tr><td><p>Quarantined</p></td><td><p>The message is accepted, but quarantined and appears in the user's quarantine reports. It can be released from quarantine if deemed to be a false positive.</p></td></tr><tr><td><p>Pass and Tag</p></td><td><p>The message is analyzed as normal and passed to the end recipient. Headers are added to allow filtering on the back-end.</p></td></tr><tr><td><p>Rejected</p></td><td><p>The message is rejected. The default action is to quarantine all messages that exceed the spam threshold. In the case of a banned attachment or spam, a DSN (delivery status notification) will be generated. No DSN will be generated for viruses, as most viruses originate from forged mail addresses.</p></td></tr></tbody></table>
 
         -   _Sandbox_: Specifies if sandboxing is enabled or disabled for this user (default: OFF).
 
@@ -90,17 +70,7 @@ Follow the steps below to edit a user policy.
 
         -   _Banned Attachments should be_:
 
-            Quarantined
-
-            The message is accepted, but quarantined and appears in the user's quarantine reports. It can be released from quarantine if deemed to be a false positive.
-
-            Pass and Tag
-
-            The message is analyzed as normal and passed to the end recipient. Headers are added to allow filtering on the back-end.
-
-            Rejected
-
-            The message is rejected. The default action is to quarantine all messages that exceed the spam threshold. In the case of a banned attachment or spam, a DSN (delivery status notification) will be generated. No DSN will be generated for viruses, as most viruses originate from forged mail addresses.
+            <table><tbody><tr><td><p>Quarantined</p></td><td><p>The message is accepted, but quarantined and appears in the user's quarantine reports. It can be released from quarantine if deemed to be a false positive.</p></td></tr><tr><td><p>Pass and Tag</p></td><td><p>The message is analyzed as normal and passed to the end recipient. Headers are added to allow filtering on the back-end.</p></td></tr><tr><td><p>Rejected</p></td><td><p>The message is rejected. The default action is to quarantine all messages that exceed the spam threshold. In the case of a banned attachment or spam, a DSN (delivery status notification) will be generated. No DSN will be generated for viruses, as most viruses originate from forged mail addresses.</p></td></tr></tbody></table>
 
     -   _Quarantine Report_: If enabled, a quarantine report is generated for this user when they have messages quarantined.
 

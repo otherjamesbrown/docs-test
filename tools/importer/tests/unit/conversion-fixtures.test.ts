@@ -125,6 +125,22 @@ describe('conversion fixtures', () => {
     expect(markdown).not.toContain('## keep this as a comment');
   });
 
+  it('preserves Freshdesk HTML tables with rewritten assets', async () => {
+    const markdown = await convertFreshdeskArticle(
+      freshdeskPage,
+      await fixture('freshdesk/article-with-table.html'),
+      [],
+      sourceLinkIndex,
+      fakeAssetDownloader,
+    );
+
+    expect(markdown).toContain('<table>');
+    expect(markdown).toContain('<th><p>Setting</p></th>');
+    expect(markdown).toContain('<td><p><strong>Link Lock</strong> (ON/OFF)</p></td>');
+    expect(markdown).toContain('src="/docs-test/imported-assets/test/logo.png"');
+    expect(markdown).not.toContain('\nSetting\n\nDescription\n');
+  });
+
   it('converts a Paligo topic and appends section links', async () => {
     const markdown = await convertDocsPage(
       docsPage,

@@ -50,55 +50,11 @@ Follow the steps below to edit the configuration of a domain that has already be
 
         -   _Dynamic_: If your mail server supports recipient verification, select **Dynamic Recipient Verification**. Most Unix-based mail servers, Groupwise, and Exchange 2003 (off by default) support this option.
 
-            Setting
-
-            Description
-
-            Server
-
-            The server the verification probe is sent to. This is normally the same as the destination server, but it may be different if required.
-
-            Port
+            <table><colgroup><col><col></colgroup><thead><tr><th><p>Setting</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Server</p></td><td><p>The server the verification probe is sent to. This is normally the same as the destination server, but it may be different if required.</p></td></tr><tr><td><p>Port</p></td><td><p></p></td></tr></tbody></table>
 
         -   _LDAP_: For Exchange 2000 mail servers, or other mail servers that support LDAP directories, select **LDAP Recipient Verification** and enter your LDAP server details. This method queries the LDAP server to check if the intended recipient(s) are valid or not.
 
-            Setting
-
-            Description
-
-            Server
-
-            IP address or FQDN of your LDAP Server (use LDAPS:// in front of LDAPS addresses).
-
-            Multiple LDAP servers can be specified. Separate each server with a comma. For example, LDAPS://ldap1.example.com,LDAPS://ldap2.example.com.
-
-            Port
-
-            Default port is 389.
-
-            Anonymous
-
-            Set to **No** for Exchange/Active Directory servers.
-
-            User DN
-
-            The username that SpamTitan uses to connect to your LDAP server. Use email address format, such as user@domain.local.
-
-            Leave blank if anonymous bind is allowed.
-
-            User Password
-
-            Password for LDAP Search User. Leave blank if anonymous bind is allowed.
-
-            Search Base
-
-            Query Filter
-
-            (|(proxyaddresses=smtp$%s)(proxyaddresses=smtp:%s)(mail=%s))
-
-            Result Attribute
-
-            mail
+            <table><colgroup><col><col></colgroup><thead><tr><th><p>Setting</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Server</p></td><td><p>IP address or FQDN of your LDAP Server (use LDAPS:// in front of LDAPS addresses).</p><p>Multiple LDAP servers can be specified. Separate each server with a comma. For example, LDAPS://ldap1.example.com,LDAPS://ldap2.example.com.</p></td></tr><tr><td><p>Port</p></td><td><p>Default port is 389.</p></td></tr><tr><td><p>Anonymous</p></td><td><p>Set to <span><strong>No</strong></span> for Exchange/Active Directory servers.</p></td></tr><tr><td><p>User DN</p></td><td><p>The username that SpamTitan uses to connect to your LDAP server. Use email address format, such as user@domain.local.</p><p>Leave blank if anonymous bind is allowed.</p></td></tr><tr><td><p>User Password</p></td><td><p>Password for LDAP Search User. Leave blank if anonymous bind is allowed.</p></td></tr><tr><td><p>Search Base</p></td><td><p></p></td></tr><tr><td><p>Query Filter</p></td><td><p>(|(proxyaddresses=smtp$%s)(proxyaddresses=smtp:%s)(mail=%s))</p></td></tr><tr><td><p>Result Attribute</p></td><td><p>mail</p></td></tr></tbody></table>
 
         -   _List_: Specify a list of allowed recipients by manually entering allowed email addresses.
 

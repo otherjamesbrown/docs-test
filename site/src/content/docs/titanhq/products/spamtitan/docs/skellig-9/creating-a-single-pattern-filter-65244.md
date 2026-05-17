@@ -26,71 +26,14 @@ Go to **Filtering** > **Pattern Filtering** and follow the steps below to create
 
     -   _Pattern Expression_: Select how this pattern filter is evaluated. Select one of the following:
 
-        Option
-
-        Description
-
-        Starts with
-
-        The body or header must start with this value.
-
-        :::note
-        If _Starts with_ is selected and _Apply to body_ is selected, the subject line is seen as the start of the body. In this case, the subject line is filtered and not the body."
-        :::
-
-        Ends with
-
-        The body or header must end with this value.
-
-        Matches regular expression
-
-        Enter a regular expression to match against the body or header.
-
-        See [https://www.regular-expressions.info](https://www.regular-expressions.info/) ![small\_external\_link.png](/docs-test/imported-assets/spamtitan-skellig/65244-creating-a-single-pattern-filter/5e6d767515b2.png) for information on using regular expression.
-
-        Matches any word in
-
-        Enter a list of words separated by a space. If any word on the list is in the body or header, the pattern filter will trigger.
-
-        Contains
-
-        The body or header must contain this value.
-
-        Equals
-
-        The body or header must be exactly equal to this value.
+        <table><colgroup><col><col></colgroup><thead><tr><th><p>Option</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Starts with</p></td><td><p>The body or header must start with this value.</p><div dir="ltr" data-import-admonition="note" data-import-admonition-title="Note"><h3>Note</h3><p>If <span><em>Starts with</em></span> is selected and <span><em>Apply to body</em></span> is selected, the subject line is seen as the start of the body. In this case, the subject line is filtered and not the body."</p></div></td></tr><tr><td><p>Ends with</p></td><td><p>The body or header must end with this value.</p></td></tr><tr><td><p>Matches regular expression</p></td><td><p>Enter a regular expression to match against the body or header.</p><p>See <a href="https://www.regular-expressions.info/" target="_blank" rel="noopener">https://www.regular-expressions.info</a>
+        <span><img src="/docs-test/imported-assets/spamtitan-skellig/65244-creating-a-single-pattern-filter/5e6d767515b2.png" alt="small_external_link.png"></span> for information on using regular expression.</p></td></tr><tr><td><p>Matches any word in</p></td><td><p>Enter a list of words separated by a space. If any word on the list is in the body or header, the pattern filter will trigger.</p></td></tr><tr><td><p>Contains</p></td><td><p>The body or header must contain this value.</p></td></tr><tr><td><p>Equals</p></td><td><p>The body or header must be exactly equal to this value.</p></td></tr></tbody></table>
 
     -   _Value_: Enter an expression value. Expression values are case-insensitive.
 
     -   _Rule Type_: Select an option to determine how this pattern filter is scored and treated.
 
-        Option
-
-        Description
-
-        Hard Block
-
-        Adds a score of 100 to the email, causing it to be blocked.
-
-        Hard Allow
-
-        Subtracts a score of 100 from an email, causing it to be allowed.
-
-        Soft Block
-
-        Adds a configurable positive score, between 0.01 and 99.99 (default: 5).
-
-        Soft Allow
-
-        Subtracts a configurable negative score, between -0.01 and -99.99 (default: -5).
-
-        Test Mode
-
-        Use Test Mode to create a pattern filter that triggers when a match is found, but does not affect the score of the mail (score adjustment: 0).
-
-        :::note
-        Test mode can be selected when creating a single or a multi pattern filter. However, this mode only executes when rules are combined as part of a multi pattern filter.
-        :::
+        <table><colgroup><col><col></colgroup><thead><tr><th><p>Option</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Hard Block</p></td><td><p>Adds a score of 100 to the email, causing it to be blocked.</p></td></tr><tr><td><p>Hard Allow</p></td><td><p>Subtracts a score of 100 from an email, causing it to be allowed.</p></td></tr><tr><td><p>Soft Block</p></td><td><p>Adds a configurable positive score, between 0.01 and 99.99 (default: 5).</p></td></tr><tr><td><p>Soft Allow</p></td><td><p>Subtracts a configurable negative score, between -0.01 and -99.99 (default: -5).</p></td></tr><tr><td><p>Test Mode</p></td><td><p>Use Test Mode to create a pattern filter that triggers when a match is found, but does not affect the score of the mail (score adjustment: 0).</p><div dir="ltr" data-import-admonition="note" data-import-admonition-title="Note"><h3>Note</h3><p>Test mode can be selected when creating a single or a multi pattern filter. However, this mode only executes when rules are combined as part of a multi pattern filter.</p></div></td></tr><tr><td><p></p></td><td><p></p></td></tr></tbody></table>
 
     -   _Score_: This field can be edited to a custom value if Soft Block or Soft Allow is selected in the Rule Type field.
 
@@ -106,39 +49,11 @@ Go to **Filtering** > **Pattern Filtering** and follow the steps below to create
 
         -   The following special header rules can also be entered:
 
-            Header Rule
-
-            Description
-
-            EnvelopeFrom
-
-            Triggers on the Envelope MAIL FROM instead of the From header.
-
-            ToCc
-
-            Triggers on both the To and Cc headers.
-
-            ALL
-
-            The rule will trigger on any header.
+            <table><colgroup><col><col></colgroup><thead><tr><th><p>Header Rule</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>EnvelopeFrom</p></td><td><p>Triggers on the&nbsp;Envelope MAIL FROM&nbsp;instead of the&nbsp;From&nbsp;header.</p></td></tr><tr><td><p>ToCc</p></td><td><p>Triggers on both the&nbsp;To&nbsp;and&nbsp;Cc&nbsp;headers.</p></td></tr><tr><td><p>ALL</p></td><td><p>The rule will trigger on any header.</p></td></tr><tr><td><p></p></td><td><p></p></td></tr></tbody></table>
 
         -   The following three options are also available to append to a header. For example, _From:addr_.
 
-            Option
-
-            Description
-
-            :raw
-
-            Append to the end of a header to prevent decoding of quoted-printable or base64 encoded headers.
-
-            :addr
-
-            Append to the end of a From or To header to make the rule only trigger on the address in the header.
-
-            :name
-
-            Append to the end of a From or To header to make the rule only trigger on the name in the header.
+            <table><colgroup><col><col></colgroup><thead><tr><th><p>Option</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>:raw</p></td><td><p>Append to the end of a header to prevent decoding of quoted-printable or base64 encoded headers.</p></td></tr><tr><td><p>:addr</p></td><td><p>Append to the end of a&nbsp;From&nbsp;or&nbsp;To&nbsp;header to make the rule only trigger on the address in the header.</p></td></tr><tr><td><p>:name</p></td><td><p>Append to the end of a&nbsp;From&nbsp;or&nbsp;To&nbsp;header to make the rule only trigger on the name in the header.</p></td></tr><tr><td><p></p></td><td><p></p></td></tr></tbody></table>
 
     -   _Apply to Body_: Select to trigger this pattern filter on the body of an email (default: ON).
 

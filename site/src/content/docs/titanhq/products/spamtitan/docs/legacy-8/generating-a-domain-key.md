@@ -20,18 +20,4 @@ Go to **System Setup** > **Mail Authentication** > **ARC Signing** and follow th
 
 3.  Click **Generate**.
 
-Field
-
-Description
-
-Selector
-
-A unique identifier prefix for this domain key that SpamTitan uses to distinguish from any other domain keys you may have.
-
-Private Key
-
-A new Private key can be used to generate each key pair, or you can use an existing private key if required. SpamTitan can only generate 2048-bit domain keys for ARC Signing (some DNS registrars may not support the longer key length).
-
-Comment
-
-An optional comment field.
+<table><colgroup><col><col></colgroup><thead><tr><th><p>Field</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Selector</p></td><td><p>A unique identifier prefix for this domain key that SpamTitan uses to distinguish from any other domain keys you may have.</p></td></tr><tr><td><p>Private Key</p></td><td><p>A new Private key can be used to generate each key pair, or you can use an existing private key if required. SpamTitan can only generate 2048-bit domain keys for ARC Signing (some DNS registrars may not support the longer key length).</p></td></tr><tr><td><p>Comment</p></td><td><p>An optional comment field.</p></td></tr></tbody></table>

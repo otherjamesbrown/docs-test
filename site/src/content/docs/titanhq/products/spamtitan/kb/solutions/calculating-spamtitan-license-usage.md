@@ -1,5 +1,5 @@
 ---
-title: "Calculating SpamTitan License Usage Print"
+title: "Calculating SpamTitan License Usage"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

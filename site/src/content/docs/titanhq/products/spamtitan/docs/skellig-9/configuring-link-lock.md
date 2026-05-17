@@ -48,6 +48,4 @@ Follow the steps below to configure Link Lock.
 
 Below are examples of a Link Lock block page using the default logo, header and message. These settings can be customized for your domain using the settings described above.
 
-![ST-link-lock-block-page.jpg](/docs-test/imported-assets/spamtitan-skellig/60372-configuring-link-lock/efa1c8f5cf71.jpg)
-
-![ST-link-lock-block-page-all-settings-on.jpg](/docs-test/imported-assets/spamtitan-skellig/60372-configuring-link-lock/33d087ca650f.jpg)
+<table><tbody><tr><td><div><img src="/docs-test/imported-assets/spamtitan-skellig/60372-configuring-link-lock/efa1c8f5cf71.jpg" alt="ST-link-lock-block-page.jpg"></div></td><td><div><img src="/docs-test/imported-assets/spamtitan-skellig/60372-configuring-link-lock/33d087ca650f.jpg" alt="ST-link-lock-block-page-all-settings-on.jpg"></div></td></tr></tbody></table>

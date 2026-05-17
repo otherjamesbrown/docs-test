@@ -28,22 +28,4 @@ IP addresses and networks can allow DKIM authentication by adding them to the DK
 
 -   To delete an entry, click the delete ![ST-701-delete-button.jpg](/docs-test/imported-assets/spamtitan-legacy/8930-dkim-authentication-of-inbound-mail/3b2dc809e314.jpg) icon in the Options column.
 
-Field
-
-Description
-
-IP/Network:
-
-Enter an individual IP address or network range to bypass DKIM checks
-
-Netmask:
-
-Select the netmask for the specified IP address. Individual IPv4 addresses will have a /32 (255.255.255.255) netmask.
-
-Address Type:
-
-IPv4 (default) or IPv6.
-
-Comment:
-
-Optional comment for this entry.
+<table><colgroup><col><col></colgroup><thead><tr><th><p>Field</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>IP/Network:</p></td><td><p>Enter an individual IP address or network range to bypass DKIM checks</p></td></tr><tr><td><p>Netmask:</p></td><td><p>Select the netmask for the specified IP address. Individual IPv4 addresses will have a /32 (255.255.255.255) netmask.</p></td></tr><tr><td><p>Address Type:</p></td><td><p>IPv4 (default) or IPv6.</p></td></tr><tr><td><p>Comment:</p></td><td><p>Optional comment for this entry.</p></td></tr></tbody></table>

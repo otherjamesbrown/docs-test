@@ -18,70 +18,10 @@ When virus checking is enabled, ClamAV is the default antivirus engine for SpamT
 
 The table below describes the different ClamAV settings.
 
-Field
-
-Description
-
-Database Last Update:
-
-Displays date and time the last ClamAV update was applied.
-
-Database Version:
-
-Displays:
-
--   the current version of ClamAV that is running on SpamTitan Gateway.
-
--   revision number for the latest definitions.
-
--   the date the latest definitions were produced.
-
-Update Now:
-
-Click **Start** to check for the latest updates to the virus definition database.
-
-Enable Automatic Updates:
-
-Click **Enable** to automatically retrieve and apply ClamAV virus definitions. If enabled, select a frequency of every hour, every day or every week. The recommended setting is enabled, with a frequency of every hour selected.
-
-Click **Disable** to disable automatic updates.
-
-Use Google Safebrowsing Database:
-
-Click **Enable** to enable the use of the Google Safebrowsing database by ClamAV. Email links are scanned to check if they are on the safe browsing list and block them if they are. If a suspect link is detected, the spam score of the email is boosted by three points.
-
-:::danger[Warning]
-Enabling this setting increases memory usage.
-:::
-
-See [safebrowsing.google.com](https://safebrowsing.google.com/) ![icons8-external-link-32.png](/docs-test/imported-assets/spamtitan-legacy/8943-configuring-clam-av-settings/9407e2037883.png) for more information on Google Safebrowsing.
-
-Use Third-party Databases:
-
-Enabling this option adds several third-party databases to ClamAV:
-
--   [Sanesecurity](https://sanesecurity.com/) ![icons8-external-link-32.png](/docs-test/imported-assets/spamtitan-legacy/8943-configuring-clam-av-settings/9407e2037883.png)
-
--   [SecuriteInfo](https://www.securiteinfo.com/) ![icons8-external-link-32.png](/docs-test/imported-assets/spamtitan-legacy/8943-configuring-clam-av-settings/9407e2037883.png)
-
--   [Malware Patrol](https://www.malwarepatrol.net/) ![icons8-external-link-32.png](/docs-test/imported-assets/spamtitan-legacy/8943-configuring-clam-av-settings/9407e2037883.png)
-
--   [LinuxMalwareDetect](https://github.com/rfxn/linux-malware-detect) ![icons8-external-link-32.png](/docs-test/imported-assets/spamtitan-legacy/8943-configuring-clam-av-settings/9407e2037883.png)
-
--   [YARA](https://virustotal.github.io/yara/) ![icons8-external-link-32.png](/docs-test/imported-assets/spamtitan-legacy/8943-configuring-clam-av-settings/9407e2037883.png)
-
-:::danger[Warning]
-Enabling this setting increases memory usage.
-:::
-
-Treat OLE Macros as:
-
-Specify what action to take on files with OLE Macros. The options are:
-
--   _Nothing_: No special action taken based on OLE macro status.
-
--   _Virus_: Mark files containing OLE macros as a virus.
-
--   _Spam Score_: Add a score of 2 to the email spam score. This makes it more _likely_ to be marked as Spam, but without immediately blocking it.
-
--   _Sandbox_: Send the mail to the sandbox. See [Sandboxing in SpamTitan Gateway](/docs-test/titanhq/products/spamtitan/docs/legacy-8/sandboxing-in-spamtitan-gateway/ "Sandboxing in SpamTitan Gateway").
+<table><colgroup><col><col></colgroup><thead><tr><th><p>Field</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Database Last Update:</p></td><td><p>Displays date and time the last ClamAV update was applied.</p></td></tr><tr><td><p>Database Version:</p></td><td><p>Displays:</p><div><ul><li><p>the current version of ClamAV that is running on SpamTitan Gateway.</p></li><li><p>revision number for the latest definitions.</p></li><li><p>the date the latest definitions were produced.</p></li></ul></div></td></tr><tr><td><p>Update Now:</p></td><td><p>Click <span><strong>Start</strong></span> to check for the latest updates to the virus definition database.</p></td></tr><tr><td><p>Enable Automatic Updates:</p></td><td><p>Click <span><strong>Enable</strong></span> to automatically retrieve and apply ClamAV virus definitions. If enabled, select a frequency of every hour, every day or every week. The recommended setting is enabled, with a frequency of every hour selected.</p><p>Click <span><strong>Disable</strong></span> to disable automatic updates.</p></td></tr><tr><td><p>Use Google Safebrowsing Database:</p></td><td><p>Click <span><strong>Enable</strong></span> to enable the use of the Google Safebrowsing database by ClamAV. Email links are scanned to check if they are on the safe browsing list and block them if they are. If a suspect link is detected, the spam score of the email is boosted by three points.</p><div dir="ltr" data-import-admonition="danger" data-import-admonition-title="Warning"><h3>Warning</h3><p>Enabling this setting increases memory usage.</p></div><p>See <a href="https://safebrowsing.google.com/" target="_blank" rel="noopener">safebrowsing.google.com</a>
+<span><img src="/docs-test/imported-assets/spamtitan-legacy/8943-configuring-clam-av-settings/9407e2037883.png" alt="icons8-external-link-32.png"></span> for more information on Google Safebrowsing.</p></td></tr><tr><td><p>Use Third-party Databases:</p></td><td><p>Enabling this option adds several third-party databases to ClamAV:</p><div><ul><li><p><a href="https://sanesecurity.com/" target="_blank" rel="noopener">Sanesecurity</a>
+<span><img src="/docs-test/imported-assets/spamtitan-legacy/8943-configuring-clam-av-settings/9407e2037883.png" alt="icons8-external-link-32.png"></span></p></li><li><p><a href="https://www.securiteinfo.com/" target="_blank" rel="noopener">SecuriteInfo</a>
+<span><img src="/docs-test/imported-assets/spamtitan-legacy/8943-configuring-clam-av-settings/9407e2037883.png" alt="icons8-external-link-32.png"></span></p></li><li><p><a href="https://www.malwarepatrol.net/" target="_blank" rel="noopener">Malware Patrol</a>
+<span><img src="/docs-test/imported-assets/spamtitan-legacy/8943-configuring-clam-av-settings/9407e2037883.png" alt="icons8-external-link-32.png"></span></p></li><li><p><a href="https://github.com/rfxn/linux-malware-detect" target="_blank" rel="noopener">LinuxMalwareDetect</a>
+<span><img src="/docs-test/imported-assets/spamtitan-legacy/8943-configuring-clam-av-settings/9407e2037883.png" alt="icons8-external-link-32.png"></span></p></li><li><p><a href="https://virustotal.github.io/yara/" target="_blank" rel="noopener">YARA</a>
+<span><img src="/docs-test/imported-assets/spamtitan-legacy/8943-configuring-clam-av-settings/9407e2037883.png" alt="icons8-external-link-32.png"></span></p></li></ul></div><div dir="ltr" data-import-admonition="danger" data-import-admonition-title="Warning"><h3>Warning</h3><p>Enabling this setting increases memory usage.</p></div></td></tr><tr><td><p>Treat OLE Macros as:</p></td><td><p>Specify what action to take on files with OLE Macros. The options are:</p><div><ul><li><p><span><em>Nothing</em></span>: No special action taken based on OLE macro status.</p></li><li><p><span><em>Virus</em></span>: Mark files containing OLE macros as a virus.</p></li><li><p><span><em>Spam Score</em></span>: Add a score of 2 to the email spam score. This makes it more <span><em>likely</em></span> to be marked as Spam, but without immediately blocking it.</p></li><li><p><span><em>Sandbox</em></span>: Send the mail to the sandbox. See <a href="/docs-test/titanhq/products/spamtitan/docs/legacy-8/sandboxing-in-spamtitan-gateway/" title="Sandboxing in SpamTitan Gateway">Sandboxing in SpamTitan Gateway</a>.</p></li></ul></div></td></tr></tbody></table>

@@ -1,5 +1,5 @@
 ---
-title: "Step 3: Test Connectivity to your Mail Server Print"
+title: "Step 3: Test Connectivity to your Mail Server"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

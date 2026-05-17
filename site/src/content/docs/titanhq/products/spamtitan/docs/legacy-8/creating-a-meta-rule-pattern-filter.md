@@ -76,41 +76,7 @@ Once your individual pattern filters have been created, follow the steps below t
 
 ###### Meta Rule Pattern Filter Settings
 
-Field
-
-Description
-
-Filter Expression:
-
-Select _Matches Multiples Rules_ to create a meta-rule filter.
-
-Rule Type:
-
-Determines how the test should be scored/treated.
-
-Hard Block
-
-Adds a score of 100 to the email, causing it to be blocked.
-
-Hard Allow
-
-Subtracts a score of 100 from an email, causing it to be allowed.
-
-Soft Block
-
-Adds a configurable positive score, between 0.01 and 99.99 (default: 5).
-
-Soft Allow
-
-Subtracts a configurable negative score, between -0.01 and -99.99 (default: 5).
-
-Comment:
-
-Add additional notes for the rule.
-
-Disable Rule:
-
-Check to prevent a rule from triggering without deleting the rule.
+<table><colgroup><col><col><col></colgroup><thead><tr><th><p>Field</p></th><th colspan="2"><p>Description</p></th></tr></thead><tfoot><tr><td colspan="3"><p></p></td></tr></tfoot><tbody><tr><td><p>Filter Expression:</p></td><td colspan="2"><p>Select <span><em>Matches Multiples Rules</em></span> to create a meta-rule filter.</p></td></tr><tr><td><p>Rule Type:</p></td><td colspan="2"><p>Determines how the test should be scored/treated.</p></td></tr><tr><td><p></p></td><td><p>Hard Block</p></td><td><p>Adds a score of 100 to the email, causing it to be blocked.</p></td></tr><tr><td><p></p></td><td><p>Hard Allow</p></td><td><p>Subtracts a score of 100 from an email, causing it to be allowed.</p></td></tr><tr><td><p></p></td><td><p>Soft Block</p></td><td><p>Adds a configurable positive score, between 0.01 and 99.99 (default: 5).</p></td></tr><tr><td><p></p></td><td><p>Soft Allow</p></td><td><p>Subtracts a configurable negative score, between -0.01 and -99.99 (default: 5).</p></td></tr><tr><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p>Comment:</p></td><td colspan="2"><p>Add additional notes for the rule.</p></td></tr><tr><td><p>Disable Rule:</p></td><td colspan="2"><p>Check to prevent a rule from triggering without deleting the rule.</p></td></tr></tbody></table>
 
 ## In this Section
 

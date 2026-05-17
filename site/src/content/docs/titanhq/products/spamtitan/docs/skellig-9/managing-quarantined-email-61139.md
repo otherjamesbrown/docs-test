@@ -74,28 +74,4 @@ Actions
 
 Go to the Actions dropdown menu, and select one of the four buttons - **Delete**, **Forward**, **Release**, or **Allow** - to perform an action on the email. See further information on each action below.
 
-Action
-
-Description
-
-Delete
-
-Select **Delete** to delete the email you are viewing. Deleting a message from quarantine tells SpamTitan this email is spam and so this type of message is more likely to be blocked in the future.
-
-:::note
-If a message is deleted from quarantine that message will not appear in the associated users’ quarantine, or in their quarantine report.
-:::
-
-Forward
-
-Select **Forward** to enter an email address and forward an email. Once forwarded, the email is _not_ removed from quarantine.
-
-Release
-
-Occasionally, an email in quarantine may have been incorrectly identified as spam. This is known as a ‘false positive’. Select **Release** to release an email from quarantine and automatically forward the email to the recipient.
-
-Allow
-
-Select **Allow** to add the email address of an email in quarantine to your Allow List. The email address is added to your allow list and the email is released from quarantine and delivered to the recipient.
-
-All future emails from this sender will bypass the SpamTitan anti-spam engine, but are still scanned for viruses and banned attachments.
+<table><colgroup><col><col></colgroup><thead><tr><th><p>Action</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Delete</p></td><td><p>Select <span><strong>Delete</strong></span> to delete the email you are viewing. Deleting a message from quarantine tells SpamTitan this email is spam and so this type of message is more likely to be blocked in the future.</p><div dir="ltr" data-import-admonition="note" data-import-admonition-title="Note"><h3>Note</h3><p>If a message is deleted from quarantine that message will not appear in the associated users’ quarantine, or in their quarantine report.</p></div></td></tr><tr><td><p>Forward</p></td><td><p>Select <span><strong>Forward</strong></span> to enter an email address and forward an email. Once forwarded, the email is <span><em>not</em></span>&nbsp;removed from quarantine.</p></td></tr><tr><td><p>Release</p></td><td><p>Occasionally, an email in quarantine may have been incorrectly identified as spam. This is known as a ‘false positive’. Select <span><strong>Release</strong></span> to release an email from quarantine and automatically forward the email to the recipient.</p></td></tr><tr><td><p>Allow</p></td><td><p>Select <span><strong>Allow</strong></span> to add the email address of an email in quarantine to your Allow List. The email address is added to your allow list and the email is released from quarantine and delivered to the recipient.</p><p>All future emails from this sender will bypass the SpamTitan anti-spam engine, but are still scanned for viruses and banned attachments.</p></td></tr></tbody></table>

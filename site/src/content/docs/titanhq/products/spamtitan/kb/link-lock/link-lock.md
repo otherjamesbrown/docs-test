@@ -1,5 +1,5 @@
 ---
-title: "Link Lock Print"
+title: "Link Lock"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

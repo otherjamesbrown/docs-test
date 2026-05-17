@@ -26,28 +26,6 @@ To enable quarantine reports for your domain:
 
 4.  Use the table below as reference to set your quarantine report preferences:
 
-    Field
-
-    Description
-
-    Language:
-
-    Select the language you want your reports to be written in.
-
-    Email report every:
-
-    Select the frequency with which quarantine reports will be sent. Reports may be generated every day, every weekday, every Friday, or every month.
-
-    Report contains:
-
-    A quarantine report can contain a list of all items that are currently quarantined for each user or new quarantined items since the last report was generated (default). Both of these can be viewed with or without the virus infected emails included.
-
-    Exclude spam mails scoring above:
-
-    Spam that scores above a certain threshold (usually 5) is deemed spam. In quarantine reports, users generally want to view email that just scored just above the spam score threshold so they can look for any [false positives](/docs-test/titanhq/products/spamtitan/docs/legacy-8/false-positive/ "False positive").
-
-    If a user receives a significant amount of spam, exclude spam messages above a higher threshold, e.g. 30, to keep their quarantine report manageable.
-
-    This setting is set to 999 by default, meaning that no messages will be excluded, as a message cannot score higher.
+    <table><thead><tr><th><p>Field</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Language:</p></td><td><p>Select the language you want your reports to be written in.</p></td></tr><tr><td><p>Email report every:</p></td><td><p>Select the frequency with which quarantine reports will be sent. Reports may be generated every day, every weekday, every Friday, or every month.</p></td></tr><tr><td><p>Report contains:</p></td><td><p>A quarantine report can contain a list of all items that are currently quarantined for each user or new quarantined items since the last report was generated (default). Both of these can be viewed with or without the virus infected emails included.</p></td></tr><tr><td><p>Exclude spam mails scoring above:</p></td><td><p>Spam that scores above a certain threshold (usually 5) is deemed spam. In quarantine reports, users generally want to view email that just scored just above the spam score threshold so they can look for any <a href="/docs-test/titanhq/products/spamtitan/docs/legacy-8/false-positive/" title="False positive">false positives</a>.</p><p>If a user receives a significant amount of spam, exclude spam messages above a higher threshold, e.g. 30, to keep their quarantine report manageable.</p><p>This setting is set to 999 by default, meaning that no messages will be excluded, as a message cannot score higher.</p></td></tr></tbody></table>
 
 5.  Click **Apply** to save changes.

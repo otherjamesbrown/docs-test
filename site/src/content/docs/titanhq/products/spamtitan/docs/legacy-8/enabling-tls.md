@@ -24,32 +24,4 @@ When inbound TLS is enabled, your SpamTitan Gateway server advertises STARTTLS a
 You cannot force a server that is sending you email to use TLS. That must be configured on the sending server.
 :::
 
-Field
-
-Description
-
-Certificate:
-
-Choose a certificate from the drop-down list of installed certificates.
-
-Go to **Settings** > **SSL** to manage certificates.
-
-Include TLS info in the Received header:
-
-Adds TLS information to the received header of all mail received using TLS. Information added includes the protocol and cipher used as well as the client and issuer CommonName.
-
-TLS Logging:
-
-Records TLS information in the text logs on your SpamTitan Gateway server.
-
-TLS 1.0:
-
-Enable or disable TLS 1.0 protocol for SMTP connections (default: disabled). Disable for increased security, or enable for greater compatibility with older mail servers.
-
-TLS 1.1:
-
-Enable or disable TLS 1.1 protocol for SMTP connections (default: disabled). Disable for increased security, or enable for greater compatibility with older mail servers.
-
-Weak TLS Ciphers:
-
-For PCI compliance, set Weak TLS Ciphers to Off (disable). Some mail transport agents may only support weaker ciphers.
+<table><thead><tr><th><p>Field</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Certificate:</p></td><td><p>Choose a certificate from the drop-down list of installed certificates.</p><p>Go to <span><strong>Settings</strong></span> &gt; <span><strong>SSL</strong></span> to manage certificates.</p></td></tr><tr><td><p>Include TLS info in the Received header:</p></td><td><p>Adds TLS information to the received header of all mail received using TLS. Information added includes the protocol and cipher used as well as the client and issuer CommonName.</p></td></tr><tr><td><p>TLS Logging:</p></td><td><p>Records TLS information in the text logs on your SpamTitan Gateway server.</p></td></tr><tr><td><p>TLS 1.0:</p></td><td><p>Enable or disable TLS 1.0 protocol for SMTP connections (default: disabled). Disable for increased security, or enable for greater compatibility with older mail servers.</p></td></tr><tr><td><p>TLS 1.1:</p></td><td><p>Enable or disable TLS 1.1 protocol for SMTP connections (default: disabled). Disable for increased security, or enable for greater compatibility with older mail servers.</p></td></tr><tr><td><p>Weak TLS Ciphers:</p></td><td><p>For PCI compliance, set Weak TLS Ciphers to Off (disable). Some mail transport agents may only support weaker ciphers.</p></td></tr></tbody></table>

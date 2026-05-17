@@ -42,25 +42,7 @@ Follow these steps to enable and configure DMARC (default: disabled).
 
     -   To add an entry to the list, click **Add...**. The DMARC window displays. Using the table below as a reference, add details of the new entry. Click **Save** to save changes or **Cancel** to discard changes.
 
-        Field
-
-        Description
-
-        IP/Network:
-
-        Enter an individual IP address or network range to allow DMARC checks.
-
-        Netmask:
-
-        Select the netmask for the IP address. Individual IPv4 addresses will have a /32 (255.255.255.255) netmask.
-
-        Address Type:
-
-        Select IPv4 or IPv6. (default: IPv4)
-
-        Comment:
-
-        Enter an optional comment for this entry.
+        <table><colgroup><col><col></colgroup><thead><tr><th><p>Field</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>IP/Network:</p></td><td><p>Enter an individual IP address or network range to allow DMARC checks.</p></td></tr><tr><td><p>Netmask:</p></td><td><p>Select the netmask for the IP address. Individual IPv4 addresses will have a /32 (255.255.255.255) netmask.</p></td></tr><tr><td><p>Address Type:</p></td><td><p>Select IPv4 or IPv6. (default: IPv4)</p></td></tr><tr><td><p>Comment:</p></td><td><p>Enter an optional comment for this entry.</p></td></tr></tbody></table>
 
     -   To edit an entry for an existing entry, click on the edit ![ST-701-edit-button.jpg](/docs-test/imported-assets/spamtitan-legacy/8933-enabling-and-configuring-dmarc-in-spamtitan/7455a85c9b68.jpg) icon in the Options column to the right of the entry you want to edit. Click **Save** to save changes or **Cancel** to discard changes.
 
@@ -70,20 +52,6 @@ Follow these steps to enable and configure DMARC (default: disabled).
 
     The following report settings allow you to specify an email address, organization name and additional contact information that will be used when sending a DMARC report:
 
-    Field
-
-    Description
-
-    DMARC Report Email:
-
-    Email address the report will be sent from. Default is dmarc@_domain.com_, where _domain.com_ is specified in **System Settings** > **Network** > **DNS Settings**.
-
-    DMARC Report Organization Name:
-
-    Organization name displayed on the DMARC report. Default is the organization name on your SpamTitan license.
-
-    DMARC Report Extra Contact Info:
-
-    Enter additional contact information, e.g. name or email address. Default is the mail address on your SpamTitan license.
+    <table><colgroup><col><col></colgroup><thead><tr><th><p>Field</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>DMARC Report Email:</p></td><td><p>Email address the report will be sent from. Default is dmarc@<span><em>domain.com</em></span>, where <span><em>domain.com</em></span> is specified in <span><strong>System Settings</strong></span> &gt; <span><strong>Network</strong></span> &gt;<span><strong> DNS Settings</strong></span>.</p></td></tr><tr><td><p>DMARC Report Organization Name:</p></td><td><p>Organization name displayed on the DMARC report. Default is the organization name on your SpamTitan license.</p></td></tr><tr><td><p>DMARC Report Extra Contact Info:</p></td><td><p>Enter additional contact information, e.g. name or email address. Default is the mail address on your SpamTitan license.</p></td></tr></tbody></table>
 
     Click **Save** to save changes or **Reset** to revert to default settings.

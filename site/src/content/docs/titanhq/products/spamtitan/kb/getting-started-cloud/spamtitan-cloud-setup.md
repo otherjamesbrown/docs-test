@@ -1,5 +1,5 @@
 ---
-title: "SpamTitan Cloud Setup Print"
+title: "SpamTitan Cloud Setup"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

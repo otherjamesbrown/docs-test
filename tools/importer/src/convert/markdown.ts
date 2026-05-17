@@ -28,6 +28,14 @@ turndown.addRule('starlightAside', {
   },
 });
 
+turndown.addRule('htmlTable', {
+  filter: 'table',
+  replacement: (_content, node) => {
+    const html = (node as unknown as { outerHTML?: string }).outerHTML;
+    return html ? `\n\n${formatHtmlTable(html)}\n\n` : '';
+  },
+});
+
 export function frontmatter(title: string, description: string): string {
   return `---\ntitle: ${JSON.stringify(title)}\ndescription: ${JSON.stringify(description)}\n---`;
 }
@@ -64,4 +72,11 @@ function normaliseMarkdownText(markdown: string): string {
     .replace(/[ \t]+$/gm, '')
     .replace(/\n{3,}/g, '\n\n')
     .replace(/^#{1}\s+/gm, '## ');
+}
+
+function formatHtmlTable(html: string): string {
+  return html
+    .replace(/>\s+</g, '>\n<')
+    .replace(/\n+(<\/?(?:table|thead|tbody|tfoot|tr|th|td|colgroup|col)\b)/g, '\n$1')
+    .trim();
 }

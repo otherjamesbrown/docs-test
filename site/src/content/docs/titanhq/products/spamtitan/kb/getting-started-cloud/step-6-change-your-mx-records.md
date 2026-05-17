@@ -1,5 +1,5 @@
 ---
-title: "Step 6: Change Your MX Records Print"
+title: "Step 6: Change Your MX Records"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

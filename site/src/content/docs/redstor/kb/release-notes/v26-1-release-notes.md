@@ -11,10 +11,4 @@ description: "Imported from helpdesk.redstor.com"
 
 ### **Fixed bugs**
 
-**ID**
-
-**Description**
-
-57793
-
-Remote tunnel ESE not showing restore tab information
+<table><tbody><tr><td dir="ltr"><strong>ID</strong></td><td dir="ltr"><strong>Description</strong></td></tr><tr><td dir="ltr">57793<br></td><td dir="ltr">Remote tunnel ESE not showing restore tab information<br></td></tr></tbody></table>

@@ -34,33 +34,7 @@ If generating the CSR for submission to a certificate authority:
 
 Table 1. **Certificate Settings**
 
-Field
-
-Description
-
-Common Name:
-
-The fully-qualified domain name that is used to access the SpamTitan UI, e.g. spamtitan.example.com. This must match the server name exactly or a warning dialog will display every time you visit the site.
-
-Organization:
-
-Company or organization name.
-
-Organization Unit:
-
-A specific department within the company or organization (optional).
-
-City:
-
-City/town where the company or organization is located.
-
-State/Province:
-
-Full name of the state or province where the company or organization is located.
-
-Country:
-
-Two-letter country code of the country where the company or organization is located, e.g. US or IE.
+<table><colgroup><col><col></colgroup><thead><tr><th><p>Field</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Common Name:</p></td><td><p>The fully-qualified domain name that is used to access the SpamTitan UI, e.g. spamtitan.example.com. This must match the server name exactly or a warning dialog will display every time you visit the site.</p></td></tr><tr><td><p>Organization:</p></td><td><p>Company or organization name.</p></td></tr><tr><td><p>Organization Unit:</p></td><td><p>A specific department within the company or organization (optional).</p></td></tr><tr><td><p>City:</p></td><td><p>City/town where the company or organization is located.</p></td></tr><tr><td><p>State/Province:</p></td><td><p>Full name of the state or province where the company or organization is located.</p></td></tr><tr><td><p>Country:</p></td><td><p>Two-letter country code of the country where the company or organization is located, e.g. US or IE.</p></td></tr></tbody></table>
 
 ###### Importing a Signed Certificate
 

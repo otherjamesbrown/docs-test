@@ -1,5 +1,5 @@
 ---
-title: "SpamTitan – Scheduled Maintenance Print"
+title: "SpamTitan – Scheduled Maintenance"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Are you Getting too Much Spam? Print"
+title: "Are you Getting too Much Spam?"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 
@@ -9,15 +9,7 @@ description: "Imported from helpdesk.spamtitan.com"
 > Source folder: Solutions
 > Modified: Mon, 24 Jul, 2023 at 8:39 AM
 
-![](/docs-test/imported-assets/spamtitan-kb/4000179149/5e79f0b6e610.png)
-
-**SaaS**
-
-![](/docs-test/imported-assets/spamtitan-kb/4000179149/e087d2c4e111.png)
-
-**DCI / Gateway**
-
-![](/docs-test/imported-assets/spamtitan-kb/4000179149/ccbfbc9604c1.png)
+<table><tbody><tr><td dir="ltr"><img src="/docs-test/imported-assets/spamtitan-kb/4000179149/5e79f0b6e610.png" data-attachment="[object Object]" data-id="4113430070"></td><td dir="ltr"><strong>SaaS</strong></td><td dir="ltr"><img src="/docs-test/imported-assets/spamtitan-kb/4000179149/e087d2c4e111.png" data-attachment="[object Object]" data-id="4114509899"></td><td dir="ltr"><br><br></td><td dir="ltr"><strong dir="ltr">DCI / Gateway</strong></td><td dir="ltr"><br><img src="/docs-test/imported-assets/spamtitan-kb/4000179149/ccbfbc9604c1.png" data-id="4114509902" data-attachment="[object Object]">&nbsp;</td></tr></tbody></table>
 
 Before looking at the types of spam you are receiving, please ensure that the following tests are enabled or operational:
 

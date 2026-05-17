@@ -1,5 +1,5 @@
 ---
-title: "Step 1: Log in for the first time Print"
+title: "Step 1: Log in for the first time"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

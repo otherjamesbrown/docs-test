@@ -1,5 +1,5 @@
 ---
-title: "User Allowed URLs Print"
+title: "User Allowed URLs"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

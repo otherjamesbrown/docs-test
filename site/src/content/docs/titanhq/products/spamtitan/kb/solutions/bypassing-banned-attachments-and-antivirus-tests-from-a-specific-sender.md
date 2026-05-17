@@ -1,5 +1,5 @@
 ---
-title: "Bypassing Banned Attachments & Antivirus Tests from a Specific Sender Print"
+title: "Bypassing Banned Attachments & Antivirus Tests from a Specific Sender"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

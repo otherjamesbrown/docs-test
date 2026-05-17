@@ -1,5 +1,5 @@
 ---
-title: "Link Lock Allowed URLs Print"
+title: "Link Lock Allowed URLs"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

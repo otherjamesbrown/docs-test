@@ -1,5 +1,5 @@
 ---
-title: "EncryptTitan Outbound IP 34.237.18.131 was listed on SpamHaus from 14:45 - 16:45 (March 31, 2026) Print"
+title: "EncryptTitan Outbound IP 34.237.18.131 was listed on SpamHaus from 14:45 - 16:45 (March 31, 2026)"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

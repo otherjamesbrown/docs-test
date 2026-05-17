@@ -1,5 +1,5 @@
 ---
-title: "(Delist completed) cloud-out-d.spamtitan.com, IP 34.194.51.1, was being blocked by zen.spamhaus.org Print"
+title: "(Delist completed) cloud-out-d.spamtitan.com, IP 34.194.51.1, was being blocked by zen.spamhaus.org"
 description: "Imported from helpdesk.spamtitan.com"
 ---
 

@@ -26,29 +26,7 @@ To edit a single pattern filter, see [Editing a Single Pattern Filter](/docs-tes
 
     -   _Rule Type_: Select an option to determine how this pattern filter is scored and treated.
 
-        Option
-
-        Description
-
-        Hard Block
-
-        Adds a score of 100 to the email, causing it to be blocked.
-
-        Hard Allow
-
-        Subtracts a score of 100 from an email, causing it to be allowed.
-
-        Soft Block
-
-        Adds a configurable positive score, between 0.01 and 99.99 (default: 5).
-
-        Soft Allow
-
-        Subtracts a configurable negative score, between -0.01 and -99.99 (default: -5).
-
-        Test Mode
-
-        Use Test Mode to create a pattern filter that triggers when a match is found, but does not affect the score of the mail (score adjustment: 0).
+        <table><colgroup><col><col></colgroup><thead><tr><th><p>Option</p></th><th><p>Description</p></th></tr></thead><tbody><tr><td><p>Hard Block</p></td><td><p>Adds a score of 100 to the email, causing it to be blocked.</p></td></tr><tr><td><p>Hard Allow</p></td><td><p>Subtracts a score of 100 from an email, causing it to be allowed.</p></td></tr><tr><td><p>Soft Block</p></td><td><p>Adds a configurable positive score, between 0.01 and 99.99 (default: 5).</p></td></tr><tr><td><p>Soft Allow</p></td><td><p>Subtracts a configurable negative score, between -0.01 and -99.99 (default: -5).</p></td></tr><tr><td><p>Test Mode</p></td><td><p>Use Test Mode to create a pattern filter that triggers when a match is found, but does not affect the score of the mail (score adjustment: 0).</p></td></tr><tr><td><p></p></td><td><p></p></td></tr></tbody></table>
 
     -   _Score_: This field can be edited to a custom value if Soft Block or Soft Allow is selected in the Rule Type field.
 
