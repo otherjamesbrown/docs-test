@@ -236,8 +236,17 @@ async function main() {
     return;
   }
 
-  const pages = await discover(limit);
-  await writeJson(manifestPath, toManifest(pages));
+  if (command === 'all') {
+    const pages = await discover(limit);
+    await writeJson(manifestPath, toManifest(pages));
+    await fetchAll(pages, force);
+    await clearGeneratedContent();
+    await convertAll(pages);
+    await runQa();
+    return;
+  }
+
+  const pages = force ? await discover(limit) : await readPagesFromManifest(limit);
 
   if (command === 'fetch') {
     await fetchAll(pages, force);
@@ -245,8 +254,7 @@ async function main() {
     return;
   }
 
-  if (command === 'convert' || command === 'all') {
-    await fetchAll(pages, force);
+  if (command === 'convert') {
     await clearGeneratedContent();
     await convertAll(pages);
     await runQa();
@@ -999,8 +1007,11 @@ function uniqueRouteSuffix(sourceId: string): string {
   return slugify(sourceId.match(/^\d+/)?.[0] ?? sourceId).slice(0, 32);
 }
 
+type ManifestPage = ReturnType<typeof toManifest>[number];
+
 function toManifest(pages: PageCandidate[]) {
   return pages.map((page) => ({
+    area: page.area,
     source_key: `${page.sourceHost}:${page.sourceId}`,
     source_id: page.sourceId,
     source_host: page.sourceHost,
@@ -1011,11 +1022,43 @@ function toManifest(pages: PageCandidate[]) {
     content_type: page.contentType,
     discovered_from: page.breadcrumbs.join(' > '),
     breadcrumbs: page.breadcrumbs,
+    folder: page.folder,
     title: page.title,
     status: 'discovered',
     route: `${basePath}/${page.route}/`,
     warnings: [],
   }));
+}
+
+async function readPagesFromManifest(limit?: number): Promise<PageCandidate[]> {
+  let manifest: ManifestPage[];
+  try {
+    manifest = (await readJson(manifestPath)) as ManifestPage[];
+  } catch (error) {
+    throw new Error(`No migration manifest found at ${manifestPath}. Run npm run import:discover first. ${String(error)}`);
+  }
+
+  const pages = manifest.map(manifestPageToCandidate);
+  return typeof limit === 'number' ? pages.slice(0, limit) : pages;
+}
+
+function manifestPageToCandidate(page: ManifestPage): PageCandidate {
+  const route = page.route.replace(new RegExp(`^${escapeRegExp(basePath)}/?`), '').replace(/\/$/, '');
+  return {
+    area: page.area,
+    sourceId: page.source_id,
+    sourceUrl: page.source_url,
+    sourceHost: page.source_host,
+    canonicalHost: page.canonical_host,
+    title: page.title,
+    route,
+    outputPath: `${route}.md`,
+    contentType: page.content_type,
+    breadcrumbs: page.breadcrumbs,
+    folder: page.folder,
+    product: page.product,
+    productStream: page.product_stream,
+  };
 }
 
 type SourceLinkIndex = Map<string, string>;
@@ -1103,6 +1146,14 @@ function stripFrontmatter(content: string): string {
 async function writeJson(file: string, value: unknown) {
   await fs.mkdir(path.dirname(file), { recursive: true });
   await fs.writeFile(file, `${JSON.stringify(value, null, 2)}\n`);
+}
+
+async function readJson(file: string): Promise<unknown> {
+  return JSON.parse(await fs.readFile(file, 'utf8'));
+}
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 async function exists(file: string): Promise<boolean> {

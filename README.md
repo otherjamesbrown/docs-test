@@ -107,9 +107,9 @@ The POC currently renders this structure:
 
 The importer is intentionally split into stages so each part can be tested or rerun:
 
-1. `discover` reads `migration/sources.yml` and builds a list of pages to import.
-2. `fetch` downloads/caches the raw source HTML.
-3. `convert` turns cached HTML into Markdown and imported assets.
+1. `discover` reads `migration/sources.yml`, builds the page list, and writes `migration/manifest.json`.
+2. `fetch` reads `migration/manifest.json` and downloads/caches the raw source HTML.
+3. `convert` reads `migration/manifest.json` and turns cached HTML into Markdown and imported assets.
 4. `qa` checks generated Markdown for known migration failures, including unresolved source-domain links that should have become internal links.
 5. The Starlight build renders the Markdown into a static site.
 6. `site:qa` checks rendered HTML for issues that only show up after build, such as missing page menu anchors or expected internal links.
@@ -119,6 +119,8 @@ For a full refresh, run:
 ```bash
 npm run import:all -- --force
 ```
+
+For staged runs, run `npm run import:discover` first. Later `fetch` and `convert` runs use the persisted manifest instead of rediscovering source folders. Passing `--force` to `fetch` or `convert` rediscovers for that command.
 
 ## Commands
 
