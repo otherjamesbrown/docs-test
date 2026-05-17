@@ -4,7 +4,15 @@ import { z } from 'zod';
 import { sourcesConfigPath } from './paths';
 import type { SourcesConfig } from './types';
 
-const areaSchema = z.enum(['redstor', 'titanhq-platform', 'spamtitan-kb', 'spamtitan-skellig', 'spamtitan-legacy']);
+const areaSchema = z.enum([
+  'redstor',
+  'titanhq-platform',
+  'spamtitan-kb',
+  'spamtitan-skellig',
+  'spamtitan-legacy',
+  'phishtitan-kb',
+  'phishtitan-docs',
+]);
 
 const freshdeskFolderSchema = z.object({
   folder: z.string().min(1),

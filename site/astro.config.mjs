@@ -38,6 +38,7 @@ function buildSidebar(config) {
   const redstor = product(config, 'redstor');
   const platform = product(config, 'titanhq-platform');
   const spamtitan = product(config, 'spamtitan');
+  const phishtitan = product(config, 'phishtitan');
 
   return [
     {
@@ -71,6 +72,18 @@ function buildSidebar(config) {
                 })),
               ],
             },
+            {
+              label: phishtitan.label,
+              items: [
+                { label: 'Overview', slug: productRoot(phishtitan) },
+                { label: 'Knowledge Base', slug: `${productRoot(phishtitan)}/kb` },
+                { label: 'Docs', slug: `${productRoot(phishtitan)}/docs` },
+                ...docsSources(phishtitan).map((source) => ({
+                  label: source.branch_label ?? 'Docs',
+                  slug: source.route_base,
+                })),
+              ],
+            },
           ],
         },
       ],
@@ -95,7 +108,7 @@ function docsSources(productConfig) {
 }
 
 function productRoot(productConfig) {
-  const kbRoute = productConfig.sources.kb?.[0]?.folders?.[0]?.route_base;
+  const kbRoute = asArray(productConfig.sources.kb)[0]?.folders?.[0]?.route_base;
   const docsRoute = docsSources(productConfig)[0]?.route_base;
   const route = kbRoute ?? docsRoute;
   if (!route) throw new Error(`Cannot infer route root for ${productConfig.id}`);

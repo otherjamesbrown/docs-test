@@ -1,0 +1,38 @@
+---
+title: "Connect and Configure a Customer Account"
+description: "Imported from helpdesk.phishtitan.com"
+---
+
+> Source: [helpdesk.phishtitan.com](https://helpdesk.phishtitan.com/support/solutions/articles/4000194416-connect-and-configure-a-customer-account)
+> Product: PhishTitan
+> Imported content type: kb_article
+> Source folder: Getting Started: MSP Admin
+> Modified: Wed, 1 Oct, 2025 at 3:21 PM
+
+After a customer account has been added, it must be connected to Microsoft 365 and the necessary configuration completed. This can be done by:
+
+-   An MSP admin with the appropriate permissions to access their customer's Azure tenant.
+
+-   A Customer admin who has been added to the system and has received Email Security login credentials from their MSP admin.
+
+A banner displays at the customer level until that customer account is connected to Microsoft 365.
+
+![PT-account-not-connected-banner.jpg](/docs-test/imported-assets/phishtitan-kb/4000194416/c272276189c8.jpg)
+
+Follow the steps below to connect and configure a customer account.
+
+1.  [Connect the customer account to Microsoft 365](/docs-test/titanhq/products/phishtitan/kb/getting-started-msp-admin/connect-to-microsoft-365/ "Connect to Microsoft 365").
+
+2.  [Add a Non-Delivery Report (NDR) email address to Microsoft 365](/docs-test/titanhq/products/phishtitan/kb/getting-started-msp-admin/add-a-non-delivery-report-email-address/ "Add a Non-Delivery Report Email Address").
+
+3.  [Add a journaling rule to Microsoft 365](/docs-test/titanhq/products/phishtitan/kb/getting-started-msp-admin/add-a-journaling-rule/ "Add a Journaling Rule").
+
+4.  Deploy TitanHQ for Outlook in Microsoft 365.
+
+5.  _Does this customer use Link Lock as part of their SpamTitan service?_
+
+    -   _Yes_: Link Lock must be disabled in SpamTitan to allow Email Security to process mail accurately.
+
+        See [Disable Link Lock in SpamTitan](/docs-test/titanhq/products/phishtitan/kb/getting-started-msp-admin/disable-link-lock-in-spamtitan/ "Disable Link Lock in SpamTitan").
+
+    -   _No_: Continue to next step.

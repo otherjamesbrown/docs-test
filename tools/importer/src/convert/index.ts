@@ -136,6 +136,36 @@ async function writeCollectionIndexes(pages: PageCandidate[]) {
       description: 'Imported legacy SpamTitan documentation.',
       pages: pages.filter((page) => page.area === 'spamtitan-legacy'),
     },
+    {
+      route: 'titanhq/products/phishtitan',
+      title: 'PhishTitan',
+      description: 'Imported PhishTitan knowledge base and documentation.',
+      pages: pages.filter((page) => page.product === 'PhishTitan'),
+      links: [
+        { title: 'Knowledge Base', href: `${basePath}/titanhq/products/phishtitan/kb/` },
+        { title: 'Docs', href: `${basePath}/titanhq/products/phishtitan/docs/` },
+        { title: 'Email Security Docs', href: `${basePath}/titanhq/products/phishtitan/docs/email-security/` },
+      ],
+    },
+    {
+      route: 'titanhq/products/phishtitan/kb',
+      title: 'PhishTitan Knowledge Base',
+      description: 'Imported PhishTitan knowledge base articles.',
+      pages: pages.filter((page) => page.area === 'phishtitan-kb'),
+    },
+    {
+      route: 'titanhq/products/phishtitan/docs',
+      title: 'PhishTitan Docs',
+      description: 'Imported PhishTitan documentation.',
+      pages: pages.filter((page) => page.area === 'phishtitan-docs'),
+      links: [{ title: 'Email Security', href: `${basePath}/titanhq/products/phishtitan/docs/email-security/` }],
+    },
+    {
+      route: 'titanhq/products/phishtitan/docs/email-security',
+      title: 'Email Security',
+      description: 'Imported PhishTitan Email Security documentation.',
+      pages: pages.filter((page) => page.area === 'phishtitan-docs'),
+    },
   ];
 
   for (const collection of collections) {

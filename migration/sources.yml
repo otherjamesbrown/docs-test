@@ -249,3 +249,144 @@ products:
           product_stream: legacy
           version_range: '8.00-or-earlier'
           preferred: false
+
+  - id: phishtitan
+    label: PhishTitan
+    canonical_host: helpdesk.phishtitan.com
+    sources:
+      kb:
+        id: phishtitan-helpdesk
+        type: freshdesk_public
+        base_url: https://helpdesk.phishtitan.com
+        area: phishtitan-kb
+        seeds:
+          - /support/home
+        folders:
+          - folder: 'Getting Started: MSP Admin'
+            source_url: /support/solutions/folders/4000038410
+            route_base: titanhq/products/phishtitan/kb/getting-started-msp-admin
+            limit: 14
+          - folder: 'Getting Started: Customer Admin'
+            source_url: /support/solutions/folders/4000038994
+            route_base: titanhq/products/phishtitan/kb/getting-started-customer-admin
+            limit: 11
+          - folder: Email Security Overview
+            source_url: /support/solutions/folders/4000039102
+            route_base: titanhq/products/phishtitan/kb/email-security-overview
+            limit: 3
+          - folder: Email History (MSP)
+            source_url: /support/solutions/folders/4000041505
+            route_base: titanhq/products/phishtitan/kb/email-history-msp
+            limit: 3
+          - folder: Email History (Customer)
+            source_url: /support/solutions/folders/4000041507
+            route_base: titanhq/products/phishtitan/kb/email-history-customer
+            limit: 3
+          - folder: Incidents
+            source_url: /support/solutions/folders/4000039098
+            route_base: titanhq/products/phishtitan/kb/incidents
+            limit: 8
+          - folder: Reports and Insights (MSP)
+            source_url: /support/solutions/folders/4000039099
+            route_base: titanhq/products/phishtitan/kb/reports-insights-msp
+            limit: 3
+          - folder: Reports and Insights (Customer)
+            source_url: /support/solutions/folders/4000039171
+            route_base: titanhq/products/phishtitan/kb/reports-insights-customer
+            limit: 3
+          - folder: Remediation
+            source_url: /support/solutions/folders/4000039306
+            route_base: titanhq/products/phishtitan/kb/remediation
+            limit: 2
+          - folder: MSP Anti-spoof
+            source_url: /support/solutions/folders/4000039751
+            route_base: titanhq/products/phishtitan/kb/msp-anti-spoof
+            limit: 1
+          - folder: Customer Anti-spoof
+            source_url: /support/solutions/folders/4000039752
+            route_base: titanhq/products/phishtitan/kb/customer-anti-spoof
+            limit: 1
+          - folder: Exploited Domains
+            source_url: /support/solutions/folders/4000039647
+            route_base: titanhq/products/phishtitan/kb/exploited-domains
+            limit: 1
+          - folder: MSP Graymail
+            source_url: /support/solutions/folders/4000039951
+            route_base: titanhq/products/phishtitan/kb/msp-graymail
+            limit: 1
+          - folder: Customer Graymail
+            source_url: /support/solutions/folders/4000039952
+            route_base: titanhq/products/phishtitan/kb/customer-graymail
+            limit: 1
+          - folder: Link Lock
+            source_url: /support/solutions/folders/4000039106
+            route_base: titanhq/products/phishtitan/kb/link-lock
+            limit: 3
+          - folder: Notifications
+            source_url: /support/solutions/folders/4000039173
+            route_base: titanhq/products/phishtitan/kb/notifications
+            limit: 1
+          - folder: TitanHQ for Outlook
+            source_url: /support/solutions/folders/4000039108
+            route_base: titanhq/products/phishtitan/kb/titanhq-for-outlook
+            limit: 4
+          - folder: Removing an Email Security Account
+            source_url: /support/solutions/folders/4000040066
+            route_base: titanhq/products/phishtitan/kb/removing-email-security-account
+            limit: 2
+          - folder: More Info
+            source_url: /support/solutions/folders/4000038884
+            route_base: titanhq/products/phishtitan/kb/more-info
+            limit: 6
+          - folder: Announcements
+            source_url: /support/solutions/folders/4000039035
+            route_base: titanhq/products/phishtitan/kb/announcements
+            limit: 4
+          - folder: MSP Configuration
+            source_url: /support/solutions/folders/4000040873
+            route_base: titanhq/products/phishtitan/kb/msp-configuration
+            limit: 1
+          - folder: Customer Configuration
+            source_url: /support/solutions/folders/4000040874
+            route_base: titanhq/products/phishtitan/kb/customer-configuration
+            limit: 1
+          - folder: Exemptions (MSP)
+            source_url: /support/solutions/folders/4000041657
+            route_base: titanhq/products/phishtitan/kb/exemptions-msp
+            limit: 7
+          - folder: Exemptions (Customer)
+            source_url: /support/solutions/folders/4000041658
+            route_base: titanhq/products/phishtitan/kb/exemptions-customer
+            limit: 7
+        scoped_kb_roots:
+          - /support/solutions/4000009797
+      docs:
+        id: titanhq-support-docs-phishtitan-email-security
+        type: titanhq_static_docs_branch
+        base_url: https://support.titanhq.com
+        area: phishtitan-docs
+        route_base: titanhq/products/phishtitan/docs/email-security
+        breadcrumbs:
+          - TitanHQ
+          - Products
+          - PhishTitan
+          - Docs
+          - Email Security
+        seeds:
+          - path: /en/62578-email-security.html
+            child_depth: 2
+          - path: /en/62581-welcome-to-email-security-.html
+            child_depth: 1
+          - path: /en/62498-email-security-msp-setup.html
+            child_depth: 3
+          - path: /en/62500-email-security-customer-setup.html
+            child_depth: 3
+          - path: /en/61551-email-security-msp-admin-guide.html
+            child_depth: 5
+          - path: /en/62496-email-security-customer-admin-guide.html
+            child_depth: 5
+          - path: /en/68225-email-security-release-blog.html
+            child_depth: 2
+        branch_label: Email Security
+        product_stream: email-security
+        preferred: true

@@ -1,4 +1,11 @@
-export type Area = 'redstor' | 'titanhq-platform' | 'spamtitan-kb' | 'spamtitan-skellig' | 'spamtitan-legacy';
+export type Area =
+  | 'redstor'
+  | 'titanhq-platform'
+  | 'spamtitan-kb'
+  | 'spamtitan-skellig'
+  | 'spamtitan-legacy'
+  | 'phishtitan-kb'
+  | 'phishtitan-docs';
 
 export interface PageCandidate {
   area: Area;

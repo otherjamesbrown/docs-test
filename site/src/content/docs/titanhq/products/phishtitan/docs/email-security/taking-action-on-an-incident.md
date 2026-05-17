@@ -1,0 +1,35 @@
+---
+title: "Taking Action on an Incident"
+description: "Imported from support.titanhq.com"
+---
+
+> Source: [support.titanhq.com](https://support.titanhq.com/en/66988-taking-action-on-an-incident.html)
+> Product: PhishTitan
+> Imported content type: docs_page
+> Product stream: email-security
+
+##### Taking Action on an Incident
+
+Taking action on an incident is also known as _remediating_ an incident.
+
+1.  Locate the incident you wish to take action on, and select it to display the Incident Summary page. See [Viewing an Incident](/docs-test/titanhq/products/phishtitan/docs/email-security/viewing-an-incident/ "Viewing an Incident") for more information.
+
+    The message header displays details about the incident, including its current status and flag reason:
+
+    ![PT-Message-Header-Incident-Summary.jpg](/docs-test/imported-assets/phishtitan-docs/66988-taking-action-on-an-incident/ef779d9d38d0.jpg)
+
+2.  From the **Actions** menu, select an action to take on this incident.
+
+    :::note
+    When you select one of the following actions for an email or domain, it is applied to all affected users. Select the **Affected Users** tab to see a list of all users that received the email.
+    :::
+
+    -   _Remediate_: This action removes the email from all affected inboxes.
+
+    -   _Mark as Safe_: This action adds a green banner to this email marking it as safe. The email is restored to all affected inboxes.
+
+    -   _Allow Sender_: This action adds the sender to the Allow List. The email is delivered to the user's inbox without analysis. See [Adding a Sender to the Allow List](https://support.titanhq.com/document/preview/67712#UUID-83afd69f-2910-6688-a4c7-896ffd8dfa19) for additional information.Adding a Sender to the Allow List
+
+    -   _Allow Domain_: This action adds the domain to the Allow List, so that any email using that domain is delivered to the user's inbox without analysis. See [Adding a Domain to the Allow List](https://support.titanhq.com/document/preview/68495#UUID-a958ef5a-c36e-114d-2f66-71b301958bd6) for additional information.Adding a Domain to the Allow List
+
+<table><colgroup><col><col><col></colgroup><thead><tr><th><p>Status</p></th><th><p>Description</p></th><th><p>Available Actions</p></th></tr></thead><tbody><tr><td><div><img src="/docs-test/imported-assets/phishtitan-docs/66988-taking-action-on-an-incident/e4220470dee3.jpg" alt="action-needed.jpg"></div></td><td><p>An email has been flagged by a user as phishing or clean using the TitanHQ for Outlook add-in.</p><p>This incident needs Admin attention and review.</p><div dir="ltr" data-import-admonition="note" data-import-admonition-title="Note"><h3>Note</h3><p>If the email has been sent to only one recipient and has been reported as phishing, then it is automatically remediated to the junk folder.</p></div></td><td><p>Remediate</p><p>Mark as Safe</p><p>Allow Sender</p><p>Allow Domain</p></td></tr><tr><td><div><img src="/docs-test/imported-assets/phishtitan-docs/66988-taking-action-on-an-incident/cb6662edc6f0.jpg" alt="ES-Remediated-Button.jpg"></div></td><td><p>Emails can be remediated in the following ways:</p><div><ul><li><p>Administrator has reviewed this email and determined it was malicious and selected to move it to a user's Junk folder.</p></li><li><p>An email has been flagged by a user as phishing using the TitanHQ for Outlook add-in.</p></li></ul></div><p>This email has been moved to the Junk folder for all recipients.</p></td><td><p>Mark as Safe</p><p>Allow Sender</p><p>Allow Domain</p></td></tr><tr><td><div><img src="/docs-test/imported-assets/phishtitan-docs/66988-taking-action-on-an-incident/2bc09fe51906.jpg" alt="banner-applied.jpg"></div></td><td><p>Email Security has flagged this email as suspicious and applied a warning banner before delivering it to a user's Inbox.</p></td><td><p>Remediate</p><p>Mark as Safe</p><p>Allow Sender</p><p>Allow Domain</p></td></tr><tr><td><div><img src="/docs-test/imported-assets/phishtitan-docs/66988-taking-action-on-an-incident/73b3c504d1b8.jpg" alt="PT-Actions-Marked-As-Safe.jpg"></div></td><td><p>Administrator has reviewed this email and determined it is safe. Once marked as safe, the email is then delivered to all recipients with a banner marking it as safe.</p></td><td><p>Remediate</p><p>Allow Sender</p><p>Allow Domain</p></td></tr><tr><td><div><img src="/docs-test/imported-assets/phishtitan-docs/66988-taking-action-on-an-incident/4358129122bc.jpg" alt="PT-Auto-Remediated-Label.jpg"></div></td><td><p>Auto remediation has been enabled meaning that this email has automatically been moved to the Junk folder for all recipients.</p></td><td><p>Allow Sender</p><p>Mark as Safe</p></td></tr></tbody></table>

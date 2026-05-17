@@ -21,8 +21,8 @@ In the navigation bar located at the top of the page, the following items are di
 
     -   View your admin role. If you're an MSP, see [MSP Administrators](/docs-test/titanhq/platform/docs/msp-administrators/ "MSP Administrators") for details on the role assigned to you and the related privileges and restrictions. If you're a customer admin, go to Customer Administrators.
 
-    -   Manage your security settings. See Update your Security Settings.
+    -   Manage your security settings. See [Update your Security Settings](/docs-test/titanhq/products/phishtitan/docs/email-security/update-your-security-settings/ "Update your Security Settings").
 
--   **Display Mode**: Lets you select light or dark for your display. See Selecting Dark or Light Mode.
+-   **Display Mode**: Lets you select light or dark for your display. See [Selecting Dark or Light Mode](/docs-test/titanhq/products/phishtitan/docs/email-security/selecting-dark-or-light-mode/ "Selecting Dark or Light Mode").
 
 -   **Documentation**: Select the ![Plat-Doc-Icon.jpg](/docs-test/imported-assets/titanhq-platform/75330-top-navigation-bar/90bdbd3ef820.jpg)icon to go to the [documentation page](/docs-test/titanhq/platform/docs/welcome-to-the-titanhq-platform/) for help navigating the UI and carrying out tasks.

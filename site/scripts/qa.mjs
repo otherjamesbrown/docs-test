@@ -28,6 +28,21 @@ const pageLinkChecks = [
     selectorName: 'SpamTitan Skellig log-in section links',
     expectedHref: '/docs-test/titanhq/products/spamtitan/docs/skellig-9/forgot-your-password/',
   },
+  {
+    page: 'dist/titanhq/products/phishtitan/index.html',
+    selectorName: 'PhishTitan product overview links to the knowledge base',
+    expectedHref: '/docs-test/titanhq/products/phishtitan/kb/',
+  },
+  {
+    page: 'dist/titanhq/products/phishtitan/docs/index.html',
+    selectorName: 'PhishTitan docs overview links to Email Security docs',
+    expectedHref: '/docs-test/titanhq/products/phishtitan/docs/email-security/',
+  },
+  {
+    page: 'dist/titanhq/products/phishtitan/docs/email-security/index.html',
+    selectorName: 'PhishTitan Email Security docs index links to MSP setup',
+    expectedHref: '/docs-test/titanhq/products/phishtitan/docs/email-security/email-security-msp-setup/',
+  },
 ];
 
 const titleChecks = [
@@ -45,6 +60,11 @@ const titleChecks = [
     page: 'dist/titanhq/products/spamtitan/kb/link-lock/enable-link-lock-for-a-domain/index.html',
     selectorName: 'SpamTitan KB Link Lock title excludes print control text',
     expectedTitle: 'Enable Link Lock for a Domain | Docs Platform POC',
+  },
+  {
+    page: 'dist/titanhq/products/phishtitan/index.html',
+    selectorName: 'PhishTitan product overview title',
+    expectedTitle: 'PhishTitan | Docs Platform POC',
   },
 ];
 
@@ -81,6 +101,16 @@ const textChecks = [
     page: 'dist/titanhq/products/spamtitan/docs/skellig-9/index.html',
     selectorName: 'SpamTitan Skellig index disambiguates duplicate 2FA titles',
     expectedText: 'Two-Factor Authentication (Customer level)',
+  },
+  {
+    page: 'dist/titanhq/products/phishtitan/kb/index.html',
+    selectorName: 'PhishTitan KB index includes imported Freshdesk folders',
+    expectedText: 'Getting Started: MSP Admin',
+  },
+  {
+    page: 'dist/titanhq/products/phishtitan/docs/email-security/index.html',
+    selectorName: 'PhishTitan Email Security docs index includes imported docs pages',
+    expectedText: 'Email Security MSP Admin Guide',
   },
 ];
 
