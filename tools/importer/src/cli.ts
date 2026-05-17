@@ -874,13 +874,20 @@ function sourceBlock(page: PageCandidate, modified?: string): string {
   return lines.join('\n');
 }
 
-function normaliseMarkdown(markdown: string): string {
+export function normaliseMarkdown(markdown: string): string {
+  return markdown
+    .split(/(```[\s\S]*?```)/g)
+    .map((section) => (section.startsWith('```') ? section : normaliseMarkdownText(section)))
+    .join('')
+    .trim();
+}
+
+function normaliseMarkdownText(markdown: string): string {
   return markdown
     .replace(/\u00a0/g, ' ')
     .replace(/[ \t]+$/gm, '')
     .replace(/\n{3,}/g, '\n\n')
-    .replace(/^#{1}\s+/gm, '## ')
-    .trim();
+    .replace(/^#{1}\s+/gm, '## ');
 }
 
 function cleanText(value: string): string {
