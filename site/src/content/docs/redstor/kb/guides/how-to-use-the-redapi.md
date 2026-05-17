@@ -188,16 +188,16 @@ Note:
 -   Replace the "jwkFilePath" with the path to your JWK file (private key) provided by the RedApp.
 
 ```
-## Install required module if not already installed (run once)
-## Install-Module -Name JWT -Scope CurrentUser
+# Install required module if not already installed (run once)
+# Install-Module -Name JWT -Scope CurrentUser
 
-## Parameters
+# Parameters
 $tokenEndpoint = "https://id.redstor.com/connect/token"
 $clientId = "00000000-0000-0000-00000000000000000" # Replace with your client ID
 $scope = "api.read api.write"
 $jwkFilePath = "C:\RedApi\my_private_key.jwk" # Replace with the path to your JWK file
 
-## Function to create a JWT using JWK
+# Function to create a JWT using JWK
 function New-Jwt {
     param (
         [string]$clientId,
@@ -263,10 +263,10 @@ function New-Jwt {
     return "$signingInput.$signatureBase64"
 }
 
-## Create client assertion (JWT)
+# Create client assertion (JWT)
 $clientAssertion = New-Jwt -clientId $clientId -tokenEndpoint $tokenEndpoint -jwkFilePath $jwkFilePath
 
-## Prepare the token request
+# Prepare the token request
 $body = @{
     grant_type = "client_credentials"
     client_id = $clientId
@@ -275,7 +275,7 @@ $body = @{
     scope = $scope
 }
 
-## Make the token request
+# Make the token request
 try {
     $response = Invoke-RestMethod -Uri $tokenEndpoint -Method Post -Body $body -ContentType "application/x-www-form-urlencoded"
     Write-Output "Access Token: $($response.access_token)"

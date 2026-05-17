@@ -7,8 +7,22 @@ products:
         id: redstor-helpdesk
         type: freshdesk_public
         base_url: https://helpdesk.redstor.com
+        area: redstor
         seeds:
           - /support/solutions
+        folders:
+          - folder: Guides
+            source_url: /support/solutions/folders/4000040908
+            route_base: redstor/kb/guides
+            limit: 10
+          - folder: Troubleshooting
+            source_url: /support/solutions/folders/4000040906
+            route_base: redstor/kb/troubleshooting
+            limit: 10
+          - folder: Release Notes
+            source_url: /support/solutions/folders/4000040904
+            route_base: redstor/kb/release-notes
+            limit: 5
         scoped_kb_roots:
           - /support/solutions/folders/4000040908
           - /support/solutions/folders/4000040906
@@ -24,6 +38,12 @@ products:
         id: titanhq-support-docs-platform
         type: titanhq_static_docs_branch
         base_url: https://support.titanhq.com
+        area: titanhq-platform
+        route_base: titanhq/platform/docs
+        breadcrumbs:
+          - TitanHQ
+          - Platform
+          - Docs
         seeds:
           - /en/69450-welcome-to-the-titanhq-platform-.html
           - /en/70563-msp-dashboard.html
@@ -47,8 +67,26 @@ products:
         id: spamtitan-helpdesk
         type: freshdesk_public
         base_url: https://helpdesk.spamtitan.com
+        area: spamtitan-kb
         seeds:
           - /support/home
+        folders:
+          - folder: Solutions
+            source_url: /support/solutions/folders/4000036516
+            route_base: titanhq/products/spamtitan/kb/solutions
+            limit: 5
+          - folder: Announcements
+            source_url: /support/solutions/folders/4000036705
+            route_base: titanhq/products/spamtitan/kb/announcements
+            limit: 5
+          - folder: "Getting Started: SpamTitan Cloud"
+            source_url: /support/solutions/folders/4000037714
+            route_base: titanhq/products/spamtitan/kb/getting-started-cloud
+            limit: 20
+          - folder: Link Lock
+            source_url: /support/solutions/folders/4000037715
+            route_base: titanhq/products/spamtitan/kb/link-lock
+            limit: 20
         scoped_kb_roots:
           - /support/solutions/4000009289
         exclude_mirrors:
@@ -57,6 +95,14 @@ products:
         - id: titanhq-support-docs-spamtitan-skellig
           type: titanhq_static_docs_branch
           base_url: https://support.titanhq.com
+          area: spamtitan-skellig
+          route_base: titanhq/products/spamtitan/docs/skellig-9
+          breadcrumbs:
+            - TitanHQ
+            - Products
+            - SpamTitan
+            - Docs
+            - Skellig 9
           seeds:
             - /en/56985-welcome-to-spamtitan-.html
             - /en/59382-navigating-levels-in-spamtitan.html
@@ -77,6 +123,14 @@ products:
         - id: titanhq-docs-spamtitan-legacy
           type: titanhq_static_docs_branch
           base_url: https://docs.titanhq.com
+          area: spamtitan-legacy
+          route_base: titanhq/products/spamtitan/docs/legacy-8
+          breadcrumbs:
+            - TitanHQ
+            - Products
+            - SpamTitan
+            - Docs
+            - Legacy 8
           seeds:
             - /en/2179-spamtitan-overview.html
             - path: /en/13160-spamtitan-release-notes.html

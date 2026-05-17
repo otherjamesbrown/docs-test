@@ -5,6 +5,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import TurndownService from 'turndown';
 import YAML from 'yaml';
+import { z } from 'zod';
 import { slugify } from './shared/slug';
 
 const repoRoot = path.resolve(new URL('../../..', import.meta.url).pathname);
@@ -61,16 +62,41 @@ interface ProductSourceConfig {
   label: string;
   canonical_host: string;
   sources: {
-    docs?: DocsSourceConfig | DocsSourceConfig[];
+    kb?: FreshdeskSourceConfig[];
+    docs?: DocsSourceConfig[];
   };
+}
+
+interface FreshdeskSourceConfig {
+  id: string;
+  type: 'freshdesk_public';
+  base_url: string;
+  area: Area;
+  folders: FreshdeskFolderConfig[];
+  seeds?: string[];
+  scoped_kb_roots?: string[];
+  exclude_mirrors?: string[];
+}
+
+interface FreshdeskFolderConfig {
+  folder: string;
+  source_url: string;
+  route_base: string;
+  limit: number;
 }
 
 interface DocsSourceConfig {
   id: string;
   type: 'titanhq_static_docs_branch';
   base_url: string;
+  area: Area;
+  route_base: string;
+  breadcrumbs: string[];
   seeds: DocsSeedConfig[];
   product_stream?: string;
+  branch_label?: string;
+  version_range?: string;
+  preferred?: boolean;
 }
 
 type DocsSeedConfig =
@@ -80,6 +106,76 @@ type DocsSeedConfig =
       url?: string;
       child_depth?: number;
     };
+
+const areaSchema = z.enum(['redstor', 'titanhq-platform', 'spamtitan-kb', 'spamtitan-skellig', 'spamtitan-legacy']);
+
+const freshdeskFolderSchema = z.object({
+  folder: z.string().min(1),
+  source_url: z.string().min(1),
+  route_base: z.string().min(1),
+  limit: z.number().int().positive(),
+});
+
+const freshdeskSourceSchema = z.object({
+  id: z.string().min(1),
+  type: z.literal('freshdesk_public'),
+  base_url: z.string().min(1),
+  area: areaSchema,
+  seeds: z.array(z.string().min(1)).optional(),
+  folders: z.array(freshdeskFolderSchema).min(1),
+  scoped_kb_roots: z.array(z.string().min(1)).optional(),
+  exclude_mirrors: z.array(z.string().min(1)).optional(),
+});
+
+const docsSeedSchema = z.union([
+  z.string().min(1),
+  z
+    .object({
+      path: z.string().min(1).optional(),
+      url: z.string().min(1).optional(),
+      child_depth: z.number().int().min(0).optional(),
+    })
+    .refine((seed) => seed.path || seed.url, 'Docs seed must include path or url'),
+]);
+
+const docsSourceSchema = z.object({
+  id: z.string().min(1),
+  type: z.literal('titanhq_static_docs_branch'),
+  base_url: z.string().min(1),
+  area: areaSchema,
+  route_base: z.string().min(1),
+  breadcrumbs: z.array(z.string().min(1)).min(1),
+  seeds: z.array(docsSeedSchema).min(1),
+  branch_label: z.string().min(1).optional(),
+  product_stream: z.string().min(1).optional(),
+  version_range: z.string().min(1).optional(),
+  preferred: z.boolean().optional(),
+});
+
+const sourcesConfigSchema = z.object({
+  products: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        label: z.string().min(1),
+        canonical_host: z.string().min(1),
+        sources: z.object({
+          kb: sourceListSchema(freshdeskSourceSchema),
+          docs: sourceListSchema(docsSourceSchema),
+        }),
+      }),
+    )
+    .min(1),
+});
+
+function sourceListSchema<T extends z.ZodType>(schema: T) {
+  return z
+    .preprocess((value) => {
+      if (value === undefined) return undefined;
+      return Array.isArray(value) ? value : [value];
+    }, z.array(schema))
+    .optional();
+}
 
 const turndown = new TurndownService({
   codeBlockStyle: 'fenced',
@@ -113,54 +209,6 @@ turndown.addRule('starlightAside', {
     return body ? `\n\n:::${type}${label}\n${body}\n:::\n\n` : '';
   },
 });
-
-const redstorFolders = [
-  {
-    folder: 'Guides',
-    sourceUrl: 'https://helpdesk.redstor.com/support/solutions/folders/4000040908',
-    routeBase: 'redstor/kb/guides',
-    limit: 10,
-  },
-  {
-    folder: 'Troubleshooting',
-    sourceUrl: 'https://helpdesk.redstor.com/support/solutions/folders/4000040906',
-    routeBase: 'redstor/kb/troubleshooting',
-    limit: 10,
-  },
-  {
-    folder: 'Release Notes',
-    sourceUrl: 'https://helpdesk.redstor.com/support/solutions/folders/4000040904',
-    routeBase: 'redstor/kb/release-notes',
-    limit: 5,
-  },
-];
-
-const spamtitanFolders = [
-  {
-    folder: 'Solutions',
-    sourceUrl: 'https://helpdesk.spamtitan.com/support/solutions/folders/4000036516',
-    routeBase: 'titanhq/products/spamtitan/kb/solutions',
-    limit: 5,
-  },
-  {
-    folder: 'Announcements',
-    sourceUrl: 'https://helpdesk.spamtitan.com/support/solutions/folders/4000036705',
-    routeBase: 'titanhq/products/spamtitan/kb/announcements',
-    limit: 5,
-  },
-  {
-    folder: 'Getting Started: SpamTitan Cloud',
-    sourceUrl: 'https://helpdesk.spamtitan.com/support/solutions/folders/4000037714',
-    routeBase: 'titanhq/products/spamtitan/kb/getting-started-cloud',
-    limit: 20,
-  },
-  {
-    folder: 'Link Lock',
-    sourceUrl: 'https://helpdesk.spamtitan.com/support/solutions/folders/4000037715',
-    routeBase: 'titanhq/products/spamtitan/kb/link-lock',
-    limit: 20,
-  },
-];
 
 async function main() {
   const command = process.argv[2] ?? 'help';
@@ -209,29 +257,8 @@ async function discover(limit?: number): Promise<PageCandidate[]> {
 
   const pages: PageCandidate[] = [];
 
-  for (const folder of redstorFolders) {
-    const discovered = await discoverFreshdeskFolder(folder.sourceUrl, {
-      area: 'redstor',
-      sourceHost: 'helpdesk.redstor.com',
-      canonicalHost: 'helpdesk.redstor.com',
-      routeBase: folder.routeBase,
-      folder: folder.folder,
-      product: 'Redstor',
-      limit: folder.limit,
-    });
-    pages.push(...discovered);
-  }
-
-  for (const folder of spamtitanFolders) {
-    const discovered = await discoverFreshdeskFolder(folder.sourceUrl, {
-      area: 'spamtitan-kb',
-      sourceHost: 'helpdesk.spamtitan.com',
-      canonicalHost: 'helpdesk.spamtitan.com',
-      routeBase: folder.routeBase,
-      folder: folder.folder,
-      product: 'SpamTitan',
-      limit: folder.limit,
-    });
+  for (const { sourceUrl, options } of configuredFreshdeskFolders(config)) {
+    const discovered = await discoverFreshdeskFolder(sourceUrl, options);
     pages.push(...discovered);
   }
 
@@ -360,6 +387,38 @@ async function discoverDocs(
   return pages;
 }
 
+function configuredFreshdeskFolders(config: SourcesConfig): Array<{
+  sourceUrl: string;
+  options: {
+    area: Area;
+    sourceHost: string;
+    canonicalHost: string;
+    routeBase: string;
+    folder: string;
+    product: string;
+    limit: number;
+  };
+}> {
+  return config.products.flatMap((product) => {
+    const kb = product.sources.kb ?? [];
+    return kb.flatMap((source) => {
+      const sourceHost = new URL(source.base_url).hostname;
+      return source.folders.map((folder) => ({
+        sourceUrl: new URL(folder.source_url, source.base_url).toString(),
+        options: {
+          area: source.area,
+          sourceHost,
+          canonicalHost: product.canonical_host,
+          routeBase: folder.route_base,
+          folder: folder.folder,
+          product: product.label,
+          limit: folder.limit,
+        },
+      }));
+    });
+  });
+}
+
 function configuredDocsSources(config: SourcesConfig): Array<{
   source: DocsSourceConfig;
   options: {
@@ -373,54 +432,21 @@ function configuredDocsSources(config: SourcesConfig): Array<{
   };
 }> {
   return config.products.flatMap((product) => {
-    const docs = product.sources.docs ? [product.sources.docs].flat() : [];
+    const docs = product.sources.docs ?? [];
     return docs.map((source) => {
       const sourceHost = new URL(source.base_url).hostname;
-      if (product.id === 'titanhq-platform') {
-        return {
-          source,
-          options: {
-            area: 'titanhq-platform' as const,
-            sourceHost,
-            canonicalHost: product.canonical_host,
-            routeBase: 'titanhq/platform/docs',
-            product: product.label,
-            breadcrumbs: ['TitanHQ', 'Platform', 'Docs'],
-          },
-        };
-      }
-
-      if (product.id === 'spamtitan' && source.product_stream === 'skellig') {
-        return {
-          source,
-          options: {
-            area: 'spamtitan-skellig' as const,
-            sourceHost,
-            canonicalHost: product.canonical_host,
-            routeBase: 'titanhq/products/spamtitan/docs/skellig-9',
-            product: product.label,
-            productStream: 'skellig',
-            breadcrumbs: ['TitanHQ', 'Products', product.label, 'Docs', 'Skellig 9'],
-          },
-        };
-      }
-
-      if (product.id === 'spamtitan' && source.product_stream === 'legacy') {
-        return {
-          source,
-          options: {
-            area: 'spamtitan-legacy' as const,
-            sourceHost,
-            canonicalHost: product.canonical_host,
-            routeBase: 'titanhq/products/spamtitan/docs/legacy-8',
-            product: product.label,
-            productStream: 'legacy',
-            breadcrumbs: ['TitanHQ', 'Products', product.label, 'Docs', 'Legacy 8'],
-          },
-        };
-      }
-
-      throw new Error(`Unsupported docs source ${source.id} for product ${product.id}`);
+      return {
+        source,
+        options: {
+          area: source.area,
+          sourceHost,
+          canonicalHost: product.canonical_host,
+          routeBase: source.route_base,
+          product: product.label,
+          productStream: source.product_stream,
+          breadcrumbs: source.breadcrumbs,
+        },
+      };
     });
   });
 }
@@ -843,9 +869,18 @@ async function runQa() {
 async function readSourcesConfig(): Promise<SourcesConfig> {
   const file = path.join(repoRoot, 'migration/sources.yml');
   const content = await fs.readFile(file, 'utf8');
-  const parsed = YAML.parse(content) as SourcesConfig;
-  if (!parsed?.products?.length) throw new Error('migration/sources.yml must contain products');
-  return parsed;
+  return parseSourcesConfig(content);
+}
+
+export function parseSourcesConfig(content: string): SourcesConfig {
+  const parsed = YAML.parse(content);
+  const result = sourcesConfigSchema.safeParse(parsed);
+  if (result.success) return result.data;
+
+  const message = result.error.issues
+    .map((issue) => `${issue.path.join('.') || '<root>'}: ${issue.message}`)
+    .join('\n');
+  throw new Error(`Invalid migration/sources.yml:\n${message}`);
 }
 
 async function fetchText(url: string): Promise<string> {
@@ -877,9 +912,13 @@ function sourceBlock(page: PageCandidate, modified?: string): string {
 export function normaliseMarkdown(markdown: string): string {
   return markdown
     .split(/(```[\s\S]*?```)/g)
-    .map((section) => (section.startsWith('```') ? section : normaliseMarkdownText(section)))
+    .map((section) => (section.startsWith('```') ? normaliseMarkdownCodeFence(section) : normaliseMarkdownText(section)))
     .join('')
     .trim();
+}
+
+function normaliseMarkdownCodeFence(markdown: string): string {
+  return markdown.replace(/[ \t]+$/gm, '');
 }
 
 function normaliseMarkdownText(markdown: string): string {
