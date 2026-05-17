@@ -18,7 +18,7 @@ The current POC imports from these configured source sites:
 - SpamTitan Skellig 9 docs: https://support.titanhq.com/en/56985-welcome-to-spamtitan-.html
 - SpamTitan legacy 8 docs: https://docs.titanhq.com/en/2179-spamtitan-overview.html
 
-The importer configuration lives in `migration/sources.yml`. It also records known mirror sources that should not be treated as primary import roots, such as `https://webtitancloud.freshdesk.com/support/solutions/4000009289` for SpamTitan and `https://webtitancloud.freshdesk.com/support/solutions/4000010601` for Redstor.
+The importer configuration lives in `migration/sources.yml`. It controls the current POC source systems, Freshdesk folders, docs seed URLs, route bases, crawl depth, page limits, product labels, and preferred source hosts. It also records known mirror sources that should not be treated as primary import roots, such as `https://webtitancloud.freshdesk.com/support/solutions/4000009289` for SpamTitan and `https://webtitancloud.freshdesk.com/support/solutions/4000010601` for Redstor.
 
 ## Goals
 
@@ -73,7 +73,9 @@ GitHub Pages
     scripts/qa.mjs       # rendered HTML checks for known migration issues
 
   tools/importer/
-    src/cli.ts           # importer CLI and conversion pipeline
+    src/cli.ts           # importer CLI command dispatch
+    src/convert/         # HTML cleanup, Markdown conversion, asset/link rewriting
+    src/discover/        # Freshdesk and TitanHQ docs discovery
     tests/               # unit tests for importer behavior
 
   .github/workflows/
@@ -153,14 +155,22 @@ npm test
 
 ## Quality Gates
 
-The POC has several layers of checks:
+The POC has several useful checks, but they are regression guards rather than a complete migration certification suite:
 
-- Importer unit tests cover conversion behavior such as link resolution, slugging, Paligo section indexes, and admonition/caution handling.
-- Importer QA scans generated Markdown for unresolved links back to known source systems when the target page exists in the import.
-- Site QA inspects rendered HTML for specific regressions found during the POC, including missing table-of-contents anchors and missing migrated section links.
+- Importer unit tests cover high-risk conversion behavior found during the POC, including link resolution, slugging, Paligo section indexes, and admonition/caution handling.
+- Importer QA scans generated Markdown for known failure patterns, including unresolved links back to source systems when the target page exists in the import.
+- Site QA inspects a focused set of rendered HTML regressions found during the POC, including missing table-of-contents anchors and missing migrated section links.
 - GitHub Actions runs type checks, linting, tests, import QA, site build, and rendered-site QA on pushes and pull requests.
 - GitHub Pages deployment only publishes after the same checks pass in the Pages workflow.
 - The `main` branch should require the `CI` workflow before merge or direct push so broken generated content cannot become the published baseline.
+
+Before this approach is scaled, the checks should expand to cover full-source discovery counts, sampled visual/content comparisons, asset completeness, redirect coverage, and product-owner acceptance.
+
+## Scope and Legal
+
+This repository is a technical POC that scrapes publicly accessible help and documentation pages to demonstrate a possible migration workflow. It is not a production rehosting plan, is not endorsed by Redstor, TitanHQ, SpamTitan, or any other vendor, and should not be treated as permission to republish third-party content.
+
+Before any onward use, the imported content and assets should be reset or replaced with material the team is allowed to store and publish. A production migration would need explicit content ownership review, vendor/customer permissions where required, source-site terms-of-service checks, and a redirect/publication plan approved by the relevant stakeholders.
 
 ## Source Metadata and Redirects
 
