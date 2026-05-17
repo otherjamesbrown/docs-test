@@ -1,10 +1,18 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { basePath, repoRoot } from '../shared/paths';
+import { exists, readJson, writeJson } from '../shared/files';
+import { assetCachePath, basePath, repoRoot } from '../shared/paths';
 import type { PageCandidate } from '../shared/types';
 
 export async function downloadAsset(assetUrl: string, page: PageCandidate): Promise<string> {
+  const cacheKey = assetCacheKey(assetUrl, page);
+  const cache = await readAssetCache();
+  const cached = cache[cacheKey];
+  if (cached && (await exists(path.join(repoRoot, 'site/public', cached)))) {
+    return cached;
+  }
+
   const response = await fetch(assetUrl);
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const arrayBuffer = await response.arrayBuffer();
@@ -16,7 +24,11 @@ export async function downloadAsset(assetUrl: string, page: PageCandidate): Prom
   const relative = path.posix.join('imported-assets', page.area, page.sourceId, fileName);
   const fullPath = path.join(repoRoot, 'site/public', relative);
   await fs.mkdir(path.dirname(fullPath), { recursive: true });
-  await fs.writeFile(fullPath, buffer);
+  if (!(await exists(fullPath))) {
+    await fs.writeFile(fullPath, buffer);
+  }
+  cache[cacheKey] = relative;
+  await writeJson(assetCachePath, cache);
   return relative;
 }
 
@@ -33,4 +45,18 @@ export function extensionFromUrl(url: string, contentType: string): string {
   if (contentType.includes('gif')) return '.gif';
   if (contentType.includes('svg')) return '.svg';
   return '.bin';
+}
+
+type AssetCache = Record<string, string>;
+
+async function readAssetCache(): Promise<AssetCache> {
+  try {
+    return (await readJson(assetCachePath)) as AssetCache;
+  } catch {
+    return {};
+  }
+}
+
+function assetCacheKey(assetUrl: string, page: PageCandidate): string {
+  return `${page.area}:${page.sourceId}:${assetUrl}`;
 }

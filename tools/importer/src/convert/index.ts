@@ -1,16 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { collectFiles, writeJson } from '../shared/files';
-import {
-  assetsRoot,
-  basePath,
-  linkMapPath,
-  manifestPath,
-  rawPath,
-  reportPath,
-  repoRoot,
-  siteDocsRoot,
-} from '../shared/paths';
+import { basePath, linkMapPath, manifestPath, rawPath, reportPath, repoRoot, siteDocsRoot } from '../shared/paths';
 import { escapeMarkdownLinkText, titleCase } from '../shared/text';
 import type { ImportReport, PageCandidate } from '../shared/types';
 import { toManifest } from '../manifest';
@@ -70,7 +61,6 @@ export async function clearGeneratedContent() {
     }
   }
   await Promise.all([...generatedMdx, ...generatedMarkdown].map((file) => fs.rm(file)));
-  await fs.rm(assetsRoot, { recursive: true, force: true });
 }
 
 async function writeCollectionIndexes(pages: PageCandidate[]) {

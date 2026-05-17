@@ -9,6 +9,7 @@ export const rawRoot = path.join(repoRoot, 'migration/raw');
 export const reportPath = path.join(repoRoot, 'migration/import-report.json');
 export const manifestPath = path.join(repoRoot, 'migration/manifest.json');
 export const linkMapPath = path.join(repoRoot, 'migration/link-map.json');
+export const assetCachePath = path.join(repoRoot, 'migration/asset-cache.json');
 export const sourcesConfigPath = path.join(repoRoot, 'migration/sources.yml');
 export const basePath = '/docs-test';
 

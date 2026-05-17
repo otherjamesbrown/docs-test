@@ -8,5 +8,5 @@ migration/raw/
 migration/import-report.json
 migration/manifest.json
 migration/link-map.json
+migration/asset-cache.json
 migration/redirects.csv
-
