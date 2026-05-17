@@ -24,9 +24,9 @@ SpamTitan Cloud offers several reporting options. Go to **Reporting** where the 
 
 ## In this Section
 
--   View Mail History
--   Managing Mail History
--   Generating Reports
--   Today’s On-Demand Reports
--   Scheduling Reports
--   Archived Reports
+-   [View Mail History](/docs-test/titanhq/products/spamtitan/docs/legacy-8/view-mail-history/)
+-   [Managing Mail History](/docs-test/titanhq/products/spamtitan/docs/legacy-8/managing-mail-history/)
+-   [Generating Reports](/docs-test/titanhq/products/spamtitan/docs/legacy-8/generating-reports/)
+-   [Today’s On-Demand Reports](/docs-test/titanhq/products/spamtitan/docs/legacy-8/today-s-on-demand-reports/)
+-   [Scheduling Reports](/docs-test/titanhq/products/spamtitan/docs/legacy-8/scheduling-reports/)
+-   [Archived Reports](/docs-test/titanhq/products/spamtitan/docs/legacy-8/archived-reports/)

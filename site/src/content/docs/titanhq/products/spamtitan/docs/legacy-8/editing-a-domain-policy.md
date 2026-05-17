@@ -1,0 +1,151 @@
+---
+title: "Editing A Domain Policy"
+description: "Imported from docs.titanhq.com"
+---
+
+> Source: [docs.titanhq.com](https://docs.titanhq.com/en/8966-editing-a-domain-policy.html)
+> Product: SpamTitan
+> Imported content type: docs_page
+> Product stream: legacy
+
+##### Editing A Domain Policy
+
+Follow these steps to edit a domain policy:
+
+1.  Go to **AntiSpam Engine** > **Domain Policies** > **Domain Policy Management**.
+
+2.  Check the domain ![ST-701-check-box.jpg](/docs-test/imported-assets/spamtitan-legacy/8966-editing-a-domain-policy/d19d75015111.jpg) you want to edit and click **Edit** or click the edit ![ST-701-edit-button.jpg](/docs-test/imported-assets/spamtitan-legacy/8966-editing-a-domain-policy/7455a85c9b68.jpg) icon in the Options column for the domain you want to edit.
+
+    :::tip
+    To edit several domains at once, check the boxes ![ST-701-check-box.jpg](/docs-test/imported-assets/spamtitan-legacy/8966-editing-a-domain-policy/d19d75015111.jpg) for multiple domains and click **Edit**. This is useful if you want to enable a setting across several domains quickly at once.
+    :::
+
+3.  Using the table below as a reference, complete the Edit Domain Policy window.
+
+4.  Click **Apply** to save any changes.
+
+###### Domain Policy Settings
+
+Field
+
+Description
+
+**Spam Filtering:**
+
+Specifies if spam filtering is enabled or disabled for the selected domain (default: enabled).
+
+Consider mail spam when score is greater than:
+
+This is the anti-spam engine scoring threshold above which mail is considered to be spam (default: 5).
+
+Spam should be:
+
+-   _Quarantined_: The message is accepted, but quarantined and appears in the user's quarantine reports. It may be released from quarantine if deemed to be a false positive.
+
+-   _Passed (Tagged)_: The message is analyzed as normal and passed to the end recipient(s). Headers are added to allow filtering on the back-end.
+
+    To prepend text to the subject indicating that the message has been identified as spam, enable Spam Modifies Subject and specify an appropriate Subject Tag (default: \[ \*\* SPAM \*\* \]). To include the spam score in the subject, specify \_SCORE\_ in the spam subject tag. This will be replaced with the actual score.
+
+    :::note
+    Selecting _Passed (Tagged)_ bypasses allow and block lists and delivers an email to the user mailbox.
+    :::
+
+-   _Rejected_: The message is rejected. The default action is to quarantine all messages that exceed the spam threshold. In the case of a banned attachment or spam, a DSN will be generated. No DSN will be generated for viruses, as most viruses originate from forged mail addresses.
+
+Send NDR:
+
+If checked, a Delivery Status Notification (DSN) is generated if a mail is quarantined.
+
+:::note[Important]
+DSNs can cause backscatter which can result in the server IP being blocked.
+:::
+
+Discard Spam scoring above:
+
+Messages scoring above the specified score are not quarantined.
+
+Add X-Spam headers to non-spam mails:
+
+If enabled, additional headers are added to the message that indicates the result of the spam analysis. The following headers are added:
+
+-   _X-Spam-Status:_ Shows if a message exceeded the spam threshold and the score is achieved. The rules that were fired by the anti-spam engine are also listed.
+
+-   _X-Spam-Score:_ Shows the spam score achieved.
+
+:::note
+These headers are only added to inbound messages.
+:::
+
+**Virus Filtering:**
+
+Specifies if virus filtering is enabled or disabled for this domain (default: enabled).
+
+Viruses should be:
+
+-   _Quarantined_: The message is accepted, but quarantined and appears in the user's quarantine reports. It may be released from quarantine if deemed to be a false positive.
+
+-   _Passed (Tagged)_: The message is analyzed as normal and passed to the end recipient(s). Headers are added to allow filtering on the back-end.
+
+    To prepend text to the subject indicating that the message has been identified as spam, enable Spam Modifies Subject and specify an appropriate Subject Tag (default: \[ \*\* SPAM \*\* \]). To include the spam score in the subject, specify \_SCORE\_ in the spam subject tag. This will be replaced with the actual score.
+
+-   _Rejected_: The message is rejected. The default action is to quarantine all messages that exceed the spam threshold. In the case of a banned attachment or spam, a DSN will be generated. No DSN will be generated for viruses, as most viruses originate from forged mail addresses.
+
+**Sandboxing:**
+
+Specifies if sandboxing is enabled or disabled for this domain (default: disabled).
+
+**Attachment Type Filtering:**
+
+If enabled, the corporate message attachment policy is applied to messages sent to this domain (default: enabled). Go to **Content Filtering** > **Attachments** to configure global attachment filtering settings.
+
+Banned Attachments should be:
+
+-   _Quarantined_: The message is accepted, but quarantined and appears in the user's quarantine reports. It may be released from quarantine if deemed to be a false positive.
+
+-   _Passed (Tagged)_: The message is analyzed as normal and passed to the end recipient(s). Headers are added to allow filtering on the back-end.
+
+    To prepend text to the subject indicating that the message has been identified as spam, enable Spam Modifies Subject and specify an appropriate Subject Tag (default: \[ \*\* SPAM \*\* \]). To include the spam score in the subject, specify \_SCORE\_ in the spam subject tag. This will be replaced with the actual score.
+
+-   _Rejected_: The message is rejected. The default action is to quarantine all messages that exceed the spam threshold. In the case of a banned attachment or spam, a DSN will be generated. No DSN will be generated for viruses, as most viruses originate from forged mail addresses.
+
+**Archive Mail:**
+
+If enabled, all clean messages received by this domain are stored in history for seven days. Archived mail older than this is deleted. Go to **Reporting** > **History** to view.
+
+**Quarantine Report:**
+
+If enabled, a quarantine report is generated for each recipient in this domain who has had messages quarantined.
+
+Language:
+
+Select the language your quarantine reports are written in. Recipients can change the quarantine report language within their UI.
+
+Email report every:
+
+Select the frequency that quarantine reports are generated (never, every day, every weekday, every Friday, or every month). Recipients can change the quarantine report frequency within their UI.
+
+Report contains:
+
+A quarantine report can list of all items that are currently quarantined for a user, or just new quarantined items since the last report was generated (default).
+
+Both options can be viewed with or without virus-infected emails included. If a user has no quarantined messages or no new quarantined messages since the last report, then no report will be sent.
+
+Exclude spam mails scoring above:
+
+Messages with a spam score above a certain value can generally be deemed as spam. Users are usually only interested in messages that fall just above the spam threshold, so they can identify any false positives.
+
+If users get a significant amount of spam, you can exclude spam messages above a certain spam score, e.g. 30, to keep their quarantine report more manageable (default: 999).
+
+**Domain Administrators:**
+
+Domain Administrators can be assigned to manage individual domains on SpamTitan Gateway. A Domain Administrator can view the quarantine for their domain, generate reports and view mail history. A domain can have multiple administrators. Changes made by domain administrators are logged in the interface log file.
+
+To add an administrator, enter their email address in the dialog box and click **Add**. Only email addresses that are local to SpamTitan Gateway can be used. When a domain administrator logs into SpamTitan, they are prompted to log in to their user interface or one of the domain interfaces for which they are an administrator.
+
+**Reset settings to default:**
+
+Click **Reset** to reset policy to the domain policy default settings. If no domain policy exists, the policy will be reset to global default values.
+
+## In this Section
+
+-   [Domain Policy Settings](/docs-test/titanhq/products/spamtitan/docs/legacy-8/editing-a-domain-policy/)

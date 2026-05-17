@@ -107,20 +107,40 @@ products:
             - Docs
             - Skellig 9
           seeds:
-            - /en/56985-welcome-to-spamtitan-.html
-            - /en/59382-navigating-levels-in-spamtitan.html
+            - path: /en/56985-welcome-to-spamtitan-.html
+              child_depth: 2
             - path: /en/61767-spamtitan-release-notes.html
+              child_depth: 2
+            - path: /en/55539-spamtitan-msp-setup.html
+              child_depth: 3
+            - path: /en/55541-spamtitan-customer-setup.html
+              child_depth: 3
+            - path: /en/55544-spamtitan-customer-admin-guide.html
+              child_depth: 5
+            - path: /en/55545-managing-a-single-domain.html
+              child_depth: 5
+            - path: /en/55542-spamtitan-msp-admin-guide.html
+              child_depth: 5
+            - path: /en/56392-change-your-mx-records.html
               child_depth: 1
-            - /en/55539-spamtitan-msp-setup.html
-            - path: /en/55571-log-in-to-spamtitan.html
+            - path: /en/60088-edit-your-domain-configuration.html
               child_depth: 1
-            - path: /en/55582-update-your-security-settings.html
+            - path: /en/61395-pattern-filtering.html
+              child_depth: 2
+            - path: /en/61798-test-connectivity-to-your-mail-server.html
               child_depth: 1
-            - /en/57004-adding-customers.html
-            - /en/57129-global-allow---block-list.html
-            - /en/55542-spamtitan-msp-admin-guide.html
-            - /en/60060-msp-overview.html
-            - /en/60370-link-lock.html
+            - path: /en/60370-link-lock.html
+              child_depth: 3
+            - path: /en/72549-managing-domain-anti-spoofing.html
+              child_depth: 2
+            - path: /en/72550-managing-display-name-anti-spoofing.html
+              child_depth: 2
+            - path: /en/74498-two-factor-authentication.html
+              child_depth: 2
+            - path: /en/77785-customizing-the-m365-outlook-report-add-in.html
+              child_depth: 2
+            - path: /en/78176-disable-m365-outlook-report-add-in.html
+              child_depth: 1
           branch_label: SpamTitan
           product_stream: skellig
           version_range: '9.00+'
@@ -137,21 +157,94 @@ products:
             - Docs
             - Legacy 8
           seeds:
-            - /en/2179-spamtitan-overview.html
+            - path: /en/2179-spamtitan-overview.html
+              child_depth: 1
             - path: /en/13160-spamtitan-release-notes.html
-              child_depth: 1
-            - path: /en/363-spamtitan-cloud-guide.html
-              child_depth: 1
-            - path: /en/1598-spamtitan-cloud-setup.html
-              child_depth: 1
-            - /en/423-log-in-for-the-first-time.html
-            - /en/475-add-your-domain-s-.html
-            - /en/485-test-connectivity-to-your-mail-server.html
-            - /en/640-enable-quarantine-reports.html
-            - /en/8939-system-update-settings.html
-            - /en/10542-guidelines-for-updating-spamtitan.html
-            - path: /en/30222-link-lock.html
               child_depth: 2
+            - path: /en/363-spamtitan-cloud-guide.html
+              child_depth: 8
+            - path: /en/8939-system-update-settings.html
+              child_depth: 2
+            - path: /en/10542-guidelines-for-updating-spamtitan.html
+              child_depth: 1
+            - path: /en/8863-downloading-and-installing-spamtitan-gateway.html
+              child_depth: 1
+            - path: /en/8861-before-installing-spamtitan-gateway.html
+              child_depth: 1
+            - path: /en/8862-system-requirements.html
+              child_depth: 1
+            - path: /en/8884-recommended-additional-configuration.html
+              child_depth: 1
+            - path: /en/8913-managing-realtime-blackhole-lists.html
+              child_depth: 1
+            - path: /en/8910-managing-domains.html
+              child_depth: 1
+            - path: /en/8928-mail-authentication.html
+              child_depth: 2
+            - path: /en/8924-greylisting-settings.html
+              child_depth: 1
+            - path: /en/8920-outbound-mail-delivery-settings.html
+              child_depth: 1
+            - path: /en/8986-enabling-tls.html
+              child_depth: 1
+            - path: /en/8984-generating-certificate-signing-requests.html
+              child_depth: 1
+            - path: /en/8990-web-authentication-settings.html
+              child_depth: 1
+            - path: /en/8943-configuring-clam-av-settings.html
+              child_depth: 1
+            - path: /en/8946-sandboxing-in-spamtitan-gateway.html
+              child_depth: 1
+            - path: /en/8950-configuring-attachment-filters.html
+              child_depth: 1
+            - path: /en/8949-attachment-filtering-methods.html
+              child_depth: 1
+            - path: /en/8951-content-filtering.html
+              child_depth: 1
+            - path: /en/8952-using-regular-expression.html
+              child_depth: 1
+            - path: /en/8956-network-testing.html
+              child_depth: 1
+            - path: /en/8957-internal-networks.html
+              child_depth: 1
+            - path: /en/8961-botnet-analysis.html
+              child_depth: 1
+            - path: /en/8966-editing-a-domain-policy.html
+              child_depth: 1
+            - path: /en/8969-adding,-editing-and-deleting-user-policies.html
+              child_depth: 1
+            - path: /en/9008-pattern-filtering.html
+              child_depth: 1
+            - path: /en/9374-aliases.html
+              child_depth: 1
+            - path: /en/8993-backing-up-your-spamtitan-gateway-configuration.html
+              child_depth: 1
+            - path: /en/10547-using-apis-in-spamtitan-gateway.html
+              child_depth: 1
+            - path: /en/9009-anti-spoofing.html
+              child_depth: 1
+            - path: /en/29111-geoblocking.html
+              child_depth: 2
+            - path: /en/29261-domain-verification.html
+              child_depth: 1
+            - path: /en/26426-about-the-spam-tests-used-by-spamtitan.html
+              child_depth: 1
+            - path: /en/26752-dynamic-recipient-verification-using-ms-exchange-2013-and-2016.html
+              child_depth: 1
+            - path: /en/27637-creating-an-office-365-outbound-connector.html
+              child_depth: 1
+            - path: /en/30209-link-lock.html
+              child_depth: 4
+            - path: /en/32718-outbound-mail.html
+              child_depth: 1
+            - path: /en/52528-items-saved-during-backup.html
+              child_depth: 1
+            - path: /en/30222-link-lock.html
+              child_depth: 4
+            - path: /en/63616-spamtitan-gateway-7-13-to-8-00-upgrade-path.html
+              child_depth: 1
+            - path: /en/9139-firewall-ports-required-by-spamtitan.html
+              child_depth: 1
           branch_label: SpamTitan
           product_stream: legacy
           version_range: '8.00-or-earlier'

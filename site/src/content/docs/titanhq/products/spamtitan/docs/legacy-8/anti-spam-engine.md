@@ -20,8 +20,8 @@ A Domain Administrator can set policies at the user level and will see tabs for 
 
 ## In this Section
 
--   Domain Policies
--   User Policies
--   Roles and Permissions
--   Admins
--   Domain Group
+-   [Domain Policies](/docs-test/titanhq/products/spamtitan/docs/legacy-8/domain-policies/)
+-   [User Policies](/docs-test/titanhq/products/spamtitan/docs/legacy-8/user-policies/)
+-   [Roles and Permissions](/docs-test/titanhq/products/spamtitan/docs/legacy-8/roles-and-permissions/)
+-   [Admins](/docs-test/titanhq/products/spamtitan/docs/legacy-8/admins/)
+-   [Domain Group](/docs-test/titanhq/products/spamtitan/docs/legacy-8/domain-group/)

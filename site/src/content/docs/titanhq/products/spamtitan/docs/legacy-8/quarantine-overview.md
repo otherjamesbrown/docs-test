@@ -28,6 +28,6 @@ Quarantine reports are not enabled by default. Click [here](/docs-test/titanhq/p
 
 ## In this Section
 
--   Managing Quarantine Email
--   Filtering Quarantine
--   Quarantine Reports
+-   [Managing Quarantine Email](/docs-test/titanhq/products/spamtitan/docs/legacy-8/managing-quarantine-email/)
+-   [Filtering Quarantine](/docs-test/titanhq/products/spamtitan/docs/legacy-8/filtering-quarantine/)
+-   [Quarantine Reports](/docs-test/titanhq/products/spamtitan/docs/legacy-8/quarantine-reports/)

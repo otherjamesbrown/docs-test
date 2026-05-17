@@ -52,9 +52,9 @@ Typically, a business-level Customer Admin who is managing one, or many, domains
 
 -   Drill down into a domain and have the same view as a Domain Admin for that domain.
 
-Customer Getting Started Steps
+[Customer Getting Started Steps](/docs-test/titanhq/products/spamtitan/docs/skellig-9/spamtitan-customer-setup/ "SpamTitan Customer Setup")
 
-Customer Admin Guide
+[Customer Admin Guide](/docs-test/titanhq/products/spamtitan/docs/skellig-9/spamtitan-customer-admin-guide/ "SpamTitan Customer Admin Guide")
 
 **Domain**
 
@@ -64,7 +64,7 @@ A Domain Admin has access to manage a single domain. A Domain Admin has:
 
 -   Admin access to their own domain only.
 
-Managing a Single Domain
+[Managing a Single Domain](/docs-test/titanhq/products/spamtitan/docs/skellig-9/managing-a-single-domain/ "Managing a Single Domain")
 
 We are continuously improving our documentation as products are updated, so please check back regularly. If you have any feedback or comments specific to this documentation, please email [docs@titanhq.com](<mailto:docs@titanhq.com?subject=WebTitan Errigal Documentation Feedback>).
 
@@ -72,4 +72,4 @@ We are continuously improving our documentation as products are updated, so plea
 
 -   [SpamTitan Levels of Access](/docs-test/titanhq/products/spamtitan/docs/skellig-9/welcome-to-spamtitan/)
 -   [Navigating Levels in SpamTitan](/docs-test/titanhq/products/spamtitan/docs/skellig-9/navigating-levels-in-spamtitan/)
--   Selecting Dark or Light Mode
+-   [Selecting Dark or Light Mode](/docs-test/titanhq/products/spamtitan/docs/skellig-9/selecting-dark-or-light-mode/)

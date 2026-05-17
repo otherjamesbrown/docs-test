@@ -12,12 +12,12 @@ description: "Imported from docs.titanhq.com"
 
 **Are you a Domain Group Administrator?**
 
-When you sign up for SpamTitan Cloud you receive a password for the Domain Group Administrator account.
+When you sign up for SpamTitan Cloud you receive a password for the [Domain Group Administrator](/docs-test/titanhq/products/spamtitan/docs/legacy-8/domain-group-administrator/ "Domain Group Administrator") account.
 
 If you are the Domain Group Administrator, follow the [SpamTitan Cloud Setup](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-cloud-setup/ "SpamTitan Cloud Setup") steps to complete your setup and go through the initial system configuration.
 
 **Are you a Domain Administrator?**
 
-If you are logging in as a Domain Administrator for the first time, contact your Domain Group Administrator to request your login credentials.
+If you are logging in as a [Domain Administrator](/docs-test/titanhq/products/spamtitan/docs/legacy-8/domain-administrator/ "Domain Administrator") for the first time, contact your Domain Group Administrator to request your login credentials.
 
-Your Domain Group Administrator can provide you with a specific URL to access SpamTitan Cloud after completing the [SpamTitan Cloud Setup](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-cloud-setup/ "SpamTitan Cloud Setup"). The first time you access this URL, follow the Forgot your Password steps to reset your password.
+Your Domain Group Administrator can provide you with a specific URL to access SpamTitan Cloud after completing the [SpamTitan Cloud Setup](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-cloud-setup/ "SpamTitan Cloud Setup"). The first time you access this URL, follow the [Forgot your Password](/docs-test/titanhq/products/spamtitan/docs/legacy-8/forgot-your-password/ "Forgot your password?") steps to reset your password.

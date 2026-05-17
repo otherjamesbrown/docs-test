@@ -27,4 +27,4 @@ This is a description of how to create a content filter that will exclude an ema
 
 **Further Info**
 
-For more information, see our Content Filtering and Using Regular Expression documentation.
+For more information, see our [Content Filtering](/docs-test/titanhq/products/spamtitan/docs/legacy-8/content-filtering/) and [Using Regular Expression](/docs-test/titanhq/products/spamtitan/docs/legacy-8/using-regular-expression/) documentation.

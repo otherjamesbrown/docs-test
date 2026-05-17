@@ -3,7 +3,7 @@ title: "User Allowed URLs"
 description: "Imported from docs.titanhq.com"
 ---
 
-> Source: [docs.titanhq.com](https://docs.titanhq.com/en/30227-user-allowed-urls.html)
+> Source: [docs.titanhq.com](https://docs.titanhq.com/en/30216-user-allowed-urls.html)
 > Product: SpamTitan
 > Imported content type: docs_page
 > Product stream: legacy
@@ -18,7 +18,7 @@ Follow the steps below to add a URL to your user allowed URLs list. The URLs on 
 
 2.  In the **Users:** table, click **Add...** and the Add Allowed URL window displays.
 
-    ![ST-add-user-link-lock-allowed-URL.jpg](/docs-test/imported-assets/spamtitan-legacy/30227-user-allowed-urls/96a7a13d8c81.jpg)
+    ![ST-add-user-link-lock-allowed-URL.jpg](/docs-test/imported-assets/spamtitan-legacy/30216-user-allowed-urls/96a7a13d8c81.jpg)
 
 3.  Complete the fields as follows:
 

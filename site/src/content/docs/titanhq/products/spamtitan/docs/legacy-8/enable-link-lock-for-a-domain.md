@@ -3,7 +3,7 @@ title: "Enable Link Lock for a Domain"
 description: "Imported from docs.titanhq.com"
 ---
 
-> Source: [docs.titanhq.com](https://docs.titanhq.com/en/30223-enable-link-lock-for-a-domain.html)
+> Source: [docs.titanhq.com](https://docs.titanhq.com/en/30211-enable-link-lock-for-a-domain.html)
 > Product: SpamTitan
 > Imported content type: docs_page
 > Product stream: legacy
@@ -16,11 +16,11 @@ Follow the steps below to enable and configure Link Lock for a domain.
 
 1.  Go to **Content Filtering** > **Link Lock** and scroll to the **Configuration** panel.
 
-2.  In the **Domains:** table, click the edit ![ST-701-edit-button.jpg](/docs-test/imported-assets/spamtitan-legacy/30223-enable-link-lock-for-a-domain/7455a85c9b68.jpg) icon in the Options column of the domain for which you want to enable Link Lock and the Edit Link Lock Configuration (Domain) window displays.
+2.  In the **Domains:** table, click the edit ![ST-701-edit-button.jpg](/docs-test/imported-assets/spamtitan-legacy/30211-enable-link-lock-for-a-domain/7455a85c9b68.jpg) icon in the Options column of the domain for which you want to enable Link Lock and the Edit Link Lock Configuration (Domain) window displays.
 
 3.  Click **Enable** to enable Link Lock and an expanded configuration window displays:
 
-    ![ST-edit-link-lock-configuration.jpg](/docs-test/imported-assets/spamtitan-legacy/30223-enable-link-lock-for-a-domain/208cc7b7e477.jpg)
+    ![ST-edit-link-lock-configuration.jpg](/docs-test/imported-assets/spamtitan-legacy/30211-enable-link-lock-for-a-domain/208cc7b7e477.jpg)
 
 4.  Using the table and block page examples below as reference, complete the fields in the Link Lock Configuration - Domain: window.
 
@@ -62,7 +62,7 @@ Logo
 
 Displays the image currently being used on the Link Lock block page. Default:
 
-![ST-default-link-lock-block-page-image.jpg](/docs-test/imported-assets/spamtitan-legacy/30223-enable-link-lock-for-a-domain/ac980f6eb349.jpg)
+![ST-default-link-lock-block-page-image.jpg](/docs-test/imported-assets/spamtitan-legacy/30211-enable-link-lock-for-a-domain/ac980f6eb349.jpg)
 
 Upload new logo
 
@@ -96,6 +96,6 @@ Select **Reset** reset to reset Link Lock configuration. This action sets Link L
 
 Below are examples of a Link Lock block page using the default logo, header and message. These settings can be customized for your domain using the settings described above.
 
-![ST-link-lock-block-page.jpg](/docs-test/imported-assets/spamtitan-legacy/30223-enable-link-lock-for-a-domain/efa1c8f5cf71.jpg)
+![ST-link-lock-block-page.jpg](/docs-test/imported-assets/spamtitan-legacy/30211-enable-link-lock-for-a-domain/efa1c8f5cf71.jpg)
 
-![ST-link-lock-block-page-all-settings-on.jpg](/docs-test/imported-assets/spamtitan-legacy/30223-enable-link-lock-for-a-domain/33d087ca650f.jpg)
+![ST-link-lock-block-page-all-settings-on.jpg](/docs-test/imported-assets/spamtitan-legacy/30211-enable-link-lock-for-a-domain/33d087ca650f.jpg)

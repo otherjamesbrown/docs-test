@@ -3,7 +3,7 @@ title: "Link Lock"
 description: "Imported from docs.titanhq.com"
 ---
 
-> Source: [docs.titanhq.com](https://docs.titanhq.com/en/30222-link-lock.html)
+> Source: [docs.titanhq.com](https://docs.titanhq.com/en/30209-link-lock.html)
 > Product: SpamTitan
 > Imported content type: docs_page
 > Product stream: legacy
@@ -22,6 +22,7 @@ Go to **Content Filtering** > **Link Lock** to enable and configure Link Lock.
 
 ## In this Section
 
+-   [Enabling Link Lock in SpamTitan](/docs-test/titanhq/products/spamtitan/docs/legacy-8/enabling-link-lock-in-spamtitan/)
 -   [Enable Link Lock for a Domain](/docs-test/titanhq/products/spamtitan/docs/legacy-8/enable-link-lock-for-a-domain/)
 -   [Enable Link Lock for a User](/docs-test/titanhq/products/spamtitan/docs/legacy-8/enable-link-lock-for-a-user/)
 -   [Link Lock Allowed URLs](/docs-test/titanhq/products/spamtitan/docs/legacy-8/link-lock-allowed-urls/)

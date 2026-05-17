@@ -10,9 +10,9 @@ description: "Imported from docs.titanhq.com"
 
 #### Change Your MX Records
 
-Any domain that uses email has MX records. The MX record lists the mail servers available to accept mail for that domain.
+Any domain that uses email has [MX records](/docs-test/titanhq/products/spamtitan/docs/legacy-8/mx-record/ "MX Record"). The MX record lists the mail servers available to accept mail for that domain.
 
-If you are a new customer whose account has just been created, you will be added to our latest servers listed here. If you are an existing customer, you may be using a different server. See SpamTitan Cloud Server IP Addresses for a full list.
+If you are a new customer whose account has just been created, you will be added to our latest servers listed here. If you are an existing customer, you may be using a different server. See [SpamTitan Cloud Server IP Addresses](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-cloud-server-ip-addresses/ "SpamTitan Cloud Server IP Addresses") for a full list.
 
 -   cloud15.spamtitan.com
 

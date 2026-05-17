@@ -20,6 +20,6 @@ Go to **Filtering** > **Link Lock** to enable and configure Link Lock.
 
 ## In this Section
 
--   Enabling Link Lock
--   Configuring Link Lock
--   Adding Link Lock Exemptions
+-   [Enabling Link Lock](/docs-test/titanhq/products/spamtitan/docs/skellig-9/enabling-link-lock/)
+-   [Configuring Link Lock](/docs-test/titanhq/products/spamtitan/docs/skellig-9/configuring-link-lock/)
+-   [Adding Link Lock Exemptions](/docs-test/titanhq/products/spamtitan/docs/skellig-9/adding-link-lock-exemptions/)

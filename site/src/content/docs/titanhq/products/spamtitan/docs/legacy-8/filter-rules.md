@@ -24,8 +24,8 @@ A Domain Administrator can set filter rules for their domain and will see tabs f
 
 ## In this Section
 
--   Blocking and Allowing
--   Adding, Deleting & Importing to Block Lists
--   Adding, Deleting & Importing to Allow Lists
--   Anti-Spoofing
--   Geoblocking
+-   [Blocking and Allowing](/docs-test/titanhq/products/spamtitan/docs/legacy-8/blocking-and-allowing/)
+-   [Adding, Deleting & Importing to Block Lists](/docs-test/titanhq/products/spamtitan/docs/legacy-8/adding-deleting-importing-to-block-lists/)
+-   [Adding, Deleting & Importing to Allow Lists](/docs-test/titanhq/products/spamtitan/docs/legacy-8/adding-deleting-importing-to-allow-lists/)
+-   [Anti-Spoofing](/docs-test/titanhq/products/spamtitan/docs/legacy-8/anti-spoofing-66110/)
+-   [Geoblocking](/docs-test/titanhq/products/spamtitan/docs/legacy-8/geoblocking-29116/)

@@ -84,4 +84,18 @@ describe('discoverDocs', () => {
       ['101-child', 'Child Title', 'products/example/docs/child'],
     ]);
   });
+
+  it('normalises .htm docs source IDs before generating routes', async () => {
+    vi.stubGlobal('fetch', async () => ({
+      ok: true,
+      text: async () => childHtml,
+    }));
+
+    const pages = await discoverDocs({ ...source, seeds: ['/en/9856-available-services.htm'] }, options);
+
+    expect(pages[0]).toMatchObject({
+      sourceId: '9856-available-services',
+      route: 'products/example/docs/available-services',
+    });
+  });
 });

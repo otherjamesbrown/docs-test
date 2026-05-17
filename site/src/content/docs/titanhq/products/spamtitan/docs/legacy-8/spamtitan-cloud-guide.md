@@ -23,7 +23,7 @@ If you have any feedback or comments on this documentation, please email [docs@t
 -   [Welcome to SpamTitan Cloud](/docs-test/titanhq/products/spamtitan/docs/legacy-8/welcome-to-spamtitan-cloud/)
 -   [Getting Started with SpamTitan Cloud](/docs-test/titanhq/products/spamtitan/docs/legacy-8/getting-started-with-spamtitan-cloud/)
 -   [SpamTitan Cloud Setup](/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-cloud-setup/)
--   [Content Filtering](/docs-test/titanhq/products/spamtitan/docs/legacy-8/content-filtering/)
+-   [Content Filtering](/docs-test/titanhq/products/spamtitan/docs/legacy-8/content-filtering-30221/)
 -   [Anti-Spam Engine](/docs-test/titanhq/products/spamtitan/docs/legacy-8/anti-spam-engine/)
 -   [Changing your Settings](/docs-test/titanhq/products/spamtitan/docs/legacy-8/changing-your-settings/)
 -   [Filter Rules](/docs-test/titanhq/products/spamtitan/docs/legacy-8/filter-rules/)

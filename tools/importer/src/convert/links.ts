@@ -97,14 +97,20 @@ export function sourceLinkKey(href: string): string | undefined {
   } catch {
     return undefined;
   }
+  const host = canonicalSourceHost(url.hostname);
 
   const freshdeskId = url.pathname.match(/\/(?:support\/)?(?:a\/)?solutions\/articles\/(\d+)/)?.[1];
-  if (freshdeskId) return `${url.hostname}:freshdesk:${freshdeskId}`;
+  if (freshdeskId) return `${host}:freshdesk:${freshdeskId}`;
 
   const titanhqDocsId = url.pathname.match(/^\/en\/(\d+)-[^/]+\.html?$/)?.[1];
-  if (titanhqDocsId) return `${url.hostname}:docs:${titanhqDocsId}`;
+  if (titanhqDocsId) return `${host}:docs:${titanhqDocsId}`;
 
   return undefined;
+}
+
+function canonicalSourceHost(host: string): string {
+  if (host === 'support-staging.titanhq.com') return 'support.titanhq.com';
+  return host;
 }
 
 function stripFrontmatter(content: string): string {

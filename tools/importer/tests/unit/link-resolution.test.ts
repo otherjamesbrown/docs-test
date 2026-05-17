@@ -46,6 +46,13 @@ describe('source link resolution', () => {
     ).toBe('/docs-test/titanhq/products/spamtitan/docs/skellig-9/log-in-to-spamtitan/');
 
     expect(
+      resolveMigratedSourceHref(
+        'https://support-staging.titanhq.com/en/55571-log-in-to-spamtitan.html',
+        sourceLinkIndex,
+      ),
+    ).toBe('/docs-test/titanhq/products/spamtitan/docs/skellig-9/log-in-to-spamtitan/');
+
+    expect(
       resolveMigratedSourceHref('https://docs.titanhq.com/en/1598-spamtitan-cloud-setup.html', sourceLinkIndex),
     ).toBe('/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-cloud-setup/');
   });

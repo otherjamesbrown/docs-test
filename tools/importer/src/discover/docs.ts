@@ -110,5 +110,5 @@ function normaliseDocsPageUrl(url: string): string {
 }
 
 function docsSourceId(url: string): string {
-  return path.basename(new URL(url).pathname).replace(/\.html$/, '');
+  return path.basename(new URL(url).pathname).replace(/\.html?$/, '');
 }

@@ -58,9 +58,9 @@ Allowed IP emails are categorized under "Clean Messages".
 
     -   _Active_ (Green): Number of customer domains that have MX records pointing to SpamTitan. No further action is required.
 
-    -   _Partial_ (Yellow): Indicates that only some customer domains have MX records pointing to SpamTitan. Select the view ![view-icon-small.jpg](/docs-test/imported-assets/spamtitan-skellig/60060-msp-overview/4f7d1bd09d2e.jpg) icon in the Actions column to go to the customer level and identify the domains that need to be updated. See Change your MX Records for further information.
+    -   _Partial_ (Yellow): Indicates that only some customer domains have MX records pointing to SpamTitan. Select the view ![view-icon-small.jpg](/docs-test/imported-assets/spamtitan-skellig/60060-msp-overview/4f7d1bd09d2e.jpg) icon in the Actions column to go to the customer level and identify the domains that need to be updated. See [Change your MX Records](/docs-test/titanhq/products/spamtitan/docs/skellig-9/change-your-mx-records/ "Change your MX Records") for further information.
 
-    -   _Inactive_ (Red): Indicates that no customer domains have MX records pointing to SpamTitan. See Change your MX Records for further information.
+    -   _Inactive_ (Red): Indicates that no customer domains have MX records pointing to SpamTitan. See [Change your MX Records](/docs-test/titanhq/products/spamtitan/docs/skellig-9/change-your-mx-records/ "Change your MX Records") for further information.
 
 -   _2FA Enforced_: Indicates if 2FA is mandatory for users to access SpamTitan.
 
@@ -78,11 +78,11 @@ Follow the links below for further details.
 
 -   [Add your Customers](/docs-test/titanhq/products/spamtitan/docs/skellig-9/adding-customers/ "Adding Customers").
 
--   Delete Customers.
+-   [Delete Customers](/docs-test/titanhq/products/spamtitan/docs/skellig-9/delete-customers/ "Delete Customers").
 
--   Two-Factor Authentication.
+-   [Two-Factor Authentication](/docs-test/titanhq/products/spamtitan/docs/skellig-9/two-factor-authentication-74398/ "Two-Factor Authentication").
 
 ## In this Section
 
--   Adding Customers
--   Delete Customers
+-   [Adding Customers](/docs-test/titanhq/products/spamtitan/docs/skellig-9/adding-customers-74477/)
+-   [Delete Customers](/docs-test/titanhq/products/spamtitan/docs/skellig-9/delete-customers/)
