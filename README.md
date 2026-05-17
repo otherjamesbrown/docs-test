@@ -8,6 +8,18 @@ Live preview:
 
 https://otherjamesbrown.github.io/docs-test/
 
+## Source Sites
+
+The current POC imports from these configured source sites:
+
+- Redstor KB: https://helpdesk.redstor.com/support/solutions
+- TitanHQ Platform docs: https://support.titanhq.com/en/69450-welcome-to-the-titanhq-platform-.html
+- SpamTitan KB: https://helpdesk.spamtitan.com/support/home
+- SpamTitan Skellig 9 docs: https://support.titanhq.com/en/56985-welcome-to-spamtitan-.html
+- SpamTitan legacy 8 docs: https://docs.titanhq.com/en/2179-spamtitan-overview.html
+
+The importer configuration lives in `migration/sources.yml`. It also records known mirror sources that should not be treated as primary import roots, such as `https://webtitancloud.freshdesk.com/support/solutions/4000009289` for SpamTitan and `https://webtitancloud.freshdesk.com/support/solutions/4000010601` for Redstor.
+
 ## Goals
 
 - Prove that content can be scraped from the existing web-only sources.
