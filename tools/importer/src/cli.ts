@@ -107,6 +107,8 @@ type DocsSeedConfig =
       child_depth?: number;
     };
 
+type AssetDownloader = (assetUrl: string, page: PageCandidate) => Promise<string>;
+
 const areaSchema = z.enum(['redstor', 'titanhq-platform', 'spamtitan-kb', 'spamtitan-skellig', 'spamtitan-legacy']);
 
 const freshdeskFolderSchema = z.object({
@@ -646,11 +648,12 @@ function escapeMarkdownLinkText(value: string): string {
   return value.replace(/\[/g, '\\[').replace(/\]/g, '\\]');
 }
 
-async function convertFreshdeskArticle(
+export async function convertFreshdeskArticle(
   page: PageCandidate,
   html: string,
   warnings: string[],
   sourceLinkIndex: SourceLinkIndex,
+  assetDownloader: AssetDownloader = downloadAsset,
 ): Promise<string> {
   const $ = cheerio.load(html);
   const article = $('.fw-content--single-article, article.article-body, #article-body').first();
@@ -661,17 +664,18 @@ async function convertFreshdeskArticle(
   cleanupBody($, body);
   const title = cleanText($('.heading, h1, h2').first().text()) || page.title;
   const modified = cleanText($('p:contains("Modified on")').first().text()).replace(/^Modified on:\s*/, '');
-  const htmlForMarkdown = await rewriteAssetsAndLinks($, body, page, warnings, sourceLinkIndex);
+  const htmlForMarkdown = await rewriteAssetsAndLinks($, body, page, warnings, sourceLinkIndex, assetDownloader);
   const markdown = normaliseMarkdown(turndown.turndown(htmlForMarkdown));
   const sourceNote = sourceBlock(page, modified);
   return `${frontmatter(title, `Imported from ${page.sourceHost}`)}\n\n${sourceNote}\n\n${markdown}\n`;
 }
 
-async function convertDocsPage(
+export async function convertDocsPage(
   page: PageCandidate,
   html: string,
   warnings: string[],
   sourceLinkIndex: SourceLinkIndex,
+  assetDownloader: AssetDownloader = downloadAsset,
 ): Promise<string> {
   const $ = cheerio.load(html, { xmlMode: false });
   const body = $('#topic-content section').first();
@@ -682,7 +686,7 @@ async function convertDocsPage(
   cleanupBody($, selected);
   const title = docsPageTitle($, selected, page.title);
   appendDocsSectionIndex($, selected, page);
-  const htmlForMarkdown = await rewriteAssetsAndLinks($, selected, page, warnings, sourceLinkIndex);
+  const htmlForMarkdown = await rewriteAssetsAndLinks($, selected, page, warnings, sourceLinkIndex, assetDownloader);
   const markdown = normaliseMarkdown(turndown.turndown(htmlForMarkdown));
   return `${frontmatter(title, `Imported from ${page.sourceHost}`)}\n\n${sourceBlock(page)}\n\n${markdown}\n`;
 }
@@ -776,12 +780,13 @@ export function htmlFragmentToMarkdown(html: string): string {
   return normaliseMarkdown(turndown.turndown(body.html() ?? ''));
 }
 
-async function rewriteAssetsAndLinks(
+export async function rewriteAssetsAndLinks(
   $: cheerio.CheerioAPI,
   body: cheerio.Cheerio<unknown>,
   page: PageCandidate,
   warnings: string[],
   sourceLinkIndex: SourceLinkIndex,
+  assetDownloader: AssetDownloader = downloadAsset,
 ): Promise<string> {
   const images = body.find('img').toArray();
   for (const image of images) {
@@ -789,7 +794,7 @@ async function rewriteAssetsAndLinks(
     if (!src) continue;
     const absolute = new URL(src, page.sourceUrl).toString();
     try {
-      const assetPath = await downloadAsset(absolute, page);
+      const assetPath = await assetDownloader(absolute, page);
       $(image).attr('src', `${basePath}/${assetPath}`);
     } catch (error) {
       warnings.push(`Failed to download image ${absolute}: ${String(error)}`);
