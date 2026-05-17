@@ -23,6 +23,11 @@ const pageLinkChecks = [
     selectorName: 'SpamTitan legacy Link Lock section links',
     expectedHref: '/docs-test/titanhq/products/spamtitan/docs/legacy-8/link-lock-allowed-urls/',
   },
+  {
+    page: 'dist/titanhq/products/spamtitan/docs/skellig-9/log-in-to-spamtitan/index.html',
+    selectorName: 'SpamTitan Skellig log-in section links',
+    expectedHref: '/docs-test/titanhq/products/spamtitan/docs/skellig-9/forgot-your-password/',
+  },
 ];
 
 const titleChecks = [

@@ -22,4 +22,4 @@ When you log in, you will see the **Overview** page.
 
 ## In this Section
 
--   Forgot your Password?
+-   [Forgot your Password?](/docs-test/titanhq/products/spamtitan/docs/skellig-9/forgot-your-password/)

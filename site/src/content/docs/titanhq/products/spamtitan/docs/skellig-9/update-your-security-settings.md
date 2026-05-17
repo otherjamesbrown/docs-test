@@ -12,13 +12,13 @@ description: "Imported from support.titanhq.com"
 
 After signing in for the first time, change your password and enable Two-Factor Authentication (2FA) for your account.
 
--   See Changing your Password.
+-   See [Changing your Password](/docs-test/titanhq/products/spamtitan/docs/skellig-9/changing-your-password/ "Changing your Password").
 
-    If you forget your password, see Forgot your Password?.
+    If you forget your password, see [Forgot your Password?](/docs-test/titanhq/products/spamtitan/docs/skellig-9/forgot-your-password/ "Forgot your Password?").
 
--   See Two-Factor Authentication to enable 2FA for your logged-in account. For an MSP admin, this does not enable 2FA for all customer accounts on the system, just your own account.
+-   See [Two-Factor Authentication](/docs-test/titanhq/products/spamtitan/docs/skellig-9/two-factor-authentication/ "Two-Factor Authentication") to enable 2FA for your logged-in account. For an MSP admin, this does not enable 2FA for all customer accounts on the system, just your own account.
 
 ## In this Section
 
--   Changing your Password
--   Two-Factor Authentication
+-   [Changing your Password](/docs-test/titanhq/products/spamtitan/docs/skellig-9/changing-your-password/)
+-   [Two-Factor Authentication](/docs-test/titanhq/products/spamtitan/docs/skellig-9/two-factor-authentication/)

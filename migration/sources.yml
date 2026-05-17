@@ -112,8 +112,10 @@ products:
             - path: /en/61767-spamtitan-release-notes.html
               child_depth: 1
             - /en/55539-spamtitan-msp-setup.html
-            - /en/55571-log-in-to-spamtitan.html
-            - /en/55582-update-your-security-settings.html
+            - path: /en/55571-log-in-to-spamtitan.html
+              child_depth: 1
+            - path: /en/55582-update-your-security-settings.html
+              child_depth: 1
             - /en/57004-adding-customers.html
             - /en/57129-global-allow---block-list.html
             - /en/55542-spamtitan-msp-admin-guide.html
