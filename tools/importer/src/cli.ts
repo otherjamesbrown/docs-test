@@ -2,13 +2,13 @@ import * as cheerio from 'cheerio';
 import crypto from 'node:crypto';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import TurndownService from 'turndown';
 import YAML from 'yaml';
 import { z } from 'zod';
 import { slugify } from './shared/slug';
 
-const repoRoot = path.resolve(new URL('../../..', import.meta.url).pathname);
+const repoRoot = path.resolve(fileURLToPath(new URL('../../..', import.meta.url)));
 const siteDocsRoot = path.join(repoRoot, 'site/src/content/docs');
 const assetsRoot = path.join(repoRoot, 'site/public/imported-assets');
 const rawRoot = path.join(repoRoot, 'migration/raw');
