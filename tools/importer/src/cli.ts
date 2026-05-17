@@ -16,7 +16,7 @@ async function main() {
   const args = process.argv.slice(3);
 
   if (command === 'help' || !isCommand(command)) {
-    console.log('Usage: npm run import:<discover|fetch|convert|qa|all> -- [--poc] [--limit N] [--force]');
+    console.log('Usage: npm run import:<discover|fetch|convert|qa|all> -- [--limit N] [--force]');
     process.exit(command === 'help' ? 0 : 1);
   }
 

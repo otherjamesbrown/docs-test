@@ -1,9 +1,17 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import YAML from 'yaml';
+import { basePath } from '../shared/site.mjs';
+
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const sources = YAML.parse(fs.readFileSync(path.join(repoRoot, 'migration/sources.yml'), 'utf8'));
 
 export default defineConfig({
   site: 'https://otherjamesbrown.github.io',
-  base: '/docs-test',
+  base: basePath,
   integrations: [
     starlight({
       title: 'Docs Platform POC',
@@ -21,46 +29,84 @@ export default defineConfig({
         minHeadingLevel: 2,
         maxHeadingLevel: 4,
       },
-      sidebar: [
+      sidebar: buildSidebar(sources),
+    }),
+  ],
+});
+
+function buildSidebar(config) {
+  const redstor = product(config, 'redstor');
+  const platform = product(config, 'titanhq-platform');
+  const spamtitan = product(config, 'spamtitan');
+
+  return [
+    {
+      label: redstor.label,
+      items: [
         {
-          label: 'Redstor',
-          items: [
-            {
-              label: 'Knowledge Base',
-              items: [
-                { label: 'Overview', slug: 'redstor/kb' },
-                { label: 'Guides', slug: 'redstor/kb/guides' },
-                { label: 'Troubleshooting', slug: 'redstor/kb/troubleshooting' },
-                { label: 'Release Notes', slug: 'redstor/kb/release-notes' },
-              ],
-            },
-          ],
+          label: 'Knowledge Base',
+          items: [{ label: 'Overview', slug: 'redstor/kb' }, ...freshdeskFolderItems(redstor)],
+        },
+      ],
+    },
+    {
+      label: 'TitanHQ',
+      items: [
+        {
+          label: 'Platform',
+          items: docsSources(platform).map((source) => ({ label: 'Docs', slug: source.route_base })),
         },
         {
-          label: 'TitanHQ',
+          label: 'Products',
           items: [
             {
-              label: 'Platform',
-              items: [{ label: 'Docs', slug: 'titanhq/platform/docs' }],
-            },
-            {
-              label: 'Products',
+              label: spamtitan.label,
               items: [
-                {
-                  label: 'SpamTitan',
-                  items: [
-                    { label: 'Overview', slug: 'titanhq/products/spamtitan' },
-                    { label: 'Knowledge Base', slug: 'titanhq/products/spamtitan/kb' },
-                    { label: 'Docs', slug: 'titanhq/products/spamtitan/docs' },
-                    { label: 'Skellig 9', slug: 'titanhq/products/spamtitan/docs/skellig-9' },
-                    { label: 'Legacy 8', slug: 'titanhq/products/spamtitan/docs/legacy-8' },
-                  ],
-                },
+                { label: 'Overview', slug: productRoot(spamtitan) },
+                { label: 'Knowledge Base', slug: `${productRoot(spamtitan)}/kb` },
+                { label: 'Docs', slug: `${productRoot(spamtitan)}/docs` },
+                ...docsSources(spamtitan).map((source) => ({
+                  label: source.version_range?.startsWith('9') ? 'Skellig 9' : 'Legacy 8',
+                  slug: source.route_base,
+                })),
               ],
             },
           ],
         },
       ],
-    }),
-  ],
-});
+    },
+  ];
+}
+
+function product(config, id) {
+  const found = config.products.find((item) => item.id === id);
+  if (!found) throw new Error(`Missing product ${id} in migration/sources.yml`);
+  return found;
+}
+
+function freshdeskFolderItems(productConfig) {
+  return asArray(productConfig.sources.kb).flatMap((source) =>
+    source.folders.map((folder) => ({ label: folderLabel(folder.folder), slug: folder.route_base })),
+  );
+}
+
+function docsSources(productConfig) {
+  return asArray(productConfig.sources.docs);
+}
+
+function productRoot(productConfig) {
+  const kbRoute = productConfig.sources.kb?.[0]?.folders?.[0]?.route_base;
+  const docsRoute = docsSources(productConfig)[0]?.route_base;
+  const route = kbRoute ?? docsRoute;
+  if (!route) throw new Error(`Cannot infer route root for ${productConfig.id}`);
+  return route.replace(/\/(?:kb|docs)(?:\/.*)?$/, '');
+}
+
+function folderLabel(value) {
+  return value.replace(/^Getting Started:\s*/, '');
+}
+
+function asArray(value) {
+  if (!value) return [];
+  return Array.isArray(value) ? value : [value];
+}

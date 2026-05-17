@@ -158,7 +158,7 @@ npm test
 The POC has several useful checks, but they are regression guards rather than a complete migration certification suite:
 
 - Importer unit tests cover high-risk conversion behavior found during the POC, including link resolution, slugging, Paligo section indexes, and admonition/caution handling.
-- Importer QA scans generated Markdown for known failure patterns, including unresolved links back to source systems when the target page exists in the import.
+- Importer QA scans generated Markdown for known failure patterns, including any body link back to the source help/docs domains. Source URLs are allowed only in page metadata.
 - Site QA inspects a focused set of rendered HTML regressions found during the POC, including missing table-of-contents anchors and missing migrated section links.
 - GitHub Actions runs type checks, linting, tests, import QA, site build, and rendered-site QA on pushes and pull requests.
 - GitHub Pages deployment only publishes after the same checks pass in the Pages workflow.

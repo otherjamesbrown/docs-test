@@ -1,4 +1,7 @@
 products:
+  # Docs imports use explicit seed URLs for stable POC scope. A seed only uses
+  # child_depth when the source page's "In this section" children are part of
+  # the selected import scope.
   - id: redstor
     label: Redstor
     canonical_host: helpdesk.redstor.com

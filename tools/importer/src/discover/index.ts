@@ -29,16 +29,13 @@ export function dedupePages(pages: PageCandidate[]): PageCandidate[] {
     if (seenSources.has(page.sourceUrl)) continue;
     seenSources.add(page.sourceUrl);
 
+    const suffix = uniqueRouteSuffix(page.sourceId);
     let route = page.route;
     let outputPath = page.outputPath;
-    if (seenRoutes.has(route)) {
-      const suffix = uniqueRouteSuffix(page.sourceId);
-      route = `${page.route}-${suffix}`;
-      outputPath = `${route}.md`;
-    }
-    let collision = 2;
+    let collision = 1;
     while (seenRoutes.has(route)) {
-      route = `${page.route}-${uniqueRouteSuffix(page.sourceId)}-${collision}`;
+      const collisionSuffix = collision === 1 ? suffix : `${suffix}-${collision}`;
+      route = `${page.route}-${collisionSuffix}`;
       outputPath = `${route}.md`;
       collision += 1;
     }

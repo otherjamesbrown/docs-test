@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "cheerio": "latest",
-    "gray-matter": "latest",
     "turndown": "latest",
     "yaml": "latest",
     "zod": "latest"

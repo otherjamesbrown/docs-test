@@ -1,5 +1,3 @@
-export type SourceType = 'freshdesk_public' | 'titanhq_static_docs_branch';
-
 export type Area = 'redstor' | 'titanhq-platform' | 'spamtitan-kb' | 'spamtitan-skellig' | 'spamtitan-legacy';
 
 export interface PageCandidate {
@@ -102,7 +100,6 @@ export interface ManifestEntry {
   folder?: string;
   title: string;
   status: 'discovered' | 'fetched' | 'converted' | 'warning' | 'failed';
-  content_hash?: string;
   route: string;
   warnings: string[];
 }
