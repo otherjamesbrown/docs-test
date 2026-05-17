@@ -826,8 +826,8 @@ async function runQa() {
     for (const phrase of blocked) {
       if (content.includes(phrase)) failures.push(`${path.relative(repoRoot, file)} contains "${phrase}"`);
     }
-    for (const link of unresolvedMigratedSourceLinks(content, sourceLinkIndex)) {
-      failures.push(`${path.relative(repoRoot, file)} contains unresolved migrated source link "${link}"`);
+    for (const link of unrewrittenMigratedSourceLinks(content, sourceLinkIndex)) {
+      failures.push(`${path.relative(repoRoot, file)} contains migrated source link that should have been rewritten "${link}"`);
     }
     for (const link of sourceDomainBodyLinks(content)) {
       failures.push(`${path.relative(repoRoot, file)} contains source-domain body link "${link}"`);
@@ -984,12 +984,12 @@ export function resolveMigratedSourceHref(href: string, sourceLinkIndex: SourceL
   return sourceLinkIndex.get(key);
 }
 
-export function unresolvedMigratedSourceLinks(content: string, sourceLinkIndex: SourceLinkIndex): string[] {
-  const unresolved = new Set<string>();
+export function unrewrittenMigratedSourceLinks(content: string, sourceLinkIndex: SourceLinkIndex): string[] {
+  const unrewritten = new Set<string>();
   for (const href of sourceDomainBodyLinks(content)) {
-    if (resolveMigratedSourceHref(href, sourceLinkIndex)) unresolved.add(href);
+    if (resolveMigratedSourceHref(href, sourceLinkIndex)) unrewritten.add(href);
   }
-  return [...unresolved].sort();
+  return [...unrewritten].sort();
 }
 
 export function sourceDomainBodyLinks(content: string): string[] {

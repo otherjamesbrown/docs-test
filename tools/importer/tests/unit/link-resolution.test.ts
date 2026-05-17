@@ -3,7 +3,7 @@ import {
   buildSourceLinkIndex,
   resolveMigratedSourceHref,
   sourceDomainBodyLinks,
-  unresolvedMigratedSourceLinks,
+  unrewrittenMigratedSourceLinks,
 } from '../../src/cli';
 
 describe('source link resolution', () => {
@@ -53,7 +53,7 @@ describe('source link resolution', () => {
     ).toBe('/docs-test/titanhq/products/spamtitan/docs/legacy-8/spamtitan-cloud-setup/');
   });
 
-  it('flags body links to pages that have been migrated', () => {
+  it('flags migrated source links that were not rewritten', () => {
     const content = `---
 title: Example
 ---
@@ -64,7 +64,7 @@ title: Example
 [External page](https://helpdesk.spamtitan.com/a/solutions/articles/4000000000)
 `;
 
-    expect(unresolvedMigratedSourceLinks(content, sourceLinkIndex)).toEqual([
+    expect(unrewrittenMigratedSourceLinks(content, sourceLinkIndex)).toEqual([
       'https://helpdesk.spamtitan.com/a/solutions/articles/4000186889',
     ]);
   });
