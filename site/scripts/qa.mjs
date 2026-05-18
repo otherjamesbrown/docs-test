@@ -116,6 +116,20 @@ const textChecks = [
 
 const sidebarHierarchyChecks = [
   {
+    page: 'dist/titanhq/products/spamtitan/docs/skellig-9/index.html',
+    selectorName: 'SpamTitan Skellig sidebar nests MSP setup child pages',
+    parentText: 'SpamTitan MSP Setup',
+    childHref: '/docs-test/titanhq/products/spamtitan/docs/skellig-9/log-in-to-spamtitan/',
+    nextPeerText: 'SpamTitan MSP Admin Guide',
+  },
+  {
+    page: 'dist/titanhq/products/spamtitan/docs/legacy-8/index.html',
+    selectorName: 'SpamTitan legacy sidebar nests domain management child pages',
+    parentText: 'Managing Domains',
+    childHref: '/docs-test/titanhq/products/spamtitan/docs/legacy-8/importing-domains/',
+    nextPeerText: 'Managing Realtime Blackhole Lists',
+  },
+  {
     page: 'dist/titanhq/products/phishtitan/docs/email-security/index.html',
     selectorName: 'PhishTitan Email Security sidebar nests setup child pages',
     parentText: 'Email Security MSP Setup',
@@ -129,6 +143,7 @@ const absentLinkChecks = [
     page: 'dist/titanhq/products/spamtitan/index.html',
     selectorName: 'SpamTitan product overview keeps docs variants out of the landing page',
     forbiddenHref: '/docs-test/titanhq/products/spamtitan/docs/skellig-9/two-factor-authentication-74398/',
+    scope: 'main',
   },
   {
     page: 'dist/titanhq/products/spamtitan/docs/skellig-9/index.html',
@@ -216,7 +231,8 @@ for (const check of sidebarHierarchyChecks) {
 
 for (const check of absentLinkChecks) {
   const html = await readFile(path.join(siteRoot, check.page), 'utf8');
-  if (html.includes(`href="${check.forbiddenHref}"`)) {
+  const scopedHtml = check.scope === 'main' ? mainHtml(html) : html;
+  if (scopedHtml.includes(`href="${check.forbiddenHref}"`)) {
     throw new Error(`${check.selectorName}: did not expect variant link ${check.forbiddenHref}`);
   }
 }
@@ -240,3 +256,10 @@ console.log(
     absentTextChecks.length
   } generated page checks.`,
 );
+
+function mainHtml(html) {
+  const mainStart = html.indexOf('<main');
+  const mainEnd = html.indexOf('</main>', mainStart);
+  if (mainStart === -1 || mainEnd === -1) return html;
+  return html.slice(mainStart, mainEnd);
+}

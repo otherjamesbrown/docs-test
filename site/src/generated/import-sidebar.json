@@ -1,4 +1,1482 @@
 {
+  "titanhq/products/spamtitan/docs/skellig-9": [
+    {
+      "label": "Welcome to SpamTitan!",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/welcome-to-spamtitan"
+        },
+        {
+          "label": "Navigating Levels in SpamTitan",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/navigating-levels-in-spamtitan"
+        },
+        {
+          "label": "Selecting Dark or Light Mode",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/selecting-dark-or-light-mode"
+        }
+      ]
+    },
+    {
+      "label": "SpamTitan Release Notes (Skellig 9)",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/spamtitan-release-notes"
+        },
+        {
+          "label": "SpamTitan Release Notes (MSP level)",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/spamtitan-release-notes-61768"
+        }
+      ]
+    },
+    {
+      "label": "Disable M365 Outlook Report Add-in",
+      "slug": "titanhq/products/spamtitan/docs/skellig-9/disable-m365-outlook-report-add-in"
+    },
+    {
+      "label": "SpamTitan MSP Setup",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/spamtitan-msp-setup"
+        },
+        {
+          "label": "Log in to SpamTitan (MSP level)",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/log-in-to-spamtitan"
+            },
+            {
+              "label": "Forgot your Password?",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/forgot-your-password"
+            }
+          ]
+        },
+        {
+          "label": "Update your Security Settings",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/update-your-security-settings"
+            },
+            {
+              "label": "Changing your Password",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/changing-your-password"
+            },
+            {
+              "label": "Two-Factor Authentication (Account setup)",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/two-factor-authentication-55584"
+            }
+          ]
+        },
+        {
+          "label": "Adding Customers",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/adding-customers"
+        },
+        {
+          "label": "Global Allow & Block List",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/global-allow-block-list"
+        },
+        {
+          "label": "Need SpamTitan help?",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/need-spamtitan-help"
+        }
+      ]
+    },
+    {
+      "label": "SpamTitan MSP Admin Guide",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/spamtitan-msp-admin-guide"
+        },
+        {
+          "label": "MSP Overview",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/msp-overview"
+            },
+            {
+              "label": "Delete Customers",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/delete-customers"
+            }
+          ]
+        },
+        {
+          "label": "DMARC (MSP Level)",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/dmarc-msp-level"
+        },
+        {
+          "label": "Two-Factor Authentication (MSP level)",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/two-factor-authentication-74398"
+            },
+            {
+              "label": "Enabling Mandatory Two-Factor Authentication (MSP level)",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/enabling-mandatory-two-factor-authentication-74399"
+            },
+            {
+              "label": "Disabling Mandatory Two-Factor Authentication (MSP level)",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/disabling-mandatory-two-factor-authentication-74400"
+            },
+            {
+              "label": "2FA for Domains and Users",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/2fa-for-domains-and-users"
+            }
+          ]
+        },
+        {
+          "label": "Customizing your Interface",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/customizing-your-interface"
+        },
+        {
+          "label": "Customizing the Quarantine Report UI",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/customizing-the-quarantine-report-ui"
+        },
+        {
+          "label": "Adding Support Links",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/adding-support-links"
+        }
+      ]
+    },
+    {
+      "label": "SpamTitan Customer Setup",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/spamtitan-customer-setup"
+        },
+        {
+          "label": "Add your Domain(s)",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/add-your-domain-s"
+            },
+            {
+              "label": "What is Recipient Verification?",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/what-is-recipient-verification"
+            }
+          ]
+        },
+        {
+          "label": "Test Connectivity to your Mail Server",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/test-connectivity-to-your-mail-server"
+        },
+        {
+          "label": "Editing A Domain Policy",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/editing-a-domain-policy"
+        },
+        {
+          "label": "Change your MX Records",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/change-your-mx-records"
+        },
+        {
+          "label": "Lock Down Your Mail Server",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/lock-down-your-mail-server"
+            },
+            {
+              "label": "Locking Down Your Office 365 Mail Server",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/locking-down-your-office-365-mail-server"
+            }
+          ]
+        },
+        {
+          "label": "Ensuring Your Email is Not Marked as Spam in Office 365",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/ensuring-your-email-is-not-marked-as-spam-in-office-365"
+        }
+      ]
+    },
+    {
+      "label": "SpamTitan Customer Admin Guide",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/spamtitan-customer-admin-guide"
+        },
+        {
+          "label": "Customer Overview",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/customer-overview"
+            },
+            {
+              "label": "Delete Domains",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/delete-domains"
+            }
+          ]
+        },
+        {
+          "label": "History",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/history"
+            },
+            {
+              "label": "Searching Email History",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/searching-email-history"
+            },
+            {
+              "label": "Managing Email in History",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/managing-email-in-history"
+            }
+          ]
+        },
+        {
+          "label": "Quarantine",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/quarantine"
+            },
+            {
+              "label": "Enable Quarantine Reports",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/enable-quarantine-reports"
+            },
+            {
+              "label": "Searching Quarantine",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/searching-quarantine"
+            },
+            {
+              "label": "Managing Quarantined Email",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/managing-quarantined-email"
+            },
+            {
+              "label": "Quarantine Reports",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/quarantine-reports"
+            }
+          ]
+        },
+        {
+          "label": "Anti-Spoofing",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/anti-spoofing"
+            },
+            {
+              "label": "Managing Domain Anti-Spoofing (Customer level)",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/managing-domain-anti-spoofing-72546"
+            },
+            {
+              "label": "Managing Display Name Anti-Spoofing (Customer level)",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/managing-display-name-anti-spoofing-72547"
+            }
+          ]
+        },
+        {
+          "label": "Attachment Filtering",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/attachment-filtering"
+            },
+            {
+              "label": "Extension Filters",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/extension-filters"
+            },
+            {
+              "label": "File Name Filters",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/file-name-filters"
+            },
+            {
+              "label": "File Type Filters",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/file-type-filters"
+            },
+            {
+              "label": "MIME Type Filters",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/mime-type-filters"
+            }
+          ]
+        },
+        {
+          "label": "DMARC (Customer/Domain Level)",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/dmarc-customer-domain-level"
+        },
+        {
+          "label": "Geoblocking",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/geoblocking"
+            },
+            {
+              "label": "Excluding a Domain from a Geoblocking Rule",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/excluding-a-domain-from-a-geoblocking-rule"
+            },
+            {
+              "label": "Excluding an IP from a Geoblocking Rule",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/excluding-an-ip-from-a-geoblocking-rule"
+            },
+            {
+              "label": "Adding a Geoblocking Rule",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/adding-a-geoblocking-rule"
+            },
+            {
+              "label": "Excluding an Email Address from a Geoblocking Rule",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/excluding-an-email-address-from-a-geoblocking-rule"
+            }
+          ]
+        },
+        {
+          "label": "Pattern Filtering",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/pattern-filtering"
+            },
+            {
+              "label": "Creating a Single Pattern Filter",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/creating-a-single-pattern-filter"
+            },
+            {
+              "label": "Editing a Single Pattern Filter",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/editing-a-single-pattern-filter"
+            },
+            {
+              "label": "Creating a Multi Pattern Filter",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/creating-a-multi-pattern-filter"
+            },
+            {
+              "label": "Editing a Multi Pattern Filter",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/editing-a-multi-pattern-filter"
+            }
+          ]
+        },
+        {
+          "label": "Policies",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/policies"
+            },
+            {
+              "label": "Domain Policies",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/domain-policies"
+            },
+            {
+              "label": "Sandboxing in SpamTitan",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/sandboxing-in-spamtitan"
+            }
+          ]
+        },
+        {
+          "label": "Reporting",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/reporting"
+            },
+            {
+              "label": "Creating a Scheduled Report",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/creating-a-scheduled-report"
+            },
+            {
+              "label": "On Demand Reports",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/on-demand-reports"
+            },
+            {
+              "label": "Viewing Archived Reports",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/viewing-archived-reports"
+            }
+          ]
+        },
+        {
+          "label": "Administrators",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/administrators"
+        },
+        {
+          "label": "Two-Factor Authentication (Customer level)",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/two-factor-authentication"
+            },
+            {
+              "label": "Enabling Mandatory Two-Factor Authentication (Customer level)",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/enabling-mandatory-two-factor-authentication"
+            },
+            {
+              "label": "Disabling Mandatory Two-Factor Authentication (Customer level)",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/disabling-mandatory-two-factor-authentication"
+            },
+            {
+              "label": "2FA for Users",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/2fa-for-users"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Managing a Single Domain",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/managing-a-single-domain"
+        },
+        {
+          "label": "Log in to SpamTitan (Skellig 9)",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/log-in-to-spamtitan-59128"
+        },
+        {
+          "label": "Managing Domain Anti-Spoofing (Skellig 9)",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/managing-domain-anti-spoofing"
+        },
+        {
+          "label": "Managing Display Name Anti-Spoofing (Skellig 9)",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/managing-display-name-anti-spoofing"
+        },
+        {
+          "label": "Adding a User Policy",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/adding-a-user-policy"
+        },
+        {
+          "label": "Domain Overview",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/domain-overview"
+            },
+            {
+              "label": "Edit your Domain Configuration",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/edit-your-domain-configuration"
+            }
+          ]
+        },
+        {
+          "label": "Editing and Deleting User Policies",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/editing-and-deleting-user-policies"
+        },
+        {
+          "label": "Locking and Unlocking User Policies",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/locking-and-unlocking-user-policies"
+        },
+        {
+          "label": "Domain Allow & Block List",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/domain-allow-block-list"
+        },
+        {
+          "label": "Link Lock",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/link-lock"
+            },
+            {
+              "label": "Enabling Link Lock",
+              "collapsed": false,
+              "items": [
+                {
+                  "label": "Overview",
+                  "slug": "titanhq/products/spamtitan/docs/skellig-9/enabling-link-lock"
+                },
+                {
+                  "label": "Link Lock Admin",
+                  "slug": "titanhq/products/spamtitan/docs/skellig-9/link-lock-admin"
+                }
+              ]
+            },
+            {
+              "label": "Configuring Link Lock",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/configuring-link-lock"
+            },
+            {
+              "label": "Adding Link Lock Exemptions",
+              "slug": "titanhq/products/spamtitan/docs/skellig-9/adding-link-lock-exemptions"
+            }
+          ]
+        },
+        {
+          "label": "Policy Settings",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/policy-settings"
+        }
+      ]
+    },
+    {
+      "label": "Customizing the M365 Outlook Report Add-in",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/customizing-the-m365-outlook-report-add-in"
+        },
+        {
+          "label": "Create a Shared Mailbox",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/create-a-shared-mailbox"
+        },
+        {
+          "label": "Create an Exchange Connector",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/create-an-exchange-connector"
+        },
+        {
+          "label": "Create an Exchange Rule",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/create-an-exchange-rule"
+        },
+        {
+          "label": "Configure Microsoft Defender",
+          "slug": "titanhq/products/spamtitan/docs/skellig-9/configure-microsoft-defender"
+        }
+      ]
+    }
+  ],
+  "titanhq/products/spamtitan/docs/legacy-8": [
+    {
+      "label": "Adding, Editing and Deleting User Policies",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/adding-editing-and-deleting-user-policies"
+    },
+    {
+      "label": "Before Installing SpamTitan Gateway",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/before-installing-spamtitan-gateway"
+    },
+    {
+      "label": "Configuring Clam AV Settings",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/configuring-clam-av-settings"
+    },
+    {
+      "label": "Domain Verification",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/domain-verification"
+    },
+    {
+      "label": "Editing A Domain Policy",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/editing-a-domain-policy"
+    },
+    {
+      "label": "Generating Certificate Signing Requests",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/generating-certificate-signing-requests"
+    },
+    {
+      "label": "Managing Domains",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/managing-domains"
+        },
+        {
+          "label": "Importing Domains",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/importing-domains"
+        },
+        {
+          "label": "More About Recipient Verification",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/more-about-recipient-verification"
+        }
+      ]
+    },
+    {
+      "label": "Managing Realtime Blackhole Lists",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/managing-realtime-blackhole-lists"
+    },
+    {
+      "label": "Network Testing",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/network-testing"
+    },
+    {
+      "label": "SpamTitan Overview",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/spamtitan-overview"
+    },
+    {
+      "label": "Dynamic Recipient Verification using MS Exchange 2013 and 2016",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/dynamic-recipient-verification-using-ms-exchange-2013-and-2016"
+    },
+    {
+      "label": "Internal Networks",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/internal-networks"
+    },
+    {
+      "label": "Pattern Filtering",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/pattern-filtering"
+        },
+        {
+          "label": "Creating a Pattern Filter",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/creating-a-pattern-filter"
+        },
+        {
+          "label": "Creating a Meta Rule Pattern Filter",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/creating-a-meta-rule-pattern-filter"
+        },
+        {
+          "label": "Spam Tests used by SpamTitan",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/spam-tests-used-by-spamtitan"
+        }
+      ]
+    },
+    {
+      "label": "Sandboxing in SpamTitan Gateway",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/sandboxing-in-spamtitan-gateway"
+    },
+    {
+      "label": "SpamTitan Release Notes",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/spamtitan-release-notes"
+    },
+    {
+      "label": "System Requirements",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/system-requirements"
+    },
+    {
+      "label": "Anti-Spoofing",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/anti-spoofing"
+        },
+        {
+          "label": "Enabling Anti-Spoofing",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/enabling-anti-spoofing"
+        },
+        {
+          "label": "Anti-Spoofing Settings",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/anti-spoofing-settings"
+        }
+      ]
+    },
+    {
+      "label": "Attachment Filtering Methods",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/attachment-filtering-methods"
+        },
+        {
+          "label": "Configuring Attachment Filters",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/configuring-attachment-filters"
+        }
+      ]
+    },
+    {
+      "label": "Creating an Office 365 Outbound Connector",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/creating-an-office-365-outbound-connector"
+    },
+    {
+      "label": "Downloading and Installing SpamTitan Gateway",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/downloading-and-installing-spamtitan-gateway"
+    },
+    {
+      "label": "Firewall Ports Required by SpamTitan",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/firewall-ports-required-by-spamtitan"
+    },
+    {
+      "label": "SpamTitan Cloud Guide",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/spamtitan-cloud-guide"
+        },
+        {
+          "label": "Welcome to SpamTitan Cloud",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/welcome-to-spamtitan-cloud"
+            },
+            {
+              "label": "Who is the SpamTitan Cloud Guide for?",
+              "collapsed": false,
+              "items": [
+                {
+                  "label": "Overview",
+                  "slug": "titanhq/products/spamtitan/docs/legacy-8/who-is-the-spamtitan-cloud-guide-for"
+                },
+                {
+                  "label": "Domain Group Administrator",
+                  "slug": "titanhq/products/spamtitan/docs/legacy-8/domain-group-administrator"
+                },
+                {
+                  "label": "Domain Administrator",
+                  "slug": "titanhq/products/spamtitan/docs/legacy-8/domain-administrator"
+                }
+              ]
+            },
+            {
+              "label": "SpamTitan Cloud Features",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/spamtitan-cloud-features"
+            },
+            {
+              "label": "Need help?",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/need-help"
+            }
+          ]
+        },
+        {
+          "label": "Getting Started with SpamTitan Cloud",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/getting-started-with-spamtitan-cloud"
+        },
+        {
+          "label": "SpamTitan Cloud Setup",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/spamtitan-cloud-setup"
+            },
+            {
+              "label": "Log in for the first time",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/log-in-for-the-first-time"
+            },
+            {
+              "label": "Add Your Domain(s)",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/add-your-domain-s"
+            },
+            {
+              "label": "Test Connectivity to your Mail Server",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/test-connectivity-to-your-mail-server"
+            },
+            {
+              "label": "Enable Quarantine Reports",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/enable-quarantine-reports"
+            },
+            {
+              "label": "Add a Domain Administrator",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/add-a-domain-administrator"
+            },
+            {
+              "label": "Change Your MX Records",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/change-your-mx-records"
+            },
+            {
+              "label": "Lock Down Your Mail Server",
+              "collapsed": false,
+              "items": [
+                {
+                  "label": "Overview",
+                  "slug": "titanhq/products/spamtitan/docs/legacy-8/lock-down-your-mail-server"
+                },
+                {
+                  "label": "Locking Down Your Office 365 Mail Server",
+                  "slug": "titanhq/products/spamtitan/docs/legacy-8/locking-down-your-office-365-mail-server"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Anti-Spam Engine",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/anti-spam-engine"
+            },
+            {
+              "label": "Domain Policies",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/domain-policies"
+            },
+            {
+              "label": "User Policies",
+              "collapsed": false,
+              "items": [
+                {
+                  "label": "Overview",
+                  "slug": "titanhq/products/spamtitan/docs/legacy-8/user-policies"
+                },
+                {
+                  "label": "Add a New User Policy",
+                  "slug": "titanhq/products/spamtitan/docs/legacy-8/add-a-new-user-policy"
+                },
+                {
+                  "label": "Edit a User Policy",
+                  "slug": "titanhq/products/spamtitan/docs/legacy-8/edit-a-user-policy"
+                }
+              ]
+            },
+            {
+              "label": "Roles and Permissions",
+              "collapsed": false,
+              "items": [
+                {
+                  "label": "Overview",
+                  "slug": "titanhq/products/spamtitan/docs/legacy-8/roles-and-permissions"
+                },
+                {
+                  "label": "Edit, Add or Delete a Role",
+                  "slug": "titanhq/products/spamtitan/docs/legacy-8/edit-add-or-delete-a-role"
+                }
+              ]
+            },
+            {
+              "label": "Admins",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/admins"
+            },
+            {
+              "label": "Domain Group",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/domain-group"
+            }
+          ]
+        },
+        {
+          "label": "Changing your Settings",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/changing-your-settings"
+            },
+            {
+              "label": "Changing your SpamTitan Password",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/changing-your-spamtitan-password"
+            },
+            {
+              "label": "Two-Factor Authentication",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/two-factor-authentication"
+            },
+            {
+              "label": "Test Authentication Settings",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/test-authentication-settings"
+            },
+            {
+              "label": "Mail Relay Settings",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/mail-relay-settings"
+            }
+          ]
+        },
+        {
+          "label": "Filter Rules",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/filter-rules"
+            },
+            {
+              "label": "Blocking and Allowing",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/blocking-and-allowing"
+            },
+            {
+              "label": "Adding, Deleting & Importing to Block Lists",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/adding-deleting-importing-to-block-lists"
+            },
+            {
+              "label": "Adding, Deleting & Importing to Allow Lists",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/adding-deleting-importing-to-allow-lists"
+            }
+          ]
+        },
+        {
+          "label": "Quarantine Overview",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/quarantine-overview"
+            },
+            {
+              "label": "Managing Quarantine Email",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/managing-quarantine-email"
+            },
+            {
+              "label": "Filtering Quarantine",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/filtering-quarantine"
+            },
+            {
+              "label": "Quarantine Reports",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/quarantine-reports"
+            }
+          ]
+        },
+        {
+          "label": "Reporting Overview",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/reporting-overview"
+            },
+            {
+              "label": "View Mail History",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/view-mail-history"
+            },
+            {
+              "label": "Managing Mail History",
+              "collapsed": false,
+              "items": [
+                {
+                  "label": "Overview",
+                  "slug": "titanhq/products/spamtitan/docs/legacy-8/managing-mail-history"
+                },
+                {
+                  "label": "Filtering Mail History",
+                  "slug": "titanhq/products/spamtitan/docs/legacy-8/filtering-mail-history"
+                },
+                {
+                  "label": "Modifying Mail History Display Settings",
+                  "slug": "titanhq/products/spamtitan/docs/legacy-8/modifying-mail-history-display-settings"
+                },
+                {
+                  "label": "Exporting Mail History",
+                  "slug": "titanhq/products/spamtitan/docs/legacy-8/exporting-mail-history"
+                }
+              ]
+            },
+            {
+              "label": "Generating Reports",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/generating-reports"
+            },
+            {
+              "label": "Today’s On-Demand Reports",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/today-s-on-demand-reports"
+            },
+            {
+              "label": "Scheduling Reports",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/scheduling-reports"
+            },
+            {
+              "label": "Archived Reports",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/archived-reports"
+            }
+          ]
+        },
+        {
+          "label": "Useful Links and Info.",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/useful-links-and-info"
+            },
+            {
+              "label": "Forgot your password?",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/forgot-your-password"
+            },
+            {
+              "label": "In-App Help for SpamTitan Cloud",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/in-app-help-for-spamtitan-cloud"
+            },
+            {
+              "label": "Impersonating",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/impersonating"
+            },
+            {
+              "label": "SpamTitan Cloud Server IP Addresses",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/spamtitan-cloud-server-ip-addresses"
+            },
+            {
+              "label": "Switching between Roles",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/switching-between-roles"
+            },
+            {
+              "label": "What is Recipient Verification?",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/what-is-recipient-verification"
+            }
+          ]
+        },
+        {
+          "label": "Glossary",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/glossary"
+            },
+            {
+              "label": "A-record",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/a-record"
+            },
+            {
+              "label": "Active Directory (AD)",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/active-directory-ad"
+            },
+            {
+              "label": "Amavis",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/amavis"
+            },
+            {
+              "label": "Appliance",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/appliance"
+            },
+            {
+              "label": "AV",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/av"
+            },
+            {
+              "label": "AWS",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/aws"
+            },
+            {
+              "label": "Bayesian Spam Filtering",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/bayesian-spam-filtering"
+            },
+            {
+              "label": "Block List",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/block-list"
+            },
+            {
+              "label": "Catch rate",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/catch-rate"
+            },
+            {
+              "label": "CIDR",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/cidr"
+            },
+            {
+              "label": "ClamAV",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/clamav"
+            },
+            {
+              "label": "Cloud Computing",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/cloud-computing"
+            },
+            {
+              "label": "Clusters & Nodes",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/clusters-nodes"
+            },
+            {
+              "label": "Dictionary Attacks",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/dictionary-attacks"
+            },
+            {
+              "label": "DKIM",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/dkim"
+            },
+            {
+              "label": "Domain Name System (DNS)",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/domain-name-system-dns"
+            },
+            {
+              "label": "DNSBL",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/dnsbl"
+            },
+            {
+              "label": "False negative",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/false-negative"
+            },
+            {
+              "label": "False positive",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/false-positive"
+            },
+            {
+              "label": "FreeBSD",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/freebsd"
+            },
+            {
+              "label": "Fully Qualified Domain Name (FQDN)",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/fully-qualified-domain-name-fqdn"
+            },
+            {
+              "label": "Greylisting",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/greylisting"
+            },
+            {
+              "label": "Hypervisor",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/hypervisor"
+            },
+            {
+              "label": "LDAP",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/ldap"
+            },
+            {
+              "label": "Malware",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/malware"
+            },
+            {
+              "label": "Multi Tenancy",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/multi-tenancy"
+            },
+            {
+              "label": "MX Record",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/mx-record"
+            },
+            {
+              "label": "Non-Delivery Report (NDR)",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/non-delivery-report-ndr"
+            },
+            {
+              "label": "Network Time Protocol (NTP)",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/network-time-protocol-ntp"
+            },
+            {
+              "label": "Open Virtualization Format (OVF)",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/open-virtualization-format-ovf"
+            },
+            {
+              "label": "Phishing",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/phishing"
+            },
+            {
+              "label": "POP",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/pop"
+            },
+            {
+              "label": "Quarantine Report",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/quarantine-report"
+            },
+            {
+              "label": "Realtime Blackhole List (RBL)",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/realtime-blackhole-list-rbl"
+            },
+            {
+              "label": "Secure Sockets Layer (SSL)",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/secure-sockets-layer-ssl"
+            },
+            {
+              "label": "Sender Policy Framework (SPF)",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/sender-policy-framework-spf"
+            },
+            {
+              "label": "Smart Host",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/smart-host"
+            },
+            {
+              "label": "SMTP",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/smtp"
+            },
+            {
+              "label": "Software Appliance",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/software-appliance"
+            },
+            {
+              "label": "Spam",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/spam"
+            },
+            {
+              "label": "Spam Assassin",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/spam-assassin"
+            },
+            {
+              "label": "Spoofing",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/spoofing"
+            },
+            {
+              "label": "Spyware",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/spyware"
+            },
+            {
+              "label": "TCP/IP",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/tcp-ip"
+            },
+            {
+              "label": "Transport Security Layer (TLS)",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/transport-security-layer-tls"
+            },
+            {
+              "label": "Trojan Horse (or Trojan)",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/trojan-horse-or-trojan"
+            },
+            {
+              "label": "UCE / UBE / UME",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/uce-ube-ume"
+            },
+            {
+              "label": "URIBL",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/uribl"
+            },
+            {
+              "label": "Virtual Appliance",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/virtual-appliance"
+            },
+            {
+              "label": "Virtualisation",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/virtualisation"
+            },
+            {
+              "label": "Virus",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/virus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Using APIs in SpamTitan Gateway",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/using-apis-in-spamtitan-gateway"
+    },
+    {
+      "label": "Web Authentication Settings",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/web-authentication-settings"
+    },
+    {
+      "label": "Content Filtering",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/content-filtering"
+        },
+        {
+          "label": "Using Regular Expression",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/using-regular-expression"
+        }
+      ]
+    },
+    {
+      "label": "Geoblocking",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/geoblocking"
+        },
+        {
+          "label": "Add a Geoblocking Rule for a Country",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/add-a-geoblocking-rule-for-a-country"
+        },
+        {
+          "label": "Excluding an IP from a Geoblocking Rule",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/excluding-an-ip-from-a-geoblocking-rule"
+        },
+        {
+          "label": "Excluding a Domain from a Geoblocking Rule",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/excluding-a-domain-from-a-geoblocking-rule"
+        },
+        {
+          "label": "Excluding an Email Address from a Geoblocking Rule",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/excluding-an-email-address-from-a-geoblocking-rule"
+        }
+      ]
+    },
+    {
+      "label": "Outbound Mail Delivery Settings",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/outbound-mail-delivery-settings"
+    },
+    {
+      "label": "SpamTitan Gateway 7.13 to 8.00 Upgrade Path",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/spamtitan-gateway-7-13-to-8-00-upgrade-path"
+    },
+    {
+      "label": "Aliases",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/aliases"
+    },
+    {
+      "label": "Link Lock",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/link-lock"
+        },
+        {
+          "label": "Enabling Link Lock in SpamTitan",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/enabling-link-lock-in-spamtitan"
+        },
+        {
+          "label": "Enable Link Lock for a Domain",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/enable-link-lock-for-a-domain"
+        },
+        {
+          "label": "Enable Link Lock for a User",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/enable-link-lock-for-a-user"
+        },
+        {
+          "label": "Link Lock Allowed URLs",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/link-lock-allowed-urls"
+            },
+            {
+              "label": "Global Allowed URLs",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/global-allowed-urls"
+            },
+            {
+              "label": "Domain Allowed URLs",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/domain-allowed-urls"
+            },
+            {
+              "label": "User Allowed URLs",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/user-allowed-urls"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Mail Authentication",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/mail-authentication"
+        },
+        {
+          "label": "SPF, DKIM & DMARC Overview",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/spf-dkim-dmarc-overview"
+        },
+        {
+          "label": "SPF Settings",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/spf-settings"
+        },
+        {
+          "label": "DKIM Authentication of Inbound Mail",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/dkim-authentication-of-inbound-mail"
+        },
+        {
+          "label": "DMARC",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/dmarc"
+            },
+            {
+              "label": "DMARC Policies",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/dmarc-policies"
+            },
+            {
+              "label": "Enabling and Configuring DMARC in SpamTitan",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/enabling-and-configuring-dmarc-in-spamtitan"
+            },
+            {
+              "label": "DMARC and SPF",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/dmarc-and-spf"
+            }
+          ]
+        },
+        {
+          "label": "ARC Signing",
+          "collapsed": false,
+          "items": [
+            {
+              "label": "Overview",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/arc-signing"
+            },
+            {
+              "label": "Generating a Domain Key",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/generating-a-domain-key"
+            },
+            {
+              "label": "Enabling ARC Signing",
+              "slug": "titanhq/products/spamtitan/docs/legacy-8/enabling-arc-signing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Botnet Analysis",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/botnet-analysis"
+    },
+    {
+      "label": "Enabling TLS",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/enabling-tls"
+    },
+    {
+      "label": "Guidelines for Updating SpamTitan",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/guidelines-for-updating-spamtitan"
+    },
+    {
+      "label": "Recommended Additional Configuration",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/recommended-additional-configuration"
+    },
+    {
+      "label": "System Update Settings",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/system-update-settings"
+    },
+    {
+      "label": "About the Spam Tests used by SpamTitan",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/about-the-spam-tests-used-by-spamtitan"
+        },
+        {
+          "label": "Built-in Rules",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/built-in-rules"
+        },
+        {
+          "label": "SARE Rules",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/sare-rules"
+        },
+        {
+          "label": "Tripwire Rules",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/tripwire-rules"
+        },
+        {
+          "label": "Plugin Modules",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/plugin-modules"
+        },
+        {
+          "label": "Copperfasten Mail Filtering Appliance Rulesets (Early SpamTitan Custom Rulesets)",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/copperfasten-mail-filtering-appliance-rulesets-early-spamtitan-custom-rulesets"
+        },
+        {
+          "label": "New range of SpamTitan Custom Rules",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/new-range-of-spamtitan-custom-rules"
+        },
+        {
+          "label": "SpamTitan Cloud and Private Cloud Special Rules",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/spamtitan-cloud-and-private-cloud-special-rules"
+        },
+        {
+          "label": "KAM Rules",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/kam-rules"
+        },
+        {
+          "label": "Other Third Party Rulesets",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/other-third-party-rulesets"
+        }
+      ]
+    },
+    {
+      "label": "Backing Up your SpamTitan Gateway Configuration",
+      "collapsed": false,
+      "items": [
+        {
+          "label": "Overview",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/backing-up-your-spamtitan-gateway-configuration"
+        },
+        {
+          "label": "Scheduling an Automatic Backup",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/scheduling-an-automatic-backup"
+        },
+        {
+          "label": "Items Saved During Backup",
+          "slug": "titanhq/products/spamtitan/docs/legacy-8/items-saved-during-backup"
+        }
+      ]
+    },
+    {
+      "label": "Greylisting Settings",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/greylisting-settings"
+    },
+    {
+      "label": "Outbound Mail",
+      "slug": "titanhq/products/spamtitan/docs/legacy-8/outbound-mail"
+    }
+  ],
   "titanhq/products/phishtitan/docs/email-security": [
     {
       "label": "Email Security",

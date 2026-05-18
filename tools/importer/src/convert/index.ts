@@ -150,12 +150,14 @@ async function writeCollectionIndexes(pages: PageCandidate[]) {
       title: 'Skellig 9',
       description: 'Imported SpamTitan Skellig 9 documentation.',
       pages: pages.filter((page) => page.area === 'spamtitan-skellig'),
+      hierarchical: true,
     },
     {
       route: 'titanhq/products/spamtitan/docs/legacy-8',
       title: 'Legacy 8',
       description: 'Imported legacy SpamTitan documentation.',
       pages: pages.filter((page) => page.area === 'spamtitan-legacy'),
+      hierarchical: true,
     },
     {
       route: 'titanhq/products/phishtitan',
@@ -216,7 +218,7 @@ async function collectionIndexMarkdown(collection: {
       entries.length === collection.pages.length
         ? `${collection.pages.length} pages`
         : `${collection.pages.length} pages; ${entries.length} listed after duplicate content consolidation`;
-    return `${frontmatter(collection.title, collection.description)}\n\n> Generated import index: ${indexSummary}\n\n${hierarchicalMarkdownList(entries)}\n`;
+    return `${frontmatter(collection.title, collection.description)}\n\n> Generated import index: ${indexSummary}\n\n${hierarchicalMarkdownList(entries, collection.pages)}\n`;
   }
 
   const grouped = groupBy(entries, (entry) => entry.page.folder ?? entry.page.productStream ?? entry.page.contentType);
@@ -239,6 +241,14 @@ async function collectionIndexMarkdown(collection: {
 async function writeGeneratedSidebar(pages: PageCandidate[]) {
   const collections = [
     {
+      route: 'titanhq/products/spamtitan/docs/skellig-9',
+      pages: pages.filter((page) => page.area === 'spamtitan-skellig'),
+    },
+    {
+      route: 'titanhq/products/spamtitan/docs/legacy-8',
+      pages: pages.filter((page) => page.area === 'spamtitan-legacy'),
+    },
+    {
       route: 'titanhq/products/phishtitan/docs/email-security',
       pages: pages.filter((page) => page.area === 'phishtitan-docs'),
     },
@@ -247,7 +257,7 @@ async function writeGeneratedSidebar(pages: PageCandidate[]) {
   const sidebar: Record<string, GeneratedSidebarItem[]> = {};
   for (const collection of collections) {
     const entries = await collectionIndexEntries(collection.pages);
-    sidebar[collection.route] = hierarchicalSidebarItems(entries);
+    sidebar[collection.route] = hierarchicalSidebarItems(entries, collection.pages);
   }
 
   await fs.mkdir(path.dirname(generatedSidebarPath), { recursive: true });
@@ -325,8 +335,8 @@ function removeDuplicateBodies(entries: CollectionIndexEntry[]): CollectionIndex
     .sort((a, b) => a.page.title.localeCompare(b.page.title) || a.page.sourceId.localeCompare(b.page.sourceId));
 }
 
-function hierarchicalMarkdownList(entries: CollectionIndexEntry[]): string {
-  return hierarchicalEntries(entries)
+function hierarchicalMarkdownList(entries: CollectionIndexEntry[], allPages: PageCandidate[]): string {
+  return hierarchicalEntries(entries, allPages)
     .map((entry) => hierarchicalMarkdownEntry(entry))
     .join('\n');
 }
@@ -338,8 +348,8 @@ function hierarchicalMarkdownEntry(entry: HierarchicalEntry, depth = 0): string 
   return [current, ...children].join('\n');
 }
 
-function hierarchicalSidebarItems(entries: CollectionIndexEntry[]): GeneratedSidebarItem[] {
-  return hierarchicalEntries(entries).map((entry) => hierarchicalSidebarItem(entry));
+function hierarchicalSidebarItems(entries: CollectionIndexEntry[], allPages: PageCandidate[]): GeneratedSidebarItem[] {
+  return hierarchicalEntries(entries, allPages).map((entry) => hierarchicalSidebarItem(entry));
 }
 
 function hierarchicalSidebarItem(entry: HierarchicalEntry): GeneratedSidebarItem {
@@ -361,17 +371,22 @@ interface HierarchicalEntry extends CollectionIndexEntry {
   children: HierarchicalEntry[];
 }
 
-function hierarchicalEntries(entries: CollectionIndexEntry[]): HierarchicalEntry[] {
+function hierarchicalEntries(entries: CollectionIndexEntry[], allPages: PageCandidate[]): HierarchicalEntry[] {
   const bySource = new Map<string, HierarchicalEntry>();
   for (const entry of entries) {
     const key = sourceLinkKey(entry.page.sourceUrl);
     if (key) bySource.set(key, { ...entry, children: [] });
   }
 
+  const allPagesBySource = new Map<string, PageCandidate>();
+  for (const page of allPages) {
+    const key = sourceLinkKey(page.sourceUrl);
+    if (key) allPagesBySource.set(key, page);
+  }
+
   const roots: HierarchicalEntry[] = [];
   for (const entry of bySource.values()) {
-    const parentKey = entry.page.parentSourceUrl ? sourceLinkKey(entry.page.parentSourceUrl) : undefined;
-    const parent = parentKey ? bySource.get(parentKey) : undefined;
+    const parent = nearestRetainedParent(entry.page, bySource, allPagesBySource);
     if (parent && parent !== entry) {
       parent.children.push(entry);
     } else {
@@ -381,6 +396,24 @@ function hierarchicalEntries(entries: CollectionIndexEntry[]): HierarchicalEntry
 
   sortHierarchicalEntries(roots);
   return roots;
+}
+
+function nearestRetainedParent(
+  page: PageCandidate,
+  retainedBySource: Map<string, HierarchicalEntry>,
+  allPagesBySource: Map<string, PageCandidate>,
+): HierarchicalEntry | undefined {
+  const visited = new Set<string>();
+  let parentKey = page.parentSourceUrl ? sourceLinkKey(page.parentSourceUrl) : undefined;
+  while (parentKey && !visited.has(parentKey)) {
+    visited.add(parentKey);
+    const retained = retainedBySource.get(parentKey);
+    if (retained) return retained;
+    const parentPage = allPagesBySource.get(parentKey);
+    parentKey = parentPage?.parentSourceUrl ? sourceLinkKey(parentPage.parentSourceUrl) : undefined;
+  }
+
+  return undefined;
 }
 
 function sortHierarchicalEntries(entries: HierarchicalEntry[]) {
