@@ -2,16 +2,26 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { collectFiles, writeJson } from '../shared/files';
-import { basePath, linkMapPath, manifestPath, rawPath, reportPath, repoRoot, siteDocsRoot } from '../shared/paths';
+import {
+  basePath,
+  generatedSidebarPath,
+  linkMapPath,
+  manifestPath,
+  rawPath,
+  reportPath,
+  repoRoot,
+  siteDocsRoot,
+} from '../shared/paths';
 import { escapeMarkdownLinkText, titleCase } from '../shared/text';
 import type { ImportReport, PageCandidate } from '../shared/types';
 import { toManifest } from '../manifest';
-import { convertDocsPage } from './docs-page';
+import { convertDocsPage, docsSidebarItemMetadata } from './docs-page';
 import { convertFreshdeskArticle } from './freshdesk-article';
-import { buildSourceLinkIndex } from './links';
+import { buildSourceLinkIndex, sourceLinkKey } from './links';
 import { frontmatter } from './markdown';
 
 export async function convertAll(pages: PageCandidate[]) {
+  const enrichedPages = await hydrateDocsNavigationMetadata(pages);
   const report: ImportReport = {
     generatedAt: new Date().toISOString(),
     counts: {},
@@ -19,9 +29,9 @@ export async function convertAll(pages: PageCandidate[]) {
     warnings: [],
   };
   const linkMap: Record<string, string> = {};
-  const sourceLinkIndex = buildSourceLinkIndex(pages);
+  const sourceLinkIndex = buildSourceLinkIndex(enrichedPages);
 
-  for (const page of pages) {
+  for (const page of enrichedPages) {
     const warnings: string[] = [];
     const html = await fs.readFile(rawPath(page), 'utf8');
     const converted =
@@ -43,12 +53,23 @@ export async function convertAll(pages: PageCandidate[]) {
     });
   }
 
-  await writeCollectionIndexes(pages);
+  await writeCollectionIndexes(enrichedPages);
+  await writeGeneratedSidebar(enrichedPages);
   await writeJson(reportPath, report);
   await writeJson(linkMapPath, linkMap);
-  await writeJson(manifestPath, toManifest(pages));
-  console.log(`Generated ${pages.length} Markdown pages.`);
+  await writeJson(manifestPath, toManifest(enrichedPages));
+  console.log(`Generated ${enrichedPages.length} Markdown pages.`);
   console.log(`Report: ${path.relative(repoRoot, reportPath)}`);
+}
+
+async function hydrateDocsNavigationMetadata(pages: PageCandidate[]): Promise<PageCandidate[]> {
+  return Promise.all(
+    pages.map(async (page) => {
+      if (page.contentType !== 'docs_page') return page;
+      const html = await fs.readFile(rawPath(page), 'utf8');
+      return { ...page, ...docsSidebarItemMetadata(html, page.sourceId, page.sourceUrl) };
+    }),
+  );
 }
 
 export async function clearGeneratedContent() {
@@ -165,6 +186,7 @@ async function writeCollectionIndexes(pages: PageCandidate[]) {
       title: 'Email Security',
       description: 'Imported PhishTitan Email Security documentation.',
       pages: pages.filter((page) => page.area === 'phishtitan-docs'),
+      hierarchical: true,
     },
   ];
 
@@ -180,6 +202,7 @@ async function collectionIndexMarkdown(collection: {
   description: string;
   pages: PageCandidate[];
   links?: Array<{ title: string; href: string }>;
+  hierarchical?: boolean;
 }): Promise<string> {
   if (collection.links) {
     const links = collection.links.map((link) => `- [${escapeMarkdownLinkText(link.title)}](${link.href})`).join('\n');
@@ -188,6 +211,14 @@ async function collectionIndexMarkdown(collection: {
   }
 
   const entries = await collectionIndexEntries(collection.pages);
+  if (collection.hierarchical && entries.some((entry) => entry.page.parentSourceUrl)) {
+    const indexSummary =
+      entries.length === collection.pages.length
+        ? `${collection.pages.length} pages`
+        : `${collection.pages.length} pages; ${entries.length} listed after duplicate content consolidation`;
+    return `${frontmatter(collection.title, collection.description)}\n\n> Generated import index: ${indexSummary}\n\n${hierarchicalMarkdownList(entries)}\n`;
+  }
+
   const grouped = groupBy(entries, (entry) => entry.page.folder ?? entry.page.productStream ?? entry.page.contentType);
   const groups = Object.entries(grouped).map(([label, entries]) => {
     const links = entries
@@ -205,6 +236,24 @@ async function collectionIndexMarkdown(collection: {
   return `${frontmatter(collection.title, collection.description)}\n\n> Generated import index: ${indexSummary}\n\n${groups.join('\n\n')}\n`;
 }
 
+async function writeGeneratedSidebar(pages: PageCandidate[]) {
+  const collections = [
+    {
+      route: 'titanhq/products/phishtitan/docs/email-security',
+      pages: pages.filter((page) => page.area === 'phishtitan-docs'),
+    },
+  ];
+
+  const sidebar: Record<string, GeneratedSidebarItem[]> = {};
+  for (const collection of collections) {
+    const entries = await collectionIndexEntries(collection.pages);
+    sidebar[collection.route] = hierarchicalSidebarItems(entries);
+  }
+
+  await fs.mkdir(path.dirname(generatedSidebarPath), { recursive: true });
+  await writeJson(generatedSidebarPath, sidebar);
+}
+
 function groupBy<T>(items: T[], key: (item: T) => string): Record<string, T[]> {
   return items.reduce<Record<string, T[]>>((groups, item) => {
     const value = key(item);
@@ -219,6 +268,13 @@ export interface CollectionIndexEntry {
   label: string;
   body: string;
   bodyHash: string;
+}
+
+interface GeneratedSidebarItem {
+  label: string;
+  slug?: string;
+  collapsed?: boolean;
+  items?: GeneratedSidebarItem[];
 }
 
 export async function collectionIndexEntries(pages: PageCandidate[]): Promise<CollectionIndexEntry[]> {
@@ -267,6 +323,76 @@ function removeDuplicateBodies(entries: CollectionIndexEntry[]): CollectionIndex
   return Object.values(grouped)
     .map((duplicates) => selectCanonicalEntry(duplicates))
     .sort((a, b) => a.page.title.localeCompare(b.page.title) || a.page.sourceId.localeCompare(b.page.sourceId));
+}
+
+function hierarchicalMarkdownList(entries: CollectionIndexEntry[]): string {
+  return hierarchicalEntries(entries)
+    .map((entry) => hierarchicalMarkdownEntry(entry))
+    .join('\n');
+}
+
+function hierarchicalMarkdownEntry(entry: HierarchicalEntry, depth = 0): string {
+  const indent = '  '.repeat(depth);
+  const current = `${indent}- [${escapeMarkdownLinkText(entry.label)}](${basePath}/${entry.page.route}/)`;
+  const children = entry.children.map((child) => hierarchicalMarkdownEntry(child, depth + 1));
+  return [current, ...children].join('\n');
+}
+
+function hierarchicalSidebarItems(entries: CollectionIndexEntry[]): GeneratedSidebarItem[] {
+  return hierarchicalEntries(entries).map((entry) => hierarchicalSidebarItem(entry));
+}
+
+function hierarchicalSidebarItem(entry: HierarchicalEntry): GeneratedSidebarItem {
+  if (entry.children.length === 0) {
+    return { label: entry.label, slug: entry.page.route };
+  }
+
+  return {
+    label: entry.label,
+    collapsed: false,
+    items: [
+      { label: 'Overview', slug: entry.page.route },
+      ...entry.children.map((child) => hierarchicalSidebarItem(child)),
+    ],
+  };
+}
+
+interface HierarchicalEntry extends CollectionIndexEntry {
+  children: HierarchicalEntry[];
+}
+
+function hierarchicalEntries(entries: CollectionIndexEntry[]): HierarchicalEntry[] {
+  const bySource = new Map<string, HierarchicalEntry>();
+  for (const entry of entries) {
+    const key = sourceLinkKey(entry.page.sourceUrl);
+    if (key) bySource.set(key, { ...entry, children: [] });
+  }
+
+  const roots: HierarchicalEntry[] = [];
+  for (const entry of bySource.values()) {
+    const parentKey = entry.page.parentSourceUrl ? sourceLinkKey(entry.page.parentSourceUrl) : undefined;
+    const parent = parentKey ? bySource.get(parentKey) : undefined;
+    if (parent && parent !== entry) {
+      parent.children.push(entry);
+    } else {
+      roots.push(entry);
+    }
+  }
+
+  sortHierarchicalEntries(roots);
+  return roots;
+}
+
+function sortHierarchicalEntries(entries: HierarchicalEntry[]) {
+  entries.sort(
+    (a, b) =>
+      (a.page.navOrder ?? Number.MAX_SAFE_INTEGER) - (b.page.navOrder ?? Number.MAX_SAFE_INTEGER) ||
+      a.label.localeCompare(b.label) ||
+      a.page.sourceId.localeCompare(b.page.sourceId),
+  );
+  for (const entry of entries) {
+    sortHierarchicalEntries(entry.children);
+  }
 }
 
 function removeDuplicateTitleVariants(entries: CollectionIndexEntry[]): CollectionIndexEntry[] {

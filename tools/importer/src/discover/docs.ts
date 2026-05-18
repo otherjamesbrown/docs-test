@@ -1,6 +1,6 @@
 import path from 'node:path';
 import * as cheerio from 'cheerio';
-import { docsContentTitle, docsSectionIndexItems } from '../convert/docs-page';
+import { docsContentTitle, docsSectionIndexItems, docsSidebarItemMetadata } from '../convert/docs-page';
 import { sourceLinkKey } from '../convert/links';
 import { fetchText } from '../shared/http';
 import { slugify } from '../shared/slug';
@@ -54,6 +54,7 @@ export async function discoverDocs(source: DocsSourceConfig, options: DocsDiscov
       (topicSection.length ? topicSection : $('#topic-content, article').first()).html() ?? '',
       sourceId,
     );
+    const sidebarMetadata = docsSidebarItemMetadata(html, sourceId, sourceUrl);
     if (!emitted.has(sourceKey)) {
       const route = `${options.routeBase}/${slugify(sourceId.replace(/^\d+-/, ''))}`;
       pages.push({
@@ -69,6 +70,8 @@ export async function discoverDocs(source: DocsSourceConfig, options: DocsDiscov
         breadcrumbs: options.breadcrumbs,
         product: options.product,
         productStream: options.productStream,
+        parentSourceUrl: sidebarMetadata.parentSourceUrl,
+        navOrder: sidebarMetadata.navOrder,
       });
       emitted.add(sourceKey);
     }

@@ -13,6 +13,7 @@ export const manifestPath = path.join(repoRoot, 'migration/manifest.json');
 export const linkMapPath = path.join(repoRoot, 'migration/link-map.json');
 export const assetCachePath = path.join(repoRoot, 'migration/asset-cache.json');
 export const sourcesConfigPath = path.join(repoRoot, 'migration/sources.yml');
+export const generatedSidebarPath = path.join(repoRoot, 'site/src/generated/import-sidebar.json');
 
 export function rawPath(page: PageCandidate): string {
   return path.join(rawRoot, page.area, `${safeFileName(page.sourceId)}.html`);

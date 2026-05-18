@@ -47,7 +47,12 @@ const childHtml = `
   <html>
     <body>
       <aside class="site-sidebar">
-        <ul><li><a href="101-child.html" data-permalink="101-child.html">Child</a></li></ul>
+        <ul>
+          <li>
+            <a href="100-parent.html" data-permalink="100-parent.html">Parent</a>
+            <ul><li><a href="101-child.html" data-permalink="101-child.html">Child</a></li></ul>
+          </li>
+        </ul>
       </aside>
       <main id="topic-content"><section><h3 class="title">Child Title</h3></section></main>
     </body>
@@ -83,6 +88,11 @@ describe('discoverDocs', () => {
       ['100-parent', 'Parent Title', 'products/example/docs/parent'],
       ['101-child', 'Child Title', 'products/example/docs/child'],
     ]);
+    expect(pages[0]).toMatchObject({ navOrder: 0 });
+    expect(pages[1]).toMatchObject({
+      parentSourceUrl: 'https://support.example.com/en/100-parent.html',
+      navOrder: 0,
+    });
   });
 
   it('normalises .htm docs source IDs before generating routes', async () => {

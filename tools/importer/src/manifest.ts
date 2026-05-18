@@ -13,6 +13,8 @@ export function toManifest(pages: PageCandidate[]): ManifestEntry[] {
     canonical_host: page.canonicalHost,
     product: page.product,
     product_stream: page.productStream,
+    parent_source_url: page.parentSourceUrl,
+    nav_order: page.navOrder,
     content_type: page.contentType,
     discovered_from: page.breadcrumbs.join(' > '),
     breadcrumbs: page.breadcrumbs,
@@ -54,5 +56,7 @@ function manifestPageToCandidate(page: ManifestEntry): PageCandidate {
     folder: page.folder,
     product: page.product,
     productStream: page.product_stream,
+    parentSourceUrl: page.parent_source_url,
+    navOrder: page.nav_order,
   };
 }

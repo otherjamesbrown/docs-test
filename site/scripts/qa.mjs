@@ -114,6 +114,16 @@ const textChecks = [
   },
 ];
 
+const sidebarHierarchyChecks = [
+  {
+    page: 'dist/titanhq/products/phishtitan/docs/email-security/index.html',
+    selectorName: 'PhishTitan Email Security sidebar nests setup child pages',
+    parentText: 'Email Security MSP Setup',
+    childHref: '/docs-test/titanhq/products/phishtitan/docs/email-security/log-into-email-security/',
+    nextPeerText: 'Email Security MSP Admin Guide',
+  },
+];
+
 const absentLinkChecks = [
   {
     page: 'dist/titanhq/products/spamtitan/index.html',
@@ -187,6 +197,23 @@ for (const check of textChecks) {
   }
 }
 
+for (const check of sidebarHierarchyChecks) {
+  const html = await readFile(path.join(siteRoot, check.page), 'utf8');
+  const sidebarStart = html.indexOf('<nav class="sidebar');
+  const sidebarEnd = html.indexOf('<main', sidebarStart);
+  if (sidebarStart === -1 || sidebarEnd === -1) {
+    throw new Error(`${check.selectorName}: generated sidebar was not found`);
+  }
+
+  const sidebarHtml = html.slice(sidebarStart, sidebarEnd);
+  const parentIndex = sidebarHtml.indexOf(check.parentText);
+  const childIndex = sidebarHtml.indexOf(`href="${check.childHref}"`, parentIndex);
+  const nextPeerIndex = sidebarHtml.indexOf(check.nextPeerText, parentIndex);
+  if (parentIndex === -1 || childIndex === -1 || (nextPeerIndex !== -1 && childIndex > nextPeerIndex)) {
+    throw new Error(`${check.selectorName}: expected ${check.childHref} nested below ${check.parentText}`);
+  }
+}
+
 for (const check of absentLinkChecks) {
   const html = await readFile(path.join(siteRoot, check.page), 'utf8');
   if (html.includes(`href="${check.forbiddenHref}"`)) {
@@ -209,6 +236,7 @@ console.log(
     htmlChecks.length +
     textChecks.length +
     absentLinkChecks.length +
+    sidebarHierarchyChecks.length +
     absentTextChecks.length
   } generated page checks.`,
 );

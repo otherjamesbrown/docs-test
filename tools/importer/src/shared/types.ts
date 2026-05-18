@@ -21,6 +21,8 @@ export interface PageCandidate {
   folder?: string;
   product: string;
   productStream?: string;
+  parentSourceUrl?: string;
+  navOrder?: number;
 }
 
 export interface ImportReport {
@@ -101,6 +103,8 @@ export interface ManifestEntry {
   canonical_host: string;
   product: string;
   product_stream?: string;
+  parent_source_url?: string;
+  nav_order?: number;
   content_type: 'kb_article' | 'docs_page' | 'folder' | 'category';
   discovered_from: string;
   breadcrumbs: string[];

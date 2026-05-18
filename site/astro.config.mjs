@@ -8,6 +8,7 @@ import { basePath } from '../shared/site.mjs';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sources = YAML.parse(fs.readFileSync(path.join(repoRoot, 'migration/sources.yml'), 'utf8'));
+const generatedSidebar = readGeneratedSidebar();
 
 export default defineConfig({
   site: 'https://otherjamesbrown.github.io',
@@ -55,7 +56,7 @@ function buildSidebar(config) {
       items: [
         {
           label: 'Platform',
-          items: docsSources(platform).map((source) => ({ label: 'Docs', slug: source.route_base })),
+          items: docsSources(platform).map((source) => docsSourceSidebarItem(source, 'Docs')),
         },
         {
           label: 'Products',
@@ -66,10 +67,9 @@ function buildSidebar(config) {
                 { label: 'Overview', slug: productRoot(spamtitan) },
                 { label: 'Knowledge Base', slug: `${productRoot(spamtitan)}/kb` },
                 { label: 'Docs', slug: `${productRoot(spamtitan)}/docs` },
-                ...docsSources(spamtitan).map((source) => ({
-                  label: source.version_range?.startsWith('9') ? 'Skellig 9' : 'Legacy 8',
-                  slug: source.route_base,
-                })),
+                ...docsSources(spamtitan).map((source) =>
+                  docsSourceSidebarItem(source, source.version_range?.startsWith('9') ? 'Skellig 9' : 'Legacy 8'),
+                ),
               ],
             },
             {
@@ -78,10 +78,9 @@ function buildSidebar(config) {
                 { label: 'Overview', slug: productRoot(phishtitan) },
                 { label: 'Knowledge Base', slug: `${productRoot(phishtitan)}/kb` },
                 { label: 'Docs', slug: `${productRoot(phishtitan)}/docs` },
-                ...docsSources(phishtitan).map((source) => ({
-                  label: source.branch_label ?? 'Docs',
-                  slug: source.route_base,
-                })),
+                ...docsSources(phishtitan).map((source) =>
+                  docsSourceSidebarItem(source, source.branch_label ?? 'Docs'),
+                ),
               ],
             },
           ],
@@ -89,6 +88,12 @@ function buildSidebar(config) {
       ],
     },
   ];
+}
+
+function readGeneratedSidebar() {
+  const generatedSidebarPath = path.join(repoRoot, 'site/src/generated/import-sidebar.json');
+  if (!fs.existsSync(generatedSidebarPath)) return {};
+  return JSON.parse(fs.readFileSync(generatedSidebarPath, 'utf8'));
 }
 
 function product(config, id) {
@@ -105,6 +110,16 @@ function freshdeskFolderItems(productConfig) {
 
 function docsSources(productConfig) {
   return asArray(productConfig.sources.docs);
+}
+
+function docsSourceSidebarItem(source, label) {
+  const items = generatedSidebar[source.route_base];
+  if (!items?.length) return { label, slug: source.route_base };
+  return {
+    label,
+    collapsed: false,
+    items: [{ label: 'Overview', slug: source.route_base }, ...items],
+  };
 }
 
 function productRoot(productConfig) {

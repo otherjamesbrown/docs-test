@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { docsContentTitle, docsSectionIndexItems } from '../../src/convert/docs-page';
+import { docsContentTitle, docsSectionIndexItems, docsSidebarItemMetadata } from '../../src/convert/docs-page';
 
 describe('docs section index extraction', () => {
   it('extracts direct child topics from Paligo sidebars', () => {
@@ -37,6 +37,29 @@ describe('docs section index extraction', () => {
         text: 'SpamTitan Release Notes',
       },
     ]);
+  });
+
+  it('extracts parent and order metadata from Paligo sidebars', () => {
+    const html = `
+      <aside class="site-sidebar">
+        <ul>
+          <li>
+            <a href="61767-spamtitan-release-notes.html" data-permalink="61767-spamtitan-release-notes.html">
+              SpamTitan Release Notes
+            </a>
+            <ul>
+              <li><a href="61768-spamtitan-release-notes.html" data-permalink="61768-spamtitan-release-notes.html">SpamTitan Release Notes</a></li>
+              <li><a href="61769-other.html" data-permalink="61769-other.html">Other</a></li>
+            </ul>
+          </li>
+        </ul>
+      </aside>
+    `;
+
+    expect(docsSidebarItemMetadata(html, '61769-other', 'https://support.titanhq.com/en/61769-other.html')).toEqual({
+      parentSourceUrl: 'https://support.titanhq.com/en/61767-spamtitan-release-notes.html',
+      navOrder: 1,
+    });
   });
 
   it('uses the topic heading for page titles when Paligo levels are below h2', () => {
